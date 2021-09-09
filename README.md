@@ -5,7 +5,7 @@ Some subtle animations added.
 
 ## Usage
 1. Use a browser extension that applies user CSS themes to webpages, such as [Stylus](https://github.com/openstyles/stylus/).
-2. Apply the stylesheet to URLs starting with `https://docs.google.com/document/`. For now, I have only made the CSS to work with Google Docs, and not the other Workspace products. 
+2. Apply the stylesheet to URLs starting with `https://docs.google.com/document/`. (Copy all contents of the [dark-docs.css](dark-docs.css) file).
 
 ## Plans
 These are in approximately the order that I want to work on them.

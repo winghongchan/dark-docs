@@ -1,6 +1,7 @@
 /* Variables */
 :root {
   --paleblue: #8AB4F8;
+  --pale-icons: hue-rotate(3.6deg) saturate(32.2%) brightness(170%);
   --ripple: #394457;
   --gray: #3C4043;
   --darkgray: #202124;
@@ -168,7 +169,7 @@
   background-color: var(--ripple);
 }
 .docs-gm .docs-material .goog-toolbar-button-checked .docs-icon-img {
-  filter: hue-rotate(3.6deg) saturate(32.2%) brightness(170%) !important;
+  filter: var(--pale-icons) !important;
 }
 
 /* Toolbar text */
@@ -196,10 +197,10 @@
   color: var(--paleblue);
 }
 .docs-icon-mode-edit-blue700 {
-  filter: hue-rotate(3.6deg) saturate(32.2%) brightness(170%) !important;
+  filter: var(--pale-icons) !important;
 }
 #docs-toolbar-mode-switcher.edit-mode .goog-toolbar-menu-button-dropdown {
-  filter: hue-rotate(3.6deg) saturate(32.2%) brightness(170%) !important;
+  filter: var(--pale-icons) !important;
 }
 
 /*Remove white line below top bar*/
@@ -249,8 +250,27 @@
 
 /* Document */
 
+/* Ruler */
+.docs-gm .docs-horizontal-ruler,
+.docs-gm #kix-vertical-ruler {
+  background-color: var(--darkgray);
+  border-color: var(--gray);
+}
+.docs-ruler-background-inner {
+  background-color: var(--gray);
+}
+.docs-gm .docs-ruler-face-number {
+  color: white;
+}
+.docs-icon-ruler-first-indent-drag-blue500,
+.docs-icon-tabstop-center-bottom-blue500.docs-icon-indent-bottom {
+  filter: none !important;
+  filter: var(--pale-icons) !important;
+}
+
 /* Editor background */
-.kix-appview-editor {
+.kix-appview-editor,
+.kix-canvas-tile-content {
   background-color: var(--darkgray) !important;
 }
 

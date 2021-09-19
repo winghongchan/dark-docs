@@ -289,6 +289,119 @@
   color: white;
 }
 
+/* Side (Image options) panel (and as it turns out, a lot of form elements) */
+
+/* Side panel header */
+.docs-gm .docs-tiled-sidebar-header {
+  background-color: var(--darkgray);
+  border-color: var(--gray);
+  color: white;
+}
+.docs-gm .docs-gm-sidebar-icon {
+  filter: var(--pale-icons);
+}
+.docs-sidebar-gm-titlebar-icon-button {
+  transition: var(--button-off);
+}
+.docs-sidebar-gm-titlebar-icon-button:hover {
+  background-color: var(--gray);
+  transition: var(--button-on);
+}
+
+/* Side panel background */
+.docs-gm .docs-tiled-sidebar {
+  background-color: var(--darkgray);
+  border-left: 1px solid var(--gray);
+  color: white;
+}
+
+/* Side panel dropdown headers */
+.docs-sidebar-tile-header-cursor {
+  transition: var(--button-off);
+}
+.docs-sidebar-tile-header-cursor:hover {
+  background-color: var(--gray);
+  transition: var(--button-on);
+}
+.docs-sidebar-tile-header.docs-sidebar-tile-header-disabled {
+  background-color: transparent;
+  color: gray !important;
+}
+.docs-gm .docs-sidebar-tile-header {
+  color: white;
+}
+.docs-gm .docs-sidebar-tile-border-radius-top,
+.docs-gm .docs-sidebar-tile-border-radius-bottom,
+.docs-sidebar-tile.kix-format-options-text-wrapping-tile.docs-material,
+.docs-gm .docs-sidebar-tile.docs-sidebar-tile-expanded {
+  transition: border-radius 0.5s ease;
+}
+
+/* Opened dropdowns */
+.docs-gm .goog-zippy-expanded.docs-sidebar-tile-header, .docs-gm .docs-sidebar-tile-controls {
+  background-color: var(--gray);
+}
+.docs-sidebar-tile,
+.docs-material-gm-labeled-checkbox .docs-material-gm-labeled-checkbox-label {
+  color: white;
+}
+.docs-number-input-label,
+.docs-number-input-unit,
+.docs-labeled-button-label,
+.docs-sidebar-tile-input-label,
+.docs-sidebar-tile-label {
+  color: lightgray;
+}
+.docs-number-input-container input {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+.docs-number-input-container input:active,
+.docs-number-input-container input:focus{
+  border-color: var(--paleblue);
+}
+.docs-number-input-up-button, .docs-number-input-down-button {
+  filter: invert(100%);
+}
+.docs-material-gm-labeled-checkbox-checkbox.docs-material-gm-labeled-checkbox-checked {
+  background-color: var(--paleblue); 
+  border-color: var(--paleblue);
+}
+.docs-material-gm-labeled-checkbox-checkbox.docs-material-gm-labeled-checkbox-checked::before {
+  filter: brightness(0);
+}
+.docs-sidebar-palette .docs-sidebar-palette-button-container .docs-sidebar-palette-button /*Text wrapping*/ {
+  background-color: var(--gray);
+  border-color: gray !important;
+}
+.docs-sidebar-palette .docs-sidebar-palette-button-container.goog-control-selected .docs-sidebar-palette-button {
+  background-color: var(--gray);
+  border-color: var(--paleblue) !important;
+}
+.docs-sidebar-palette .docs-sidebar-palette-button-container .docs-sidebar-palette-button div div,
+.docs-sidebar-palette .docs-sidebar-palette-button-container.goog-control-selected .docs-sidebar-palette-button div div {
+  filter: none;
+  filter: var(--pale-icons);
+}
+.docs-material-gm-select-outer-box,
+.docs-material-gm-select-hover .docs-material-gm-select-outer-box {
+  border-color: gray;
+}
+.docs-material-gm-select-caption {
+  color: white;
+}
+.docs-material-slider-track-on,
+.docs-material-slider-thumb-grabber {
+  background-color: var(--paleblue);
+  border-color: var(--paleblue);
+}
+.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-standard {
+  background-color: transparent;
+  border-color: gray !important;
+  color: var(--paleblue);
+}
+
 /* Side panel */
 
 /* Show side panel */

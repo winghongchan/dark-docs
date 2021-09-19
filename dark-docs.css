@@ -156,7 +156,7 @@
 .docs-material .goog-toolbar-button:hover, 
 .docs-material .goog-toolbar-combo-button:hover, 
 .docs-material .goog-toolbar-menu-button:hover{
-  background-color: var(--ripple);
+  background-color: var(--gray);
   transition: var(--button-on);
 }
 

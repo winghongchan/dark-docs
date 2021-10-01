@@ -274,8 +274,10 @@
   background-color: var(--darkgray) !important;
 }
 
-/* Pages */
-.kix-paginateddocumentplugin {
+/* Pages and cursor */
+.kix-paginateddocumentplugin,
+.kix-canvas-tile-content,
+.kix-cursor-caret {
   filter: invert(100%) hue-rotate(180deg) contrast(80%);
 }
 

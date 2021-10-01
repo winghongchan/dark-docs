@@ -303,6 +303,15 @@
   color: white;
 }
 
+/* “Explore” button */
+.docs-explore-widget-button {
+  background-color: var(--darkgray);
+  color: white;
+}
+.docs-explore-icon.docs-explore-widget-icon.docs-explore-widget-icon-inactive.goog-inline-block {
+  filter: invert(100%) hue-rotate(180deg) contrast(80%);
+}
+
 /* Side (Image options) panel (and as it turns out, a lot of form elements) */
 
 /* Side panel header */

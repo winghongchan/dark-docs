@@ -99,6 +99,18 @@
   background-color: var(--gray);
 }
 
+/* New changes notifier */
+#docs-new-changes {
+  background-color: var(--gray) !important;
+  color: var(--lightgray) !important;
+  transition: color 0.25s ease;
+}
+#docs-new-changes.inactive.goog-flat-button-hover {
+  background-color: var(--gray) !important;
+  color: white !important;
+  transition: color 0.1s ease;
+}
+
 /* “Request access” button */
 .titlebar-request-access-button.docs-material-button {
   border-color: var(--gray);

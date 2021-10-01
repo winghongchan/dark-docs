@@ -293,6 +293,12 @@
   filter: invert(100%) hue-rotate(180deg) contrast(80%);
 }
 
+/* Table border editing */
+.docs-border-selection-button-pressed, 
+.docs-border-selection-button-normal {
+  filter: invert(100%) brightness(250%) contrast(65%);
+}
+
 /* Header options */
 .docs-gm .kix-header-footer-bubble.docs-bubble {
   background-color: var(--gray);

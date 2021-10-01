@@ -133,12 +133,18 @@
 }
 
 /* Share button */
-.docs-gm #docs-titlebar-share-client-button .jfk-button {
+.docs-gm #docs-titlebar-share-client-button .jfk-button,
+.docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-hover {
   background-color: var(--paleblue);
   color: black;
+  transition: filter 0.25s ease;
 }
 .docs-gm #docs-titlebar-share-client-button .jfk-button .scb-button-icon {
 	filter: brightness(0);
+}
+.docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-hover {
+  filter: brightness(105%);
+  transition: filter 0.1s ease;
 }
 
 /* “Turn In” button */

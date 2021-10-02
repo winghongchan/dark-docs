@@ -285,6 +285,10 @@
   filter: none !important;
   filter: var(--pale-icons) !important;
 }
+.docs-ruler-contributed-dragger-container /* Table border handle in ruler */ {
+  background-color: var(--lightgray);
+  border-color: var(--lightgray);
+}
 
 /* Editor background */
 .kix-appview-editor,

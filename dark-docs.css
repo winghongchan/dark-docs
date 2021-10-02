@@ -303,6 +303,23 @@
   filter: invert(100%) hue-rotate(180deg) contrast(80%);
 }
 
+/* Spellcheck mini popup */
+.docs-gm .kix-spell-bubble {
+  background-color: var(--darkgray);
+  border-color: var(--gray);
+}
+.kix-spell-bubble .kix-spell-bubble-suggestion-text {
+  color: white;
+}
+.docs-gm .kix-spell-bubble-option {
+  border-radius: 50%;
+  transition: var(--button-off);
+}
+.docs-gm .kix-spell-bubble-option:hover {
+  background-color: var(--gray);
+  transition: var(--button-on);
+}
+
 /* Table border editing */
 .docs-border-selection-button-pressed, 
 .docs-border-selection-button-normal {

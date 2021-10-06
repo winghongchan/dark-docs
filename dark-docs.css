@@ -5,6 +5,7 @@
   --ripple: #394457;
   --gray: #3C4043;
   --darkgray: #202124;
+  --lightgray: #666;
   --text-hover-on: text-shadow 0.1s ease;
   --text-hover-off: text-shadow 0.25s ease;
   --button-on: background-color 0.1s ease;
@@ -497,4 +498,24 @@
 }
 .companion-guest-app-switcher .app-switcher-button-selected .app-switcher-button-icon-background-inner {
   background-color: var(--ripple);
+}
+
+/* Quick comment/suggest bubble */
+#docs-instant-bubble {
+  --gray-rgb: 60, 64, 67;
+  border-color: var(--gray);
+  background: rgba(var(--gray-rgb),0.5);
+  transition: var(--button-off);
+}
+#docs-instant-bubble:hover {
+  background: rgba(var(--gray-rgb),0.7);
+  transition: var(--button-on);
+}
+
+#docs-instant-bubble .instant-button {
+  transition: var(--button-off);
+}
+#docs-instant-bubble .instant-button:hover {
+  background: var(--lightgray);
+  transition: var(--button-on);
 }

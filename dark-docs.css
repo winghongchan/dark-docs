@@ -3,16 +3,15 @@
   --paleblue: #8AB4F8;
   --pale-icons: hue-rotate(3.6deg) saturate(32.2%) brightness(170%);
   --ripple: #394457;
-  --gray: #3C4043;
+  --lightgray: #616266;
+  --lightergray: #9aa0a6;
+	--gray: #3C4043;
   --darkgray: #202124;
-  --lightgray: #666;
   --text-hover-on: text-shadow 0.1s ease;
   --text-hover-off: text-shadow 0.25s ease;
   --button-on: background-color 0.1s ease;
-  --button-off: background-color 0.25s ease;
+	--button-off: background-color 0.25s ease;
 }
-
-/*Top*/
 
 /*Top bar*/
 #docs-chrome, .docs-material #docs-header .docs-titlebar-buttons {
@@ -38,6 +37,31 @@
   color: white;
 }
 
+/* Document badges */
+.docs-gm .docs-titlebar-badge {
+  transition: var(--button-off);
+}
+.docs-gm .docs-titlebar-badge:hover {
+  background-color: var(--gray);
+  transition: var(--button-on);
+}
+.docs-gm .docs-titlebar-badge:active, .docs-gm .docs-titlebar-badge.docs-titlebar-badge-selected {
+  background-color: var(--ripple);
+  color: var(--paleblue);
+}
+
+/* Popups from badges */
+.document-details-bubble-container {
+  background-color: var(--darkgray);
+  border-color: var(--gray);
+}
+#document-details-bubble-header {
+  color: white !important;
+}
+.document-details-entry-text {
+  color: var(--lightergray);
+}
+
 /* Menubar */
 
 /* Titles */
@@ -60,21 +84,31 @@
   border: 1px solid var(--gray);
   transition: var(--button-off);
 }
-.docs-gm .goog-menu .goog-menuitem {
+.docs-gm .goog-menuitem .goog-menuitem-content {
   color: white;
 }
-.docs-gm .goog-menuitem-highlight{
+.docs-gm .goog-menuitem {
+  transition: var(--button-off);
+}
+.docs-gm .goog-menuitem-highlight {
   background-color: var(--gray);
   transition: var(--button-on);
 }
-.goog-menuitem-highlight .goog-menuitem-content {
-  color: white;
+.docs-gm .goog-menuitem-accel, .docs-gm .goog-menuitem-disabled .goog-menuitem-accel {
+  color: var(--lightergray) !important;
 }
+
+/* Separators */
 .apps-hoverable-menu-separator-container .apps-hoverable-menu-separator-bottom {
   border-color: var(--gray);
 }
 .docs-gm .goog-menuseparator /* Dividers in submenus are different */ {
   border-color: var(--gray);
+}
+
+/* Icons */
+.docs-gm .docs-material.goog-menu .apps-menuitem.goog-option-selected .goog-menuitem-checkbox {
+  filter: invert(100%);
 }
 
 /* That search bar in the Help dropdown */
@@ -103,7 +137,7 @@
 /* New changes notifier */
 #docs-new-changes {
   background-color: var(--gray) !important;
-  color: var(--lightgray) !important;
+  color: var(--lightergray) !important;
   transition: color 0.25s ease;
 }
 #docs-new-changes.inactive.goog-flat-button-hover {
@@ -116,6 +150,13 @@
 .titlebar-request-access-button.docs-material-button {
   border-color: var(--gray);
   color: var(--paleblue);
+  transition: var(--button-off);
+}
+
+.titlebar-request-access-button.docs-material-button.docs-material-button-hover {
+  background-color: var(--gray);
+  border-color: var(--gray);
+  transition: var(--button-on);
 }
 
 /* “Present to a Meeting” button */
@@ -131,6 +172,14 @@
 .goog-flat-menu-button.goog-flat-menu-button-hover {
   background-color: var(--gray) !important;
   transition: var(--button-on);
+}
+
+/* Viewer list */
+.docs-material .docs-presence-plus-collab-widget-color-block, 
+.docs-material.docs-presence-plus-widget-overflow-menu .docs-presence-plus-collab-widget-color-block,
+.docs-material .docs-presence-plus-widget-overflow-button {
+  background-color: var(--gray);
+  border-color: transparent;
 }
 
 /* Share button */
@@ -287,14 +336,17 @@
   filter: var(--pale-icons) !important;
 }
 .docs-ruler-contributed-dragger-container /* Table border handle in ruler */ {
-  background-color: var(--lightgray);
-  border-color: var(--lightgray);
+  background-color: var(--lightergray);
+  border-color: var(--lightergray);
 }
 
 /* Editor background */
-.kix-appview-editor,
-.kix-canvas-tile-content {
+.kix-appview-editor {
   background-color: var(--darkgray) !important;
+  background-image: url("https://images.unsplash.com/photo-1568345284020-590abc9390d4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Pages and cursor */
@@ -335,6 +387,26 @@
 .docs-gm .kix-header-footer-bubble-description,
 .docs-gm .kix-header-footer-bubble-checkbox-label {
   color: white;
+}
+
+/* Quick comment/suggest bubble */
+#docs-instant-bubble {
+  --gray-rgb: 60, 64, 67;
+  border-color: var(--gray);
+  background: rgba(var(--gray-rgb),1/*PREV: 0.5*/);
+  transition: var(--button-off);
+}
+#docs-instant-bubble:hover {
+  background: rgba(var(--gray-rgb),1/*PREV: 0.7*/);
+  transition: var(--button-on);
+}
+
+#docs-instant-bubble .instant-button {
+  transition: var(--button-off);
+}
+#docs-instant-bubble .instant-button:hover {
+  background: var(--lightgray);
+  transition: var(--button-on);
 }
 
 /* “Explore” button */
@@ -382,7 +454,7 @@
 }
 .docs-sidebar-tile-header.docs-sidebar-tile-header-disabled {
   background-color: transparent;
-  color: gray !important;
+  color: var(--lightergray) !important;
 }
 .docs-gm .docs-sidebar-tile-header {
   color: white;
@@ -407,7 +479,7 @@
 .docs-labeled-button-label,
 .docs-sidebar-tile-input-label,
 .docs-sidebar-tile-label {
-  color: lightgray;
+  color: var(--lightergray);
 }
 .docs-number-input-container input {
   background-color: transparent;
@@ -430,7 +502,7 @@
 }
 .docs-sidebar-palette .docs-sidebar-palette-button-container .docs-sidebar-palette-button /*Text wrapping*/ {
   background-color: var(--gray);
-  border-color: gray !important;
+  border-color: var(--lightergray) !important;
 }
 .docs-sidebar-palette .docs-sidebar-palette-button-container.goog-control-selected .docs-sidebar-palette-button {
   background-color: var(--gray);
@@ -443,7 +515,7 @@
 }
 .docs-material-gm-select-outer-box,
 .docs-material-gm-select-hover .docs-material-gm-select-outer-box {
-  border-color: gray;
+  border-color: var(--lightergray);
 }
 .docs-material-gm-select-caption {
   color: white;
@@ -455,11 +527,11 @@
 }
 .docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-standard {
   background-color: transparent;
-  border-color: gray !important;
+  border-color: var(--lightergray) !important;
   color: var(--paleblue);
 }
 
-/* Side panel */
+/* Apps panel */
 
 /* Show side panel */
 .companion-collapser-button.app-switcher-button-checked .app-switcher-button-icon-background {
@@ -474,7 +546,7 @@
   filter: brightness(2);
 }
 
-/* Side panel */
+/* Apps panel */
 
 /* Panel toggle */
 .companion-app-switcher-container {
@@ -498,24 +570,4 @@
 }
 .companion-guest-app-switcher .app-switcher-button-selected .app-switcher-button-icon-background-inner {
   background-color: var(--ripple);
-}
-
-/* Quick comment/suggest bubble */
-#docs-instant-bubble {
-  --gray-rgb: 60, 64, 67;
-  border-color: var(--gray);
-  background: rgba(var(--gray-rgb),0.5);
-  transition: var(--button-off);
-}
-#docs-instant-bubble:hover {
-  background: rgba(var(--gray-rgb),0.7);
-  transition: var(--button-on);
-}
-
-#docs-instant-bubble .instant-button {
-  transition: var(--button-off);
-}
-#docs-instant-bubble .instant-button:hover {
-  background: var(--lightgray);
-  transition: var(--button-on);
 }

@@ -228,6 +228,16 @@
   transition: var(--button-on);
 }
 
+/* Toolbar buttons with dropdowns (list options) */
+.docs-gm .docs-material .docs-toolbar-button-split-sympathy-hover {
+  background-color: var(--gray);
+  transition: var(--button-on);
+}
+.docs-gm .docs-material .docs-toolbar-button-split-right.goog-toolbar-menu-button-hover,
+.docs-gm .docs-material .docs-toolbar-button-split-right.docs-toolbar-button-split-sympathy-hover {
+  border-color: transparent !important;
+}
+
 /* Toolbar icons */
 .docs-gm .docs-material .docs-icon-img,
 .ita-kd-img {

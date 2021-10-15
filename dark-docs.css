@@ -326,6 +326,15 @@
   display: none;
 }
 
+/* Statistics widget (below TOC, displayed while typing) */
+.kix-documentmetrics-widget {
+  background-color: var(--darkgray);
+  border-color: var(--gray);
+}
+.kix-documentmetrics-widget .docs-material-gm-select-dropdown .docs-icon {
+  transform: rotate(180deg);
+}
+
 /* Document */
 
 /* Ruler */

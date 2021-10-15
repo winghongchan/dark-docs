@@ -238,6 +238,18 @@
   border-color: transparent !important;
 }
 
+/* Opened dropdowns */
+.docs-gm .docs-material .goog-toolbar-menu-button-open {
+  background-color: var(--ripple);
+  color: var(--paleblue);
+  transition: var(--button-on), color 0.1s ease;
+}
+.docs-gm .docs-material .goog-toolbar-menu-button-open div div div div .docs-icon-img {
+  filter: none;
+  filter: var(--pale-icons);
+  transition: filter 0.1s ease;
+}
+
 /* Toolbar icons */
 .docs-gm .docs-material .docs-icon-img,
 .ita-kd-img {

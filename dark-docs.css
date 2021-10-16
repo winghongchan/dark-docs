@@ -234,7 +234,8 @@
   transition: var(--button-on);
 }
 .docs-gm .docs-material .docs-toolbar-button-split-right.goog-toolbar-menu-button-hover,
-.docs-gm .docs-material .docs-toolbar-button-split-right.docs-toolbar-button-split-sympathy-hover {
+.docs-gm .docs-material .docs-toolbar-button-split-right.docs-toolbar-button-split-sympathy-hover,
+.docs-gm .docs-material .docs-toolbar-button-split-left + .docs-toolbar-button-split-right.goog-toolbar-menu-button-open {
   border-color: transparent !important;
 }
 
@@ -293,6 +294,27 @@
 #fontSizeSelect.docs-font-size-inc-dec-combobox,
 #fontSizeIncrement {
   border-color: var(--gray) !important;
+}
+
+/* List preview boxes dropdown */
+#\:br table tbody tr td div div,
+#\:bs table tbody tr td div div {
+  filter: invert(90%);
+}
+#\:br table tbody tr .goog-palette-cell .docs-preview-palette-item,
+#\:bs table tbody tr .goog-palette-cell .docs-preview-palette-item {
+  border: 2px solid var(--gray);
+  border-radius: 4px;
+  transition: border-color 0.25s ease;
+}
+#\:br table tbody tr .goog-palette-cell-hover .docs-preview-palette-item,
+#\:bs table tbody tr .goog-palette-cell-hover .docs-preview-palette-item {
+  border-color: var(--lightgray);
+  transition: border-color 0.1s ease;
+}
+#\:br table tbody tr .goog-palette-cell-selected .docs-preview-palette-item,
+#\:bs table tbody tr .goog-palette-cell-selected .docs-preview-palette-item {
+  border-color: var(--paleblue); 
 }
 
 /* Font size */

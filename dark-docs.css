@@ -242,7 +242,7 @@
 .docs-gm .docs-material .goog-toolbar-menu-button-open {
   background-color: var(--ripple);
   color: var(--paleblue);
-  transition: var(--button-on), color 0.1s ease;
+  transition: var(--button-on);
 }
 .docs-gm .docs-material .goog-toolbar-menu-button-open div div div div .docs-icon-img {
   filter: none;
@@ -270,6 +270,29 @@
 /* Separators */
 .docs-gm .goog-toolbar-separator.goog-inline-block {
   border-color: var(--gray);
+}
+
+/* Styles dropdown */
+#\:lk div .goog-menuitem-label,
+#\:lp div .goog-menuitem-label, 
+#\:lu div .goog-menuitem-label, 
+#\:lz div .goog-menuitem-label, 
+#\:m4 div .goog-menuitem-label, 
+#\:m9 div .goog-menuitem-label, 
+#\:me div .goog-menuitem-label, 
+#\:mj div .goog-menuitem-label, 
+#\:mo div .goog-menuitem-label {
+  filter: invert(100%) hue-rotate(180deg) contrast(80%);
+}
+#\:lk, #\:lp, #\:lu, #\:lz, #\:m4, #\:m9, #\:me, #\:mj, #\:mo {
+  border-color: var(--gray);
+}
+
+/* Font size */
+#fontSizeDecrement,
+#fontSizeSelect.docs-font-size-inc-dec-combobox,
+#fontSizeIncrement {
+  border-color: var(--gray) !important;
 }
 
 /* Font size */

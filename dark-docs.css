@@ -421,6 +421,36 @@ body {
   transition: var(--button-on);
 }
 
+/* Link popup */
+
+.docs-gm .docs-linkbubble-bubble,
+.docs-gm .docs-multi-linkbubble-bubble {
+  background-color: var(--darkgray);
+  border: 1px solid var(--lightgray) !important;
+}
+#docs-linkbubble-link-text {
+  color: var(--paleblue) !important;
+}
+.docs-bubble .docs-bubble-button.jfk-button:hover, 
+.docs-bubble .docs-bubble-button.jfk-button:focus {
+  background-color: var(--gray);
+  transition: var(--button-on);
+}
+/* Link popup footer that prompts to replace the link */
+.docs-linkbubble-link-preview .docs-link-bubble-card-component.docs-link-bubble-action-card-component, 
+.docs-linkbubble-link-preview .docs-link-bubble-action-card-component::before {
+  background-color: #1967d24a !important;
+}
+#docs-link-bubble .docs-link-bubble-card-component.docs-link-bubble-action-card-component .link-bubble-text-button-text:hover {
+  background-color: #4689e34d !important;
+}
+.docs-linkbubble-link-preview .docs-link-bubble-text-card-component span,
+.docs-linkbubble-link-preview .docs-link-bubble-action-card-component span,
+.text-card-component-text.docs-link-bubble-text-with-icon,
+.docs-link-bubble-card-component.docs-link-bubble-action-card-component .link-bubble-text-button-text {
+  color: var(--lightergray) !important;
+}
+
 /* Table border editing */
 .docs-border-selection-button-pressed, 
 .docs-border-selection-button-normal {

@@ -400,10 +400,11 @@ body {
 }
 
 /* Spellcheck mini popup */
-.docs-gm .kix-spell-bubble {
+.docs-gm .kix-spell-bubble, .docs-autocorrect-bubble {
   background-color: var(--darkgray);
   border-color: var(--gray);
 }
+.docs-autocorrect-bubble .docs-autocorrect-bubble-undo,
 .kix-spell-bubble .kix-spell-bubble-suggestion-text {
   color: white;
 }
@@ -411,6 +412,10 @@ body {
   border-radius: 50%;
   transition: var(--button-off);
 }
+.docs-gm .docs-autocorrect-bubble-more-options:hover,
+.docs-gm .docs-autocorrect-bubble-more-options:focus,
+.docs-gm .docs-autocorrect-bubble-undo:hover,
+.docs-gm .kix-spell-bubble-suggestion-text:hover,
 .docs-gm .kix-spell-bubble-option:hover {
   background-color: var(--gray);
   transition: var(--button-on);

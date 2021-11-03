@@ -402,7 +402,7 @@ body {
 /* Spellcheck mini popup */
 .docs-gm .kix-spell-bubble, .docs-autocorrect-bubble {
   background-color: var(--darkgray);
-  border-color: var(--gray);
+  border: 1px solid var(--lightgray) !important;
 }
 .docs-autocorrect-bubble .docs-autocorrect-bubble-undo,
 .kix-spell-bubble .kix-spell-bubble-suggestion-text {

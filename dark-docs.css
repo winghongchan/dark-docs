@@ -399,19 +399,20 @@ body {
   filter: invert(100%) hue-rotate(180deg) contrast(80%);
 }
 
-/* Spellcheck mini popup */
-.docs-gm .kix-spell-bubble, .docs-autocorrect-bubble {
+/* Popups */
+
+/* Box */
+.docs-gm .kix-spell-bubble, 
+.docs-autocorrect-bubble,
+.docs-gm .docs-linkbubble-bubble, 
+.docs-gm .docs-multi-linkbubble-bubble {
   background-color: var(--darkgray);
   border: 1px solid var(--lightgray) !important;
 }
-.docs-autocorrect-bubble .docs-autocorrect-bubble-undo,
-.kix-spell-bubble .kix-spell-bubble-suggestion-text {
-  color: white;
-}
-.docs-gm .kix-spell-bubble-option {
-  border-radius: 50%;
-  transition: var(--button-off);
-}
+
+/* Popup options */
+.docs-bubble .docs-bubble-button.jfk-button:hover, 
+.docs-bubble .docs-bubble-button.jfk-button:focus,
 .docs-gm .docs-autocorrect-bubble-more-options:hover,
 .docs-gm .docs-autocorrect-bubble-more-options:focus,
 .docs-gm .docs-autocorrect-bubble-undo:hover,
@@ -421,20 +422,19 @@ body {
   transition: var(--button-on);
 }
 
-/* Link popup */
-
-.docs-gm .docs-linkbubble-bubble,
-.docs-gm .docs-multi-linkbubble-bubble {
-  background-color: var(--darkgray);
-  border: 1px solid var(--lightgray) !important;
+/* Spellcheck mini popup */
+.docs-autocorrect-bubble .docs-autocorrect-bubble-undo,
+.kix-spell-bubble .kix-spell-bubble-suggestion-text {
+  color: white;
 }
+.docs-gm .kix-spell-bubble-option {
+  border-radius: 50%;
+  transition: var(--button-off);
+}
+
+/* Link popup */
 #docs-linkbubble-link-text {
   color: var(--paleblue) !important;
-}
-.docs-bubble .docs-bubble-button.jfk-button:hover, 
-.docs-bubble .docs-bubble-button.jfk-button:focus {
-  background-color: var(--gray);
-  transition: var(--button-on);
 }
 /* Link popup footer that prompts to replace the link */
 .docs-linkbubble-link-preview .docs-link-bubble-card-component.docs-link-bubble-action-card-component, 

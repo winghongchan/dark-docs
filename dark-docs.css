@@ -445,10 +445,7 @@ body {
 #docs-link-bubble .docs-link-bubble-card-component.docs-link-bubble-action-card-component .link-bubble-text-button-text:hover {
   background-color: #4689e34d !important;
 }
-.docs-linkbubble-link-preview .docs-link-bubble-text-card-component span,
-.docs-linkbubble-link-preview .docs-link-bubble-action-card-component span,
-.text-card-component-text.docs-link-bubble-text-with-icon,
-.docs-link-bubble-card-component.docs-link-bubble-action-card-component .link-bubble-text-button-text {
+.docs-linkbubble-link-preview .docs-link-bubble-text-card-component span {
   color: var(--lightergray) !important;
 }
 

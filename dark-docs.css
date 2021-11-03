@@ -257,7 +257,7 @@
   filter: brightness(10);
 }
 .docs-gm .docs-material .goog-toolbar-button-checked {
-  background-color: var(--ripple);
+  background-color: var(--ripple) !important;
 }
 .docs-gm .docs-material .goog-toolbar-button-checked .docs-icon-img {
   filter: var(--pale-icons) !important;
@@ -402,6 +402,7 @@ body {
 /* Popups */
 
 /* Box */
+.kix-embedded-entity-bubble.docs-bubble,
 .docs-gm .kix-spell-bubble, 
 .docs-autocorrect-bubble,
 .docs-gm .docs-linkbubble-bubble, 

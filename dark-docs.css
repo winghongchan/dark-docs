@@ -607,6 +607,138 @@ body {
   color: var(--paleblue);
 }
 
+/* Citations panel */
+
+/* Citations panel title */
+.kix-citations-sidebar-titlebar {
+  background-color: var(--darkgray);
+  border-color: var(--gray);
+  color: white;
+}
+
+/* Add and view citations */
+.kix-citations-create-view-search, 
+.kix-citations-create-view-top, 
+.kix-citations-list-view-top {
+  background-color: var(--gray);
+  border-color: var(--gray);
+}
+.kix-citations-label, 
+.kix-citations-accessed-by-select-label, 
+.kix-citations-source-type-select-label {
+  color: white;
+}
+.kix-citations-select, 
+.kix-citations-accessed-by-select, 
+.kix-citations-source-type-select, 
+.kix-citations-format-select {
+  background-color: var(--gray);
+}
+.kix-citations-flat-button.goog-flat-button, 
+.kix-citations-add-source-button.goog-flat-button {
+  transition: var(--button-off);
+}
+.kix-citations-flat-button.goog-flat-button-hover, 
+.kix-citations-add-source-button.goog-flat-button-hover {
+  background-color: var(--ripple);
+  transition: var(--button-on);
+}
+.kix-citations-flat-button-icon-path, 
+.kix-citations-add-source-button-icon-path {
+  fill: var(--paleblue);
+}
+.kix-citations-flat-button.goog-flat-button, 
+.kix-citations-add-source-button.goog-flat-button {
+  color: var(--paleblue);
+}
+
+/* Citations panel content */
+.kix-citations-source-list-container, 
+.kix-citations-create-view-zero-state, 
+.kix-citations-source-list-zero-state,
+.kix-citations-search-result-view-content, 
+.kix-citations-create-view-attributes-container {
+  background-color: var(--darkgray);
+}
+.kix-citations-source-list-zero-state-heading {
+  color: white;
+}
+.kix-citations-source-list-zero-state-content {
+  color: var(--lightergray);
+}
+
+/* Citations panel list */
+.kix-citations-source-list-item,
+.kix-citations-source-list-item:hover, 
+.kix-citations-source-list-item:focus {
+  border-color: var(--gray);
+  background-color: var(--darkgray);
+}
+.kix-citations-source-list-item-content span {
+  color: white !important;
+  /* For the many essays that are written in this font → font-family: 'Times', 'Times New Roman', Freeserif, serif !important; */
+}
+/* Little toolbar with “Cite” and an overflow menu */
+.goog-toolbar.kix-citations-source-list-item-toolbar {
+  background-color: var(--gray);
+}
+.goog-toolbar.kix-citations-source-list-item-toolbar .goog-toolbar-menu-button-hover:not(.goog-toolbar-menu-button-open), 
+.goog-toolbar.kix-citations-source-list-item-toolbar .goog-toolbar-button-hover:not(.goog-toolbar-menu-button-open) {
+  background-color: var(--lightgray);
+  transition: background-color 5s ease;
+}
+.kix-citations-source-list-item-insert-button {
+  color: var(--paleblue);
+}
+
+/* Citations panel automatic cite results */
+.kix-citations-search-result-attribute-label {
+  color: var(--lightergray);
+}
+.kix-citations-search-result-attribute-value, 
+.kix-citations-search-result-attribute-value a:visited {
+  color: white;
+}
+
+/* Citations panel source details editor */
+.kix-citations-create-view-attributes-subtitle,
+.kix-citations-create-view-recommended-mark {
+  color: var(--paleblue);
+}
+.kix-citations-contributor-type-select,
+.kix-citations-create-view-input, 
+.kix-citations-search-input {
+  background-color: transparent;
+  border-color: var(--lightergray);
+  color: white;
+  transition: border-color 0.25s ease;
+}
+.kix-citations-search-input:focus, 
+.kix-citations-create-view-input:focus {
+  border-color: var(--paleblue);
+  transition: border-color 0.1s ease;
+}
+.kix-citations-select .docs-material-gm-select-outer-box {
+  border-color: var(--lightgray);
+}
+.kix-citations-create-view-attribute-label {
+  color: var(--lightergray);
+}
+.kix-citations-flat-button.goog-flat-button-hover {
+  background-color: var(--lightgray);
+}
+
+/* Citations - Insert Works Cited button */
+.kix-citations-search-result-view-attributes-bottom, 
+.kix-citations-create-view-bottom, 
+.kix-citations-insert-bibliography-container {
+  background-color: var(--gray);
+}
+.docs-material-button-fill-primary.docs-material-button {
+  background-color: var(--paleblue);
+  color: black;
+}
+
 /* Apps panel */
 
 /* Show side panel */

@@ -301,6 +301,22 @@
   filter: var(--pale-icons) !important;
 }
 
+/* Suggesting mode */
+#docs-toolbar-mode-switcher.suggest-mode {
+  background-color: #37493F;
+  color: #81C995;
+}
+.docs-icon-acl-comment-only-green700 {
+  filter: none !important;
+  filter: hue-rotate(-2deg) saturate(38%) brightness(182%) !important;
+}
+#docs-toolbar-mode-switcher.docs-toolbar-menu-button-open .docs-icon-acl-comment-only-green700 {
+  filter: none !important;
+}
+#docs-toolbar-mode-switcher.suggest-mode .goog-toolbar-menu-button-dropdown {
+  border-top-color: #81c995;
+}
+
 /*Remove white line below top bar*/
 .kix-document-top-shadow.read-mode-titlebar-border {
   border: none;

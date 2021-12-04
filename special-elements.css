@@ -1,17 +1,4 @@
-/* Variables */
-:root {
-  --paleblue: #8AB4F8;
-  --pale-icons: hue-rotate(3.6deg) saturate(32.2%) brightness(170%);
-  --ripple: #394457;
-  --lightgray: #616266;
-  --lightergray: #9aa0a6;
-	--gray: #3C4043;
-  --darkgray: #202124;
-  --text-hover-on: text-shadow 0.1s ease;
-  --text-hover-off: text-shadow 0.25s ease;
-  --button-on: background-color 0.1s ease;
-	--button-off: background-color 0.25s ease;
-}
+/* Special elements: items that don’t occur very repeatedly */
 
 /*Top bar*/
 #docs-chrome, .docs-material #docs-header .docs-titlebar-buttons {
@@ -289,7 +276,7 @@
 
 /* Edit/Suggest/View switch */
 
-/* Editing */
+/* Editing mode */
 #docs-toolbar-mode-switcher.edit-mode {
   background-color: var(--ripple);
   color: var(--paleblue);
@@ -499,6 +486,32 @@ body {
 #docs-instant-bubble .instant-button:hover {
   background: var(--lightgray);
   transition: var(--button-on);
+}
+
+/* Comment */
+.docs-gm .docos-anchoreddocoview.docos-docoview-active, 
+.docs-gm .docos-anchoreddocoview.docos-docoview-active:hover {
+  background-color: var(--gray);
+  border-color: var(--gray);
+}
+.docos-anchoreddocoview .docos-replyview-first.docos-anchoredreplyview,
+.docs-gm .docos-anchoredreplyview, 
+.docs-gm .docos-showrepliesbutton, 
+.docs-gm .docos-anchoreddocoview-input-pane {
+  background-color: var(--darkgray);
+  border-color: var(--gray);
+}
+.docs-gm .docos-anchoredreplyview-header .docos-anchoredreplyview-author,
+.docs-gm .docos-anchoredreplyview-header .docos-anchoredreplyview-timestamp,
+.docs-gm .docos-anchoredreplyview .docos-anchoredreplyview-body div {
+  color: white !important;
+}
+.docos-input-textarea.docos-input-contenteditable.editable.awr-inlineAssistMonitorContainer {
+  border-color: var(--gray);
+  color: white;
+}
+.docos-input-textarea.docos-input-contenteditable.editable.awr-inlineAssistMonitorContainer:focus {
+  border-color: var(--paleblue);
 }
 
 /* “Explore” button */

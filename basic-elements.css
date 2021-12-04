@@ -1,0 +1,41 @@
+/* Basic elements: variables and form elements */
+
+/* Colors and Animations */
+:root {
+  --palerblue: #8AB4F8;
+  --paleblue: #669DF7;
+  --pale-icons: hue-rotate(3.6deg) saturate(32.2%) brightness(170%);
+  --ripple: #394457;
+  --lightgray: #616266;
+  --lightergray: #9aa0a6;
+	--gray: #3C4043;
+  --darkgray: #202124;
+  --text-hover-on: text-shadow 0.1s ease;
+  --text-hover-off: text-shadow 0.25s ease;
+  --button-on: background-color 0.1s ease;
+	--button-off: background-color 0.25s ease;
+}
+
+/* Buttons */
+
+.docos.docs-gm .jfk-button.jfk-button-action {
+  background-color: var(--paleblue);
+  color: black;
+  transition: var(--button-off);
+}
+.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-hover {
+  background-color: var(--palerblue);
+  color: black;
+  transition: var(--button-on);
+}
+.docos.docs-gm .jfk-button.jfk-button-standard {
+  background-color: transparent;
+  border-color: var(--gray) !important;
+  color: var(--paleblue);
+  transition: var(--button-off);
+}
+.docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-hover {
+  background-color: var(--gray);
+  border-color: var(--gray) !important;
+  transition: var(--button-on);
+}

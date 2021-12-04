@@ -12,8 +12,8 @@
   --darkgray: #202124;
   --text-hover-on: text-shadow 0.1s ease;
   --text-hover-off: text-shadow 0.25s ease;
-  --button-on: background-color 0.1s ease;
-	--button-off: background-color 0.25s ease;
+  --button-on: background-color 0.1s ease, border-color 0.1s ease, color 0.1s ease;
+	--button-off: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
 /* Buttons */
@@ -43,9 +43,16 @@
   color: var(--paleblue);
   transition: var(--button-off);
 }
-.docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-hover {
+.docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-hover,
+.docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-focused {
   background-color: var(--gray);
   border-color: var(--gray) !important;
+  transition: var(--button-on);
+}
+.docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-focused.jfk-button-hover {
+  background-color: var(--gray);
+  border-color: var(--gray) !important;
+  color: var(--palerblue);
   transition: var(--button-on);
 }
 

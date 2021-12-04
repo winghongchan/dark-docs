@@ -489,6 +489,7 @@ body {
 }
 
 /* Comment */
+.docs-gm .docos-anchoreddocoview, 
 .docs-gm .docos-anchoreddocoview.docos-docoview-active, 
 .docs-gm .docos-anchoreddocoview.docos-docoview-active:hover {
   background-color: var(--gray);

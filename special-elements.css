@@ -300,12 +300,15 @@
 #fontSizeIncrement {
   border-color: var(--gray) !important;
 }
-
-/* Font size */
-#fontSizeDecrement,
-#fontSizeSelect.docs-font-size-inc-dec-combobox,
-#fontSizeIncrement {
-  border-color: var(--gray) !important;
+.docs-gm .goog-toolbar-combo-button-input:focus {
+  background-color: var(--gray);
+  border-color: var(--paleblue) !important;
+}
+.docs-gm .docs-material .goog-toolbar-combo-button-open {
+  background-color: var(--gray);
+}
+.docs-gm .goog-toolbar-combo-button-input::selection {
+  background-color: var(--paleblue);
 }
 
 /* Edit/Suggest/View switch */

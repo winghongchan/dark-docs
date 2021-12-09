@@ -1,4 +1,4 @@
-/* Special elements: items that don’t occur very repeatedly */
+/* Special elements */
 
 /*Top bar*/
 #docs-chrome, .docs-material #docs-header .docs-titlebar-buttons {
@@ -98,6 +98,14 @@
   filter: invert(100%);
 }
 
+/* Addons dropdown empty state */
+.script-promo-menu-item-title {
+  color: var(--white);
+}
+.script-promo-menu-item-description {
+  color: var(--lightergray)
+}
+
 /* That search bar in the Help dropdown */
 .docs-omnibox-parent.goog-menu-vertical .docs-labelinputmenuitem.goog-menuitem {
   background-color: var(--darkgray);
@@ -139,11 +147,37 @@
   color: var(--paleblue);
   transition: var(--button-off);
 }
-
 .titlebar-request-access-button.docs-material-button.docs-material-button-hover {
   background-color: var(--gray);
   border-color: var(--gray);
   transition: var(--button-on);
+}
+
+/* View mode: viewing */
+#titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary, 
+#titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-focused {
+  background-color: var(--darkgray);
+  border-color: var(--gray);
+  transition: var(--button-off);
+}
+#titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-hover, 
+#titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-hover.docs-material-menu-button-flat-primary-focused {
+  background-color: var(--gray);
+  border-color: var(--gray);
+  transition: var(--button-on);
+}
+#titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-open,
+#titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-hover.docs-material-menu-button-flat-primary-open {
+  background-color: var(--ripple);
+  border-color: var(--ripple);
+  transition: var(--button-on);
+}
+.kix-titlebar-mode-switcher.docs-material-menu-button-flat-primary .docs-icon-img.docs-icon-acl-view-only {
+  filter: none;
+  filter: var(--pale-icons);
+}
+.docs-material-menu-button-flat-primary-dropdown-icon {
+  fill: var(--palerblue);
 }
 
 /* “Present to a Meeting” button */
@@ -279,7 +313,7 @@
 /* Editing mode */
 #docs-toolbar-mode-switcher.edit-mode {
   background-color: var(--ripple);
-  color: var(--paleblue);
+  color: var(--palerblue);
 }
 .docs-icon-mode-edit-blue700 {
   filter: var(--pale-icons) !important;
@@ -506,13 +540,6 @@ body {
 .docs-gm .docos-anchoredreplyview-header .docos-anchoredreplyview-timestamp,
 .docs-gm .docos-anchoredreplyview .docos-anchoredreplyview-body div {
   color: white !important;
-}
-.docos-input-textarea.docos-input-contenteditable.editable.awr-inlineAssistMonitorContainer {
-  border-color: var(--gray);
-  color: white;
-}
-.docos-input-textarea.docos-input-contenteditable.editable.awr-inlineAssistMonitorContainer:focus {
-  border-color: var(--paleblue);
 }
 
 /* “Explore” button */

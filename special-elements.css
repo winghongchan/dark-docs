@@ -130,6 +130,14 @@
 }
 
 /* New changes notifier */
+.docs-title-save-label-text {
+  color: var(--lightgray);
+  transition: color 0.25s ease;
+}
+.docs-title-save-label-hover .docs-title-save-label-text {
+  color: var(--lightergray);
+  transition: color 0.1s ease;
+}
 #docs-new-changes {
   background-color: var(--gray) !important;
   color: var(--lightergray) !important;
@@ -208,14 +216,14 @@
 .docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-hover {
   background-color: var(--paleblue);
   color: black;
-  transition: filter 0.25s ease;
+  transition: var(--button-off);
 }
 .docs-gm #docs-titlebar-share-client-button .jfk-button .scb-button-icon {
 	filter: brightness(0);
 }
 .docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-hover {
-  filter: brightness(105%);
-  transition: filter 0.1s ease;
+  background-color: var(--palerblue);
+  transition: var(--button-on);
 }
 
 /* “Turn In” button */
@@ -263,7 +271,7 @@
 /* Opened dropdowns */
 .docs-gm .docs-material .goog-toolbar-menu-button-open {
   background-color: var(--ripple);
-  color: var(--paleblue);
+  color: var(--palerblue);
   transition: var(--button-on);
 }
 .docs-gm .docs-material .goog-toolbar-menu-button-open div div div div .docs-icon-img {
@@ -294,6 +302,11 @@
   border-color: var(--gray);
 }
 
+/* Font menu “RECENT” header */
+.docs-fontmenu .docs-fonts-section-header {
+  color: var(--lightergray);
+}
+
 /* Font size */
 #fontSizeDecrement,
 #fontSizeSelect.docs-font-size-inc-dec-combobox,
@@ -309,6 +322,17 @@
 }
 .docs-gm .goog-toolbar-combo-button-input::selection {
   background-color: var(--paleblue);
+}
+
+/* Input tools */
+.docs-icon-inputtools-button-inner {
+  filter: invert(10);
+}
+
+/* Extra toolbar items box */
+.docs-material.docs-toolbar-more-toolbar {
+  background-color: var(--darkgray);
+  border: 1px solid var(--gray);
 }
 
 /* Edit/Suggest/View switch */
@@ -332,7 +356,7 @@
 }
 .docs-icon-acl-comment-only-green700 {
   filter: none !important;
-  filter: hue-rotate(-2deg) saturate(38%) brightness(182%) !important;
+  filter: var(--pale-green-icons) !important;
 }
 #docs-toolbar-mode-switcher.docs-toolbar-menu-button-open .docs-icon-acl-comment-only-green700 {
   filter: none !important;
@@ -343,7 +367,7 @@
 
 /*Remove white line below top bar*/
 .kix-document-top-shadow.read-mode-titlebar-border {
-  border: none;
+  border-color: var(--darkgray);
 }
 
 /*TABLE OF CONTENTS (TOC)*/
@@ -352,7 +376,6 @@
 .docs-icon-arrow-back-dark, 
 .docs-icon-list-24 {
   filter: brightness(3); 
-  /*TO-DO: smooth transition between hover and normal*/
 }
 
 /*Unselected items in the TOC*/
@@ -370,12 +393,12 @@
 
 /*Selected item in the TOC*/
 .outline-refresh .location-indicator-highlight.navigation-item {
-  color: var(--paleblue);
+  color: var(--palerblue);
   transition: var(--text-hover-off);
 }
 
 .outline-refresh .location-indicator-highlight.navigation-item.goog-button-hover {
-  color: var(--paleblue);
+  color: var(--palerblue);
   text-shadow: 0 0 4px var(--paleblue);
   transition: var(--text-hover-on);
 }
@@ -424,12 +447,10 @@ body {
   background-color: var(--darkgray);
 }
 
+.docs-gm #docs-editor, 
+.docs-gm #docs-editor-container, 
 .kix-appview-editor {
   background-color: var(--darkgray) !important;
-  background-image: url("https://images.unsplash.com/photo-1568345284020-590abc9390d4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 /* Pages and cursor */
@@ -700,6 +721,8 @@ body {
 .kix-citations-format-select {
   background-color: var(--gray);
 }
+
+/* “+ Add citation source” button */
 .kix-citations-flat-button.goog-flat-button, 
 .kix-citations-add-source-button.goog-flat-button {
   transition: var(--button-off);
@@ -707,11 +730,18 @@ body {
 .kix-citations-flat-button.goog-flat-button-hover, 
 .kix-citations-add-source-button.goog-flat-button-hover {
   background-color: var(--ripple);
+  color: var(--palerblue) !important;
   transition: var(--button-on);
 }
 .kix-citations-flat-button-icon-path, 
 .kix-citations-add-source-button-icon-path {
   fill: var(--paleblue);
+  transition: fill 0.25s ease;
+}
+.goog-flat-button-hover .kix-citations-flat-button-icon-path, 
+.goog-flat-button-hover .kix-citations-add-source-button-icon-path {
+  fill: var(--palerblue) !important;
+  transition: fill 0.1s ease;
 }
 .kix-citations-flat-button.goog-flat-button, 
 .kix-citations-add-source-button.goog-flat-button {
@@ -748,13 +778,17 @@ body {
 .goog-toolbar.kix-citations-source-list-item-toolbar {
   background-color: var(--gray);
 }
-.goog-toolbar.kix-citations-source-list-item-toolbar .goog-toolbar-menu-button-hover:not(.goog-toolbar-menu-button-open), 
-.goog-toolbar.kix-citations-source-list-item-toolbar .goog-toolbar-button-hover:not(.goog-toolbar-menu-button-open) {
-  background-color: var(--lightgray);
-  transition: background-color 5s ease;
+.goog-toolbar.kix-citations-source-list-item-toolbar .goog-toolbar-menu-button-hover,
+.goog-toolbar.kix-citations-source-list-item-toolbar .goog-toolbar-button-hover {
+  background-color: var(--lightgray) !important;
 }
 .kix-citations-source-list-item-insert-button {
   color: var(--paleblue);
+  transition: var(--button-off);
+}
+.goog-toolbar-button-hover .kix-citations-source-list-item-insert-button {
+  color: var(--palerblue);
+  transition: var(--button-on);
 }
 
 /* Citations panel automatic cite results */
@@ -800,10 +834,6 @@ body {
 .kix-citations-insert-bibliography-container {
   background-color: var(--gray);
 }
-.docs-material-button-fill-primary.docs-material-button {
-  background-color: var(--paleblue);
-  color: black;
-}
 
 /* Apps panel */
 
@@ -844,4 +874,127 @@ body {
 }
 .companion-guest-app-switcher .app-switcher-button-selected .app-switcher-button-icon-background-inner {
   background-color: var(--ripple);
+}
+
+/**********/
+
+/* Revisions top bar */
+.docs-gm .docs-revisions-chromecover-content-color-default {
+  background-color: var(--darkgray);
+  color: white;
+}
+#docs-toolbar-iterator-label {
+  color: white;
+}
+#docs-revisions-sidebar-title {
+  background-color: var(--darkgray);
+}
+.docs-revisions-sidebar-title-text {
+  color: white;
+}
+
+/* “Restore this version button” */ 
+.docs-revisions-chromecover-titlebar-button-action, 
+.docs-revisions-chromecover-titlebar-second-button-action {
+  background-color: var(--paleblue);
+  color: black;
+  transition: var(--button-off);
+}
+.docs-revisions-chromecover-titlebar-button-action.goog-flat-button-hover:not(.goog-flat-button-active), 
+.docs-revisions-chromecover-titlebar-second-button-action .goog-flat-button-hover {
+  background-color: var(--palerblue);
+  transition: var(--button-on);
+}
+
+/* Author list */
+.docs-revisions-authorwidget-hat {
+  color: white;
+}
+.docs-revisions-authorwidget-item-name {
+  color: white;
+}
+
+/* Sidebar */
+.docs-gm .docs-revisions-sidebar {
+  border-left: 1px solid var(--gray);
+}
+.docs-gm .docs-revisions-sidebar-header {
+  background-color: var(--darkgray);
+  border-color: var(--gray) !important;
+  height: 102.5px;
+}
+.docs-revisions-sidebar-name-filter-switch-container {
+  border-color: var(--gray) !important;
+  height: 39px;
+}
+.docs-gm .docs-revisions-sidebar-name-filter-switch-container label {
+  color: white;
+}
+.docs-gm .docs-revisions-switch .apps-ui-material-slide-toggle-thumb {
+  background-color: var(--lightergray);
+}
+.docs-gm .docs-revisions-switch .apps-ui-material-slide-toggle-track {
+  background-color: var(--lightgray);
+}
+.docs-gm .docs-revisions-switch.apps-ui-material-slide-toggle-container-checked .apps-ui-material-slide-toggle-thumb {
+  background-color: var(--palerblue);
+}
+.docs-gm .docs-revisions-switch.apps-ui-material-slide-toggle-container-checked .apps-ui-material-slide-toggle-track {
+  background-color: var(--paleblue);
+}
+
+/* Version history list */
+.docs-revisions-sidebar-revisions-empty-container {
+  background-color: var(--darkgray);
+}
+.docs-gm .docs-revisions-sidebar-date-group {
+  background-color: var(--darkgray);
+  border-color: var(--gray) !important;
+  color: white;
+}
+.docs-revisions-icon-img::before {
+  filter: invert(10);
+}
+.docs-revisions-tile {
+  background-color: var(--darkgray);
+  transition: var(--button-off);
+}
+.docs-revisions-tile-hover:not(.docs-revisions-tile-selected) {
+  background-color: var(--gray);
+  transition: var(--button-on);
+}
+.docs-revisions-tile-selected {
+  background-color: var(--ripple);
+  transition: var(--button-on)
+}
+.docs-revisions-tile-text-box:disabled, 
+.docs-gm .docs-revisions-tile-descriptor, 
+.docs-gm .docs-revisions-tile-text-box ~ .docs-revisions-tile-descriptor {
+  color: white;
+}
+.docs-gm .docs-revisions-tile-selected .docs-revisions-tile-text-box, 
+.docs-gm .docs-revisions-tile-selected .docs-revisions-tile-descriptor, 
+.docs-gm .docs-revisions-tile-selected .docs-revisions-tile-text-box ~ .docs-revisions-tile-descriptor {
+  color: var(--palerblue);
+}
+.docs-gm .docs-revisions-tile-collaborator-name {
+  color: var(--lightergray);
+}
+.docs-revisions-tile-content-wrapper {
+  border-color: var(--gray);
+}
+/* Named versions only */
+.docs-gm .docs-revisions-sidebar-revisions-empty-title {
+  color: white;
+}
+.docs-gm .docs-revisions-sidebar-revisions-empty-details {
+  color: var(--lightergray);
+}
+.docs-gm a.docs-revisions-sidebar-revisions-empty-learn-more {
+  color: var(--palerblue);
+}
+/* Show changes checkbox */
+.docs-revisions-sidebar-actions {
+  background-color: var(--darkgray);
+  border-color: var(--gray);
 }

@@ -49,6 +49,8 @@
   color: var(--lightergray);
 }
 
+/* File location picker (next to )
+
 /* Menubar */
 
 /* Titles */
@@ -58,6 +60,11 @@
 }
 .docs-gm .docs-menubar .goog-control-hover {
   background-color: var(--gray);
+  transition: var(--button-on);
+}
+.docs-gm .docs-menubar .goog-control-active,
+.docs-gm .docs-menubar .goog-control:hover:active {
+  background-color: var(--ripple);
   transition: var(--button-on);
 }
 .docs-gm .docs-menubar .goog-control.docs-menu-button-open-below {
@@ -84,6 +91,11 @@
 .docs-gm .goog-menuitem-accel, .docs-gm .goog-menuitem-disabled .goog-menuitem-accel {
   color: var(--lightergray) !important;
 }
+.docs-gm .goog-menuitem-active, 
+.docs-gm .goog-menuitem-active:hover:active {
+  background-color: var(--ripple);
+  transition: var(--button-on);
+}
 
 /* Separators */
 .apps-hoverable-menu-separator-container .apps-hoverable-menu-separator-bottom {
@@ -96,6 +108,45 @@
 /* Icons */
 .docs-gm .docs-material.goog-menu .apps-menuitem.goog-option-selected .goog-menuitem-checkbox {
   filter: invert(100%);
+}
+
+/* PREFERENCES */
+
+/* Preferences tabs */
+.docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab {
+  transition: var(--button-off);
+}
+.docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab-hover {
+  background-color: var(--gray);
+  transition: var(--button-on);
+}
+.docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tablabel, 
+.docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab .docs-tabbar-tablabel:hover {
+  color: var(--lightergray);
+}
+.docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab-selected .docs-tabbar-tablabel, 
+.docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab-selected .docs-tabbar-tablabel:hover {
+  color: var(--palerblue);
+}
+.docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab::before {
+  border-bottom-color: var(--palerblue);
+}
+
+/* Preferences items */
+.docs-preferencesdialog-subtext {
+  color: var(--lightergray);
+}
+
+/* Substitutions table */
+#docs-stringreplacementtable-table .docs-preferencesdialog-list-body {
+  background-color: var(--darkgray);
+  border-color: var(--darkgray);
+}
+#docs-stringreplacementtable-table .docs-preferencesdialog-list-title-content {
+  color: white;
+}
+#docs-stringreplacementtable-table .docs-icon-close-small {
+  filter: invert(50);
 }
 
 /* Addons dropdown empty state */
@@ -232,7 +283,7 @@
   color: white;
 }
 
-/* Toolbar */
+/* TOOLBAR */
 
 /* Toolbar wrapper */
 .docs-material #docs-toolbar-wrapper {
@@ -367,7 +418,7 @@
 
 /*Remove white line below top bar*/
 .kix-document-top-shadow.read-mode-titlebar-border {
-  border-color: var(--darkgray);
+  border-top-color: var(--darkgray);
 }
 
 /*TABLE OF CONTENTS (TOC)*/
@@ -451,6 +502,10 @@ body {
 .docs-gm #docs-editor-container, 
 .kix-appview-editor {
   background-color: var(--darkgray) !important;
+  background-image: url("https://images.unsplash.com/photo-1568345284020-590abc9390d4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Pages and cursor */
@@ -552,6 +607,25 @@ body {
   filter: var(--pale-green-icons) !important;
 }
 
+/* Find bar */
+#docs-findbar-id .docs-slidingdialog {
+  background-color: var(--darkgray);
+  border-color: var(--gray);
+}
+.docs-gm .docs-findinput-container {
+  background-color: var(--darkgray);
+  border-color: var(--gray); 
+  transition: var(--button-off), padding 0.25s ease-in-out; 
+  /* These transitions are making the text a bit shifty when going between focused and unfocused*/
+}
+.docs-gm .docs-findinput-container-focus {
+  border-color: var(--paleblue);
+  transition: var(--button-on), padding 0.1s ease-in-out;
+}
+.docs-findinput-input, .docs-findinput-input:focus {
+  color: white;
+}
+
 /* Comment */
 .docs-gm .docos-anchoreddocoview, 
 .docs-gm .docos-anchoreddocoview.docos-docoview-active, 
@@ -582,30 +656,6 @@ body {
 }
 
 /* Side (Image options) panel (and as it turns out, a lot of form elements) */
-
-/* Side panel header */
-.docs-gm .docs-tiled-sidebar-header {
-  background-color: var(--darkgray);
-  border-color: var(--gray);
-  color: white;
-}
-.docs-gm .docs-gm-sidebar-icon {
-  filter: var(--pale-icons);
-}
-.docs-sidebar-gm-titlebar-icon-button {
-  transition: var(--button-off);
-}
-.docs-sidebar-gm-titlebar-icon-button:hover {
-  background-color: var(--gray);
-  transition: var(--button-on);
-}
-
-/* Side panel background */
-.docs-gm .docs-tiled-sidebar {
-  background-color: var(--darkgray);
-  border-left: 1px solid var(--gray);
-  color: white;
-}
 
 /* Side panel dropdown headers */
 .docs-sidebar-tile-header-cursor {
@@ -656,13 +706,6 @@ body {
 .docs-number-input-up-button, .docs-number-input-down-button {
   filter: invert(100%);
 }
-.docs-material-gm-labeled-checkbox-checkbox.docs-material-gm-labeled-checkbox-checked {
-  background-color: var(--paleblue); 
-  border-color: var(--paleblue);
-}
-.docs-material-gm-labeled-checkbox-checkbox.docs-material-gm-labeled-checkbox-checked::before {
-  filter: brightness(0);
-}
 .docs-sidebar-palette .docs-sidebar-palette-button-container .docs-sidebar-palette-button /*Text wrapping*/ {
   background-color: var(--gray);
   border-color: var(--lightergray) !important;
@@ -692,309 +735,4 @@ body {
   background-color: transparent;
   border-color: var(--lightergray) !important;
   color: var(--paleblue);
-}
-
-/* Citations panel */
-
-/* Citations panel title */
-.kix-citations-sidebar-titlebar {
-  background-color: var(--darkgray);
-  border-color: var(--gray);
-  color: white;
-}
-
-/* Add and view citations */
-.kix-citations-create-view-search, 
-.kix-citations-create-view-top, 
-.kix-citations-list-view-top {
-  background-color: var(--gray);
-  border-color: var(--gray);
-}
-.kix-citations-label, 
-.kix-citations-accessed-by-select-label, 
-.kix-citations-source-type-select-label {
-  color: white;
-}
-.kix-citations-select, 
-.kix-citations-accessed-by-select, 
-.kix-citations-source-type-select, 
-.kix-citations-format-select {
-  background-color: var(--gray);
-}
-
-/* “+ Add citation source” button */
-.kix-citations-flat-button.goog-flat-button, 
-.kix-citations-add-source-button.goog-flat-button {
-  transition: var(--button-off);
-}
-.kix-citations-flat-button.goog-flat-button-hover, 
-.kix-citations-add-source-button.goog-flat-button-hover {
-  background-color: var(--ripple);
-  color: var(--palerblue) !important;
-  transition: var(--button-on);
-}
-.kix-citations-flat-button-icon-path, 
-.kix-citations-add-source-button-icon-path {
-  fill: var(--paleblue);
-  transition: fill 0.25s ease;
-}
-.goog-flat-button-hover .kix-citations-flat-button-icon-path, 
-.goog-flat-button-hover .kix-citations-add-source-button-icon-path {
-  fill: var(--palerblue) !important;
-  transition: fill 0.1s ease;
-}
-.kix-citations-flat-button.goog-flat-button, 
-.kix-citations-add-source-button.goog-flat-button {
-  color: var(--paleblue);
-}
-
-/* Citations panel content */
-.kix-citations-source-list-container, 
-.kix-citations-create-view-zero-state, 
-.kix-citations-source-list-zero-state,
-.kix-citations-search-result-view-content, 
-.kix-citations-create-view-attributes-container {
-  background-color: var(--darkgray);
-}
-.kix-citations-source-list-zero-state-heading {
-  color: white;
-}
-.kix-citations-source-list-zero-state-content {
-  color: var(--lightergray);
-}
-
-/* Citations panel list */
-.kix-citations-source-list-item,
-.kix-citations-source-list-item:hover, 
-.kix-citations-source-list-item:focus {
-  border-color: var(--gray);
-  background-color: var(--darkgray);
-}
-.kix-citations-source-list-item-content span {
-  color: white !important;
-  /* For the many essays that are written in this font → font-family: 'Times', 'Times New Roman', Freeserif, serif !important; */
-}
-/* Little toolbar with “Cite” and an overflow menu */
-.goog-toolbar.kix-citations-source-list-item-toolbar {
-  background-color: var(--gray);
-}
-.goog-toolbar.kix-citations-source-list-item-toolbar .goog-toolbar-menu-button-hover,
-.goog-toolbar.kix-citations-source-list-item-toolbar .goog-toolbar-button-hover {
-  background-color: var(--lightgray) !important;
-}
-.kix-citations-source-list-item-insert-button {
-  color: var(--paleblue);
-  transition: var(--button-off);
-}
-.goog-toolbar-button-hover .kix-citations-source-list-item-insert-button {
-  color: var(--palerblue);
-  transition: var(--button-on);
-}
-
-/* Citations panel automatic cite results */
-.kix-citations-search-result-attribute-label {
-  color: var(--lightergray);
-}
-.kix-citations-search-result-attribute-value, 
-.kix-citations-search-result-attribute-value a:visited {
-  color: white;
-}
-
-/* Citations panel source details editor */
-.kix-citations-create-view-attributes-subtitle,
-.kix-citations-create-view-recommended-mark {
-  color: var(--paleblue);
-}
-.kix-citations-contributor-type-select,
-.kix-citations-create-view-input, 
-.kix-citations-search-input {
-  background-color: transparent;
-  border-color: var(--lightergray);
-  color: white;
-  transition: border-color 0.25s ease;
-}
-.kix-citations-search-input:focus, 
-.kix-citations-create-view-input:focus {
-  border-color: var(--paleblue);
-  transition: border-color 0.1s ease;
-}
-.kix-citations-select .docs-material-gm-select-outer-box {
-  border-color: var(--lightgray);
-}
-.kix-citations-create-view-attribute-label {
-  color: var(--lightergray);
-}
-.kix-citations-flat-button.goog-flat-button-hover {
-  background-color: var(--lightgray);
-}
-
-/* Citations - Insert Works Cited button */
-.kix-citations-search-result-view-attributes-bottom, 
-.kix-citations-create-view-bottom, 
-.kix-citations-insert-bibliography-container {
-  background-color: var(--gray);
-}
-
-/* Apps panel */
-
-/* Show side panel */
-.companion-collapser-button.app-switcher-button-checked .app-switcher-button-icon-background {
-  background-color: var(--darkgray);
-  transition: var(--button-off);
-}
-.companion-collapser-button.app-switcher-button-checked.app-switcher-button-hover .app-switcher-button-icon-background {
-  background-color: var(--gray);
-  transition: var(--button-on);
-}
-.app-switcher-button-icon {
-  filter: brightness(2);
-}
-
-/* Apps panel */
-
-/* Panel toggle */
-.companion-app-switcher-container {
-  background-color: var(--darkgray);
-  border-color: var(--gray);
-}
-.docs-companion-app-switcher-container,
-.companion-app-switcher-separator {
-  border-top-color: var(--gray);
-}
-.companion-collapser-button.app-switcher-button-checked.app-switcher-button-focused .app-switcher-button-icon-background,
-.app-switcher-button-focused .app-switcher-button-icon-background,
-.app-switcher-button-focused.app-switcher-button-hover .app-switcher-button-icon-background {
-  background-color: var(--gray);
-}
-
-/* Panel items */
-.app-switcher-button-hover .app-switcher-button-icon-background,
-.app-switcher-button-selected.agca-gab-blue.app-switcher-button-hover .app-switcher-button-icon-background-inner{
-  background-color: var(--gray);
-}
-.companion-guest-app-switcher .app-switcher-button-selected .app-switcher-button-icon-background-inner {
-  background-color: var(--ripple);
-}
-
-/**********/
-
-/* Revisions top bar */
-.docs-gm .docs-revisions-chromecover-content-color-default {
-  background-color: var(--darkgray);
-  color: white;
-}
-#docs-toolbar-iterator-label {
-  color: white;
-}
-#docs-revisions-sidebar-title {
-  background-color: var(--darkgray);
-}
-.docs-revisions-sidebar-title-text {
-  color: white;
-}
-
-/* “Restore this version button” */ 
-.docs-revisions-chromecover-titlebar-button-action, 
-.docs-revisions-chromecover-titlebar-second-button-action {
-  background-color: var(--paleblue);
-  color: black;
-  transition: var(--button-off);
-}
-.docs-revisions-chromecover-titlebar-button-action.goog-flat-button-hover:not(.goog-flat-button-active), 
-.docs-revisions-chromecover-titlebar-second-button-action .goog-flat-button-hover {
-  background-color: var(--palerblue);
-  transition: var(--button-on);
-}
-
-/* Author list */
-.docs-revisions-authorwidget-hat {
-  color: white;
-}
-.docs-revisions-authorwidget-item-name {
-  color: white;
-}
-
-/* Sidebar */
-.docs-gm .docs-revisions-sidebar {
-  border-left: 1px solid var(--gray);
-}
-.docs-gm .docs-revisions-sidebar-header {
-  background-color: var(--darkgray);
-  border-color: var(--gray) !important;
-  height: 102.5px;
-}
-.docs-revisions-sidebar-name-filter-switch-container {
-  border-color: var(--gray) !important;
-  height: 39px;
-}
-.docs-gm .docs-revisions-sidebar-name-filter-switch-container label {
-  color: white;
-}
-.docs-gm .docs-revisions-switch .apps-ui-material-slide-toggle-thumb {
-  background-color: var(--lightergray);
-}
-.docs-gm .docs-revisions-switch .apps-ui-material-slide-toggle-track {
-  background-color: var(--lightgray);
-}
-.docs-gm .docs-revisions-switch.apps-ui-material-slide-toggle-container-checked .apps-ui-material-slide-toggle-thumb {
-  background-color: var(--palerblue);
-}
-.docs-gm .docs-revisions-switch.apps-ui-material-slide-toggle-container-checked .apps-ui-material-slide-toggle-track {
-  background-color: var(--paleblue);
-}
-
-/* Version history list */
-.docs-revisions-sidebar-revisions-empty-container {
-  background-color: var(--darkgray);
-}
-.docs-gm .docs-revisions-sidebar-date-group {
-  background-color: var(--darkgray);
-  border-color: var(--gray) !important;
-  color: white;
-}
-.docs-revisions-icon-img::before {
-  filter: invert(10);
-}
-.docs-revisions-tile {
-  background-color: var(--darkgray);
-  transition: var(--button-off);
-}
-.docs-revisions-tile-hover:not(.docs-revisions-tile-selected) {
-  background-color: var(--gray);
-  transition: var(--button-on);
-}
-.docs-revisions-tile-selected {
-  background-color: var(--ripple);
-  transition: var(--button-on)
-}
-.docs-revisions-tile-text-box:disabled, 
-.docs-gm .docs-revisions-tile-descriptor, 
-.docs-gm .docs-revisions-tile-text-box ~ .docs-revisions-tile-descriptor {
-  color: white;
-}
-.docs-gm .docs-revisions-tile-selected .docs-revisions-tile-text-box, 
-.docs-gm .docs-revisions-tile-selected .docs-revisions-tile-descriptor, 
-.docs-gm .docs-revisions-tile-selected .docs-revisions-tile-text-box ~ .docs-revisions-tile-descriptor {
-  color: var(--palerblue);
-}
-.docs-gm .docs-revisions-tile-collaborator-name {
-  color: var(--lightergray);
-}
-.docs-revisions-tile-content-wrapper {
-  border-color: var(--gray);
-}
-/* Named versions only */
-.docs-gm .docs-revisions-sidebar-revisions-empty-title {
-  color: white;
-}
-.docs-gm .docs-revisions-sidebar-revisions-empty-details {
-  color: var(--lightergray);
-}
-.docs-gm a.docs-revisions-sidebar-revisions-empty-learn-more {
-  color: var(--palerblue);
-}
-/* Show changes checkbox */
-.docs-revisions-sidebar-actions {
-  background-color: var(--darkgray);
-  border-color: var(--gray);
 }

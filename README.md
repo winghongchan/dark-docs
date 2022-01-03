@@ -5,7 +5,7 @@ Some subtle animations added.
 
 ## Installation
 1. Use a browser extension that applies user CSS themes to webpages, such as [Stylus](https://github.com/openstyles/stylus/).
-2. Apply the stylesheet to URLs starting with `https://docs.google.com/document/d/`. (Copy all contents of the [basic-elements.css](basic-elements.css) and the [special-elements.css](special-elements.css) files).
+2. Apply the stylesheets to URLs starting with `https://docs.google.com/document/d/`. (Copy all contents of the `.css` files. You may choose to paste them all in the same section, or add separate sections for each css file.)
 
 Check the [Customization wiki](https://github.com/winghongchan/dark-docs/wiki/Customization) if you wish to add a wallpaper. 
 

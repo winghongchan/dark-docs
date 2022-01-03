@@ -502,10 +502,6 @@ body {
 .docs-gm #docs-editor-container, 
 .kix-appview-editor {
   background-color: var(--darkgray) !important;
-  background-image: url("https://images.unsplash.com/photo-1568345284020-590abc9390d4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 /* Pages and cursor */

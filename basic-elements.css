@@ -5,66 +5,504 @@
   --palerblue: #8AB4F8;
   --paleblue: #669DF7;
   --pale-icons: hue-rotate(3.6deg) saturate(32.2%) brightness(170%);
+  --palergreen: #81c995;
+  --pale-green-icons: hue-rotate(-2deg) saturate(38%) brightness(182%);
   --ripple: #394457;
-  --lightgray: #616266;
+  --lightgray: #80868b;
   --lightergray: #9aa0a6;
 	--gray: #3C4043;
   --darkgray: #202124;
   --text-hover-on: text-shadow 0.1s ease;
   --text-hover-off: text-shadow 0.25s ease;
-  --button-on: background-color 0.1s ease, border-color 0.1s ease, color 0.1s ease;
+  --button-on: background-color 0.1s ease, border 0.1s ease, color 0.1s ease;
 	--button-off: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
-/* Buttons */
+/* Scrollbar */
+.docs-gm ::-webkit-scrollbar-thumb {
+  background-color: var(--lightergray);
+}
+
+/* BUTTONS */
 
 /* Filled */
-.docos.docs-gm .jfk-button.jfk-button-action {
+.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-disabled, 
+.docs-gm .modal-dialog .goog-buttonset-action[disabled], 
+.docs-gm .modal-dialog .jfk-button-action.jfk-button-disabled, 
+.docs-gm .docs-material-bubble .jfk-button-action.jfk-button-disabled {
+  background-color: var(--gray) !important;
+  border-color: var(--gray) !important;
+  color: var(--darkgray) !important;
+  opacity: 100%;
+  transition: var(--button-off);
+}
+.analytics-btn-fill.jfk-button, 
+.docs-material-button-fill-primary.docs-material-button, 
+.docs-gm #docs-titlebar-share-client-button .jfk-button, 
+.docs-gm .modal-dialog .goog-buttonset-action, 
+.docs-gm .modal-dialog .jfk-button-action, 
+.docs-gm .docs-material-bubble .jfk-button-action {
   background-color: var(--paleblue);
   color: black;
   transition: var(--button-off);
 }
-.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-hover {
+.analytics-btn-fill.jfk-button.jfk-button-hover, 
+.docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-hover, 
+.docs-gm #docs-titlebar-share-client-button .jfk-button:focus, 
+.docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-hover:focus, 
+.docs-gm .modal-dialog .goog-buttonset-action:hover:focus, 
+.docs-gm .modal-dialog .jfk-button-action.jfk-button-hover.jfk-button-focused, 
+.docs-gm .modal-dialog .goog-buttonset-action:focus, 
+.docs-gm .modal-dialog .jfk-button-action.jfk-button-focused, 
+.docs-gm .modal-dialog .goog-buttonset-action:hover, 
+.docs-gm .modal-dialog .jfk-button-action.jfk-button-hover, 
+.docs-gm .modal-dialog .jfk-button-action.jfk-button-hover,
+.docs-gm .modal-dialog .jfk-button-action.jfk-button-focused,
+.docs-material-button-fill-primary.docs-material-button-hover, 
+.docs-material-button-fill-primary.docs-material-button-focused.docs-material-button-no-focus-border, 
+.docs-material-button-fill-primary.docs-material-button-hover.docs-material-button-focused {
   background-color: var(--palerblue);
   color: black;
   transition: var(--button-on);
 }
-.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-disabled {
-  background-color: var(--lightgray);
-  color: var(--darkgray);
-  opacity: 100%;
+.analytics-btn-fill.jfk-button.jfk-button-focused.jfk-button-active, 
+.docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-focused.jfk-button-active, 
+.docs-gm .modal-dialog .goog-buttonset-action:active, 
+.docs-gm .modal-dialog .goog-buttonset-action:focus:active, 
+.docs-gm .modal-dialog .jfk-button-action.jfk-button-active, 
+.docs-gm .modal-dialog .jfk-button-action.jfk-button-focus.jfk-button-active, 
+.docs-gm .docs-material-bubble .jfk-button-action.jfk-button-active, 
+.docs-gm .docs-material-bubble .jfk-button-action.jfk-button-focus.jfk-button-active, 
+.docs-gm .modal-dialog .jfk-button-action.jfk-button-hover.jfk-button-focused, 
+.docs-material-button-fill-primary.docs-material-button-focused.docs-material-button-active {
+  background-color: var(--palerblue);
+  color: var(--ripple);
 }
 
 /* Outlined */
-
-.docos.docs-gm .jfk-button.jfk-button-standard {
-  background-color: transparent;
+.docs-gm .modal-dialog button[disabled], 
+.docs-gm .modal-dialog .jfk-button-standard.jfk-button-disabled {
+  background-color: var(--darkgray);
   border-color: var(--gray) !important;
-  color: var(--paleblue);
+  color: var(--gray);
+  opacity: 100% !important;
   transition: var(--button-off);
 }
+.analytics-btn-hairline.jfk-button, 
+.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button, 
+.docos.docs-gm .jfk-button.jfk-button-standard, 
+.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-standard, 
+.docs-gm .modal-dialog button, 
+.docs-gm .modal-dialog .jfk-button-standard, 
+.docs-material-button-hairline-primary.docs-material-button {
+  background-color: transparent;
+  border-color: var(--gray) !important;
+  color: var(--palerblue);
+  transition: var(--button-off);
+}
+.analytics-btn-hairline.jfk-button.jfk-button-hover, 
+.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button:hover, 
+.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button:focus, 
+.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover, 
+.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover:focus, 
+.docs-gm .modal-dialog button:focus, 
+.docs-gm .modal-dialog .jfk-button-standard.jfk-button-focused, 
+.docs-gm .modal-dialog button:hover, 
+.docs-gm .modal-dialog .jfk-button-standard.jfk-button-hover, 
+.docs-gm .modal-dialog .jfk-button-standard.jfk-button-focused, 
+.docs-gm .modal-dialog button:hover:focus, 
+.docs-gm .modal-dialog .jfk-button-standard.jfk-button-hover.jfk-button-focused, 
 .docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-hover,
-.docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-focused {
+.docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-focused, 
+.docs-material-button-hairline-primary.docs-material-button-hover, 
+.docs-material-button-hairline-primary.docs-material-button-focused, 
+.docs-material-button-hairline-primary.docs-material-button-hover.docs-material-button-focused, 
+.docs-material-button-hairline-primary.docs-material-button-focused.docs-material-button-no-focus-border {
   background-color: var(--gray);
   border-color: var(--gray) !important;
   transition: var(--button-on);
 }
-.docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-focused.jfk-button-hover {
-  background-color: var(--gray);
-  border-color: var(--gray) !important;
+.analytics-btn-hairline.jfk-button.jfk-button-hover.jfk-button-active, 
+.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button:active, 
+.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover.jfk-button-active, 
+.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover.jfk-button-focused.jfk-button-active, 
+.docs-gm .modal-dialog button:active, 
+.docs-gm .modal-dialog button:focus:active, 
+.docs-gm .modal-dialog .jfk-button-standard.jfk-button-active, 
+.docs-gm .modal-dialog .jfk-button-standard.jfk-button-focus.jfk-button-active, 
+.docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-focused.jfk-button-hover,
+.docs-gm .modal-dialog .jfk-button-standard.jfk-button-hover.jfk-button-focused, 
+.docs-material-button-hairline-primary.docs-material-button-active.docs-material-button-focused {
+  background-color: var(--ripple);
+  border-color: var(--ripple) !important;
   color: var(--palerblue);
   transition: var(--button-on);
 }
 
-/* Text fields */
-.docs-gm .docos-input-textarea {
+/* Text buttons */
+.analytics-btn-text.jfk-button, 
+.docs-material-button-text-default.docs-material-button {
+  background-color: transparent;
+  color: var(--palerblue);
+  font-weight: 500;
+  transition: var(--button-off);
+}
+.analytics-btn-text.jfk-button-hover, 
+.analytics-btn-text.jfk-button-focused.jfk-button-hover, 
+.docs-material-button-hover.docs-material-button-text-default {
+  background-color: var(--gray);
+  color: var(--palerblue);
+  transition: var(--button-on);
+}
+.analytics-btn-text.jfk-button-focused.jfk-button-hover.jfk-button-active, 
+.docs-material-button-text-default>.docs-material-button-ripple-element {
+  background-color: var(--ripple);
+  color: var(--palerblue);
+}
+
+/* BUTTONS, TOGGLE */
+.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button, 
+.docs-sidebar-palette .docs-sidebar-palette-button-container .docs-sidebar-palette-button {
+  background-color: var(--darkgray);
+  border-color: var(--gray) !important;
+  transition: var(--button-off);
+}
+.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-hover,
+.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-focused,
+.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-hover.jfk-button-focused, 
+.docs-sidebar-palette .docs-sidebar-palette-button-container .docs-sidebar-palette-button:hover, 
+.docs-sidebar-palette .docs-sidebar-palette-button-container .docs-sidebar-palette-button:focus {
+  background-color: var(--gray);
+  border-color: var(--gray) !important;
+  transition: var(--button-on);
+}
+.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-checked, 
+.docs-sidebar-palette .docs-sidebar-palette-button-container.goog-control-selected .docs-sidebar-palette-button {
+  background-color: var(--ripple);
+  border-color: var(--paleblue) !important;
+}
+.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-hover.jfk-button-checked, 
+.docs-sidebar-palette .docs-sidebar-palette-button-container.goog-control-selected .docs-sidebar-palette-button.docs-material-button-hover {
+  background-color: var(--ripple); 
+  border-color: var(--palerblue) !important;
+}
+
+/* CHECKBOXES */
+div.docs-material-gm-checkbox, 
+span.docs-material-gm-checkbox {
+  border-color: var(--lightgray);
+  transition: var(--button-off);
+}
+div.docs-material-gm-checkbox-hover, 
+div.docs-material-gm-checkbox-focused, 
+.docs-material-gm-labeled-checkbox-hover .docs-material-gm-labeled-checkbox-checkbox, 
+span.docs-material-gm-checkbox-focused {
+  border-color: var(--lightergray);
+}
+div.docs-material-gm-checkbox-checked, 
+.docs-material-gm-labeled-checkbox-checkbox.docs-material-gm-labeled-checkbox-checked, 
+span.docs-material-gm-checkbox-checked {
+  background-color: var(--paleblue); 
+  border-color: var(--paleblue);
+  transition: var(--button-on);
+}
+div.docs-material-gm-checkbox-checked.docs-material-gm-checkbox-focused, 
+div.docs-material-gm-checkbox-checked.docs-material-gm-checkbox-hover, 
+.docs-material-gm-labeled-checkbox-hover .docs-material-gm-labeled-checkbox-checked, 
+span.docs-material-gm-checkbox-checked.docs-material-gm-checkbox-focused {
+  background-color: var(--palerblue);
+  border-color: var(--palerblue);
+  transition: var(--button-on);
+}
+.docs-material-gm-labeled-checkbox-checkbox.docs-material-gm-labeled-checkbox-checked::before, 
+div.docs-material-gm-checkbox-checked::before, 
+span.docs-material-gm-checkbox-checked::before {
+  filter: brightness(0);
+}
+
+/* COLOR PICKER */
+.docs-gm .docs-colormenuitems .docs-colormenuitems-scheme-header, 
+.docs-gm .docs-colormenuitems .docs-colormenuitems-custom-header {
+  color: var(--lightergray);
+}
+.docs-customcolorpalette-add-custom-color-button {
+  border-radius: 4px;
+  transition: var(--button-off);
+}
+.docs-customcolorpalette-add-custom-color-button:hover {
+  background-color: var(--gray);
+  transition: var(--button-on);
+}
+/* Custom color picker */
+.docs-material-hsv-color-picker-text {
+  color: var(--lightergray);
+}
+.docs-material-color-picker-dragger {
+  box-shadow: none;
+}
+
+/* DROPDOWNS */
+.docs-gm .modal-dialog .goog-flat-menu-button, 
+.docs-material-gm-select-outer-box {
+  border-color: var(--gray);
+  transition: var(--button-off);
+}
+.docs-gm .modal-dialog .goog-flat-menu-button-hover, 
+.docs-material-gm-select-hover .docs-material-gm-select-outer-box, 
+.docs-material-gm-select-focused .docs-material-gm-select-outer-box {
+  background-color: var(--gray);
+  border-color: var(--gray);
+  transition: var(--button-on);
+}
+.docs-material-gm-select-open.docs-material-gm-select-focused .docs-material-gm-select-outer-box {
+  border-width: 2px;
+  border-color: var(--paleblue);
+  padding: 7px 5px 7px 7px;
+  transition: none;
+}
+.goog-toolbar-combo-button-dropdown {
+  filter: brightness(200%);
+}
+.docs-material-gm-select-caption {
+  color: white;
+}
+/* Dropdown content */
+.docs-gm .docs-indentationdialoggm-menu.goog-menu .goog-menuitem-content {
+  color: white;
+}
+
+/* LABELS */
+
+.analytics-low-data-treatment-description, 
+.analytics-sc-account-explanation, 
+.analytics-sc-document-explanation, 
+.analytics-sc-section-label, 
+.docs-customspacingdialog-paragraphspacing-label, 
+.docs-gm .kix-columnoptionsdialog-title, 
+.docs-gm .kix-translatedialog-label, 
+.docs-indentationdialoggm-label, 
+.docs-labeled-button-label, 
+.docs-material-gm-labeled-checkbox .docs-material-gm-labeled-checkbox-description, 
+.docs-material-gm-labeled-checkbox .docs-material-gm-labeled-checkbox-label, 
+.docs-number-input-label, 
+.docs-sidebar-tile-input-label, 
+.docs-sidebar-tile-label, 
+.kix-headerfooterdialog-input-label {
+  color: var(--lightergray);
+  opacity: 100%;
+}
+/* Units */
+.docs-gm .kix-columnoptionsdialog-units, 
+.docs-number-input-unit, 
+.kix-headerfooterdialog-units {
+  color: var(--lightergray);
+}
+
+/* RADIO BUTTONS */
+
+.docs-material-gm-labeled-checkbox-checkbox, 
+.jfk-radiobutton-radio, 
+.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton:not(.jfk-radiobutton-disabled) .jfk-radiobutton-radio, 
+.kix-pageorientationdialog-orientation-container .jfk-radiobutton:not(.jfk-radiobutton-disabled) .jfk-radiobutton-radio {
+  border-color: var(--lightgray);
+  transition: var(--button-off);
+}
+.jfk-radiobutton-disabled:hover .jfk-radiobutton-radio {
+  background-color: var(--transparent);
+}
+.jfk-radiobutton:hover .jfk-radiobutton-radio, 
+.jfk-radiobutton:focus .jfk-radiobutton-radio, 
+.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton.jfk-radiobutton-hover .jfk-radiobutton-radio, 
+.kix-pageorientationdialog-orientation-container .jfk-radiobutton.jfk-radiobutton-hover .jfk-radiobutton-radio {
+  border-color: var(--lightergray);
+  transition: var(--button-on);
+}
+.jfk-radiobutton-checked .jfk-radiobutton-radio, 
+.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton-checked.jfk-radiobutton:not(.jfk-radiobutton-disabled) .jfk-radiobutton-radio, 
+.kix-pageorientationdialog-orientation-container .jfk-radiobutton-checked.jfk-radiobutton:not(.jfk-radiobutton-disabled) .jfk-radiobutton-radio {
+  border-color: var(--paleblue);
+  transition: var(--button-on);
+}
+.jfk-radiobutton-checked:hover .jfk-radiobutton-radio, 
+.jfk-radiobutton-checked.jfk-radiobutton-hover .jfk-radiobutton-radio, 
+.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton.jfk-radiobutton-checked.jfk-radiobutton-focused.jfk-radiobutton-hover .jfk-radiobutton-radio, 
+.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton.jfk-radiobutton-checked.jfk-radiobutton-hover .jfk-radiobutton-radio, 
+.kix-pageorientationdialog-orientation-container .jfk-radiobutton-checked.jfk-radiobutton.jfk-radiobutton-hover .jfk-radiobutton-radio {
+  border-color: var(--palerblue);
+  transition: var(--button-on);
+}
+/* Radio button inner dot */
+.jfk-radiobutton-checked .jfk-radiobutton-radio::after {
+  background-color: var(--paleblue) !important;
+  border-color: var(--paleblue) !important;
+  transition: var(--button-off);
+}
+.jfk-radiobutton-checked.jfk-radiobutton-hover .jfk-radiobutton-radio::after {
+  background-color: var(--palerblue) !important;
+  border-color: var(--palerblue) !important;
+  transition: var(--button-on);
+}
+
+/* SLIDERS */
+
+.docs-material-slider-track-on {
+  background-color: var(--paleblue);
+}
+.docs-material-slider-track-off {
+  background-color: var(--gray);
+}
+.docs-material-slider-thumb-grabber {
+  background-color: var(--paleblue);
+  border-color: var(--paleblue);
+}
+.docs-material-slider-mouse-focused .docs-material-slider-thumb-grabber {
+  background-color: var(--palerblue);
+  border-color: var(--palerblue);
+}
+
+/* SWITCHES */
+
+/* Track */
+.apps-ui-material-slide-toggle-track {
+  background-color: var(--gray);
+  opacity: 100%;
+}
+.analytics-sc-section .apps-ui-material-slide-toggle-container-checked .apps-ui-material-slide-toggle-track {
+  background-color: var(--ripple);
+}
+/* Thumb */
+.analytics-sc-section .apps-ui-material-slide-toggle-thumb {
+  background-color: var(--lightgray);
+  transition: var(--button-off);
+}
+.analytics-sc-section .apps-ui-material-slide-toggle-container-hover .apps-ui-material-slide-toggle-thumb {
+  background-color: var(--lightergray);
+  transition: var(--button-on);
+}
+.analytics-sc-section .apps-ui-material-slide-toggle-container-checked .apps-ui-material-slide-toggle-thumb {
+  background-color: var(--paleblue);
+  transition: var(--button-off);
+}
+.analytics-sc-section .apps-ui-material-slide-toggle-container-checked.apps-ui-material-slide-toggle-container-hover .apps-ui-material-slide-toggle-thumb {
+  background-color: var(--palerblue);
+  transition: var(--button-on);
+}
+
+/* TEXT FIELDS */
+
+/* Outlined */
+.docs-gm .docos-input-textarea, 
+.docs-gm .modal-dialog .jfk-textinput, 
+.docs-copydocdialog-destination-button, 
+.docs-material-hsv-color-picker-input {
+  background-color: var(--darkgray);
   border-color: var(--gray);
   color: white;
+  transition: var(--button-off);
 }
 .docs-gm .docos-input-typing > .docos-input-textarea {
   color: white;
 }
-.docs-gm .docos-input-textarea:focus {
+.docs-gm .docos-input-textarea:hover, 
+.docs-gm .modal-dialog .jfk-textinput:hover, 
+.docs-copydocdialog-destination-button.jfk-button-hover, 
+.docs-material-hsv-color-picker-input:hover {
+  background-color: var(--gray);
+  transition: var(--button-on);
+}
+.docs-gm .docos-input-textarea:focus, 
+.docs-gm .modal-dialog .jfk-textinput:focus, 
+.docs-material-hsv-color-picker-input:focus {
   border-color: var(--paleblue);
   color: white;
+  transition: var(--button-on), padding 0.1s ease-in-out;
+}
+
+/* Underlined */
+.docs-number-input-container input {
+  background-color: transparent;
+  border-color: var(--gray);
+  color: white;
+}
+.docs-number-input-container input:hover {
+  border-color: var(--lightgray);
+}
+.docs-number-input-container input:focus {
+  border-color: var(--paleblue);
+}
+
+/* Number increment arrows */
+.docs-number-input-up-button, .docs-number-input-down-button {
+  filter: invert(100%) contrast(80%);
+}
+
+/* DIALOGS */
+.analytics-dialog, 
+.analytics-od, 
+.analytics-npd, 
+.docs-gm .modal-dialog, 
+.docs-material-gm-dialog {
+  background-color: var(--darkgray);
+  border-color: var(--gray);
+} 
+/* Title */
+.analytics-nc-navigationbar, 
+.modal-dialog-title {
+  background-color: var(--darkgray);
+  border-color: var(--gray);
+}
+.analytics-npd-title, 
+.analytics-tb-title-text, 
+.docs-gm .docs-dialog .modal-dialog-title-text, 
+.docs-gm .modal-dialog-title-text, 
+.docs-material-gm-dialog-title-text {
+  color: white;
+}
+/* Close button */
+.analytics-tb-close, 
+.docs-gm .docs-dialog .modal-dialog-title-close {
+  transition: var(--button-off), opacity 0.25s ease;
+}
+.analytics-tb-close.jfk-button-hover, 
+.docs-gm .docs-dialog .modal-dialog-title-close:hover {
+  background-color: var(--gray);
+  transition: var(--button-on), opacity 0.1s ease;
+}
+.docs-analytics-img::before, 
+.docs-gm .docs-dialog .modal-dialog-title-close::after {
+  filter: invert(100%) !important;
+}
+/* Content container */
+.analytics-npd-paragraph, 
+.docs-gm .modal-dialog-content {
+  background-color: transparent;
+  color: white;
+}
+/* Headers */
+.analytics-low-data-treatment-title, 
+.analytics-sc-account-itemlabel, 
+.analytics-sc-document-itemlabel, 
+.analytics-ssc-summary, 
+.analytics-trc, 
+.analytics-tuvc, 
+.docs-customspacingdialog-title, 
+.docs-gm .kix-translatedialog-desc, 
+.docs-indentationdialoggm-units, 
+.kix-headerfooterdialog-title, 
+.kix-pagenumberdialog-title {
+  color: white;
+  opacity: 100%; 
+}
+/* Simple links */
+.a11y-settings-dialog a, 
+.a11y-settings-dialog a:hover, 
+.a11y-settings-dialog a:visited, 
+.a11y-settings-dialog a:focus, 
+.a11y-settings-dialog a:active, 
+.analytics-sc-account-explanation a:link, 
+.analytics-sc-account-explanation a:visited, 
+.analytics-vhfc-label a:link, 
+.analytics-vhfc-label a:visited, 
+.modal-dialog a {
+  color: var(--palerblue);
 }

@@ -1,5 +1,24 @@
 /* Special elements */
 
+/* Butter bar (Centered messages for moved file, fullscreen mode, etc) */
+
+.docs-gm .jfk-butterBar-info {
+  background-color: var(--ripple);
+  color: white;
+}
+.docs-gm .jfk-butterBar-info .docs-butterbar-butter-action, 
+.docs-gm .jfk-butterBar-info .docs-butterbar-dismiss, 
+.docs-gm .jfk-butterBar-info .docs-butterbar-dismiss:hover, 
+.docs-gm .jfk-butterBar-info .docs-butterbar-link, 
+.docs-gm .jfk-butterBar-info a.docs-butterbar-link:link, 
+.docs-gm .jfk-butterBar-info a.docs-butterbar-link:visited, 
+.docs-gm .jfk-butterBar-info .docs-butterbar-link-no-pad, 
+.docs-gm .jfk-butterBar-info a.docs-butterbar-link-no-pad:link, 
+.docs-gm .jfk-butterBar-info a.docs-butterbar-link-no-pad:visited {
+  color: var(--palerblue);
+  transition: var(--button-off);
+}
+
 /*Top bar*/
 #docs-chrome, .docs-material #docs-header .docs-titlebar-buttons {
 	background-color: var(--darkgray);
@@ -49,7 +68,7 @@
   color: var(--lightergray);
 }
 
-/* File location picker (next to )
+/* File location picker (next to document title) */
 
 /* Menubar */
 
@@ -57,6 +76,10 @@
 .docs-gm .docs-menubar .goog-control {
   color: white;
   transition: var(--button-off);
+}
+.docs-gm .docs-menubar .goog-control-disabled {
+  color: var(--lightgray);
+  background-color: transparent;
 }
 .docs-gm .docs-menubar .goog-control-hover {
   background-color: var(--gray);
@@ -110,6 +133,141 @@
   filter: invert(100%);
 }
 
+/* DOCUMENT DETAILS */
+
+.docs-gm .docs-details-field {
+  color: var(--lightergray);
+}
+.docs-gm .docs-details-value {
+  color: white;
+}
+
+/* PAGE SETUP */
+
+.kix-pagesetupdialog-units {
+  color: var(--lightergray);
+  opacity: 1;
+}
+
+/* PARAGRAPH BORDERS AND SHADING */
+
+#kix-bordersshadingdialog-borderdash>div>div>div,
+.goog-menu.goog-menu-vertical.kix-bordersshadingdialog-menu>div>div>div>div {
+  border-top-color: white !important;
+}
+
+/* TABLE */
+
+.goog-dimension-picker-unhighlighted, 
+.goog-dimension-picker-highlighted {
+  filter: invert(100%) hue-rotate(180deg) contrast(80%) brightness(2);
+}
+.goog-dimension-picker-status {
+  color: var(--lightergray);
+}
+
+/* INSERT SPECIAL CHARACTERS */
+
+.ita-cp-whole-pad .modal-dialog-title-close {
+  filter: brightness(200%);
+  transition: opacity 0.25s ease;
+}
+.ita-cp-whole-pad .modal-dialog-title-close:hover {
+  transition: opacity 0.1s ease;
+}
+.ita-cp-charpicker .goog-char-picker-grid, 
+.goog-char-picker-grid .goog-flat-button {
+  border-color: var(--gray);
+  transition: var(--button-off);
+}
+.goog-char-picker-grid .goog-flat-button-hover, 
+.goog-char-picker-grid .goog-flat-button-focus {
+  background-color: var(--gray);
+  transition: var(--button-on);
+}
+.goog-char-picker-grid .goog-flat-button-active {
+  background-color: var(--ripple);
+  transition: var(--button-on);
+}
+.goog-char-picker-hovercard {
+  background-color: var(--darkgray);
+  border: 1px solid var(--gray) !important;
+  border-radius: 8px;
+}
+.goog-char-picker-char-zoom, 
+.goog-char-picker-name {
+  color: white;
+}
+.goog-char-picker-unicode {
+  color: var(--lightergray);
+}
+.ita-cp-search {
+  border-color: var(--gray);
+}
+.ita-cp-lens, 
+.ita-cp-backspace {
+  filter: invert(100%) contrast(20%);
+}
+.ita-cp-input.label-input-label {
+  background-color: transparent;
+  color: var(--lightergray);
+  opacity: 1;
+}
+.ita-cp-hwt {
+  background-color: var(--darkgray);
+  border-color: var(--gray);
+}
+.ita-cp-hwt-hint {
+  border-color: var(--gray);
+}
+
+/* PAGE NUMBERS */
+
+.goog-palette-cell .docs-preview-palette-item {
+  border-color: var(--gray);
+  transition: var(--button-off);
+}
+.goog-palette-cell-hover .docs-preview-palette-item {
+  border-color: var(--lightgray);
+  transition: var(--button-on);
+}
+
+/* LIST OPTIONS */
+
+.docs-bulletpreset {
+  border-color: var(--gray);
+  color: white;
+  transition: var(--button-on);
+}
+.goog-palette-set-hover .docs-bulletpreset {
+  border-color: var(--lightgray);
+  transition: var(--button-on);
+}
+.docs-icon-img-container.docs-icon-img.docs-icon-checkbox-hollow {
+  filter: invert(100%) !important;
+}
+.docs-listpreset-img {
+  filter: invert(100%) contrast(80%);
+}
+
+/* PERSONAL DICTIONARY */
+
+.docs-userdictionarydialog-list-container {
+  background-color: transparent;
+  border-color: var(--gray);
+}
+.docs-gm .docs-userdictionarydialog-row-container {
+  border-color: var(--gray);
+  transition: var(--button-off);
+}
+.docs-gm .docs-userdictionarydialog-row-container-hover {
+  background-color: var(--gray);
+  transition: var(--button-on) !important;
+}
+.docs-gm .docs-userdictionarydialog-row-content {
+  color: white;
+}
+
 /* PREFERENCES */
 
 /* Preferences tabs */
@@ -149,6 +307,131 @@
   filter: invert(50);
 }
 
+/* ACTIVITY DASHBOARD */
+.analytics-nc-tabbar, 
+.analytics-ntb-container .goog-tab-bar, 
+.analytics-vhc-tabbarholder, 
+.analytics-vhc-tabbarholder .docs-tabbar {
+  background-color: transparent;
+  border-color: var(--gray);
+}
+/* Activity dashboard sidebar */
+.analytics-ntb-container .goog-tab {
+  background-color: transparent !important;
+  color: white;
+  transition: var(--button-off);
+}
+.analytics-ntb-container .goog-tab.goog-tab-hover {
+  background-color: var(--gray) !important;
+  color: white;
+  transition: var(--button-on) !important;
+}
+.analytics-ntb-container .goog-tab.goog-tab-selected, 
+.analytics-ntb-container .goog-tab.goog-tab-selected.goog-tab-hover {
+  background-color: var(--ripple) !important;
+  color: var(--palerblue);
+  transition: var(--button-on) !important;
+}
+.docs-gm .docs-material .docs-analytics-sidebar-tab-selected .docs-icon-img {
+  filter: none !important;
+  filter: var(--pale-icons) !important;
+}
+/* Tabs on Viewers page */
+.analytics-vhc-tabbarholder .docs-tabbar-tab .docs-tabbar-tablabel {
+  color: var(--lightergray);
+  transition: var(--button-off);
+}
+.analytics-vhc-tabbarholder .docs-tabbar-mouseactive .docs-tabbar-tab-hover .docs-tabbar-tablabel {
+  color: white;
+  transition: var(--button-on) !important;
+}
+.analytics-vhc-tabbarholder .docs-tabbar-tab-selected .docs-tabbar-tablabel {
+  color: var(--palerblue) !important;
+}
+.analytics-vhc-tabbarholder .docs-tabbar-tab-selected::before {
+  border-color: var(--palerblue) !important; 
+}
+/* Table on Viewers page */
+.analytics-vhc-listsortbutton-name {
+  color: var(--lightergray);
+}
+.analytics-vhc-rowcard-name {
+  color: white;
+}
+.analytics-vhc-rowcard-time {
+  color: var(--lightergray);
+}
+.analytics-vhc-rowcard-row::after, 
+.analytics-vhfc-card {
+  border-color: var(--gray);
+}
+.analytics-vhfc-settings-container {
+  color: white;
+}
+/* Viewer Trend line graph */
+.analytics-trend-sparkline-left-bg, 
+.analytics-trend-sparkline-right-bg, 
+.analytics-trend-bg-selected.analytics-trend-sparkline-left-bg, 
+.analytics-trend-bg-selected.analytics-trend-sparkline-right-bg {
+  background-color: transparent;
+  border-color: transparent;
+}
+.analytics-trend-sparkline-chart svg>rect {
+  stroke: transparent;
+}
+.analytics-trend-sparkline-chart svg>g>g>g>path {
+  stroke: var(--paleblue);
+}
+.analytics-trend-sparkline-chart svg>g>g>g>g>path {
+  stroke: var(--gray);
+}
+.analytics-trend-sparkline-chart svg>g>g:nth-of-type(2n)>circle {
+  fill: var(--paleblue);
+  stroke: var(--paleblue);
+  stroke-width: 3px;
+}
+/* Viewer Trend bar graph */
+.analytics-tcc-chart svg>rect {
+  fill: transparent;
+}
+.analytics-tcc-chart svg>g>g>g:first-of-type>rect {
+  fill: var(--lightgray);
+}
+.analytics-tcc-chart svg>g>g>g:nth-of-type(2n)>rect {
+  fill: var(--paleblue);
+}
+.analytics-tcc-chart svg>g>g:nth-of-type(3n)>g>text {
+  fill: var(--lightergray);
+  font-family: Roboto, Arial, sans-serif;
+}
+/* Comment Trend */
+.analytics-low-data-treatment-sharebutton .docs-icon-img {
+  filter: invert(100%) !important;
+}
+/* Sharing History */
+.activity-event, 
+.activity-event-section-title, 
+.analytics-ssc {
+  background-color: transparent;
+  border-color: var(--gray);
+}
+.activity-event-scope-element-access, 
+.activity-event-section-title, 
+.activity-event-info, 
+.activity-list-no-more-events-text {
+  color: var(--lightergray);
+}
+.activity-event-details-header, 
+.activity-event-file-approval, 
+.activity-event-people-names, 
+.activity-event-scope-element-text {
+  color: white;
+}
+/* Privacy Settings */
+.analytics-sc-document-setting {
+  border-color: var(--gray);
+}
+
 /* Addons dropdown empty state */
 .script-promo-menu-item-title {
   color: var(--white);
@@ -157,27 +440,9 @@
   color: var(--lightergray)
 }
 
-/* That search bar in the Help dropdown */
+/* Help menu search bar */
 .docs-omnibox-parent.goog-menu-vertical .docs-labelinputmenuitem.goog-menuitem {
-  background-color: var(--darkgray);
-}
-.docs-omnibox-input.jfk-textinput {
-  background-color: var(--darkgray);
-  color: white;
-}
-.docs-omnibox-input.jfk-textinput::placeholder {
-  background-color: var(--darkgray);
-  color: white;
-}
-.docs-omnibox-input.jfk-textinput:focus {
-  background-color: var(--ripple);
-}
-.docs-omnibox-autocomplete .ac-renderer /* Autocomplete suggestions from that search bar */ {
-  background-color: var(--darkgray);
-  border: 1px solid var(--gray);
-}
-.docs-omnibox-autocomplete .ac-active {
-  background-color: var(--gray);
+  background-color: transparent;
 }
 
 /* New changes notifier */
@@ -239,19 +504,43 @@
   fill: var(--palerblue);
 }
 
+/* Activity dashboard and comment buttons */
+.docs-material .docs-appbar-circle-button.jfk-button, 
+.docs-material #docs-docos-commentsbutton {
+  transition: var(--button-off);
+}
+.docs-material .docs-appbar-circle-button.jfk-button.jfk-button-hover, 
+.docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-hover {
+  background-color: var(--gray);
+  transition: var(--button-on) !important;
+}
+.docs-material .docs-appbar-circle-button.jfk-button.jfk-button-hover.jfk-button-active, 
+.docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-hover.jfk-button-active {
+  background-color: var(--ripple);
+  transition: var(--button-on) !important;
+}
+
 /* “Present to a Meeting” button */
 #docs-meet-in-editors-entrypointbutton {
   background-color: transparent;
-  border: none;
+  border-color: var(--gray);
   transition: var(--button-off);
 }
-.goog-flat-menu-button-caption, 
-.goog-flat-menu-button-dropdown {
-  filter: brightness(100);
-}
-.goog-flat-menu-button.goog-flat-menu-button-hover {
-  background-color: var(--gray) !important;
+#docs-meet-in-editors-entrypointbutton.goog-flat-menu-button-hover, 
+#docs-meet-in-editors-entrypointbutton.goog-flat-menu-button-focused {
+  background-color: var(--gray);
+  border-color: var(--gray);
   transition: var(--button-on);
+}
+#docs-meet-in-editors-entrypointbutton.goog-flat-menu-button-open {
+  background-color: var(--ripple);
+  border-color: var(--ripple);
+  transition: var(--button-on);
+}
+.goog-flat-menu-button-caption, 
+.goog-flat-menu-button-dropdown, 
+#docs-meet-in-editors-entrypointbutton.goog-flat-menu-button .docs-icon-present-to-all-24 {
+  filter: brightness(500%) saturate(0%);
 }
 
 /* Viewer */
@@ -262,34 +551,30 @@
   border-color: transparent;
 }
 
-/* Share button */
-.docs-gm #docs-titlebar-share-client-button .jfk-button,
-.docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-hover {
-  background-color: var(--paleblue);
-  color: black;
-  transition: var(--button-off);
-}
-.docs-gm #docs-titlebar-share-client-button .jfk-button .scb-button-icon {
-	filter: brightness(0);
-}
-.docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-hover {
-  background-color: var(--palerblue);
-  transition: var(--button-on);
-}
-
 /* “Turn In” button */
 .docs-material #docs-script-button-bar .jfk-button {
   background-color: var(--gray);
   color: white;
 }
 
+/* Share button */
+#docs-titlebar-share-client-button .scb-privately-shared-icon-white, 
+#docs-titlebar-share-client-button .scb-domain-unlisted-icon-white, 
+#docs-titlebar-share-client-button .scb-private-icon-white {
+  filter: invert(100%) !important;
+}
+
 /* TOOLBAR */
 
 /* Toolbar wrapper */
-.docs-material #docs-toolbar-wrapper {
+.docs-material #docs-toolbar-wrapper, 
+.docs-material #docs-equationtoolbar, 
+.docs-material .docs-printpreview-toolbar {
   background-color: var(--darkgray);
 }
-.docs-gm #docs-toolbar-wrapper {
+.docs-gm #docs-toolbar-wrapper, 
+.docs-material #docs-equationtoolbar, 
+.docs-printpreview-toolbar {
   border-color: var(--gray);
 }
 
@@ -301,10 +586,17 @@
   color: white;
   transition: var(--button-off);
 }
+.docs-gm .docs-material .goog-toolbar-button-hover, 
 .docs-material .goog-toolbar-button:hover, 
 .docs-material .goog-toolbar-combo-button:hover, 
-.docs-material .goog-toolbar-menu-button:hover{
+.docs-material .goog-toolbar-menu-button:hover, 
+.docs-gm .docs-material .goog-toolbar-menu-button-hover {
   background-color: var(--gray);
+  transition: var(--button-on);
+}
+.docs-gm .docs-material .goog-toolbar-button-active {
+  background-color: var(--ripple);
+  color: var(--palerblue);
   transition: var(--button-on);
 }
 
@@ -330,11 +622,17 @@
   filter: var(--pale-icons);
   transition: filter 0.1s ease;
 }
+.kix-equation-toolbar-palette-item {
+  border-color: var(--gray);
+}
 
 /* Toolbar icons */
 .docs-gm .docs-material .docs-icon-img,
 .ita-kd-img {
   filter: brightness(10);
+}
+.kix-equation-toolbar-icon {
+  filter: invert(100%);
 }
 .docs-gm .docs-material .goog-toolbar-button-checked {
   background-color: var(--ripple) !important;
@@ -353,7 +651,30 @@
   border-color: var(--gray);
 }
 
-/* Font menu “RECENT” header */
+/* Search bar (with menus hidden) */
+.docs-omnibox-input.jfk-textinput {
+  background-color: var(--gray);
+  color: white;
+}
+.docs-omnibox-input.jfk-textinput::placeholder {
+  background-color: var(--darkgray);
+  color: white;
+}
+.docs-omnibox-input.jfk-textinput:focus {
+  background-color: var(--ripple);
+}
+.docs-omnibox-input.jfk-textinput:focus[aria-expanded="true"] {
+  border-bottom-color: var(--gray);
+}
+.docs-omnibox-autocomplete .ac-renderer /* Autocomplete suggestions from that search bar */ {
+  background-color: var(--darkgray);
+  border: 1px solid var(--gray);
+}
+.docs-omnibox-autocomplete .ac-active {
+  background-color: var(--gray);
+}
+
+/* Font menu */
 .docs-fontmenu .docs-fonts-section-header {
   color: var(--lightergray);
 }
@@ -511,19 +832,34 @@ body {
   filter: invert(100%) hue-rotate(180deg) contrast(80%);
 }
 
-/* Popups */
+/* Images */
+.kix-canvas-tile-content image {
+  filter: brightness(80%) invert(100%) hue-rotate(180deg);
+}
+
+/* CHIPS */
+
+.kix-rich-link-view {
+  transition: var(--button-off);
+}
+.kix-rich-link-view:hover {
+  transition: var(--button-on);
+}
+
+/* POPUPS */
 
 /* Box */
 .kix-embedded-entity-bubble.docs-bubble,
 .docs-gm .kix-spell-bubble, 
 .docs-autocorrect-bubble,
 .docs-gm .docs-linkbubble-bubble, 
-.docs-gm .docs-multi-linkbubble-bubble {
+.docs-gm .docs-multi-linkbubble-bubble,
+.docs-bubble-material {
   background-color: var(--darkgray);
-  border: 1px solid var(--lightgray) !important;
+  border: 1px solid var(--gray) !important;
 }
 
-/* Popup options */
+/* Popup buttons */
 .docs-bubble .docs-bubble-button.jfk-button:hover, 
 .docs-bubble .docs-bubble-button.jfk-button:focus,
 .docs-gm .docs-autocorrect-bubble-more-options:hover,
@@ -547,7 +883,7 @@ body {
 
 /* Link popup */
 #docs-linkbubble-link-text {
-  color: var(--paleblue) !important;
+  color: var(--palerblue) !important;
 }
 /* Link popup footer that prompts to replace the link */
 .docs-linkbubble-link-preview .docs-link-bubble-card-component.docs-link-bubble-action-card-component, 
@@ -561,20 +897,117 @@ body {
   color: var(--lightergray) !important;
 }
 
+/* Date bubble popup (The new feature where you can insert dates that can be clicked on) */
+.docs-bubble {
+  color: var(--lightergray);
+}
+.smart-canvas-date-details-bubble-edit-field { /* The way Google Docs just darkens the date field when hovered doesn’t seem right… but that’s how it’s going to look in Dark Docs for now as well. */
+  background-color: var(--gray);
+  color: white;
+  transition: var(--button-off);
+}
+.smart-canvas-date-details-bubble-edit-field:hover {
+  background-color: var(--lightgray);
+}
+.goog-date-picker {
+  background-color: var(--darkgray);
+  border: 1px solid var(--gray);
+}
+.smart-canvas-date-picker-bubble .goog-date-picker-monthyear {
+  color: var(--lightergray);
+}
+.goog-date-picker-button:hover {
+  background-color: var(--gray);
+}
+.goog-date-picker-button:active {
+  background-color: var(--ripple);
+}
+.smart-canvas-date-picker-bubble .goog-date-picker-wday {
+  color: var(--lightergray);
+}
+.goog-date-picker-date {
+  color: white;
+}
+.smart-canvas-date-picker-bubble .goog-date-picker-other-month {
+  color: var(--lightgray);
+}
+.goog-date-picker-date:hover::before {
+  background-color: var(--gray);
+}
+.smart-canvas-date-picker-bubble .goog-date-picker-selected::before {
+  background-color: var(--paleblue);
+}
+.smart-canvas-date-picker-bubble .goog-date-picker-selected:hover::before {
+  background-color: var(--palerblue) !important;
+}
+.smart-canvas-date-picker-bubble .goog-date-picker-selected {
+  color: black !important;
+}
+.goog-date-picker-today::before, .goog-date-picker-today:hover::before {
+  border-color: var(--paleblue);
+}
+.smart-canvas-date-details-bubble-action-bar {
+  border-top-color: var(--gray);
+}
+.smart-canvas-date-details-bubble-pattern-picker-button {
+  transition: var(--button-off);
+}
+.smart-canvas-date-details-bubble-pattern-picker-button:hover {
+  background-color: var(--gray);
+  transition: var(--button-on);
+}
+.smart-canvas-date-details-bubble-pattern-picker-button:focus {
+  background-color: var(--ripple);
+  transition: var(--button-on);
+}
+.docs-material .smart-canvas-date-details-bubble-pattern-picker-button .docs-icon-img {
+  filter: none;
+  filter: var(--pale-icons);
+}
+.docs-bubble-material-body-hint-bar {
+  background-color: var(--paleblue);
+  color: black;
+}
+.smart-canvas-date-details-bubble .smart-canvas-date-details-bubble-hint-button {
+  border-radius: 4px;
+  transition: var(--button-off);
+}
+.smart-canvas-date-details-bubble .smart-canvas-date-details-bubble-hint-button:hover {
+  background-color: var(--palerblue);
+  transition: var(--button-on);
+}
+
+/* Calendar event bubble popup */
+.docs-bubble .docs-bubble-button {
+  transition: var(--button-off);
+}
+.docs-link-bubble-calendar-event-action-card-component {
+  border-top: 1px solid var(--gray);
+}
+.link-bubble-header .docs-icon-img {
+  filter: none !important;
+  filter: brightness(2) !important;
+}
+.docs-link-bubble-calendar-attach-document.docs-material .docs-icon .docs-icon-img {
+  filter: none !important;
+  filter: var(--pale-icons) !important;
+}
+
+/* Contacts bubble */
+.boqSocialpeoplehovercardV2HovercardAnimating {
+  box-shadow: 0 0 1px var(--gray) !important;
+  filter: invert(100%) hue-rotate(180deg) contrast(80%); /* Unfortunately this will invert the account photo, but it’s better than a white card. */
+}
+
+/* File bubble */
+.drive-image-thumbnail-component .docs-link-bubble-thumbnail-container {
+  filter: invert(100%) hue-rotate(180deg) contrast(80%);
+}
+
 /* Table border editing */
 .docs-border-selection-button-pressed, 
 .docs-border-selection-button-normal {
   filter: invert(100%) brightness(250%) contrast(65%);
-}
-
-/* Header options */
-.docs-gm .kix-header-footer-bubble.docs-bubble {
-  background-color: var(--gray);
-  border-color: var(--gray);
-}
-.docs-gm .kix-header-footer-bubble-description,
-.docs-gm .kix-header-footer-bubble-checkbox-label {
-  color: white;
 }
 
 /* Quick comment/suggest bubble */
@@ -603,8 +1036,18 @@ body {
   filter: var(--pale-green-icons) !important;
 }
 
+/* Header options */
+.docs-gm .kix-header-footer-bubble.docs-bubble {
+  background-color: var(--gray);
+  border-color: var(--gray);
+}
+.docs-gm .kix-header-footer-bubble-description,
+.docs-gm .kix-header-footer-bubble-checkbox-label {
+  color: white;
+}
+
 /* Find bar */
-#docs-findbar-id .docs-slidingdialog {
+.docs-slidingdialog {
   background-color: var(--darkgray);
   border-color: var(--gray);
 }
@@ -618,6 +1061,7 @@ body {
   border-color: var(--paleblue);
   transition: var(--button-on), padding 0.1s ease-in-out;
 }
+.docs-suggestiondialog-title-text, 
 .docs-findinput-input, .docs-findinput-input:focus {
   color: white;
 }
@@ -649,86 +1093,4 @@ body {
 }
 .docs-explore-icon.docs-explore-widget-icon.docs-explore-widget-icon-inactive.goog-inline-block {
   filter: invert(100%) hue-rotate(180deg) contrast(80%);
-}
-
-/* Side (Image options) panel (and as it turns out, a lot of form elements) */
-
-/* Side panel dropdown headers */
-.docs-sidebar-tile-header-cursor {
-  transition: var(--button-off);
-}
-.docs-sidebar-tile-header-cursor:hover {
-  background-color: var(--gray);
-  transition: var(--button-on);
-}
-.docs-sidebar-tile-header.docs-sidebar-tile-header-disabled {
-  background-color: transparent;
-  color: var(--lightergray) !important;
-}
-.docs-gm .docs-sidebar-tile-header {
-  color: white;
-}
-.docs-gm .docs-sidebar-tile-border-radius-top,
-.docs-gm .docs-sidebar-tile-border-radius-bottom,
-.docs-sidebar-tile.kix-format-options-text-wrapping-tile.docs-material,
-.docs-gm .docs-sidebar-tile.docs-sidebar-tile-expanded {
-  transition: border-radius 0.5s ease;
-}
-
-/* Opened dropdowns */
-.docs-gm .goog-zippy-expanded.docs-sidebar-tile-header, .docs-gm .docs-sidebar-tile-controls {
-  background-color: var(--gray);
-}
-.docs-sidebar-tile,
-.docs-material-gm-labeled-checkbox .docs-material-gm-labeled-checkbox-label {
-  color: white;
-}
-.docs-number-input-label,
-.docs-number-input-unit,
-.docs-labeled-button-label,
-.docs-sidebar-tile-input-label,
-.docs-sidebar-tile-label {
-  color: var(--lightergray);
-}
-.docs-number-input-container input {
-  background-color: transparent;
-  border: none;
-  color: white;
-}
-.docs-number-input-container input:active,
-.docs-number-input-container input:focus{
-  border-color: var(--paleblue);
-}
-.docs-number-input-up-button, .docs-number-input-down-button {
-  filter: invert(100%);
-}
-.docs-sidebar-palette .docs-sidebar-palette-button-container .docs-sidebar-palette-button /*Text wrapping*/ {
-  background-color: var(--gray);
-  border-color: var(--lightergray) !important;
-}
-.docs-sidebar-palette .docs-sidebar-palette-button-container.goog-control-selected .docs-sidebar-palette-button {
-  background-color: var(--gray);
-  border-color: var(--paleblue) !important;
-}
-.docs-sidebar-palette .docs-sidebar-palette-button-container .docs-sidebar-palette-button div div,
-.docs-sidebar-palette .docs-sidebar-palette-button-container.goog-control-selected .docs-sidebar-palette-button div div {
-  filter: none;
-  filter: var(--pale-icons);
-}
-.docs-material-gm-select-outer-box,
-.docs-material-gm-select-hover .docs-material-gm-select-outer-box {
-  border-color: var(--lightergray);
-}
-.docs-material-gm-select-caption {
-  color: white;
-}
-.docs-material-slider-track-on,
-.docs-material-slider-thumb-grabber {
-  background-color: var(--paleblue);
-  border-color: var(--paleblue);
-}
-.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-standard {
-  background-color: transparent;
-  border-color: var(--lightergray) !important;
-  color: var(--paleblue);
 }

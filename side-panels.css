@@ -3,9 +3,11 @@
 /* COMMON ELEMENTS */
 
 /* Titlebar */
-.kix-citations-sidebar-titlebar,
+.docs-contentembedding-titlebar, 
 .docs-gm .docs-explore-sidebar-title, 
-.docs-gm .docs-dictionary-titlebar {
+.docs-gm .docs-dictionary-titlebar, 
+.kix-citations-sidebar-titlebar, 
+.kix-watermark-sidebar-header {
   background-color: var(--darkgray);
   border-color: var(--gray);
   color: white;
@@ -13,6 +15,10 @@
 /* Titlebar icon */
 .docs-gm .docs-gm-sidebar-icon-path {
   fill: var(--paleblue);
+}
+.docs-gm .docs-contentembedding-titlebar .docs-gm-sidebar-icon, 
+.kix-watermark-sidebar-header .kix-watermark-icon-container .docs-icon-img {
+  filter: none;
 }
 /* Titlebar buttons */
 .docs-gm .docs-tiled-sidebar-header {
@@ -29,18 +35,20 @@
 .docs-sidebar-gm-titlebar-icon-button:hover, 
 .docs-sidebar-gm-titlebar-icon-button:focus {
   background-color: var(--gray);
-  transition: var(--button-on);
+  transition: var(--button-on) !important;
 }
 .docs-sidebar-gm-titlebar-icon-button.jfk-button-active {
   background-color: var(--ripple);
 }
 /* Background */
+.docs-contentembedding-sidebar, 
 .docs-gm .docs-tiled-sidebar, 
 .kix-citations-source-list-container, 
 .kix-citations-create-view-zero-state, 
 .kix-citations-source-list-zero-state,
 .kix-citations-search-result-view-content, 
 .kix-citations-create-view-attributes-container, 
+.kix-watermark-sidebar, 
 .docs-explore-sidebar, 
 .docs-gm .docs-explore-sidebar .docs-explore-datapage.docs-explore-sidebar-zerostate, 
 .docs-dictionary-sidebar {
@@ -48,11 +56,13 @@
   border-left: 1px solid var(--gray);
 }
 /* Zero state */
+.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-header, 
 .docs-gm .docs-tiled-sidebar, 
 .kix-citations-source-list-zero-state-heading, 
 .docs-explore-errorstate-title {
   color: white;
 }
+.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-body, 
 .kix-citations-source-list-zero-state-content, 
 .docs-gm .docs-dictionary-sidebar .docs-explore-emptylist-body {
   color: var(--lightergray);
@@ -66,6 +76,39 @@
   background-color: var(--gray);
   color: white;
   width: 100%;
+}
+/* Collapsible sections */
+.docs-sidebar-tile-header-cursor, 
+.docs-gm .goog-zippy-expanded.docs-sidebar-tile-header {
+  background-color: transparent;
+  transition: var(--button-off);
+}
+.docs-sidebar-tile-header-cursor:hover, 
+.docs-sidebar-tile-header-cursor:focus:not(.docs-sidebar-tile-header-no-focus), 
+.docs-gm .goog-zippy-expanded.docs-sidebar-tile-header:focus {
+  background-color: var(--gray);
+  transition: var(--button-on);
+}
+.docs-gm .docs-sidebar-tile-header {
+  color: white;
+}
+.docs-sidebar-tile-header.docs-sidebar-tile-header-disabled {
+  color: var(--lightgray);
+}
+.docs-gm .docs-sidebar-tile-controls {
+  background-color: transparent;
+}
+.docs-gm .docs-sidebar-tile.docs-sidebar-tile-expanded {
+  border-bottom: 1px solid var(--gray);
+  border-radius: 0;
+  box-shadow: none;
+}
+.docs-gm .goog-zippy-expanded.docs-sidebar-tile-header:hover {
+  background-color: var(--gray);
+  transition: var(--button-on);
+}
+.docs-sidebar-tile {
+  color: white;
 }
 
 /* CITATIONS PANEL */
@@ -343,6 +386,49 @@ a.docs-explore-serp-webresult-title-link:link {
 .docs-explore-dictionaryentry-sense-antonym-clickable {
   color: var(--palerblue);
 }
+
+/* IMAGE OPTIONS PANEL */
+
+/* WATERMARK PANEL */
+
+.kix-watermark-select-image-button-container .docs-material-button-hairline-primary.docs-material-button {
+  background-color: var(--darkgray);
+  border-color: var(--gray) !important;
+}
+.kix-watermark-image-edit-view {
+  background-color: var(--gray);
+  transition: var(--button-off);
+}
+.docs-material-button-hover .kix-watermark-image-edit-view {
+  background-color: var(--lightgray);
+  transition: var(--button-on) !important;
+}
+.kix-watermark-image-edit-view svg>path:last-of-type {
+  fill: var(--palerblue);
+}
+.kix-watermark-section-header {
+  color: white;
+}
+.kix-watermark-format-label {
+  color: white;
+}
+.kix-watermark-scale-combobox-container .goog-toolbar-combo-button {
+  border: 1px solid var(--gray) !important;
+}
+.docs-gm .kix-watermark-scale-combobox-container .goog-toolbar-combo-button-input {
+  color: white;
+}
+.kix-watermark-remove-button-container {
+  border-color: var(--gray);
+}
+.kix-watermark-remove-button.docs-material-button-hairline-default.docs-material-button {
+  background-color: var(--darkgray);
+  color: var(--palerblue);
+}
+.kix-watermark-remove-button svg>path:last-of-type {
+  fill: var(--palerblue);
+}
+
 
 /* APPS PANEL */
 /* Show apps panel */

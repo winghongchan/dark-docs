@@ -1,5 +1,7 @@
 # Dark Docs
-A dark theme for Google Docs web, based on the colors used in its mobile app. 
+A dark theme for Google Docs web, based on the colors used in its mobile app. Subtle animations added.
+
+![](Screenshot_20220108_130113.png)
 
 ## Installation
 

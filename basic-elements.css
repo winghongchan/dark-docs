@@ -255,9 +255,7 @@ span.docs-material-gm-checkbox-checked::before {
   transition: var(--button-on);
 }
 .docs-material-gm-select-open.docs-material-gm-select-focused .docs-material-gm-select-outer-box {
-  border-width: 2px;
   border-color: var(--paleblue);
-  padding: 7px 5px 7px 7px;
   transition: none;
 }
 .goog-toolbar-combo-button-dropdown {

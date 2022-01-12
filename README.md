@@ -7,7 +7,7 @@ A dark theme for Google Docs web, based on the colors used in its mobile app. Su
 
 ### Automatic
 
-Go to [Dark Docs on UserStyles.world](https://userstyles.world/style/2597/dark-docs) and click “Install”. 
+Install the theme at [Dark Docs on UserStyles.world](https://userstyles.world/style/2597/dark-docs). 
 
 ### Manual 
 

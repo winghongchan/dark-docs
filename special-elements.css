@@ -124,7 +124,8 @@
 .apps-hoverable-menu-separator-container .apps-hoverable-menu-separator-bottom {
   border-color: var(--gray);
 }
-.docs-gm .goog-menuseparator /* Dividers in submenus are different */ {
+.docs-gm .goog-menuseparator, 
+.goog-menuitem.docs-submenuitem /* Dividers in submenus are different */ {
   border-color: var(--gray);
 }
 
@@ -248,6 +249,11 @@
 }
 .docs-listpreset-img {
   filter: invert(100%) contrast(80%);
+}
+
+/* WORD COUNT */
+.docs-gm .kix-documentmetricsdialog-row {
+  border-bottom-color: var(--gray);
 }
 
 /* PERSONAL DICTIONARY */
@@ -428,6 +434,17 @@
   color: white;
 }
 /* Privacy Settings */
+.analytics-sic {
+  background-color: transparent;
+  border-bottom: 1px solid var(--gray);
+  box-shadow: none;
+}
+.analytics-sic .docs-icon-img {
+  filter: none !important;
+}
+.analytics-sic-text {
+  color: white;
+}
 .analytics-sc-document-setting {
   border-color: var(--gray);
 }
@@ -447,12 +464,8 @@
 
 /* New changes notifier */
 .docs-title-save-label-text {
-  color: var(--lightgray);
-  transition: color 0.25s ease;
-}
-.docs-title-save-label-hover .docs-title-save-label-text {
   color: var(--lightergray);
-  transition: color 0.1s ease;
+  transition: color 0.25s ease;
 }
 #docs-new-changes {
   background-color: var(--gray) !important;
@@ -515,9 +528,95 @@
   transition: var(--button-on) !important;
 }
 .docs-material .docs-appbar-circle-button.jfk-button.jfk-button-hover.jfk-button-active, 
-.docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-hover.jfk-button-active {
+.docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-hover.jfk-button-active, 
+.docs-gm .docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-active, 
+.docs-gm .docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-checked {
   background-color: var(--ripple);
   transition: var(--button-on) !important;
+}
+#docs-docos-commentsbutton .docs-icon-comment-topbar-24 {
+  transition: filter 0.25s ease;
+}
+#docs-docos-commentsbutton.jfk-button-checked .docs-icon-comment-topbar-24 {
+  filter: none; 
+  filter: var(--pale-icons);
+  transition: filter 0.1s ease;
+}
+
+/* COMMENT BOX */
+.docs-docos-activitybox {
+  background-color: var(--darkgray);
+  border: 1px solid var(--gray);
+}
+.docs-gm .docos-streampane-header {
+  background-color: transparent;
+  border-bottom-color: var(--gray);
+}
+.docos-xeditor .docos-streampane-content .docos-comment-text.docos-comment-header-title {
+  color: white;
+}
+.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default, 
+.docs-gm .docos-streampane-container .streampane-dragger {
+  background-color: transparent;
+  border-color: var(--gray);
+  color: white;
+  transition: var(--button-off);
+}
+.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-hover, 
+.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-focused, 
+.docs-gm .docos-streampane-container .streampane-dragger:hover {
+  background-color: var(--gray);
+  transition: var(--button-on);
+}
+.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-dropdown-icon, 
+.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-hover .docs-material-menu-button-flat-default-dropdown-icon, 
+.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-focused .docs-material-menu-button-flat-default-dropdown-icon, 
+.docs-gm.docos-xeditor .docos-new-comment-icon-path {
+  fill: white;
+}
+.docs-gm.docos-xeditor .docos-notification-settings .goog-flat-menu-button, 
+.docs-gm.docos-xeditor .docos-new-comment-button {
+  transition: var(--button-off);
+}
+.docs-gm.docos-xeditor .docos-notification-settings .goog-flat-menu-button.goog-flat-menu-button-hover,
+.docs-gm.docos-xeditor .docos-notification-settings .goog-flat-menu-button.goog-flat-menu-button-focused, 
+.docs-gm.docos-xeditor .docos-new-comment-button.jfk-button-hover, 
+.docs-gm.docos-xeditor .docos-new-comment-button.jfk-button-focused {
+  background-color: var(--gray);
+  transition: var(--button-on);
+}
+.docs-gm.docos-xeditor .docos-notification-settings .goog-flat-menu-button.goog-flat-menu-button-open {
+  background-color: var(--ripple);
+  transition: var(--button-on);
+}
+.docs-gm.docos-xeditor .docos-streamdocoview {
+  border: 1px solid var(--gray);
+  transition: var(--button-off);
+}
+.docs-gm.docos-xeditor .docos-streamdocoview:hover, 
+.docos.docs-gm.docos-xeditor .docos-streamdocoview.docos-docoview-active {
+  border: 1px solid var(--paleyellow);
+  transition: var(--button-on);
+}
+.docos-xeditor .docos-streamdocoview .docos-streamdocoview-header-container {
+  background-color: var(--gray);
+  border: 1px solid transparent;
+  transition: var(--button-off);
+}
+.docos-xeditor .docos-streamdocoview:hover .docos-streamdocoview-header-container, 
+.docos-xeditor .docos-streamdocoview.docos-docoview-active .docos-streamdocoview-header-container {
+  background-color: var(--yellowripple);
+  border: 1px solid var(--paleyellow);
+  border-bottom-color: transparent;
+  transition: var(--button-on);
+}
+.docos-xeditor .streamdocoview-header {
+  color: white;
+  transition: color 0.25s ease;
+}
+.docos-docoview-active .streamdocoview-header {
+  color: var(--paleyellow);
+  transition: color 0.1s ease;
 }
 
 /* “Present to a Meeting” button */
@@ -560,7 +659,8 @@
 /* Share button */
 #docs-titlebar-share-client-button .scb-privately-shared-icon-white, 
 #docs-titlebar-share-client-button .scb-domain-unlisted-icon-white, 
-#docs-titlebar-share-client-button .scb-private-icon-white {
+#docs-titlebar-share-client-button .scb-private-icon-white,
+#docs-titlebar-share-client-button .scb-unlisted-icon-white {
   filter: invert(100%) !important;
 }
 
@@ -833,7 +933,8 @@ body {
 }
 
 /* Images */
-.kix-canvas-tile-content image {
+.kix-canvas-tile-content image /* Chrome */, 
+.kix-embeddedobject-image image  /* Firefox */{
   filter: brightness(80%) invert(100%) hue-rotate(180deg);
 }
 
@@ -1069,9 +1170,10 @@ body {
 /* Comment */
 .docs-gm .docos-anchoreddocoview, 
 .docs-gm .docos-anchoreddocoview.docos-docoview-active, 
-.docs-gm .docos-anchoreddocoview.docos-docoview-active:hover {
-  background-color: var(--gray);
-  border-color: var(--gray);
+.docs-gm .docos-anchoreddocoview.docos-docoview-active:hover, 
+.docs-gm.docos-xeditor .streamdocoview-no-header.docos-streamdocoview {
+  background-color: var(--darkgray);
+  border: 1px solid var(--gray) !important;
 }
 .docos-anchoreddocoview .docos-replyview-first.docos-anchoredreplyview,
 .docs-gm .docos-anchoredreplyview, 
@@ -1080,10 +1182,31 @@ body {
   background-color: var(--darkgray);
   border-color: var(--gray);
 }
-.docs-gm .docos-anchoredreplyview-header .docos-anchoredreplyview-author,
-.docs-gm .docos-anchoredreplyview-header .docos-anchoredreplyview-timestamp,
-.docs-gm .docos-anchoredreplyview .docos-anchoredreplyview-body div {
+.docs-gm .docos-anchoredreplyview-header .docos-anchoredreplyview-author, 
+.docs-gm.docos-xeditor .docos-streamdocoview-authorname-timestamp .docos-streamdocoview-author, 
+.docs-gm .docos-anchoredreplyview .docos-anchoredreplyview-body div, 
+.docs-gm .docos-anchoredreplyview .docos-anchoredreplyview-body, 
+.docos-streamreplyview-body, 
+.docos-streamdocoview-body, 
+.docos-streamdocoview-body.docos-replyview-body div {
   color: white !important;
+}
+.docs-gm .docos-anchoredreplyview-header .docos-anchoredreplyview-timestamp, 
+.docs-gm.docos-xeditor .docos-streamdocoview-authorname-timestamp .docos-streamdocoview-timestamp, 
+.docos-streamdocoview-body.docos-replyview-body div>span:last-of-type,
+.docs-gm .docos-streamrootreplyview .docos-action-text, 
+.docs-gm .docos-streamreplyview .docos-action-text {
+  color: var(--lightergray) !important;
+  opacity: 100%;
+}
+.docs-suggestion-button:not(.jfk-button-disabled) .docs-material .docs-icon-img {
+  filter: none !important;
+  filter: var(--pale-icons) !important;
+}
+.docos-anchoredreplyview-buttonholder .docos-icon-overflow-three-dots, 
+.docos-streamdocoview-details .docos-icon-overflow-three-dots, 
+.docos-streamreplyview-text .docos-icon-overflow-three-dots {
+  filter: invert(100%) brightness(500%);
 }
 
 /* “Explore” button */

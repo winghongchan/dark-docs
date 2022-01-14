@@ -1,0 +1,19 @@
+/* Colors and Animations */
+:root {
+  --palerblue: #8AB4F8;
+  --paleblue: #669DF7;
+  --pale-icons: hue-rotate(3.6deg) saturate(32.2%) brightness(170%);
+  --palergreen: #81c995;
+  --pale-green-icons: hue-rotate(-2deg) saturate(38%) brightness(182%);
+  --paleyellow: #FDD663;
+  --yellowripple: #454134;
+  --ripple: #394457;
+  --lightgray: #4A4E51;
+  --lightergray: #9aa0a6;
+	--gray: #3C4043;
+  --darkgray: #202124;
+  --text-hover-on: text-shadow 0.05s ease;
+  --text-hover-off: text-shadow 0.25s ease;
+  --button-on: background-color 0.05s ease, border 0.05s ease, color 0.05s ease;
+	--button-off: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}

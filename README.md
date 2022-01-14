@@ -13,9 +13,9 @@ Install the theme at [Dark Docs on UserStyles.world](https://userstyles.world/st
 
 1. Use a browser extension that applies user CSS themes to webpages, such as [Stylus](https://github.com/openstyles/stylus/).
 2. Apply the stylesheets: 
-  - [Colors and animations](colors-animations.css) and [Basic elements](basic-elements.css) to URLs starting with `https://docs.google.com/document/d/` and URLs starting with `https://docs.google.com/sharing/driveshare` (both URLs to both stylesheets). 
-  - [Special elements](special-elements.css), [Side panels](side-panels.css), and [Other screens](other-screens.css) to URLs starting with `https://docs.google.com/document/d/`. 
-  - [Share sheet](share-sheet.css) to URLs starting with `https://docs.google.com/sharing/driveshare`. 
+    - [Colors and animations](colors-animations.css) and [Basic elements](basic-elements.css) to URLs starting with `https://docs.google.com/document/d/` and URLs starting with `https://docs.google.com/sharing/driveshare` (both URLs to both stylesheets). 
+    - [Special elements](special-elements.css), [Side panels](side-panels.css), and [Other screens](other-screens.css) to URLs starting with `https://docs.google.com/document/d/`. 
+    - [Share sheet](share-sheet.css) to URLs starting with `https://docs.google.com/sharing/driveshare`. 
 
 Check the [Customization wiki](https://github.com/winghongchan/dark-docs/wiki/Customization) if you wish to add a wallpaper. 
 

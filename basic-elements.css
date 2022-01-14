@@ -1,23 +1,5 @@
 /* Basic elements */
 
-/* Colors and Animations */
-:root {
-  --palerblue: #8AB4F8;
-  --paleblue: #669DF7;
-  --pale-icons: hue-rotate(3.6deg) saturate(32.2%) brightness(170%);
-  --palergreen: #81c995;
-  --pale-green-icons: hue-rotate(-2deg) saturate(38%) brightness(182%);
-  --ripple: #394457;
-  --lightgray: #80868b;
-  --lightergray: #9aa0a6;
-	--gray: #3C4043;
-  --darkgray: #202124;
-  --text-hover-on: text-shadow 0.1s ease;
-  --text-hover-off: text-shadow 0.25s ease;
-  --button-on: background-color 0.1s ease, border 0.1s ease, color 0.1s ease;
-	--button-off: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
-}
-
 /* Scrollbar */
 .docs-gm ::-webkit-scrollbar-thumb {
   background-color: var(--lightergray);
@@ -37,16 +19,21 @@
   transition: var(--button-off);
 }
 .analytics-btn-fill.jfk-button, 
+.docos.docs-gm .jfk-button.jfk-button-action, 
 .docs-material-button-fill-primary.docs-material-button, 
 .docs-gm #docs-titlebar-share-client-button .jfk-button, 
 .docs-gm .modal-dialog .goog-buttonset-action, 
 .docs-gm .modal-dialog .jfk-button-action, 
-.docs-gm .docs-material-bubble .jfk-button-action {
+.docs-gm .docs-material-bubble .jfk-button-action, 
+.GmFillButton:not(:disabled) {
   background-color: var(--paleblue);
   color: black;
   transition: var(--button-off);
 }
 .analytics-btn-fill.jfk-button.jfk-button-hover, 
+.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-hover, 
+.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-focused, 
+.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-hover.jfk-button-focused, 
 .docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-hover, 
 .docs-gm #docs-titlebar-share-client-button .jfk-button:focus, 
 .docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-hover:focus, 
@@ -66,6 +53,7 @@
   transition: var(--button-on);
 }
 .analytics-btn-fill.jfk-button.jfk-button-focused.jfk-button-active, 
+.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-focused.jfk-button-active, 
 .docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-focused.jfk-button-active, 
 .docs-gm .modal-dialog .goog-buttonset-action:active, 
 .docs-gm .modal-dialog .goog-buttonset-action:focus:active, 
@@ -141,7 +129,8 @@
 
 /* Text buttons */
 .analytics-btn-text.jfk-button, 
-.docs-material-button-text-default.docs-material-button {
+.docs-material-button-text-default.docs-material-button, 
+.appsMaterialWizButtonPaperbuttonTextColored, .appsMaterialWizButtonPaperbuttonTextColored .exportButtonNestedLink {
   background-color: transparent;
   color: var(--palerblue);
   font-weight: 500;
@@ -185,6 +174,19 @@
 .docs-sidebar-palette .docs-sidebar-palette-button-container.goog-control-selected .docs-sidebar-palette-button.docs-material-button-hover {
   background-color: var(--ripple); 
   border-color: var(--palerblue) !important;
+}
+
+/* CALLOUTS */
+.boqDrivesharedialogCommonCalloutCalloutDialog {
+  background-color: var(--paleblue);
+  color: black;
+}
+.boqDrivesharedialogCommonCalloutArrowDown .Arrow, 
+.boqDrivesharedialogCommonCalloutArrowUp .Arrow {
+  border-color: var(--paleblue) transparent;
+}
+.boqDrivesharedialogCommonCalloutCloseButton .mdc-button__label {
+  color: black;
 }
 
 /* CHECKBOXES */
@@ -255,7 +257,9 @@ span.docs-material-gm-checkbox-checked::before {
   transition: var(--button-on);
 }
 .docs-material-gm-select-open.docs-material-gm-select-focused .docs-material-gm-select-outer-box {
+  border-width: 2px;
   border-color: var(--paleblue);
+  padding: 7px 5px 7px 7px;
   transition: none;
 }
 .goog-toolbar-combo-button-dropdown {
@@ -392,7 +396,9 @@ span.docs-material-gm-checkbox-checked::before {
 .docs-gm .docos-input-textarea, 
 .docs-gm .modal-dialog .jfk-textinput, 
 .docs-copydocdialog-destination-button, 
-.docs-material-hsv-color-picker-input {
+.docs-material-hsv-color-picker-input, 
+.docs-gm .docos-streamdocoview-input-pane .docos-input-textarea, 
+.docs-gm.docos-xeditor .docos-input-typing > .docos-input-textarea {
   background-color: var(--darkgray);
   border-color: var(--gray);
   color: white;
@@ -410,7 +416,9 @@ span.docs-material-gm-checkbox-checked::before {
 }
 .docs-gm .docos-input-textarea:focus, 
 .docs-gm .modal-dialog .jfk-textinput:focus, 
-.docs-material-hsv-color-picker-input:focus {
+.docs-material-hsv-color-picker-input:focus, 
+.docs-gm .docos-streamdocoview-input-pane .docos-input-textarea:focus, 
+.docs-gm .docos-input-textarea:focus {
   border-color: var(--paleblue);
   color: white;
   transition: var(--button-on), padding 0.1s ease-in-out;

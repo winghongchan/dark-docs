@@ -1,0 +1,79 @@
+/* Share sheet */
+
+.GmCard {
+  background-color: var(--darkgray);
+  border: 1px solid var(--gray);
+}
+
+.GmButtonText:not(:disabled), 
+.GmButtonText:hover:not(:disabled), 
+.GmButtonText:active:not(:disabled) {
+  color: var(--palerblue);
+}
+
+
+/* Titlebar */
+
+.boqDrivesharedialogCommonTitlebarTitleBar .boqDrivesharedialogCommonTitlebarIconContainer {
+  background-color: var(--paleblue);
+  color: black;
+}
+.boqDrivesharedialogCommonTitlebarTitleBar .Heading .Title, 
+.boqDrivesharedialogCommonTitlebarTitleBar .SettingsButton {
+  color: white;
+}
+
+/* Add people and groups */
+
+.appsDriveElementsMaterialFormfield_filledFieldContainer, 
+.boqDrivePeopleWebMultiselectAutocompleteMenu {
+  background-color: var(--gray);
+  transition: var(--button-off);
+}
+.appsDriveElementsMaterialFormfield_filledFieldContainer:hover {
+  background-color: var(--lightgray);
+  transition: var(--button-on);
+}
+.appsDriveElementsMaterialFormfield_baseEl.isFocusedWithin {
+  color: var(--paleblue);
+}
+.boqDrivePeopleWebMultiselectInputchipInputBase, 
+.boqDrivePeopleWebMultiselectAutocompleteMenu ul .mdc-deprecated-list-item__primary-text, 
+.boqDrivesharedialogPermissionslistPermissionrowMain .boqDrivesharedialogPermissionslistPermissionrowPrimary {
+  caret-color: var(--paleblue);
+  color: white;
+}
+.boqDrivesharedialogPermissionslistPermissionsummarySummary, 
+.mdc-deprecated-list-item__secondary-text, 
+.boqDrivesharedialogPermissionslistPermissionrowMain .boqDrivesharedialogPermissionslistPermissionrowSecondary {
+  color: var(--lightergray);
+}
+
+/* List of people who have access */
+
+.appsDriveElementsMaterialScrollcontainerSeamCoverTop, 
+.appsDriveElementsMaterialScrollcontainerSeamCoverBottom {
+  border-color: var(--gray);
+}
+.boqDrivesharedialogPermissionslistPermissionrowPermissionRow {
+  transition: var(--button-off);
+}
+.boqDrivesharedialogPermissionslistPermissionrowListItem:hover .boqDrivesharedialogPermissionslistPermissionrowPermissionRow, .boqDrivesharedialogPermissionslistPermissionrowListItem:focus-within .boqDrivesharedialogPermissionslistPermissionrowPermissionRow {
+  background-color: var(--gray);
+  transition: var(--button-on) !important;
+}
+.boqDrivePeopleWebBubbleBaseEl.hasPhoto {
+  background-color: var(--gray);
+}
+.boqDrivesharedialogCommonRoleselectorMenuTextButton.mdc-button {
+  color: var(--lightergray);
+}
+
+/* Get link */
+
+.boqDrivesharedialogLinkLinksummaryLinkPermissionsSummary .boqDrivesharedialogLinkLinksummaryBolded {
+  color: white;
+}
+.boqDrivesharedialogLinkLinksummaryLinkPermissionsSummary {
+  color: var(--lightergray);
+}

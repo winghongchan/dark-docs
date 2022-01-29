@@ -104,6 +104,9 @@
 .docs-gm .goog-menuitem .goog-menuitem-content {
   color: white;
 }
+.goog-menu-vertical .goog-menuitem-label /* Mostly for the styles picker */ {
+  color: white !important;
+}
 .docs-gm .goog-menuitem {
   transition: var(--button-off);
 }

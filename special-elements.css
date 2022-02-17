@@ -874,12 +874,16 @@
 }
 
 /* Unselected top-level items in outline */
-.outline-refresh.navigation-widget-unified-styling .navigation-item .navigation-item-level-0 {
+.outline-refresh.navigation-widget-unified-styling .navigation-item .navigation-item-level-0, 
+.outline-refresh .navigation-item /* Legacy */, 
+.outline-refresh .navigation-widget-empty-content /* Legacy */ {
   color: var(--lightestgray);
   transition: var(--text-hover-off);
 }
 
-.outline-refresh.navigation-widget-unified-styling .navigation-item.goog-button-hover .navigation-item-level-0 {
+.outline-refresh.navigation-widget-unified-styling .navigation-item.goog-button-hover .navigation-item-level-0 , 
+.outline-refresh .navigation-item.goog-button-hover /* Legacy */ {
+  color: var(--lightestgray);
   text-shadow: 0 0 4px var(--lightestgray);
   transition: var(--text-hover-on);
 }
@@ -895,12 +899,15 @@
 }
 
 /* Selected item in the outline */
-.outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item, .outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item .navigation-item-level-0 {
+.outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item, 
+.outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item .navigation-item-level-0, 
+.outline-refresh .location-indicator-highlight.navigation-item /* Legacy */ {
   color: var(--palerblue);
   transition: var(--text-hover-off);
 }
 
-.outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item.goog-button-hover, .outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item.goog-button-hover .navigation-item-level-0 {
+.outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item.goog-button-hover, .outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item.goog-button-hover .navigation-item-level-0, 
+.outline-refresh .location-indicator-highlight.navigation-item.goog-button-hover /* Legacy */ {
   color: var(--palerblue);
   text-shadow: 0 0 4px var(--paleblue);
   transition: var(--text-hover-on);

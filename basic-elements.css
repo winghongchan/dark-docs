@@ -127,10 +127,11 @@
   transition: var(--button-on);
 }
 
-/* Text buttons */
+/* No fill, no border buttons */
 .analytics-btn-text.jfk-button, 
 .docs-material-button-text-default.docs-material-button, 
-.appsMaterialWizButtonPaperbuttonTextColored, .appsMaterialWizButtonPaperbuttonTextColored .exportButtonNestedLink {
+.appsMaterialWizButtonPaperbuttonTextColored, .appsMaterialWizButtonPaperbuttonTextColored .exportButtonNestedLink, 
+.kix-smart-summary-view .jfk-button {
   background-color: transparent;
   color: var(--palerblue);
   font-weight: 500;
@@ -138,13 +139,15 @@
 }
 .analytics-btn-text.jfk-button-hover, 
 .analytics-btn-text.jfk-button-focused.jfk-button-hover, 
-.docs-material-button-hover.docs-material-button-text-default {
+.docs-material-button-hover.docs-material-button-text-default, 
+.kix-smart-summary-view .jfk-button:focus, .kix-smart-summary-view .jfk-button:hover{
   background-color: var(--gray);
   color: var(--palerblue);
   transition: var(--button-on);
 }
 .analytics-btn-text.jfk-button-focused.jfk-button-hover.jfk-button-active, 
-.docs-material-button-text-default>.docs-material-button-ripple-element {
+.docs-material-button-text-default>.docs-material-button-ripple-element, 
+.kix-smart-summary-view .jfk-button:active {
   background-color: var(--ripple);
   color: var(--palerblue);
 }

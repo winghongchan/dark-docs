@@ -104,9 +104,6 @@
 .docs-gm .goog-menuitem .goog-menuitem-content {
   color: white;
 }
-.goog-menu-vertical .goog-menuitem-label /* Mostly for the styles picker */ {
-  color: white !important;
-}
 .docs-gm .goog-menuitem {
   transition: var(--button-off);
 }
@@ -845,34 +842,65 @@
   border-top-color: var(--darkgray);
 }
 
-/*TABLE OF CONTENTS (TOC)*/
+/* Navigation Sidebar */
 
-/*Open & close buttons*/
+/* Open & close buttons */
 .docs-icon-arrow-back-dark, 
 .docs-icon-list-24 {
   filter: brightness(3); 
 }
 
-/*Unselected items in the TOC*/
-.outline-refresh .navigation-item, 
-.outline-refresh .navigation-widget-empty-content {
-  color: white;
+/* Sidebar headers */
+.navigation-widget-header {
+  color: var(--lightergray);
+}
+
+/* Sidebar section divider */
+.kix-smart-summary-view-separator {
+  background-color: var(--gray);
+}
+
+/* Summary editing */
+.kix-smart-summary-view-header-container.kix-smart-summary-edit-mode .navigation-widget-header {
+  color: var(--palerblue);
+}
+.kix-smart-summary-text-container.kix-smart-summary-edit-summary-text-input {
+  border-color: var(--palerblue);
+}
+
+/* Summary text */
+.kix-smart-summary-text-container {
+  color: var(--lightestgray);
+}
+
+/* Unselected top-level items in outline */
+.outline-refresh.navigation-widget-unified-styling .navigation-item .navigation-item-level-0 {
+  color: var(--lightestgray);
   transition: var(--text-hover-off);
 }
 
-.outline-refresh .navigation-item.goog-button-hover {
-  color: white;
-  text-shadow: 0 0 4px white;
+.outline-refresh.navigation-widget-unified-styling .navigation-item.goog-button-hover .navigation-item-level-0 {
+  text-shadow: 0 0 4px var(--lightestgray);
   transition: var(--text-hover-on);
 }
 
-/*Selected item in the TOC*/
-.outline-refresh .location-indicator-highlight.navigation-item {
+/* Other unselected items in outline */
+.outline-refresh.navigation-widget-unified-styling .navigation-item {
+  color: var(--lightergray);
+  transition: var(--text-hover-off);
+}
+.outline-refresh.navigation-widget-unified-styling .navigation-item.goog-button-hover {
+  text-shadow: 0 0 4px var(--lightergray);
+  transition: var(--text-hover-on);
+}
+
+/* Selected item in the outline */
+.outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item, .outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item .navigation-item-level-0 {
   color: var(--palerblue);
   transition: var(--text-hover-off);
 }
 
-.outline-refresh .location-indicator-highlight.navigation-item.goog-button-hover {
+.outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item.goog-button-hover, .outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item.goog-button-hover .navigation-item-level-0 {
   color: var(--palerblue);
   text-shadow: 0 0 4px var(--paleblue);
   transition: var(--text-hover-on);

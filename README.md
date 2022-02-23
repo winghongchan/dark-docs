@@ -1,5 +1,5 @@
 # Dark Docs
-A dark theme for Google Docs web, based on the colors used in other dark modes in Google products. Subtle animations added. 
+A dark theme for Google Docs web, based on the colors used in dark modes in other Google products. Subtle animations added. 
 
 ![](Screenshot_20220108_130113.png)
 

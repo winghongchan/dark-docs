@@ -1,1257 +1,1386 @@
-/* Special elements */
-
-/* Butter bar (Centered messages for moved file, fullscreen mode, etc) */
-
-.docs-gm .jfk-butterBar-info {
-  background-color: var(--ripple);
-  color: white;
-}
-.docs-gm .jfk-butterBar-info .docs-butterbar-butter-action, 
-.docs-gm .jfk-butterBar-info .docs-butterbar-dismiss, 
-.docs-gm .jfk-butterBar-info .docs-butterbar-dismiss:hover, 
-.docs-gm .jfk-butterBar-info .docs-butterbar-link, 
-.docs-gm .jfk-butterBar-info a.docs-butterbar-link:link, 
-.docs-gm .jfk-butterBar-info a.docs-butterbar-link:visited, 
-.docs-gm .jfk-butterBar-info .docs-butterbar-link-no-pad, 
-.docs-gm .jfk-butterBar-info a.docs-butterbar-link-no-pad:link, 
-.docs-gm .jfk-butterBar-info a.docs-butterbar-link-no-pad:visited {
-  color: var(--palerblue);
-  transition: var(--button-off);
-}
-
-/*Top bar*/
-#docs-chrome, .docs-material #docs-header .docs-titlebar-buttons {
-	background-color: var(--darkgray);
-  outline: none;
-}
-
-/* Document title */
-.docs-title-input {
-  background-color: transparent;
-  transition: var(--button-off);
-}
-.docs-title-input:hover {
-  background-color: var(--gray);
-  border: 1px solid transparent;
-  transition: var(--button-on);
-}
-.docs-title-input:focus {
-  background-color: var(--ripple);
-  color: white;
-}
-.docs-title-input-label {
-  color: white;
-}
-
-/* Document badges */
-.docs-gm .docs-titlebar-badge {
-  transition: var(--button-off);
-}
-.docs-gm .docs-titlebar-badge:hover {
-  background-color: var(--gray);
-  transition: var(--button-on);
-}
-.docs-gm .docs-titlebar-badge:active, .docs-gm .docs-titlebar-badge.docs-titlebar-badge-selected {
-  background-color: var(--ripple);
-  color: var(--paleblue);
-}
-
-/* Popups from badges */
-.document-details-bubble-container {
-  background-color: var(--darkgray);
-  border-color: var(--gray);
-}
-#document-details-bubble-header {
-  color: white !important;
-}
-.document-details-entry-text {
-  color: var(--lightergray);
-}
-
-/* File location picker (next to document title) */
-
-/* Menubar */
-
-/* Titles */
-.docs-gm .docs-menubar .goog-control {
-  color: white;
-  transition: var(--button-off);
-}
-.docs-gm .docs-menubar .goog-control-disabled {
-  color: var(--lightgray);
-  background-color: transparent;
-}
-.docs-gm .docs-menubar .goog-control-hover {
-  background-color: var(--gray);
-  transition: var(--button-on);
-}
-.docs-gm .docs-menubar .goog-control-active,
-.docs-gm .docs-menubar .goog-control:hover:active {
-  background-color: var(--ripple);
-  transition: var(--button-on);
-}
-.docs-gm .docs-menubar .goog-control.docs-menu-button-open-below {
-	background-color: var(--ripple);
-  color: white;
-}
-
-/* Menus */
-.docs-gm .goog-menu {
-  background-color: var(--darkgray);
-  border: 1px solid var(--gray);
-  transition: var(--button-off);
-}
-.docs-gm .goog-menuitem .goog-menuitem-content {
-  color: white;
-}
-.docs-gm .goog-menuitem {
-  transition: var(--button-off);
-}
-.docs-gm .goog-menuitem-highlight {
-  background-color: var(--gray);
-  transition: var(--button-on);
-}
-.docs-gm .goog-menuitem-accel, .docs-gm .goog-menuitem-disabled .goog-menuitem-accel {
-  color: var(--lightergray) !important;
-}
-.docs-gm .goog-menuitem-active, 
-.docs-gm .goog-menuitem-active:hover:active {
-  background-color: var(--ripple);
-  transition: var(--button-on);
-}
-
-/* Separators */
-.apps-hoverable-menu-separator-container .apps-hoverable-menu-separator-bottom {
-  border-color: var(--gray);
-}
-.docs-gm .goog-menuseparator, 
-.goog-menuitem.docs-submenuitem /* Dividers in submenus are different */ {
-  border-color: var(--gray);
-}
-
-/* Icons */
-.docs-gm .docs-material.goog-menu .apps-menuitem.goog-option-selected .goog-menuitem-checkbox {
-  filter: invert(100%);
-}
-
-/* DOCUMENT DETAILS */
-
-.docs-gm .docs-details-field {
-  color: var(--lightergray);
-}
-.docs-gm .docs-details-value {
-  color: white;
-}
-
-/* PAGE SETUP */
-
-.kix-pagesetupdialog-units {
-  color: var(--lightergray);
-  opacity: 1;
-}
-
-/* PARAGRAPH BORDERS AND SHADING */
-
-#kix-bordersshadingdialog-borderdash>div>div>div,
-.goog-menu.goog-menu-vertical.kix-bordersshadingdialog-menu>div>div>div>div {
-  border-top-color: white !important;
-}
-
-/* TABLE */
-
-.goog-dimension-picker-unhighlighted, 
-.goog-dimension-picker-highlighted {
-  filter: invert(100%) hue-rotate(180deg) contrast(80%) brightness(2);
-}
-.goog-dimension-picker-status {
-  color: var(--lightergray);
-}
-
-/* INSERT SPECIAL CHARACTERS */
-
-.ita-cp-whole-pad .modal-dialog-title-close {
-  filter: brightness(200%);
-  transition: opacity 0.25s ease;
-}
-.ita-cp-whole-pad .modal-dialog-title-close:hover {
-  transition: opacity 0.1s ease;
-}
-.ita-cp-charpicker .goog-char-picker-grid, 
-.goog-char-picker-grid .goog-flat-button {
-  border-color: var(--gray);
-  transition: var(--button-off);
-}
-.goog-char-picker-grid .goog-flat-button-hover, 
-.goog-char-picker-grid .goog-flat-button-focus {
-  background-color: var(--gray);
-  transition: var(--button-on);
-}
-.goog-char-picker-grid .goog-flat-button-active {
-  background-color: var(--ripple);
-  transition: var(--button-on);
-}
-.goog-char-picker-hovercard {
-  background-color: var(--darkgray);
-  border: 1px solid var(--gray) !important;
-  border-radius: 8px;
-}
-.goog-char-picker-char-zoom, 
-.goog-char-picker-name {
-  color: white;
-}
-.goog-char-picker-unicode {
-  color: var(--lightergray);
-}
-.ita-cp-search {
-  border-color: var(--gray);
-}
-.ita-cp-lens, 
-.ita-cp-backspace {
-  filter: invert(100%) contrast(20%);
-}
-.ita-cp-input.label-input-label {
-  background-color: transparent;
-  color: var(--lightergray);
-  opacity: 1;
-}
-.ita-cp-hwt {
-  background-color: var(--darkgray);
-  border-color: var(--gray);
-}
-.ita-cp-hwt-hint {
-  border-color: var(--gray);
-}
-
-/* PAGE NUMBERS */
-
-.goog-palette-cell .docs-preview-palette-item {
-  border-color: var(--gray);
-  transition: var(--button-off);
-}
-.goog-palette-cell-hover .docs-preview-palette-item {
-  border-color: var(--lightgray);
-  transition: var(--button-on);
-}
-
-/* LIST OPTIONS */
-
-.docs-bulletpreset {
-  border-color: var(--gray);
-  color: white;
-  transition: var(--button-on);
-}
-.goog-palette-set-hover .docs-bulletpreset {
-  border-color: var(--lightgray);
-  transition: var(--button-on);
-}
-.docs-icon-img-container.docs-icon-img.docs-icon-checkbox-hollow {
-  filter: invert(100%) !important;
-}
-.docs-listpreset-img {
-  filter: invert(100%) contrast(80%);
-}
-
-/* WORD COUNT */
-.docs-gm .kix-documentmetricsdialog-row {
-  border-bottom-color: var(--gray);
-}
-
-/* PERSONAL DICTIONARY */
-
-.docs-userdictionarydialog-list-container {
-  background-color: transparent;
-  border-color: var(--gray);
-}
-.docs-gm .docs-userdictionarydialog-row-container {
-  border-color: var(--gray);
-  transition: var(--button-off);
-}
-.docs-gm .docs-userdictionarydialog-row-container-hover {
-  background-color: var(--gray);
-  transition: var(--button-on) !important;
-}
-.docs-gm .docs-userdictionarydialog-row-content {
-  color: white;
-}
-
-/* PREFERENCES */
-
-/* Preferences tabs */
-.docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab {
-  transition: var(--button-off);
-}
-.docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab-hover {
-  background-color: var(--gray);
-  transition: var(--button-on);
-}
-.docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tablabel, 
-.docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab .docs-tabbar-tablabel:hover {
-  color: var(--lightergray);
-}
-.docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab-selected .docs-tabbar-tablabel, 
-.docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab-selected .docs-tabbar-tablabel:hover {
-  color: var(--palerblue);
-}
-.docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab::before {
-  border-bottom-color: var(--palerblue);
-}
-
-/* Preferences items */
-.docs-preferencesdialog-subtext {
-  color: var(--lightergray);
-}
-
-/* Substitutions table */
-#docs-stringreplacementtable-table .docs-preferencesdialog-list-body {
-  background-color: var(--darkgray);
-  border-color: var(--darkgray);
-}
-#docs-stringreplacementtable-table .docs-preferencesdialog-list-title-content {
-  color: white;
-}
-#docs-stringreplacementtable-table .docs-icon-close-small {
-  filter: invert(50);
-}
-
-/* ACTIVITY DASHBOARD */
-.analytics-nc-tabbar, 
-.analytics-ntb-container .goog-tab-bar, 
-.analytics-vhc-tabbarholder, 
-.analytics-vhc-tabbarholder .docs-tabbar {
-  background-color: transparent;
-  border-color: var(--gray);
-}
-/* Activity dashboard sidebar */
-.analytics-ntb-container .goog-tab {
-  background-color: transparent !important;
-  color: white;
-  transition: var(--button-off);
-}
-.analytics-ntb-container .goog-tab.goog-tab-hover {
-  background-color: var(--gray) !important;
-  color: white;
-  transition: var(--button-on) !important;
-}
-.analytics-ntb-container .goog-tab.goog-tab-selected, 
-.analytics-ntb-container .goog-tab.goog-tab-selected.goog-tab-hover {
-  background-color: var(--ripple) !important;
-  color: var(--palerblue);
-  transition: var(--button-on) !important;
-}
-.docs-gm .docs-material .docs-analytics-sidebar-tab-selected .docs-icon-img {
-  filter: none !important;
-  filter: var(--pale-icons) !important;
-}
-/* Tabs on Viewers page */
-.analytics-vhc-tabbarholder .docs-tabbar-tab .docs-tabbar-tablabel {
-  color: var(--lightergray);
-  transition: var(--button-off);
-}
-.analytics-vhc-tabbarholder .docs-tabbar-mouseactive .docs-tabbar-tab-hover .docs-tabbar-tablabel {
-  color: white;
-  transition: var(--button-on) !important;
-}
-.analytics-vhc-tabbarholder .docs-tabbar-tab-selected .docs-tabbar-tablabel {
-  color: var(--palerblue) !important;
-}
-.analytics-vhc-tabbarholder .docs-tabbar-tab-selected::before {
-  border-color: var(--palerblue) !important; 
-}
-/* Table on Viewers page */
-.analytics-vhc-listsortbutton-name {
-  color: var(--lightergray);
-}
-.analytics-vhc-rowcard-name {
-  color: white;
-}
-.analytics-vhc-rowcard-time {
-  color: var(--lightergray);
-}
-.analytics-vhc-rowcard-row::after, 
-.analytics-vhfc-card {
-  border-color: var(--gray);
-}
-.analytics-vhfc-settings-container {
-  color: white;
-}
-/* Viewer Trend line graph */
-.analytics-trend-sparkline-left-bg, 
-.analytics-trend-sparkline-right-bg, 
-.analytics-trend-bg-selected.analytics-trend-sparkline-left-bg, 
-.analytics-trend-bg-selected.analytics-trend-sparkline-right-bg {
-  background-color: transparent;
-  border-color: transparent;
-}
-.analytics-trend-sparkline-chart svg>rect {
-  stroke: transparent;
-}
-.analytics-trend-sparkline-chart svg>g>g>g>path {
-  stroke: var(--paleblue);
-}
-.analytics-trend-sparkline-chart svg>g>g>g>g>path {
-  stroke: var(--gray);
-}
-.analytics-trend-sparkline-chart svg>g>g:nth-of-type(2n)>circle {
-  fill: var(--paleblue);
-  stroke: var(--paleblue);
-  stroke-width: 3px;
-}
-/* Viewer Trend bar graph */
-.analytics-tcc-chart svg>rect {
-  fill: transparent;
-}
-.analytics-tcc-chart svg>g>g>g:first-of-type>rect {
-  fill: var(--lightgray);
-}
-.analytics-tcc-chart svg>g>g>g:nth-of-type(2n)>rect {
-  fill: var(--paleblue);
-}
-.analytics-tcc-chart svg>g>g:nth-of-type(3n)>g>text {
-  fill: var(--lightergray);
-  font-family: Roboto, Arial, sans-serif;
-}
-/* Comment Trend */
-.analytics-low-data-treatment-sharebutton .docs-icon-img {
-  filter: invert(100%) !important;
-}
-/* Sharing History */
-.activity-event, 
-.activity-event-section-title, 
-.analytics-ssc {
-  background-color: transparent;
-  border-color: var(--gray);
-}
-.activity-event-scope-element-access, 
-.activity-event-section-title, 
-.activity-event-info, 
-.activity-list-no-more-events-text {
-  color: var(--lightergray);
-}
-.activity-event-details-header, 
-.activity-event-file-approval, 
-.activity-event-people-names, 
-.activity-event-scope-element-text {
-  color: white;
-}
-/* Privacy Settings */
-.analytics-sic {
-  background-color: transparent;
-  border-bottom: 1px solid var(--gray);
-  box-shadow: none;
-}
-.analytics-sic .docs-icon-img {
-  filter: none !important;
-}
-.analytics-sic-text {
-  color: white;
-}
-.analytics-sc-document-setting {
-  border-color: var(--gray);
-}
-
-/* Addons dropdown empty state */
-.script-promo-menu-item-title {
-  color: var(--white);
-}
-.script-promo-menu-item-description {
-  color: var(--lightergray)
-}
-
-/* Help menu search bar */
-.docs-omnibox-parent.goog-menu-vertical .docs-labelinputmenuitem.goog-menuitem {
-  background-color: transparent;
-}
-
-/* New changes notifier */
-.docs-title-save-label-text {
-  color: var(--lightergray);
-  transition: color 0.25s ease;
-}
-#docs-new-changes {
-  background-color: var(--gray) !important;
-  color: var(--lightergray) !important;
-  transition: color 0.25s ease;
-}
-#docs-new-changes.inactive.goog-flat-button-hover {
-  background-color: var(--gray) !important;
-  color: white !important;
-  transition: color 0.1s ease;
-}
-
-/* “Request access” button */
-.titlebar-request-access-button.docs-material-button {
-  border-color: var(--gray);
-  color: var(--paleblue);
-  transition: var(--button-off);
-}
-.titlebar-request-access-button.docs-material-button.docs-material-button-hover {
-  background-color: var(--gray);
-  border-color: var(--gray);
-  transition: var(--button-on);
-}
-
-/* View mode: viewing */
-#titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary, 
-#titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-focused {
-  background-color: var(--darkgray);
-  border-color: var(--gray);
-  transition: var(--button-off);
-}
-#titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-hover, 
-#titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-hover.docs-material-menu-button-flat-primary-focused {
-  background-color: var(--gray);
-  border-color: var(--gray);
-  transition: var(--button-on);
-}
-#titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-open,
-#titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-hover.docs-material-menu-button-flat-primary-open {
-  background-color: var(--ripple);
-  border-color: var(--ripple);
-  transition: var(--button-on);
-}
-.kix-titlebar-mode-switcher.docs-material-menu-button-flat-primary .docs-icon-img.docs-icon-acl-view-only {
-  filter: none;
-  filter: var(--pale-icons);
-}
-.docs-material-menu-button-flat-primary-dropdown-icon {
-  fill: var(--palerblue);
-}
-
-/* Activity dashboard and comment buttons */
-.docs-material .docs-appbar-circle-button.jfk-button, 
-.docs-material #docs-docos-commentsbutton {
-  transition: var(--button-off);
-}
-.docs-material .docs-appbar-circle-button.jfk-button.jfk-button-hover, 
-.docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-hover {
-  background-color: var(--gray);
-  transition: var(--button-on) !important;
-}
-.docs-material .docs-appbar-circle-button.jfk-button.jfk-button-hover.jfk-button-active, 
-.docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-hover.jfk-button-active, 
-.docs-gm .docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-active, 
-.docs-gm .docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-checked {
-  background-color: var(--ripple);
-  transition: var(--button-on) !important;
-}
-#docs-docos-commentsbutton .docs-icon-comment-topbar-24 {
-  transition: filter 0.25s ease;
-}
-#docs-docos-commentsbutton.jfk-button-checked .docs-icon-comment-topbar-24 {
-  filter: none; 
-  filter: var(--pale-icons);
-  transition: filter 0.1s ease;
-}
-
-/* COMMENT BOX */
-.docs-docos-activitybox {
-  background-color: var(--darkgray);
-  border: 1px solid var(--gray);
-}
-.docs-gm .docos-streampane-header {
-  background-color: transparent;
-  border-bottom-color: var(--gray);
-}
-.docos-xeditor .docos-streampane-content .docos-comment-text.docos-comment-header-title {
-  color: white;
-}
-.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default, 
-.docs-gm .docos-streampane-container .streampane-dragger {
-  background-color: transparent;
-  border-color: var(--gray);
-  color: white;
-  transition: var(--button-off);
-}
-.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-hover, 
-.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-focused, 
-.docs-gm .docos-streampane-container .streampane-dragger:hover {
-  background-color: var(--gray);
-  transition: var(--button-on);
-}
-.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-dropdown-icon, 
-.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-hover .docs-material-menu-button-flat-default-dropdown-icon, 
-.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-focused .docs-material-menu-button-flat-default-dropdown-icon, 
-.docs-gm.docos-xeditor .docos-new-comment-icon-path {
-  fill: white;
-}
-.docs-gm.docos-xeditor .docos-notification-settings .goog-flat-menu-button, 
-.docs-gm.docos-xeditor .docos-new-comment-button {
-  transition: var(--button-off);
-}
-.docs-gm.docos-xeditor .docos-notification-settings .goog-flat-menu-button.goog-flat-menu-button-hover,
-.docs-gm.docos-xeditor .docos-notification-settings .goog-flat-menu-button.goog-flat-menu-button-focused, 
-.docs-gm.docos-xeditor .docos-new-comment-button.jfk-button-hover, 
-.docs-gm.docos-xeditor .docos-new-comment-button.jfk-button-focused {
-  background-color: var(--gray);
-  transition: var(--button-on);
-}
-.docs-gm.docos-xeditor .docos-notification-settings .goog-flat-menu-button.goog-flat-menu-button-open {
-  background-color: var(--ripple);
-  transition: var(--button-on);
-}
-.docs-gm.docos-xeditor .docos-streamdocoview {
-  border: 1px solid var(--gray);
-  transition: var(--button-off);
-}
-.docs-gm.docos-xeditor .docos-streamdocoview:hover, 
-.docos.docs-gm.docos-xeditor .docos-streamdocoview.docos-docoview-active {
-  border: 1px solid var(--paleyellow);
-  transition: var(--button-on);
-}
-.docos-xeditor .docos-streamdocoview .docos-streamdocoview-header-container {
-  background-color: var(--gray);
-  border: 1px solid transparent;
-  transition: var(--button-off);
-}
-.docos-xeditor .docos-streamdocoview:hover .docos-streamdocoview-header-container, 
-.docos-xeditor .docos-streamdocoview.docos-docoview-active .docos-streamdocoview-header-container {
-  background-color: var(--yellowripple);
-  border: 1px solid var(--paleyellow);
-  border-bottom-color: transparent;
-  transition: var(--button-on);
-}
-.docos-xeditor .streamdocoview-header {
-  color: white;
-  transition: color 0.25s ease;
-}
-.docos-docoview-active .streamdocoview-header {
-  color: var(--paleyellow);
-  transition: color 0.1s ease;
-}
-
-/* “Present to a Meeting” button */
-#docs-meet-in-editors-entrypointbutton {
-  background-color: transparent;
-  border-color: var(--gray);
-  transition: var(--button-off);
-}
-#docs-meet-in-editors-entrypointbutton.goog-flat-menu-button-hover, 
-#docs-meet-in-editors-entrypointbutton.goog-flat-menu-button-focused {
-  background-color: var(--gray);
-  border-color: var(--gray);
-  transition: var(--button-on);
-}
-#docs-meet-in-editors-entrypointbutton.goog-flat-menu-button-open {
-  background-color: var(--ripple);
-  border-color: var(--ripple);
-  transition: var(--button-on);
-}
-.goog-flat-menu-button-caption, 
-.goog-flat-menu-button-dropdown, 
-#docs-meet-in-editors-entrypointbutton.goog-flat-menu-button .docs-icon-present-to-all-24 {
-  filter: brightness(500%) saturate(0%);
-}
-
-/* Viewer */
-.docs-material .docs-presence-plus-collab-widget-color-block, 
-.docs-material.docs-presence-plus-widget-overflow-menu .docs-presence-plus-collab-widget-color-block,
-.docs-material .docs-presence-plus-widget-overflow-button {
-  background-color: var(--gray);
-  border-color: transparent;
-}
-
-/* “Turn In” button */
-.docs-material #docs-script-button-bar .jfk-button {
-  background-color: var(--gray);
-  color: white;
-}
-
-/* Share button */
-#docs-titlebar-share-client-button .scb-privately-shared-icon-white, 
-#docs-titlebar-share-client-button .scb-domain-unlisted-icon-white, 
-#docs-titlebar-share-client-button .scb-private-icon-white,
-#docs-titlebar-share-client-button .scb-unlisted-icon-white {
-  filter: invert(100%) !important;
-}
-
-/* TOOLBAR */
-
-/* Toolbar wrapper */
-.docs-material #docs-toolbar-wrapper, 
-.docs-material #docs-equationtoolbar, 
-.docs-material .docs-printpreview-toolbar {
-  background-color: var(--darkgray);
-}
-.docs-gm #docs-toolbar-wrapper, 
-.docs-material #docs-equationtoolbar, 
-.docs-printpreview-toolbar {
-  border-color: var(--gray);
-}
-
-/* Toolbar buttons */
-.docs-material .goog-toolbar-button, 
-.docs-material .goog-toolbar-combo-button, 
-.docs-material .goog-toolbar-menu-button{
-  background: transparent;
-  color: white;
-  transition: var(--button-off);
-}
-.docs-gm .docs-material .goog-toolbar-button-hover, 
-.docs-material .goog-toolbar-button:hover, 
-.docs-material .goog-toolbar-combo-button:hover, 
-.docs-material .goog-toolbar-menu-button:hover, 
-.docs-gm .docs-material .goog-toolbar-menu-button-hover {
-  background-color: var(--gray);
-  transition: var(--button-on);
-}
-.docs-gm .docs-material .goog-toolbar-button-active {
-  background-color: var(--ripple);
-  color: var(--palerblue);
-  transition: var(--button-on);
-}
-
-/* Toolbar buttons with dropdowns (list options) */
-.docs-gm .docs-material .docs-toolbar-button-split-sympathy-hover {
-  background-color: var(--gray);
-  transition: var(--button-on);
-}
-.docs-gm .docs-material .docs-toolbar-button-split-right.goog-toolbar-menu-button-hover,
-.docs-gm .docs-material .docs-toolbar-button-split-right.docs-toolbar-button-split-sympathy-hover,
-.docs-gm .docs-material .docs-toolbar-button-split-left + .docs-toolbar-button-split-right.goog-toolbar-menu-button-open {
-  border-color: transparent !important;
-}
-
-/* Opened dropdowns */
-.docs-gm .docs-material .goog-toolbar-menu-button-open {
-  background-color: var(--ripple);
-  color: var(--palerblue);
-  transition: var(--button-on);
-}
-.docs-gm .docs-material .goog-toolbar-menu-button-open div div div div .docs-icon-img {
-  filter: none;
-  filter: var(--pale-icons);
-  transition: filter 0.1s ease;
-}
-.kix-equation-toolbar-palette-item {
-  border-color: var(--gray);
-}
-
-/* Toolbar icons */
-.docs-gm .docs-material .docs-icon-img,
-.ita-kd-img {
-  filter: brightness(10);
-}
-.kix-equation-toolbar-icon {
-  filter: invert(100%);
-}
-.docs-gm .docs-material .goog-toolbar-button-checked {
-  background-color: var(--ripple) !important;
-}
-.docs-gm .docs-material .goog-toolbar-button-checked .docs-icon-img {
-  filter: var(--pale-icons) !important;
-}
-
-/* Toolbar text */
-.docs-gm .goog-toolbar-combo-button-input {
-  color: white;
-}
-
-/* Separators */
-.docs-gm .goog-toolbar-separator.goog-inline-block {
-  border-color: var(--gray);
-}
-
-/* Search bar (with menus hidden) */
-.docs-omnibox-input.jfk-textinput {
-  background-color: var(--gray);
-  color: white;
-}
-.docs-omnibox-input.jfk-textinput::placeholder {
-  background-color: var(--darkgray);
-  color: white;
-}
-.docs-omnibox-input.jfk-textinput:focus {
-  background-color: var(--ripple);
-}
-.docs-omnibox-input.jfk-textinput:focus[aria-expanded="true"] {
-  border-bottom-color: var(--gray);
-}
-.docs-omnibox-autocomplete .ac-renderer /* Autocomplete suggestions from that search bar */ {
-  background-color: var(--darkgray);
-  border: 1px solid var(--gray);
-}
-.docs-omnibox-autocomplete .ac-active {
-  background-color: var(--gray);
-}
-
-/* Font menu */
-.docs-fontmenu .docs-fonts-section-header {
-  color: var(--lightergray);
-}
-
-/* Font size */
-#fontSizeDecrement,
-#fontSizeSelect.docs-font-size-inc-dec-combobox,
-#fontSizeIncrement {
-  border-color: var(--gray) !important;
-}
-.docs-gm .goog-toolbar-combo-button-input:focus {
-  background-color: var(--gray);
-  border-color: var(--paleblue) !important;
-}
-.docs-gm .docs-material .goog-toolbar-combo-button-open {
-  background-color: var(--gray);
-}
-.docs-gm .goog-toolbar-combo-button-input::selection {
-  background-color: var(--paleblue);
-}
-
-/* Input tools */
-.docs-icon-inputtools-button-inner {
-  filter: invert(10);
-}
-
-/* Extra toolbar items box */
-.docs-material.docs-toolbar-more-toolbar {
-  background-color: var(--darkgray);
-  border: 1px solid var(--gray);
-}
-
-/* Edit/Suggest/View switch */
-
-/* Editing mode */
-#docs-toolbar-mode-switcher.edit-mode {
-  background-color: var(--ripple);
-  color: var(--palerblue);
-}
-.docs-icon-mode-edit-blue700 {
-  filter: var(--pale-icons) !important;
-}
-#docs-toolbar-mode-switcher.edit-mode .goog-toolbar-menu-button-dropdown {
-  filter: var(--pale-icons) !important;
-}
-
-/* Suggesting mode */
-#docs-toolbar-mode-switcher.suggest-mode {
-  background-color: #37493F;
-  color: #81C995;
-}
-.docs-icon-acl-comment-only-green700 {
-  filter: none !important;
-  filter: var(--pale-green-icons) !important;
-}
-#docs-toolbar-mode-switcher.docs-toolbar-menu-button-open .docs-icon-acl-comment-only-green700 {
-  filter: none !important;
-}
-#docs-toolbar-mode-switcher.suggest-mode .goog-toolbar-menu-button-dropdown {
-  border-top-color: #81c995;
-}
-
-/*Remove white line below top bar*/
-.kix-document-top-shadow.read-mode-titlebar-border {
-  border-top-color: var(--darkgray);
-}
-
-/* Navigation Sidebar */
-
-/* Open & close buttons */
-.docs-icon-arrow-back-dark, 
-.docs-icon-list-24 {
-  filter: brightness(3); 
-}
-
-/* Sidebar headers */
-.navigation-widget-header {
-  color: var(--lightergray);
-}
-
-/* Sidebar section divider */
-.kix-smart-summary-view-separator {
-  background-color: var(--gray);
-}
-
-/* Summary editing */
-.kix-smart-summary-view-header-container.kix-smart-summary-edit-mode .navigation-widget-header {
-  color: var(--palerblue);
-}
-.kix-smart-summary-text-container.kix-smart-summary-edit-summary-text-input {
-  border-color: var(--palerblue);
-}
-
-/* Summary text */
-.kix-smart-summary-text-container {
-  color: var(--lightestgray);
-}
-
-/* Unselected top-level items in outline */
-.outline-refresh.navigation-widget-unified-styling .navigation-item .navigation-item-level-0, 
-.outline-refresh .navigation-item /* Legacy */, 
-.outline-refresh .navigation-widget-empty-content /* Legacy */ {
-  color: var(--lightestgray);
-  transition: var(--text-hover-off);
-}
-
-.outline-refresh.navigation-widget-unified-styling .navigation-item.goog-button-hover .navigation-item-level-0 , 
-.outline-refresh .navigation-item.goog-button-hover /* Legacy */ {
-  color: var(--lightestgray);
-  text-shadow: 0 0 4px var(--lightestgray);
-  transition: var(--text-hover-on);
-}
-
-/* Other unselected items in outline */
-.outline-refresh.navigation-widget-unified-styling .navigation-item {
-  color: var(--lightergray);
-  transition: var(--text-hover-off);
-}
-.outline-refresh.navigation-widget-unified-styling .navigation-item.goog-button-hover {
-  text-shadow: 0 0 4px var(--lightergray);
-  transition: var(--text-hover-on);
-}
-
-/* Selected item in the outline */
-.outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item, 
-.outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item .navigation-item-level-0, 
-.outline-refresh .location-indicator-highlight.navigation-item /* Legacy */ {
-  color: var(--palerblue);
-  transition: var(--text-hover-off);
-}
-
-.outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item.goog-button-hover, .outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item.goog-button-hover .navigation-item-level-0, 
-.outline-refresh .location-indicator-highlight.navigation-item.goog-button-hover /* Legacy */ {
-  color: var(--palerblue);
-  text-shadow: 0 0 4px var(--paleblue);
-  transition: var(--text-hover-on);
-}
-
-/*Fade at top and bottom of the TOC*/
-#navigation-widget-bottom-fade, 
-#navigation-widget-top-shadow {
-  display: none;
-}
-
-/* Statistics widget (below TOC, displayed while typing) */
-.kix-documentmetrics-widget {
-  background-color: var(--darkgray);
-  border-color: var(--gray);
-}
-.kix-documentmetrics-widget .docs-material-gm-select-dropdown .docs-icon {
-  transform: rotate(180deg);
-}
-
-/* Document */
-
-/* Ruler */
-.docs-gm .docs-horizontal-ruler,
-.docs-gm #kix-vertical-ruler {
-  background-color: var(--darkgray);
-  border-color: var(--gray);
-}
-.docs-ruler-background-inner {
-  background-color: var(--gray);
-}
-.docs-gm .docs-ruler-face-number {
-  color: white;
-}
-.docs-icon-ruler-first-indent-drag-blue500,
-.docs-icon-tabstop-center-bottom-blue500.docs-icon-indent-bottom {
-  filter: none !important;
-  filter: var(--pale-icons) !important;
-}
-.docs-ruler-contributed-dragger-container /* Table border handle in ruler */ {
-  background-color: var(--lightergray);
-  border-color: var(--lightergray);
-}
-
-/* Editor background */
-body {
-  background-color: var(--darkgray);
-}
-
-.docs-gm #docs-editor, 
-.docs-gm #docs-editor-container, 
-.kix-appview-editor {
-  background-color: var(--darkgray) !important;
-}
-
-/* Pages and cursor */
-.kix-paginateddocumentplugin,
-.kix-canvas-tile-content,
-.kix-cursor-caret {
-  filter: invert(100%) hue-rotate(180deg) contrast(80%);
-}
-
-/* Images */
-.kix-canvas-tile-content image /* Chrome */, 
-.kix-embeddedobject-image image  /* Firefox */{
-  filter: brightness(80%) invert(100%) hue-rotate(180deg);
-}
-
-/* CHIPS */
-
-.kix-rich-link-view {
-  transition: var(--button-off);
-}
-.kix-rich-link-view:hover {
-  transition: var(--button-on);
-}
-
-/* POPUPS */
-
-/* Box */
-.kix-embedded-entity-bubble.docs-bubble,
-.docs-gm .kix-spell-bubble, 
-.docs-autocorrect-bubble,
-.docs-gm .docs-linkbubble-bubble, 
-.docs-gm .docs-multi-linkbubble-bubble,
-.docs-bubble-material {
-  background-color: var(--darkgray);
-  border: 1px solid var(--gray) !important;
-}
-
-/* Popup buttons */
-.docs-bubble .docs-bubble-button.jfk-button:hover, 
-.docs-bubble .docs-bubble-button.jfk-button:focus,
-.docs-gm .docs-autocorrect-bubble-more-options:hover,
-.docs-gm .docs-autocorrect-bubble-more-options:focus,
-.docs-gm .docs-autocorrect-bubble-undo:hover,
-.docs-gm .kix-spell-bubble-suggestion-text:hover,
-.docs-gm .kix-spell-bubble-option:hover {
-  background-color: var(--gray);
-  transition: var(--button-on);
-}
-
-/* Spellcheck mini popup */
-.docs-autocorrect-bubble .docs-autocorrect-bubble-undo,
-.kix-spell-bubble .kix-spell-bubble-suggestion-text {
-  color: white;
-}
-.docs-gm .kix-spell-bubble-option {
-  border-radius: 50%;
-  transition: var(--button-off);
-}
-
-/* Link popup */
-#docs-linkbubble-link-text {
-  color: var(--palerblue) !important;
-}
-/* Link popup footer that prompts to replace the link */
-.docs-linkbubble-link-preview .docs-link-bubble-card-component.docs-link-bubble-action-card-component, 
-.docs-linkbubble-link-preview .docs-link-bubble-action-card-component::before {
-  background-color: #1967d24a !important;
-}
-#docs-link-bubble .docs-link-bubble-card-component.docs-link-bubble-action-card-component .link-bubble-text-button-text:hover {
-  background-color: #4689e34d !important;
-}
-.docs-linkbubble-link-preview .docs-link-bubble-text-card-component span {
-  color: var(--lightergray) !important;
-}
-
-/* Date bubble popup (The new feature where you can insert dates that can be clicked on) */
-.docs-bubble {
-  color: var(--lightergray);
-}
-.smart-canvas-date-details-bubble-edit-field { /* The way Google Docs just darkens the date field when hovered doesn’t seem right… but that’s how it’s going to look in Dark Docs for now as well. */
-  background-color: var(--gray);
-  color: white;
-  transition: var(--button-off);
-}
-.smart-canvas-date-details-bubble-edit-field:hover {
-  background-color: var(--lightgray);
-}
-.goog-date-picker {
-  background-color: var(--darkgray);
-  border: 1px solid var(--gray);
-}
-.smart-canvas-date-picker-bubble .goog-date-picker-monthyear {
-  color: var(--lightergray);
-}
-.goog-date-picker-button:hover {
-  background-color: var(--gray);
-}
-.goog-date-picker-button:active {
-  background-color: var(--ripple);
-}
-.smart-canvas-date-picker-bubble .goog-date-picker-wday {
-  color: var(--lightergray);
-}
-.goog-date-picker-date {
-  color: white;
-}
-.smart-canvas-date-picker-bubble .goog-date-picker-other-month {
-  color: var(--lightgray);
-}
-.goog-date-picker-date:hover::before {
-  background-color: var(--gray);
-}
-.smart-canvas-date-picker-bubble .goog-date-picker-selected::before {
-  background-color: var(--paleblue);
-}
-.smart-canvas-date-picker-bubble .goog-date-picker-selected:hover::before {
-  background-color: var(--palerblue) !important;
-}
-.smart-canvas-date-picker-bubble .goog-date-picker-selected {
-  color: black !important;
-}
-.goog-date-picker-today::before, .goog-date-picker-today:hover::before {
-  border-color: var(--paleblue);
-}
-.smart-canvas-date-details-bubble-action-bar {
-  border-top-color: var(--gray);
-}
-.smart-canvas-date-details-bubble-pattern-picker-button {
-  transition: var(--button-off);
-}
-.smart-canvas-date-details-bubble-pattern-picker-button:hover {
-  background-color: var(--gray);
-  transition: var(--button-on);
-}
-.smart-canvas-date-details-bubble-pattern-picker-button:focus {
-  background-color: var(--ripple);
-  transition: var(--button-on);
-}
-.docs-material .smart-canvas-date-details-bubble-pattern-picker-button .docs-icon-img {
-  filter: none;
-  filter: var(--pale-icons);
-}
-.docs-bubble-material-body-hint-bar {
-  background-color: var(--paleblue);
-  color: black;
-}
-.smart-canvas-date-details-bubble .smart-canvas-date-details-bubble-hint-button {
-  border-radius: 4px;
-  transition: var(--button-off);
-}
-.smart-canvas-date-details-bubble .smart-canvas-date-details-bubble-hint-button:hover {
-  background-color: var(--palerblue);
-  transition: var(--button-on);
-}
-
-/* Calendar event bubble popup */
-.docs-bubble .docs-bubble-button {
-  transition: var(--button-off);
-}
-.docs-link-bubble-calendar-event-action-card-component {
-  border-top: 1px solid var(--gray);
-}
-.link-bubble-header .docs-icon-img {
-  filter: none !important;
-  filter: brightness(2) !important;
-}
-.docs-link-bubble-calendar-attach-document.docs-material .docs-icon .docs-icon-img {
-  filter: none !important;
-  filter: var(--pale-icons) !important;
-}
-
-/* Contacts bubble */
-.boqSocialpeoplehovercardV2HovercardAnimating {
-  box-shadow: 0 0 1px var(--gray) !important;
-  filter: invert(100%) hue-rotate(180deg) contrast(80%); /* Unfortunately this will invert the account photo, but it’s better than a white card. */
-}
-
-/* File bubble */
-.drive-image-thumbnail-component .docs-link-bubble-thumbnail-container {
-  filter: invert(100%) hue-rotate(180deg) contrast(80%);
-}
-
-/* Table border editing */
-.docs-border-selection-button-pressed, 
-.docs-border-selection-button-normal {
-  filter: invert(100%) brightness(250%) contrast(65%);
-}
-
-/* Quick comment/suggest bubble */
-#docs-instant-bubble {
-  border-color: transparent;
-  background: var(--gray);
-  transition: var(--button-off);
-}
-#docs-instant-bubble:hover {
-  background: var(--gray);
-  transition: var(--button-on);
-}
-#docs-instant-bubble .instant-button {
-  transition: var(--button-off);
-}
-#docs-instant-bubble .instant-button:hover {
-  background: var(--lightgray);
-  transition: var(--button-on);
-}
-.docs-material .docs-icon-instant-comment-blue600-24 {
-  filter: none !important;
-  filter: var(--pale-icons) !important;
-}
-.docs-material .docs-icon-instant-suggest-green600-24 {
-  filter: none !important;
-  filter: var(--pale-green-icons) !important;
-}
-
-/* Header options */
-.docs-gm .kix-header-footer-bubble.docs-bubble {
-  background-color: var(--gray);
-  border-color: var(--gray);
-}
-.docs-gm .kix-header-footer-bubble-description,
-.docs-gm .kix-header-footer-bubble-checkbox-label {
-  color: white;
-}
-
-/* Find bar */
-.docs-slidingdialog {
-  background-color: var(--darkgray);
-  border-color: var(--gray);
-}
-.docs-gm .docs-findinput-container {
-  background-color: var(--darkgray);
-  border-color: var(--gray); 
-  transition: var(--button-off), padding 0.25s ease-in-out; 
-  /* These transitions are making the text a bit shifty when going between focused and unfocused*/
-}
-.docs-gm .docs-findinput-container-focus {
-  border-color: var(--paleblue);
-  transition: var(--button-on), padding 0.1s ease-in-out;
-}
-.docs-suggestiondialog-title-text, 
-.docs-findinput-input, .docs-findinput-input:focus {
-  color: white;
-}
-
-/* Comment */
-.docs-gm .docos-anchoreddocoview, 
-.docs-gm .docos-anchoreddocoview.docos-docoview-active, 
-.docs-gm .docos-anchoreddocoview.docos-docoview-active:hover, 
-.docs-gm.docos-xeditor .streamdocoview-no-header.docos-streamdocoview {
-  background-color: var(--darkgray);
-  border: 1px solid var(--gray) !important;
-}
-.docos-anchoreddocoview .docos-replyview-first.docos-anchoredreplyview,
-.docs-gm .docos-anchoredreplyview, 
-.docs-gm .docos-showrepliesbutton, 
-.docs-gm .docos-anchoreddocoview-input-pane {
-  background-color: var(--darkgray);
-  border-color: var(--gray);
-}
-.docs-gm .docos-anchoredreplyview-header .docos-anchoredreplyview-author, 
-.docs-gm.docos-xeditor .docos-streamdocoview-authorname-timestamp .docos-streamdocoview-author, 
-.docs-gm .docos-anchoredreplyview .docos-anchoredreplyview-body div, 
-.docs-gm .docos-anchoredreplyview .docos-anchoredreplyview-body, 
-.docos-streamreplyview-body, 
-.docos-streamdocoview-body, 
-.docos-streamdocoview-body.docos-replyview-body div {
-  color: white !important;
-}
-.docs-gm .docos-anchoredreplyview-header .docos-anchoredreplyview-timestamp, 
-.docs-gm.docos-xeditor .docos-streamdocoview-authorname-timestamp .docos-streamdocoview-timestamp, 
-.docos-streamdocoview-body.docos-replyview-body div>span:last-of-type,
-.docs-gm .docos-streamrootreplyview .docos-action-text, 
-.docs-gm .docos-streamreplyview .docos-action-text {
-  color: var(--lightergray) !important;
-  opacity: 100%;
-}
-.docs-suggestion-button:not(.jfk-button-disabled) .docs-material .docs-icon-img {
-  filter: none !important;
-  filter: var(--pale-icons) !important;
-}
-.docos-anchoredreplyview-buttonholder .docos-icon-overflow-three-dots, 
-.docos-streamdocoview-details .docos-icon-overflow-three-dots, 
-.docos-streamreplyview-text .docos-icon-overflow-three-dots {
-  filter: invert(100%) brightness(500%);
-}
-
-/* “Explore” button */
-.docs-explore-widget-button {
-  background-color: var(--darkgray);
-  color: white;
-}
-.docs-explore-icon.docs-explore-widget-icon.docs-explore-widget-icon-inactive.goog-inline-block {
-  filter: invert(100%) hue-rotate(180deg) contrast(80%);
+@-moz-document url-prefix("https://docs.google.com/document/d/") {
+  /* Special elements */
+
+  /* Butter bar (Centered messages for moved file, fullscreen mode, etc) */
+
+  .docs-gm .jfk-butterBar-info {
+    background-color: var(--ripple);
+    color: white;
+  }
+  .docs-gm .jfk-butterBar-info .docs-butterbar-butter-action, 
+  .docs-gm .jfk-butterBar-info .docs-butterbar-dismiss, 
+  .docs-gm .jfk-butterBar-info .docs-butterbar-dismiss:hover, 
+  .docs-gm .jfk-butterBar-info .docs-butterbar-link, 
+  .docs-gm .jfk-butterBar-info a.docs-butterbar-link:link, 
+  .docs-gm .jfk-butterBar-info a.docs-butterbar-link:visited, 
+  .docs-gm .jfk-butterBar-info .docs-butterbar-link-no-pad, 
+  .docs-gm .jfk-butterBar-info a.docs-butterbar-link-no-pad:link, 
+  .docs-gm .jfk-butterBar-info a.docs-butterbar-link-no-pad:visited {
+    color: var(--palerblue);
+    transition: var(--button-off);
+  }
+
+  /*Top bar*/
+  #docs-chrome, .docs-material #docs-header .docs-titlebar-buttons {
+    background-color: var(--darkestgray);
+    outline: none;
+  }
+
+  /* Document title */
+  .docs-title-input {
+    background-color: transparent;
+    transition: var(--button-off);
+  }
+  .docs-title-input:hover {
+    background-color: var(--darkergray);
+    border: 1px solid transparent;
+    transition: var(--button-on);
+  }
+  .docs-title-input:focus {
+    background-color: var(--ripple);
+    color: white;
+  }
+  .docs-title-input-label {
+    color: white;
+  }
+  
+  /* Document location (shown while editing file name) */
+  .docs-parent-collections-container-prefix, 
+  .docs-parent-collections-container-text, 
+  .docs-parent-collections-container-folder-name {
+    color: var(--lightergray);
+  }
+  .docs-parent-collections-container {
+    transition: var(--button-off);
+  }
+  .docs-parent-collections-container:hover, 
+  .docs-parent-collections-container:focus {
+    background-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+
+  /* Document badges */
+  .docs-gm .docs-titlebar-badge {
+    transition: var(--button-off);
+  }
+  .docs-gm .docs-titlebar-badge:hover {
+    background-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+  .docs-gm .docs-titlebar-badge:active, .docs-gm .docs-titlebar-badge.docs-titlebar-badge-selected {
+    background-color: var(--ripple);
+    color: var(--paleblue);
+  }
+
+  /* Popups from badges */
+  .document-details-bubble-container {
+    background-color: var(--darkestgray);
+    border-color: var(--darkergray);
+  }
+  #document-details-bubble-header {
+    color: white !important;
+  }
+  .document-details-entry-text {
+    color: var(--lightergray);
+  }
+
+  /* File location picker (next to document title) */
+
+  /* Menubar */
+
+  /* Titles */
+  .docs-gm .docs-menubar .goog-control {
+    color: white;
+    transition: var(--button-off);
+  }
+  .docs-gm .docs-menubar .goog-control-disabled {
+    color: var(--darkgray);
+    background-color: transparent;
+  }
+  .docs-gm .docs-menubar .goog-control-hover {
+    background-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+  .docs-gm .docs-menubar .goog-control-active,
+  .docs-gm .docs-menubar .goog-control:hover:active {
+    background-color: var(--ripple);
+    transition: var(--button-on);
+  }
+  .docs-gm .docs-menubar .goog-control.docs-menu-button-open-below {
+    background-color: var(--ripple);
+    color: white;
+  }
+
+  /* Menus */
+  .docs-gm .goog-menu {
+    background-color: var(--darkestgray);
+    border: 1px solid var(--darkergray);
+    transition: var(--button-off);
+  }
+  .docs-gm .goog-menuitem .goog-menuitem-content, 
+  .goog-menuitem-label {
+    color: white !important;
+  }
+  .docs-gm .goog-menuitem {
+    transition: var(--button-off);
+  }
+  .docs-gm .goog-menuitem-highlight {
+    background-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+  .docs-gm .goog-menuitem-accel, .docs-gm .goog-menuitem-disabled .goog-menuitem-accel {
+    color: var(--lightergray) !important;
+  }
+  .docs-gm .goog-menuitem-active, 
+  .docs-gm .goog-menuitem-active:hover:active {
+    background-color: var(--ripple);
+    transition: var(--button-on);
+  }
+  
+  .docs-gm div:not(.docs-material) .goog-option-selected::before /* Ticked items in dropdown menus */ {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url(https://ssl.gstatic.com/ui/v1/menu/checkmark.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    filter: invert(100%);
+  }
+
+  /* Separators */
+  .apps-hoverable-menu-separator-container .apps-hoverable-menu-separator-bottom {
+    border-color: var(--darkergray);
+  }
+  .docs-gm .goog-menuseparator, 
+  .goog-menuitem.docs-submenuitem /* Dividers in submenus are different */ {
+    border-color: var(--darkergray);
+  }
+
+  /* Icons */
+  .docs-gm .docs-material.goog-menu .apps-menuitem.goog-option-selected .goog-menuitem-checkbox {
+    filter: invert(100%);
+  }
+
+  /* DOCUMENT DETAILS */
+
+  .docs-gm .docs-details-field {
+    color: var(--lightergray);
+  }
+  .docs-gm .docs-details-value {
+    color: white;
+  }
+
+  /* PAGE SETUP */
+
+  .kix-pagesetupdialog-units {
+    color: var(--lightergray);
+    opacity: 1;
+  }
+  .docs-horizontal-button-group .docs-material-button.docs-material-button-selected .docs-material-button-content {
+    color: var(--palerblue) !important;
+  }
+  /* Pageless layout intro graphic */
+  .kix-pagesetupdialog-pageless-image, .kix-pagesetupdialog-pageless-static-svg svg {
+    filter: invert(100%) hue-rotate(180deg) contrast(80%);
+  }
+  .kix-pagesetupdialog-content-canvas .kix-pagesetupdialog-canvas-description-text {
+    color: var(--lightergray);
+  }
+  #kix-pagesetupdialog-canvas-unsupported-model-features-warning {
+    background-color: #ec311d42;
+  }
+  #kix-pagesetupdialog-canvas-unsupported-model-features-warning .kix-pagesetupdialog-canvas-unsupported-model-features-warning-text {
+    color: var(--lightestgray);
+  }
+
+  /* PARAGRAPH BORDERS AND SHADING */
+
+  #kix-bordersshadingdialog-borderdash>div>div>div,
+  .goog-menu.goog-menu-vertical.kix-bordersshadingdialog-menu>div>div>div>div {
+    border-top-color: white !important;
+  }
+  
+  /* INSERT IMAGE */
+  .picker-urlview-close-icon /* The button that removes the image preview from the "By URL" image selector */ {
+    background-color: var(--darkestgray) !important;
+  }
+  .picker-urlview-close-icon svg {
+    fill: white;
+  }
+
+  /* TABLE */
+
+  .goog-dimension-picker-unhighlighted, 
+  .goog-dimension-picker-highlighted {
+    filter: invert(100%) hue-rotate(180deg) contrast(80%) brightness(2);
+  }
+  .goog-dimension-picker-status {
+    color: var(--lightergray);
+  }
+
+  /* INSERT SPECIAL CHARACTERS */
+
+  .ita-cp-whole-pad .modal-dialog-title-close {
+    filter: brightness(200%);
+    transition: opacity 0.25s ease;
+  }
+  .ita-cp-whole-pad .modal-dialog-title-close:hover {
+    transition: opacity 0.1s ease;
+  }
+  .ita-cp-charpicker .goog-char-picker-grid, 
+  .goog-char-picker-grid .goog-flat-button {
+    border-color: var(--darkergray);
+    transition: var(--button-off);
+  }
+  .goog-char-picker-grid .goog-flat-button-hover, 
+  .goog-char-picker-grid .goog-flat-button-focus {
+    background-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+  .goog-char-picker-grid .goog-flat-button-active {
+    background-color: var(--ripple);
+    transition: var(--button-on);
+  }
+  .goog-char-picker-hovercard {
+    background-color: var(--darkestgray);
+    border: 1px solid var(--darkergray) !important;
+    border-radius: 8px;
+  }
+  .goog-char-picker-char-zoom, 
+  .goog-char-picker-name {
+    color: white;
+  }
+  .goog-char-picker-unicode {
+    color: var(--lightergray);
+  }
+  .ita-cp-search {
+    border-color: var(--darkergray);
+  }
+  .ita-cp-lens, 
+  .ita-cp-backspace {
+    filter: invert(100%) contrast(20%);
+  }
+  .ita-cp-input.label-input-label {
+    background-color: transparent;
+    color: var(--lightergray);
+    opacity: 1;
+  }
+  .ita-cp-hwt {
+    background-color: var(--darkestgray);
+    border-color: var(--darkergray);
+  }
+  .ita-cp-hwt-hint {
+    border-color: var(--darkergray);
+  }
+
+  /* PAGE NUMBERS */
+
+  .goog-palette-cell .docs-preview-palette-item {
+    border-color: var(--darkergray);
+    transition: var(--button-off);
+  }
+  .goog-palette-cell-hover .docs-preview-palette-item {
+    border-color: var(--darkgray);
+    transition: var(--button-on);
+  }
+
+  /* LIST OPTIONS */
+
+  .docs-bulletpreset {
+    border-color: var(--darkergray);
+    color: white;
+    transition: var(--button-on);
+  }
+  .goog-palette-set-hover .docs-bulletpreset {
+    border-color: var(--darkgray);
+    transition: var(--button-on);
+  }
+  .docs-icon-img-container.docs-icon-img.docs-icon-checkbox-hollow {
+    filter: invert(100%) !important;
+  }
+  .docs-listpreset-img {
+    filter: invert(100%) contrast(80%);
+  }
+
+  /* WORD COUNT */
+  .docs-gm .kix-documentmetricsdialog-row {
+    border-bottom-color: var(--darkergray);
+  }
+
+  /* PERSONAL DICTIONARY */
+
+  .docs-userdictionarydialog-list-container {
+    background-color: transparent;
+    border-color: var(--darkergray);
+  }
+  .docs-gm .docs-userdictionarydialog-row-container {
+    border-color: var(--darkergray);
+    transition: var(--button-off);
+  }
+  .docs-gm .docs-userdictionarydialog-row-container-hover {
+    background-color: var(--darkergray);
+    transition: var(--button-on) !important;
+  }
+  .docs-gm .docs-userdictionarydialog-row-content {
+    color: white;
+  }
+
+  /* PREFERENCES */
+
+  /* Preferences tabs */
+  .docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab {
+    transition: var(--button-off);
+  }
+  .docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab-hover {
+    background-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+  .docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tablabel, 
+  .docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab .docs-tabbar-tablabel:hover {
+    color: var(--lightergray);
+  }
+  .docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab-selected .docs-tabbar-tablabel, 
+  .docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab-selected .docs-tabbar-tablabel:hover {
+    color: var(--palerblue);
+  }
+  .docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab::before {
+    border-bottom-color: var(--palerblue);
+  }
+
+  /* Preferences items */
+  .docs-preferencesdialog-subtext {
+    color: var(--lightergray);
+  }
+
+  /* Substitutions table */
+  #docs-stringreplacementtable-table .docs-preferencesdialog-list-body {
+    background-color: var(--darkestgray);
+    border-color: var(--darkestgray);
+  }
+  #docs-stringreplacementtable-table .docs-preferencesdialog-list-title-content {
+    color: white;
+  }
+  #docs-stringreplacementtable-table .docs-icon-close-small {
+    filter: invert(50);
+  }
+
+  /* ACTIVITY DASHBOARD */
+  .analytics-nc-tabbar, 
+  .analytics-ntb-container .goog-tab-bar, 
+  .analytics-vhc-tabbarholder, 
+  .analytics-vhc-tabbarholder .docs-tabbar {
+    background-color: transparent;
+    border-color: var(--darkergray);
+  }
+  /* Activity dashboard sidebar */
+  .analytics-ntb-container .goog-tab {
+    background-color: transparent !important;
+    color: white;
+    transition: var(--button-off);
+  }
+  .analytics-ntb-container .goog-tab.goog-tab-hover {
+    background-color: var(--darkergray) !important;
+    color: white;
+    transition: var(--button-on) !important;
+  }
+  .analytics-ntb-container .goog-tab.goog-tab-selected, 
+  .analytics-ntb-container .goog-tab.goog-tab-selected.goog-tab-hover {
+    background-color: var(--ripple) !important;
+    color: var(--palerblue);
+    transition: var(--button-on) !important;
+  }
+  .docs-gm .docs-material .docs-analytics-sidebar-tab-selected .docs-icon-img {
+    filter: none !important;
+    filter: var(--pale-icons) !important;
+  }
+  /* Tabs on Viewers page */
+  .analytics-vhc-tabbarholder .docs-tabbar-tab .docs-tabbar-tablabel {
+    color: var(--lightergray);
+    transition: var(--button-off);
+  }
+  .analytics-vhc-tabbarholder .docs-tabbar-mouseactive .docs-tabbar-tab-hover .docs-tabbar-tablabel {
+    color: white;
+    transition: var(--button-on) !important;
+  }
+  .analytics-vhc-tabbarholder .docs-tabbar-tab-selected .docs-tabbar-tablabel {
+    color: var(--palerblue) !important;
+  }
+  .analytics-vhc-tabbarholder .docs-tabbar-tab-selected::before {
+    border-color: var(--palerblue) !important; 
+  }
+  /* Table on Viewers page */
+  .analytics-vhc-listsortbutton-name {
+    color: var(--lightergray);
+  }
+  .analytics-vhc-rowcard-name {
+    color: white;
+  }
+  .analytics-vhc-rowcard-time {
+    color: var(--lightergray);
+  }
+  .analytics-vhc-rowcard-row::after, 
+  .analytics-vhfc-card {
+    border-color: var(--darkergray);
+  }
+  .analytics-vhfc-settings-container {
+    color: white;
+  }
+  /* Viewer Trend line graph */
+  .analytics-trend-sparkline-left-bg, 
+  .analytics-trend-sparkline-right-bg, 
+  .analytics-trend-bg-selected.analytics-trend-sparkline-left-bg, 
+  .analytics-trend-bg-selected.analytics-trend-sparkline-right-bg {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .analytics-trend-sparkline-chart svg>rect {
+    stroke: transparent;
+  }
+  .analytics-trend-sparkline-chart svg>g>g>g>path {
+    stroke: var(--paleblue);
+  }
+  .analytics-trend-sparkline-chart svg>g>g>g>g>path {
+    stroke: var(--darkergray);
+  }
+  .analytics-trend-sparkline-chart svg>g>g:nth-of-type(2n)>circle {
+    fill: var(--paleblue);
+    stroke: var(--paleblue);
+    stroke-width: 3px;
+  }
+  /* Viewer Trend bar graph */
+  .analytics-tcc-chart svg>rect {
+    fill: transparent;
+  }
+  .analytics-tcc-chart svg>g>g>g:first-of-type>rect {
+    fill: var(--darkgray);
+  }
+  .analytics-tcc-chart svg>g>g>g:nth-of-type(2n)>rect {
+    fill: var(--paleblue);
+  }
+  .analytics-tcc-chart svg>g>g:nth-of-type(3n)>g>text {
+    fill: var(--lightergray);
+    font-family: Roboto, Arial, sans-serif;
+  }
+  /* Comment Trend */
+  .analytics-low-data-treatment-sharebutton .docs-icon-img {
+    filter: invert(100%) !important;
+  }
+  /* Sharing History */
+  .activity-event, 
+  .activity-event-section-title, 
+  .analytics-ssc {
+    background-color: transparent;
+    border-color: var(--darkergray);
+  }
+  .activity-event-scope-element-access, 
+  .activity-event-section-title, 
+  .activity-event-info, 
+  .activity-list-no-more-events-text {
+    color: var(--lightergray);
+  }
+  .activity-event-details-header, 
+  .activity-event-file-approval, 
+  .activity-event-people-names, 
+  .activity-event-scope-element-text {
+    color: white;
+  }
+  /* Privacy Settings */
+  .analytics-sic {
+    background-color: transparent;
+    border-bottom: 1px solid var(--darkergray);
+    box-shadow: none;
+  }
+  .analytics-sic .docs-icon-img {
+    filter: none !important;
+  }
+  .analytics-sic-text {
+    color: white;
+  }
+  .analytics-sc-document-setting {
+    border-color: var(--darkergray);
+  }
+
+  /* Addons dropdown empty state */
+  .script-promo-menu-item-title {
+    color: var(--white);
+  }
+  .script-promo-menu-item-description {
+    color: var(--lightergray)
+  }
+
+  /* Help menu search bar */
+  .docs-omnibox-parent.goog-menu-vertical .docs-labelinputmenuitem.goog-menuitem {
+    background-color: transparent;
+  }
+  
+  /* New item badge */
+  .docs-action-new-badge {
+    background-color: var(--paleblue);
+    color: black;
+    font-family: Google Sans, Roboto, sans-serif;
+  }
+
+  /* New changes notifier */
+  .docs-title-save-label-text {
+    color: var(--lightgray);
+    transition: color 0.25s ease;
+  }
+  #docs-new-changes {
+    background-color: var(--darkergray) !important;
+    color: var(--lightergray) !important;
+    transition: color 0.25s ease;
+  }
+  #docs-new-changes.inactive.goog-flat-button-hover {
+    background-color: var(--darkergray) !important;
+    color: white !important;
+    transition: color 0.1s ease;
+  }
+
+  /* “Request access” button */
+  .titlebar-request-access-button.docs-material-button {
+    border-color: var(--darkergray);
+    color: var(--paleblue);
+    transition: var(--button-off);
+  }
+  .titlebar-request-access-button.docs-material-button.docs-material-button-hover {
+    background-color: var(--darkergray);
+    border-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+
+  /* View mode: viewing */
+  #titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary, 
+  #titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-focused {
+    background-color: var(--darkestgray);
+    border-color: var(--darkergray);
+    transition: var(--button-off);
+  }
+  #titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-hover, 
+  #titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-hover.docs-material-menu-button-flat-primary-focused {
+    background-color: var(--darkergray);
+    border-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+  #titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-open,
+  #titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-hover.docs-material-menu-button-flat-primary-open {
+    background-color: var(--ripple);
+    border-color: var(--ripple);
+    transition: var(--button-on);
+  }
+  .kix-titlebar-mode-switcher.docs-material-menu-button-flat-primary .docs-icon-img.docs-icon-acl-view-only {
+    filter: none;
+    filter: var(--pale-icons);
+  }
+  .docs-material-menu-button-flat-primary-dropdown-icon {
+    fill: var(--palerblue);
+  }
+
+  /* Activity dashboard and comment buttons */
+  .docs-material .docs-appbar-circle-button.jfk-button, 
+  .docs-material #docs-docos-commentsbutton {
+    transition: var(--button-off);
+  }
+  .docs-material .docs-appbar-circle-button.jfk-button.jfk-button-hover, 
+  .docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-hover {
+    background-color: var(--darkergray);
+    transition: var(--button-on) !important;
+  }
+  .docs-material .docs-appbar-circle-button.jfk-button.jfk-button-hover.jfk-button-active, 
+  .docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-hover.jfk-button-active, 
+  .docs-gm .docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-active, 
+  .docs-gm .docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-checked {
+    background-color: var(--ripple);
+    transition: var(--button-on) !important;
+  }
+  #docs-docos-commentsbutton .docs-icon-comment-topbar-24 {
+    transition: filter 0.25s ease;
+  }
+  #docs-docos-commentsbutton.jfk-button-checked .docs-icon-comment-topbar-24 {
+    filter: none; 
+    filter: var(--pale-icons);
+    transition: filter 0.1s ease;
+  }
+
+  /* COMMENT BOX */
+  .docs-docos-activitybox {
+    background-color: var(--darkestgray);
+    border: 1px solid var(--darkergray);
+  }
+  .docs-gm .docos-streampane-header {
+    background-color: transparent;
+    border-bottom-color: var(--darkergray);
+  }
+  .docos-xeditor .docos-streampane-content .docos-comment-text.docos-comment-header-title {
+    color: white;
+  }
+  .docs-gm .docos-filter-settings .docs-material-menu-button-flat-default, 
+  .docs-gm .docos-streampane-container .streampane-dragger {
+    background-color: transparent;
+    border-color: var(--darkergray);
+    color: white;
+    transition: var(--button-off);
+  }
+  .docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-hover, 
+  .docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-focused, 
+  .docs-gm .docos-streampane-container .streampane-dragger:hover {
+    background-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+  .docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-dropdown-icon, 
+  .docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-hover .docs-material-menu-button-flat-default-dropdown-icon, 
+  .docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-focused .docs-material-menu-button-flat-default-dropdown-icon, 
+  .docs-gm.docos-xeditor .docos-new-comment-icon-path {
+    fill: white;
+  }
+  .docs-gm.docos-xeditor .docos-notification-settings .goog-flat-menu-button, 
+  .docs-gm.docos-xeditor .docos-new-comment-button {
+    transition: var(--button-off);
+  }
+  .docs-gm.docos-xeditor .docos-notification-settings .goog-flat-menu-button.goog-flat-menu-button-hover,
+  .docs-gm.docos-xeditor .docos-notification-settings .goog-flat-menu-button.goog-flat-menu-button-focused, 
+  .docs-gm.docos-xeditor .docos-new-comment-button.jfk-button-hover, 
+  .docs-gm.docos-xeditor .docos-new-comment-button.jfk-button-focused {
+    background-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+  .docs-gm.docos-xeditor .docos-notification-settings .goog-flat-menu-button.goog-flat-menu-button-open {
+    background-color: var(--ripple);
+    transition: var(--button-on);
+  }
+  .docs-gm.docos-xeditor .docos-streamdocoview {
+    border: 1px solid var(--darkergray);
+    transition: var(--button-off);
+  }
+  .docs-gm.docos-xeditor .docos-streamdocoview:hover, 
+  .docos.docs-gm.docos-xeditor .docos-streamdocoview.docos-docoview-active {
+    border: 1px solid var(--paleyellow);
+    transition: var(--button-on);
+  }
+  .docos-xeditor .docos-streamdocoview .docos-streamdocoview-header-container {
+    background-color: var(--darkergray);
+    border: 1px solid transparent;
+    transition: var(--button-off);
+  }
+  .docos-xeditor .docos-streamdocoview:hover .docos-streamdocoview-header-container, 
+  .docos-xeditor .docos-streamdocoview.docos-docoview-active .docos-streamdocoview-header-container {
+    background-color: var(--yellowripple);
+    border: 1px solid var(--paleyellow);
+    border-bottom-color: transparent;
+    transition: var(--button-on);
+  }
+  .docos-xeditor .streamdocoview-header {
+    color: white;
+    transition: color 0.25s ease;
+  }
+  .docos-docoview-active .streamdocoview-header {
+    color: var(--paleyellow);
+    transition: color 0.1s ease;
+  }
+
+  /* “Present to a Meeting” button */
+  #docs-meet-in-editors-entrypointbutton {
+    background-color: transparent;
+    border-color: var(--darkergray);
+    transition: var(--button-off);
+  }
+  #docs-meet-in-editors-entrypointbutton.goog-flat-menu-button-hover, 
+  #docs-meet-in-editors-entrypointbutton.goog-flat-menu-button-focused {
+    background-color: var(--darkergray);
+    border-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+  #docs-meet-in-editors-entrypointbutton.goog-flat-menu-button-open {
+    background-color: var(--ripple);
+    border-color: var(--ripple);
+    transition: var(--button-on);
+  }
+  .goog-flat-menu-button-caption, 
+  .goog-flat-menu-button-dropdown, 
+  #docs-meet-in-editors-entrypointbutton.goog-flat-menu-button .docs-icon-present-to-all-24 {
+    filter: brightness(500%) saturate(0%);
+  }
+
+  /* Viewer */
+  .docs-material .docs-presence-plus-collab-widget-color-block, 
+  .docs-material.docs-presence-plus-widget-overflow-menu .docs-presence-plus-collab-widget-color-block,
+  .docs-material .docs-presence-plus-widget-overflow-button {
+    background-color: var(--darkergray);
+    border-color: transparent;
+  }
+
+  /* “Turn In” button */
+  .docs-material #docs-script-button-bar .jfk-button {
+    background-color: var(--darkergray);
+    color: white;
+  }
+
+  /* Share button */
+  #docs-titlebar-share-client-button .scb-privately-shared-icon-white, 
+  #docs-titlebar-share-client-button .scb-domain-unlisted-icon-white, 
+  #docs-titlebar-share-client-button .scb-private-icon-white,
+  #docs-titlebar-share-client-button .scb-unlisted-icon-white {
+    filter: invert(100%) !important;
+  }
+
+  /* TOOLBAR */
+
+  /* Toolbar wrapper */
+  .docs-material #docs-toolbar-wrapper, 
+  .docs-material #docs-equationtoolbar, 
+  .docs-material .docs-printpreview-toolbar, 
+  .kix-watermark-format-toolbar.goog-toolbar {
+    background-color: var(--darkestgray);
+  }
+  .docs-gm #docs-toolbar-wrapper, 
+  .docs-material #docs-equationtoolbar, 
+  .docs-printpreview-toolbar, 
+  .kix-watermark-format-toolbar.goog-toolbar {
+    border-color: var(--darkergray);
+  }
+
+  /* Toolbar buttons */
+  .docs-material .goog-toolbar-button, 
+  .docs-material .goog-toolbar-combo-button, 
+  .docs-material .goog-toolbar-menu-button{
+    background: transparent;
+    color: white;
+    transition: var(--button-off);
+  }
+  .docs-gm .docs-material .goog-toolbar-button-hover, 
+  .docs-material .goog-toolbar-button:hover, 
+  .docs-material .goog-toolbar-combo-button:hover, 
+  .docs-material .goog-toolbar-menu-button:hover, 
+  .docs-gm .docs-material .goog-toolbar-menu-button-hover {
+    background-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+  .docs-gm .docs-material .goog-toolbar-button-active {
+    background-color: var(--ripple);
+    color: var(--palerblue);
+    transition: var(--button-on);
+  }
+
+  /* Toolbar buttons with dropdowns (list options) */
+  .docs-gm .docs-material .docs-toolbar-button-split-sympathy-hover {
+    background-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+  .docs-gm .docs-material .docs-toolbar-button-split-right.goog-toolbar-menu-button-hover,
+  .docs-gm .docs-material .docs-toolbar-button-split-right.docs-toolbar-button-split-sympathy-hover,
+  .docs-gm .docs-material .docs-toolbar-button-split-left + .docs-toolbar-button-split-right.goog-toolbar-menu-button-open {
+    border-color: transparent !important;
+  }
+
+  /* Opened dropdowns */
+  .docs-gm .docs-material .goog-toolbar-menu-button-open {
+    background-color: var(--ripple);
+    color: var(--palerblue);
+    transition: var(--button-on);
+  }
+  .docs-gm .docs-material .goog-toolbar-menu-button-open div div div div .docs-icon-img {
+    filter: none;
+    filter: var(--pale-icons);
+    transition: filter 0.1s ease;
+  }
+  .kix-equation-toolbar-palette-item {
+    border-color: var(--darkergray);
+  }
+
+  /* Toolbar icons */
+  .docs-gm .docs-material .docs-icon-img,
+  .ita-kd-img {
+    filter: brightness(10);
+  }
+  .kix-equation-toolbar-icon {
+    filter: invert(100%);
+  }
+  .docs-gm .docs-material .goog-toolbar-button-checked {
+    background-color: var(--ripple) !important;
+  }
+  .docs-gm .docs-material .goog-toolbar-button-checked .docs-icon-img {
+    filter: var(--pale-icons) !important;
+  }
+
+  /* Toolbar text */
+  .docs-gm .goog-toolbar-combo-button-input {
+    color: white;
+  }
+
+  /* Separators */
+  .docs-gm .goog-toolbar-separator.goog-inline-block {
+    border-color: var(--darkergray);
+  }
+
+  /* Search bar (with menus hidden) */
+  .docs-omnibox-input.jfk-textinput {
+    background-color: var(--darkergray);
+    color: white;
+  }
+  .docs-omnibox-input.jfk-textinput::placeholder {
+    background-color: var(--darkestgray);
+    color: white;
+  }
+  .docs-omnibox-input.jfk-textinput:focus {
+    background-color: var(--ripple);
+  }
+  .docs-omnibox-input.jfk-textinput:focus[aria-expanded="true"] {
+    border-bottom-color: var(--darkergray);
+  }
+  .docs-omnibox-autocomplete .ac-renderer /* Autocomplete suggestions from that search bar */ {
+    background-color: var(--darkestgray);
+    border: 1px solid var(--darkergray);
+  }
+  .docs-omnibox-autocomplete .ac-active {
+    background-color: var(--darkergray);
+  }
+
+  /* Font menu */
+  .docs-fontmenu .docs-fonts-section-header {
+    color: var(--lightergray);
+  }
+
+  /* Font size */
+  .kix-watermark-font-size-combo-box-container input {
+    background-color: var(--darkestgray);
+    color: white;
+  }
+  #fontSizeDecrement,
+  #fontSizeSelect.docs-font-size-inc-dec-combobox,
+  #fontSizeIncrement, 
+  .kix-watermark-font-size-combo-box-container input, 
+  .kix-watermark-font-size-dec-button-container, 
+  .kix-watermark-font-size-inc-button-container {
+    border-color: var(--darkergray) !important;
+  }
+  .docs-gm .goog-toolbar-combo-button-input:focus, 
+  .kix-watermark-font-size-combo-box-container .goog-toolbar-combo-button-open input {
+    background-color: var(--darkergray);
+    border-color: var(--paleblue) !important;
+    transition: var(--button-on);
+  }
+  .docs-gm .docs-material .goog-toolbar-combo-button-open {
+    background-color: var(--darkergray);
+  }
+  .docs-gm .goog-toolbar-combo-button-input::selection {
+    background-color: var(--paleblue);
+  }
+
+  /* Input tools */
+  .docs-icon-inputtools-button-inner {
+    filter: invert(10);
+  }
+
+  /* Extra toolbar items box */
+  .docs-material.docs-toolbar-more-toolbar {
+    background-color: var(--darkestgray);
+    border: 1px solid var(--darkergray);
+  }
+  
+  /* Line styles */
+  .goog-menu div[aria-label="Line dash: Solid"] .goog-menuitem-content div,
+  .goog-menu div[aria-label="Line dash: Dot"] .goog-menuitem-content div, 
+  .goog-menu div[aria-label="Line dash: Dash"] .goog-menuitem-content div {
+    border-color: white !important;
+  }
+
+  /* Edit/Suggest/View switch */
+
+  /* Editing mode */
+  #docs-toolbar-mode-switcher.edit-mode {
+    background-color: var(--ripple);
+    color: var(--palerblue);
+  }
+  .docs-icon-mode-edit-blue700 {
+    filter: var(--pale-icons) !important;
+  }
+  #docs-toolbar-mode-switcher.edit-mode .goog-toolbar-menu-button-dropdown {
+    filter: var(--pale-icons) !important;
+  }
+
+  /* Suggesting mode */
+  #docs-toolbar-mode-switcher.suggest-mode {
+    background-color: var(--greenripple);
+    color: var(--palergreen);
+  }
+  .docs-icon-acl-comment-only-green700 {
+    filter: none !important;
+    filter: var(--pale-green-icons) !important;
+  }
+  #docs-toolbar-mode-switcher.docs-toolbar-menu-button-open .docs-icon-acl-comment-only-green700 {
+    filter: none !important;
+  }
+  #docs-toolbar-mode-switcher.suggest-mode .goog-toolbar-menu-button-dropdown {
+    border-top-color: var(--palergreen);
+  }
+
+  /*Remove white line below top bar*/
+  .kix-document-top-shadow.read-mode-titlebar-border {
+    border-top-color: var(--darkestgray);
+  }
+
+  /* Navigation Sidebar */
+
+  /* Open & close buttons */
+  .docs-icon-arrow-back-dark, 
+  .docs-icon-list-24 {
+    filter: brightness(3); 
+  }
+  
+  /* Sidebar background (in pageless mode) */
+  .left-sidebar-container.pageless-format {
+    background-color: transparent;
+  }
+  .right-gutter-resizer-ghost-line, 
+  .left-sidebar-resizer-ghost-line {
+    background-color: var(--darkergray);
+    display: block; /* I could not figure out how to darken the white line so I covered it with this (which normally only shows when hovering over the resize handle). The white line is momentarily visible when it is being dragged */
+    width: 1px;
+  }
+  .right-gutter-resizer-ghost-line:hover, 
+  .left-sidebar-resizer-ghost-line:hover {
+    background-color: var(--gray);
+    transition: all 0.1s ease;
+  }
+
+  /* Sidebar headers */
+  .navigation-widget-header {
+    color: var(--lightergray);
+  }
+
+  /* Sidebar section divider */
+  .kix-smart-summary-view-separator {
+    background-color: var(--darkergray);
+  }
+
+  /* Summary editing */
+  .kix-smart-summary-view-header-container.kix-smart-summary-edit-mode .navigation-widget-header {
+    color: var(--palerblue);
+  }
+  .kix-smart-summary-text-container.kix-smart-summary-edit-summary-text-input {
+    border-color: var(--palerblue);
+  }
+
+  /* Summary text */
+  .kix-smart-summary-text-container {
+    color: var(--lightestgray);
+  }
+
+  /* Unselected top-level items in outline */
+  .outline-refresh.navigation-widget-unified-styling .navigation-item .navigation-item-level-0, 
+  .outline-refresh .navigation-item /* Legacy */, 
+  .outline-refresh .navigation-widget-empty-content /* Legacy */ {
+    color: var(--lightestgray);
+    transition: var(--text-hover-off);
+  }
+
+  .outline-refresh.navigation-widget-unified-styling .navigation-item.goog-button-hover .navigation-item-level-0 , 
+  .outline-refresh .navigation-item.goog-button-hover /* Legacy */ {
+    color: var(--lightestgray);
+    text-shadow: 0 0 4px var(--lightestgray);
+    transition: var(--text-hover-on);
+  }
+
+  /* Other unselected items in outline */
+  .outline-refresh.navigation-widget-unified-styling .navigation-item {
+    color: var(--lightergray);
+    transition: var(--text-hover-off);
+  }
+  .outline-refresh.navigation-widget-unified-styling .navigation-item.goog-button-hover {
+    text-shadow: 0 0 4px var(--lightergray);
+    transition: var(--text-hover-on);
+  }
+
+  /* Selected item in the outline */
+  .outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item, 
+  .outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item .navigation-item-level-0, 
+  .outline-refresh .location-indicator-highlight.navigation-item /* Legacy */ {
+    color: var(--palerblue);
+    transition: var(--text-hover-off);
+  }
+
+  .outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item.goog-button-hover, .outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item.goog-button-hover .navigation-item-level-0, 
+  .outline-refresh .location-indicator-highlight.navigation-item.goog-button-hover /* Legacy */ {
+    color: var(--palerblue);
+    text-shadow: 0 0 4px var(--paleblue);
+    transition: var(--text-hover-on);
+  }
+
+  /*Fade at top and bottom of the TOC*/
+  #navigation-widget-bottom-fade, 
+  #navigation-widget-top-shadow {
+    display: none;
+  }
+
+  /* Statistics widget (below TOC, displayed while typing) */
+  .kix-documentmetrics-widget {
+    background-color: var(--darkestgray);
+    border-color: var(--darkergray);
+  }
+  .kix-documentmetrics-widget .docs-material-gm-select-dropdown .docs-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Document */
+
+  /* Ruler */
+  .docs-gm .docs-horizontal-ruler,
+  .docs-gm #kix-vertical-ruler {
+    background-color: var(--darkestgray);
+    border-color: var(--darkergray);
+  }
+  .docs-ruler-background-inner {
+    background-color: var(--darkergray);
+  }
+  .docs-gm .docs-ruler-face-number {
+    color: white;
+  }
+  .docs-icon-ruler-first-indent-drag-blue500,
+  .docs-icon-tabstop-center-bottom-blue500.docs-icon-indent-bottom {
+    filter: none !important;
+    filter: var(--pale-icons) !important;
+  }
+  .docs-ruler-contributed-dragger-container /* Table border handle in ruler */ {
+    background-color: var(--gray);
+    border-color: var(--gray);
+  }
+
+  /* Editor background */
+  body {
+    background-color: var(--darkestgray);
+  }
+
+  .docs-gm #docs-editor, 
+  .docs-gm #docs-editor-container, 
+  .kix-appview-editor {
+    background-color: var(--darkestgray) !important;
+    background-image: none !important;
+    scrollbar-color: var(--gray) var(--darkestgray);
+  }
+
+  /* Pages and cursor */
+  .kix-paginateddocumentplugin,
+  .kix-canvas-tile-content,
+  .kix-cursor-caret {
+    filter: invert(100%) hue-rotate(180deg) contrast(80%);
+  }
+
+  /* Images */
+  .kix-canvas-tile-content image /* Chrome */, 
+  .kix-embeddedobject-image image  /* Firefox */{
+    filter: brightness(80%) invert(100%) hue-rotate(180deg);
+  }
+
+  /* CHIPS */
+
+  .kix-rich-link-view {
+    transition: var(--button-off);
+  }
+  .kix-rich-link-view:hover {
+    transition: var(--button-on);
+  }
+
+  /* POPUPS */
+
+  /* Box */
+  .kix-embedded-entity-bubble.docs-bubble,
+  .docs-gm .kix-spell-bubble, 
+  .docs-autocorrect-bubble,
+  .docs-gm .docs-linkbubble-bubble, 
+  .docs-gm .docs-multi-linkbubble-bubble,
+  .docs-bubble-material {
+    background-color: var(--darkestgray);
+    border: 1px solid var(--darkergray) !important;
+  }
+
+  /* Popup buttons */
+  .docs-bubble .docs-bubble-button.jfk-button:hover, 
+  .docs-bubble .docs-bubble-button.jfk-button:focus,
+  .docs-gm .docs-autocorrect-bubble-more-options:hover,
+  .docs-gm .docs-autocorrect-bubble-more-options:focus,
+  .docs-gm .docs-autocorrect-bubble-undo:hover,
+  .docs-gm .kix-spell-bubble-suggestion-text:hover,
+  .docs-gm .kix-spell-bubble-option:hover {
+    background-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+
+  /* Spellcheck mini popup */
+  .docs-autocorrect-bubble .docs-autocorrect-bubble-undo,
+  .kix-spell-bubble .kix-spell-bubble-suggestion-text {
+    color: white;
+  }
+  .docs-gm .kix-spell-bubble-option {
+    border-radius: 50%;
+    transition: var(--button-off);
+  }
+  .docs-gm .kix-spell-bubble-suggestion-text:focus, 
+  .docs-gm .kix-spell-bubble-option:focus {
+    background-color: var(--darkergray);
+  }
+  .docs-spell-feedbackmenu-troubleshoot-item-text>span {
+    color: var(--lightestgray);
+  }
+  .docs-spell-feedbackmenu-troubleshoot-item-text span[style="color: #1073e8"] {
+    color: var(--palerblue) !important;
+  }
+
+  /* Link popup */
+  #docs-linkbubble-link-text {
+    color: var(--palerblue) !important;
+  }
+  /* Link popup footer that prompts to replace the link */
+  .docs-linkbubble-link-preview .docs-link-bubble-card-component.docs-link-bubble-action-card-component, 
+  .docs-linkbubble-link-preview .docs-link-bubble-action-card-component::before {
+    background-color: #1967d24a !important;
+  }
+  #docs-link-bubble .docs-link-bubble-card-component.docs-link-bubble-action-card-component .link-bubble-text-button-text:hover {
+    background-color: #4689e34d !important;
+  }
+  .docs-linkbubble-link-preview .docs-link-bubble-text-card-component span {
+    color: var(--lightergray) !important;
+  }
+
+  /* Date bubble popup (The new feature where you can insert dates that can be clicked on) */
+  .docs-bubble {
+    color: var(--lightergray);
+  }
+  .smart-canvas-date-details-bubble-edit-field { /* The way Google Docs just darkens the date field when hovered doesn’t seem right… but that’s how it’s going to look in Dark Docs for now as well. */
+    background-color: var(--darkergray);
+    color: white;
+    transition: var(--button-off);
+  }
+  .smart-canvas-date-details-bubble-edit-field:hover {
+    background-color: var(--darkgray);
+  }
+  .goog-date-picker {
+    background-color: var(--darkestgray);
+    border: 1px solid var(--darkergray);
+  }
+  .smart-canvas-date-picker-bubble .goog-date-picker-monthyear {
+    color: var(--lightergray);
+  }
+  .goog-date-picker-button:hover {
+    background-color: var(--darkergray);
+  }
+  .goog-date-picker-button:active {
+    background-color: var(--ripple);
+  }
+  .smart-canvas-date-picker-bubble .goog-date-picker-wday {
+    color: var(--lightergray);
+  }
+  .goog-date-picker-date {
+    color: white;
+  }
+  .smart-canvas-date-picker-bubble .goog-date-picker-other-month {
+    color: var(--darkgray);
+  }
+  .goog-date-picker-date:hover::before {
+    background-color: var(--darkergray);
+  }
+  .smart-canvas-date-picker-bubble .goog-date-picker-selected::before {
+    background-color: var(--paleblue);
+  }
+  .smart-canvas-date-picker-bubble .goog-date-picker-selected:hover::before {
+    background-color: var(--palerblue) !important;
+  }
+  .smart-canvas-date-picker-bubble .goog-date-picker-selected {
+    color: black !important;
+  }
+  .goog-date-picker-today::before, .goog-date-picker-today:hover::before {
+    border-color: var(--paleblue);
+  }
+  .smart-canvas-date-details-bubble-action-bar {
+    border-top-color: var(--darkergray);
+  }
+  .smart-canvas-date-details-bubble-pattern-picker-button {
+    transition: var(--button-off);
+  }
+  .smart-canvas-date-details-bubble-pattern-picker-button:hover {
+    background-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+  .smart-canvas-date-details-bubble-pattern-picker-button:focus {
+    background-color: var(--ripple);
+    transition: var(--button-on);
+  }
+  .docs-material .smart-canvas-date-details-bubble-pattern-picker-button .docs-icon-img {
+    filter: none;
+    filter: var(--pale-icons);
+  }
+  .docs-bubble-material-body-hint-bar {
+    background-color: var(--paleblue);
+    color: black;
+  }
+  .smart-canvas-date-details-bubble .smart-canvas-date-details-bubble-hint-button {
+    border-radius: 4px;
+    transition: var(--button-off);
+  }
+  .smart-canvas-date-details-bubble .smart-canvas-date-details-bubble-hint-button:hover {
+    background-color: var(--palerblue);
+    transition: var(--button-on);
+  }
+
+  /* Calendar event bubble popup */
+  .docs-bubble .docs-bubble-button {
+    transition: var(--button-off);
+  }
+  .docs-link-bubble-calendar-event-action-card-component {
+    border-top: 1px solid var(--darkergray);
+  }
+  .link-bubble-header .docs-icon-img {
+    filter: none !important;
+    filter: brightness(2) !important;
+  }
+  .docs-link-bubble-calendar-attach-document.docs-material .docs-icon .docs-icon-img {
+    filter: none !important;
+    filter: var(--pale-icons) !important;
+  }
+
+  /* Contacts bubble */
+  .boqSocialpeoplehovercardV2HovercardAnimating {
+    box-shadow: 0 0 1px var(--darkergray) !important;
+    filter: invert(100%) hue-rotate(180deg) contrast(80%); /* Unfortunately this will invert the account photo, but it’s better than a white card. */
+  }
+
+  /* File bubble */
+  .drive-image-thumbnail-component .docs-link-bubble-thumbnail-container {
+    filter: invert(100%) hue-rotate(180deg) contrast(80%);
+  }
+
+  /* Table border editing */
+  .docs-border-selection-button-pressed, 
+  .docs-border-selection-button-normal {
+    filter: invert(100%) brightness(250%) contrast(65%);
+  }
+
+  /* Quick comment/suggest bubble */
+  #docs-instant-bubble {
+    border-color: transparent;
+    background: var(--darkergray);
+    transition: var(--button-off);
+  }
+  #docs-instant-bubble:hover {
+    background: var(--darkergray);
+    transition: var(--button-on);
+  }
+  #docs-instant-bubble .instant-button {
+    transition: var(--button-off);
+  }
+  #docs-instant-bubble .instant-button:hover {
+    background: var(--darkgray);
+    transition: var(--button-on);
+  }
+  .docs-material .docs-icon-instant-comment-blue600-24 {
+    filter: none !important;
+    filter: var(--pale-icons) !important;
+  }
+  .docs-material .docs-icon-instant-suggest-green600-24 {
+    filter: none !important;
+    filter: var(--pale-green-icons) !important;
+  }
+
+  /* Header options */
+  .docs-gm .kix-header-footer-bubble.docs-bubble {
+    background-color: var(--darkergray);
+    border-color: var(--darkergray);
+  }
+  .docs-gm .kix-header-footer-bubble-description,
+  .docs-gm .kix-header-footer-bubble-checkbox-label {
+    color: white;
+  }
+
+  /* Find bar */
+  .docs-slidingdialog {
+    background-color: var(--darkestgray);
+    border-color: var(--darkergray);
+  }
+  .docs-gm .docs-findinput-container {
+    background-color: var(--darkestgray);
+    border-color: var(--darkergray); 
+    transition: var(--button-off); 
+    /* These transitions are making the text a bit shifty when going between focused and unfocused*/
+  }
+  .docs-gm .docs-findinput-container-focus {
+    border-color: var(--paleblue);
+    transition: var(--button-on);
+  }
+  .docs-suggestiondialog-title-text, 
+  .docs-findinput-input, .docs-findinput-input:focus {
+    color: white;
+  }
+  
+  /* Spellcheck suggestions */
+  .docs-checkupdialog-content-container {
+    background-color: var(--darkestgray);
+    border-color: var(--darkergray);
+    border-top: none; 
+    border-radius: 0 0 8px 8px; /* Makes it shaped more like the find bar */
+    color: white;
+  }
+  .docs-checkupdialog-suggestion-button-focused.jfk-button {
+    background-color: transparent;
+    border-color: var(--paleblue) !important;
+    color: var(--palerblue);
+    transition: var(--button-off);
+  }
+  .docs-checkupdialog-suggestion-button-focused.jfk-button-hover,
+  .docs-checkupdialog-suggestion-button-focused.jfk-button-focused,
+  .docs-checkupdialog-suggestion-button.jfk-button-hover.jfk-button-focused {
+    background-color: var(--darkergray) !important;
+    color: var(--palerblue);
+    transition: var(--button-on);
+  }
+  
+  /* COMMENTS */
+  
+  .docs-gm .docos-anchoreddocoview, 
+  .docs-gm .docos-anchoreddocoview.docos-docoview-active, 
+  .docs-gm .docos-anchoreddocoview.docos-docoview-active:hover, 
+  .docs-gm.docos-xeditor .streamdocoview-no-header.docos-streamdocoview {
+    background-color: var(--darkestgray);
+    border: 1px solid var(--darkergray) !important;
+  }
+  .docos-anchoreddocoview .docos-replyview-first.docos-anchoredreplyview,
+  .docs-gm .docos-anchoredreplyview, 
+  .docs-gm .docos-showrepliesbutton, 
+  .docs-gm .docos-anchoreddocoview-input-pane {
+    background-color: var(--darkestgray);
+    border-color: var(--darkergray);
+  }
+  .docs-gm .docos-anchoredreplyview-header .docos-anchoredreplyview-author, 
+  .docs-gm.docos-xeditor .docos-streamdocoview-authorname-timestamp .docos-streamdocoview-author, 
+  .docs-gm .docos-anchoredreplyview .docos-anchoredreplyview-body div, 
+  .docs-gm .docos-anchoredreplyview .docos-anchoredreplyview-body, 
+  .docos-streamreplyview-body, 
+  .docos-streamdocoview-body, 
+  .docos-streamdocoview-body.docos-replyview-body div {
+    color: white !important;
+  }
+  .docs-gm .docos-anchoredreplyview-header .docos-anchoredreplyview-timestamp, 
+  .docs-gm.docos-xeditor .docos-streamdocoview-authorname-timestamp .docos-streamdocoview-timestamp, 
+  .docos-streamdocoview-body.docos-replyview-body div>span:last-of-type,
+  .docs-gm .docos-streamrootreplyview .docos-action-text, 
+  .docs-gm .docos-streamreplyview .docos-action-text {
+    color: var(--lightergray) !important;
+    opacity: 100%;
+  }
+  .docs-suggestion-button:not(.jfk-button-disabled) .docs-material .docs-icon-img {
+    filter: none !important;
+    filter: var(--pale-icons) !important;
+  }
+  .docos-anchoredreplyview-buttonholder .docos-icon-overflow-three-dots, 
+  .docos-streamdocoview-details .docos-icon-overflow-three-dots, 
+  .docos-streamreplyview-text .docos-icon-overflow-three-dots {
+    filter: invert(100%) brightness(500%);
+  }
+
+  /* “Explore” button */
+  .docs-explore-widget-button {
+    background-color: var(--darkestgray);
+    color: white;
+  }
+  .docs-explore-icon.docs-explore-widget-icon.docs-explore-widget-icon-inactive.goog-inline-block {
+    filter: invert(100%) hue-rotate(180deg) contrast(80%);
+  }
 }

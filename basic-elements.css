@@ -1,517 +1,595 @@
-/* Basic elements */
+@-moz-document url-prefix("https://docs.google.com/document/d/"), url-prefix("https://docs.google.com/sharing/driveshare") {
+  /* Basic elements */
 
-/* Scrollbar */
-.docs-gm ::-webkit-scrollbar-thumb {
-  background-color: var(--lightergray);
-}
+  /* Scrollbar */
+  .docs-gm ::-webkit-scrollbar-thumb {
+    background-color: var(--lightergray);
+  }
 
-/* BUTTONS */
+  /* BUTTONS */
 
-/* Filled */
-.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-disabled, 
-.docs-gm .modal-dialog .goog-buttonset-action[disabled], 
-.docs-gm .modal-dialog .jfk-button-action.jfk-button-disabled, 
-.docs-gm .docs-material-bubble .jfk-button-action.jfk-button-disabled {
-  background-color: var(--gray) !important;
-  border-color: var(--gray) !important;
-  color: var(--darkgray) !important;
-  opacity: 100%;
-  transition: var(--button-off);
-}
-.analytics-btn-fill.jfk-button, 
-.docos.docs-gm .jfk-button.jfk-button-action, 
-.docs-material-button-fill-primary.docs-material-button, 
-.docs-gm #docs-titlebar-share-client-button .jfk-button, 
-.docs-gm .modal-dialog .goog-buttonset-action, 
-.docs-gm .modal-dialog .jfk-button-action, 
-.docs-gm .docs-material-bubble .jfk-button-action, 
-.GmFillButton:not(:disabled) {
-  background-color: var(--paleblue);
-  color: black;
-  transition: var(--button-off);
-}
-.analytics-btn-fill.jfk-button.jfk-button-hover, 
-.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-hover, 
-.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-focused, 
-.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-hover.jfk-button-focused, 
-.docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-hover, 
-.docs-gm #docs-titlebar-share-client-button .jfk-button:focus, 
-.docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-hover:focus, 
-.docs-gm .modal-dialog .goog-buttonset-action:hover:focus, 
-.docs-gm .modal-dialog .jfk-button-action.jfk-button-hover.jfk-button-focused, 
-.docs-gm .modal-dialog .goog-buttonset-action:focus, 
-.docs-gm .modal-dialog .jfk-button-action.jfk-button-focused, 
-.docs-gm .modal-dialog .goog-buttonset-action:hover, 
-.docs-gm .modal-dialog .jfk-button-action.jfk-button-hover, 
-.docs-gm .modal-dialog .jfk-button-action.jfk-button-hover,
-.docs-gm .modal-dialog .jfk-button-action.jfk-button-focused,
-.docs-material-button-fill-primary.docs-material-button-hover, 
-.docs-material-button-fill-primary.docs-material-button-focused.docs-material-button-no-focus-border, 
-.docs-material-button-fill-primary.docs-material-button-hover.docs-material-button-focused {
-  background-color: var(--palerblue);
-  color: black;
-  transition: var(--button-on);
-}
-.analytics-btn-fill.jfk-button.jfk-button-focused.jfk-button-active, 
-.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-focused.jfk-button-active, 
-.docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-focused.jfk-button-active, 
-.docs-gm .modal-dialog .goog-buttonset-action:active, 
-.docs-gm .modal-dialog .goog-buttonset-action:focus:active, 
-.docs-gm .modal-dialog .jfk-button-action.jfk-button-active, 
-.docs-gm .modal-dialog .jfk-button-action.jfk-button-focus.jfk-button-active, 
-.docs-gm .docs-material-bubble .jfk-button-action.jfk-button-active, 
-.docs-gm .docs-material-bubble .jfk-button-action.jfk-button-focus.jfk-button-active, 
-.docs-gm .modal-dialog .jfk-button-action.jfk-button-hover.jfk-button-focused, 
-.docs-material-button-fill-primary.docs-material-button-focused.docs-material-button-active {
-  background-color: var(--palerblue);
-  color: var(--ripple);
-}
+  /* Filled */
+  .docos.docs-gm .jfk-button.jfk-button-action.jfk-button-disabled, 
+  .docs-gm .modal-dialog .goog-buttonset-action[disabled], 
+  .docs-gm .modal-dialog .jfk-button-action.jfk-button-disabled, 
+  .docs-gm .docs-material-bubble .jfk-button-action.jfk-button-disabled {
+    background-color: var(--darkergray) !important;
+    border-color: var(--darkergray) !important;
+    color: var(--darkestgray) !important;
+    opacity: 100%;
+    transition: var(--button-off);
+  }
+  .analytics-btn-fill.jfk-button, 
+  .docos.docs-gm .jfk-button.jfk-button-action, 
+  .docs-material-button-fill-primary.docs-material-button, 
+  .docs-gm #docs-titlebar-share-client-button .jfk-button, 
+  .docs-gm .modal-dialog .goog-buttonset-action, 
+  .docs-gm .modal-dialog .jfk-button-action, 
+  .docs-gm .docs-material-bubble .jfk-button-action, 
+  .GmFillButton:not(:disabled) {
+    background-color: var(--paleblue);
+    color: black;
+    transition: var(--button-off);
+  }
+  .analytics-btn-fill.jfk-button.jfk-button-hover, 
+  .docos.docs-gm .jfk-button.jfk-button-action.jfk-button-hover, 
+  .docos.docs-gm .jfk-button.jfk-button-action.jfk-button-focused, 
+  .docos.docs-gm .jfk-button.jfk-button-action.jfk-button-hover.jfk-button-focused, 
+  .docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-hover, 
+  .docs-gm #docs-titlebar-share-client-button .jfk-button:focus, 
+  .docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-hover:focus, 
+  .docs-gm .modal-dialog .goog-buttonset-action:hover:focus, 
+  .docs-gm .modal-dialog .jfk-button-action.jfk-button-hover.jfk-button-focused, 
+  .docs-gm .modal-dialog .goog-buttonset-action:focus, 
+  .docs-gm .modal-dialog .jfk-button-action.jfk-button-focused, 
+  .docs-gm .modal-dialog .goog-buttonset-action:hover, 
+  .docs-gm .modal-dialog .jfk-button-action.jfk-button-hover, 
+  .docs-gm .modal-dialog .jfk-button-action.jfk-button-hover,
+  .docs-gm .modal-dialog .jfk-button-action.jfk-button-focused,
+  .docs-material-button-fill-primary.docs-material-button-hover, 
+  .docs-material-button-fill-primary.docs-material-button-focused.docs-material-button-no-focus-border, 
+  .docs-material-button-fill-primary.docs-material-button-hover.docs-material-button-focused {
+    background-color: var(--palerblue);
+    color: black;
+    transition: var(--button-on);
+  }
+  .analytics-btn-fill.jfk-button.jfk-button-focused.jfk-button-active, 
+  .docos.docs-gm .jfk-button.jfk-button-action.jfk-button-focused.jfk-button-active, 
+  .docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-focused.jfk-button-active, 
+  .docs-gm .modal-dialog .goog-buttonset-action:active, 
+  .docs-gm .modal-dialog .goog-buttonset-action:focus:active, 
+  .docs-gm .modal-dialog .jfk-button-action.jfk-button-active, 
+  .docs-gm .modal-dialog .jfk-button-action.jfk-button-focus.jfk-button-active, 
+  .docs-gm .docs-material-bubble .jfk-button-action.jfk-button-active, 
+  .docs-gm .docs-material-bubble .jfk-button-action.jfk-button-focus.jfk-button-active, 
+  .docs-gm .modal-dialog .jfk-button-action.jfk-button-hover.jfk-button-focused, 
+  .docs-material-button-fill-primary.docs-material-button-focused.docs-material-button-active {
+    background-color: var(--palerblue);
+    color: var(--ripple);
+  }
 
-/* Outlined */
-.docs-gm .modal-dialog button[disabled], 
-.docs-gm .modal-dialog .jfk-button-standard.jfk-button-disabled {
-  background-color: var(--darkgray);
-  border-color: var(--gray) !important;
-  color: var(--gray);
-  opacity: 100% !important;
-  transition: var(--button-off);
-}
-.analytics-btn-hairline.jfk-button, 
-.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button, 
-.docos.docs-gm .jfk-button.jfk-button-standard, 
-.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-standard, 
-.docs-gm .modal-dialog button, 
-.docs-gm .modal-dialog .jfk-button-standard, 
-.docs-material-button-hairline-primary.docs-material-button {
-  background-color: transparent;
-  border-color: var(--gray) !important;
-  color: var(--palerblue);
-  transition: var(--button-off);
-}
-.analytics-btn-hairline.jfk-button.jfk-button-hover, 
-.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button:hover, 
-.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button:focus, 
-.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover, 
-.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover:focus, 
-.docs-gm .modal-dialog button:focus, 
-.docs-gm .modal-dialog .jfk-button-standard.jfk-button-focused, 
-.docs-gm .modal-dialog button:hover, 
-.docs-gm .modal-dialog .jfk-button-standard.jfk-button-hover, 
-.docs-gm .modal-dialog .jfk-button-standard.jfk-button-focused, 
-.docs-gm .modal-dialog button:hover:focus, 
-.docs-gm .modal-dialog .jfk-button-standard.jfk-button-hover.jfk-button-focused, 
-.docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-hover,
-.docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-focused, 
-.docs-material-button-hairline-primary.docs-material-button-hover, 
-.docs-material-button-hairline-primary.docs-material-button-focused, 
-.docs-material-button-hairline-primary.docs-material-button-hover.docs-material-button-focused, 
-.docs-material-button-hairline-primary.docs-material-button-focused.docs-material-button-no-focus-border {
-  background-color: var(--gray);
-  border-color: var(--gray) !important;
-  transition: var(--button-on);
-}
-.analytics-btn-hairline.jfk-button.jfk-button-hover.jfk-button-active, 
-.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button:active, 
-.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover.jfk-button-active, 
-.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover.jfk-button-focused.jfk-button-active, 
-.docs-gm .modal-dialog button:active, 
-.docs-gm .modal-dialog button:focus:active, 
-.docs-gm .modal-dialog .jfk-button-standard.jfk-button-active, 
-.docs-gm .modal-dialog .jfk-button-standard.jfk-button-focus.jfk-button-active, 
-.docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-focused.jfk-button-hover,
-.docs-gm .modal-dialog .jfk-button-standard.jfk-button-hover.jfk-button-focused, 
-.docs-material-button-hairline-primary.docs-material-button-active.docs-material-button-focused {
-  background-color: var(--ripple);
-  border-color: var(--ripple) !important;
-  color: var(--palerblue);
-  transition: var(--button-on);
-}
+  /* Outlined */
+  .docs-gm .modal-dialog button[disabled], 
+  .docs-gm .modal-dialog .jfk-button-standard.jfk-button-disabled {
+    background-color: var(--darkestgray);
+    border-color: var(--darkergray) !important;
+    color: var(--darkergray);
+    opacity: 100% !important;
+    transition: var(--button-off);
+  }
+  .analytics-btn-hairline.jfk-button, 
+  .docs-checkupdialog-button-ignore.docs-material-button-hairline-default.docs-material-button, 
+  .docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button, 
+  .docos.docs-gm .jfk-button.jfk-button-standard, 
+  .docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-standard, 
+  .docs-gm .modal-dialog button, 
+  .docs-gm .modal-dialog .jfk-button-standard, 
+  .docs-material-button-hairline-primary.docs-material-button {
+    background-color: transparent;
+    border-color: var(--darkergray) !important;
+    color: var(--palerblue);
+    transition: var(--button-off);
+  }
+  .analytics-btn-hairline.jfk-button.jfk-button-hover, 
+  .docs-checkupdialog-button-ignore.docs-material-button-hairline-default.docs-material-button-hover, 
+  .docs-checkupdialog-button-ignore.docs-material-button-hairline-default.docs-material-button-focus, 
+  .docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button:hover, 
+  .docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button:focus, 
+  .docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover, 
+  .docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover:focus, 
+  .docs-gm .modal-dialog button:focus, 
+  .docs-gm .modal-dialog .jfk-button-standard.jfk-button-focused, 
+  .docs-gm .modal-dialog button:hover, 
+  .docs-gm .modal-dialog .jfk-button-standard.jfk-button-hover, 
+  .docs-gm .modal-dialog .jfk-button-standard.jfk-button-focused, 
+  .docs-gm .modal-dialog button:hover:focus, 
+  .docs-gm .modal-dialog .jfk-button-standard.jfk-button-hover.jfk-button-focused, 
+  .docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-hover,
+  .docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-focused, 
+  .docs-material-button-hairline-primary.docs-material-button-hover, 
+  .docs-material-button-hairline-primary.docs-material-button-focused, 
+  .docs-material-button-hairline-primary.docs-material-button-hover.docs-material-button-focused, 
+  .docs-material-button-hairline-primary.docs-material-button-focused.docs-material-button-no-focus-border {
+    background-color: var(--darkergray);
+    border-color: var(--darkergray) !important;
+    transition: var(--button-on);
+  }
+  .analytics-btn-hairline.jfk-button.jfk-button-hover.jfk-button-active, 
+  .docs-checkupdialog-button-ignore.docs-material-button-hairline-default.docs-material-button-active,
+  .docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button:active, 
+  .docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover.jfk-button-active, 
+  .docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover.jfk-button-focused.jfk-button-active, 
+  .docs-gm .modal-dialog button:active, 
+  .docs-gm .modal-dialog button:focus:active, 
+  .docs-gm .modal-dialog .jfk-button-standard.jfk-button-active, 
+  .docs-gm .modal-dialog .jfk-button-standard.jfk-button-focus.jfk-button-active, 
+  .docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-focused.jfk-button-hover,
+  .docs-gm .modal-dialog .jfk-button-standard.jfk-button-hover.jfk-button-focused, 
+  .docs-material-button-hairline-primary.docs-material-button-active.docs-material-button-focused {
+    background-color: var(--ripple);
+    border-color: var(--ripple) !important;
+    color: var(--palerblue);
+    transition: var(--button-on);
+  }
 
-/* No fill, no border buttons */
-.analytics-btn-text.jfk-button, 
-.docs-material-button-text-default.docs-material-button, 
-.appsMaterialWizButtonPaperbuttonTextColored, .appsMaterialWizButtonPaperbuttonTextColored .exportButtonNestedLink, 
-.kix-smart-summary-view .jfk-button {
-  background-color: transparent;
-  color: var(--palerblue);
-  font-weight: 500;
-  transition: var(--button-off);
-}
-.analytics-btn-text.jfk-button-hover, 
-.analytics-btn-text.jfk-button-focused.jfk-button-hover, 
-.docs-material-button-hover.docs-material-button-text-default, 
-.kix-smart-summary-view .jfk-button:focus, .kix-smart-summary-view .jfk-button:hover{
-  background-color: var(--gray);
-  color: var(--palerblue);
-  transition: var(--button-on);
-}
-.analytics-btn-text.jfk-button-focused.jfk-button-hover.jfk-button-active, 
-.docs-material-button-text-default>.docs-material-button-ripple-element, 
-.kix-smart-summary-view .jfk-button:active {
-  background-color: var(--ripple);
-  color: var(--palerblue);
-}
+  /* No fill, no border text buttons */
+  .kix-watermark-more-image-options-button.docs-material-button-text-default.docs-material-button.docs-material-button-disabled {
+    color: white;
+    opacity: 25%;
+  }
+  .analytics-btn-text.jfk-button, 
+  .docs-material-button-text-default.docs-material-button, 
+  .appsMaterialWizButtonPaperbuttonTextColored, .appsMaterialWizButtonPaperbuttonTextColored .exportButtonNestedLink, 
+  .kix-smart-summary-view .jfk-button {
+    background-color: transparent;
+    color: var(--palerblue);
+    font-weight: 500;
+    transition: var(--button-off);
+  }
+  .analytics-btn-text.jfk-button-hover, 
+  .analytics-btn-text.jfk-button-focused.jfk-button-hover, 
+  .docs-material-button-hover.docs-material-button-text-default, 
+  .kix-smart-summary-view .jfk-button:focus, .kix-smart-summary-view .jfk-button:hover{
+    background-color: var(--darkergray);
+    color: var(--palerblue);
+    transition: var(--button-on);
+  }
+  .analytics-btn-text.jfk-button-focused.jfk-button-hover.jfk-button-active, 
+  .docs-material-button-text-default>.docs-material-button-ripple-element, 
+  .kix-smart-summary-view .jfk-button:active {
+    background-color: var(--ripple);
+    color: var(--palerblue);
+  }
+  
+  /* White icon buttons */
+  .mdc-button__icon {
+    color: white;
+  }
 
-/* BUTTONS, TOGGLE */
-.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button, 
-.docs-sidebar-palette .docs-sidebar-palette-button-container .docs-sidebar-palette-button {
-  background-color: var(--darkgray);
-  border-color: var(--gray) !important;
-  transition: var(--button-off);
-}
-.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-hover,
-.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-focused,
-.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-hover.jfk-button-focused, 
-.docs-sidebar-palette .docs-sidebar-palette-button-container .docs-sidebar-palette-button:hover, 
-.docs-sidebar-palette .docs-sidebar-palette-button-container .docs-sidebar-palette-button:focus {
-  background-color: var(--gray);
-  border-color: var(--gray) !important;
-  transition: var(--button-on);
-}
-.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-checked, 
-.docs-sidebar-palette .docs-sidebar-palette-button-container.goog-control-selected .docs-sidebar-palette-button {
-  background-color: var(--ripple);
-  border-color: var(--paleblue) !important;
-}
-.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-hover.jfk-button-checked, 
-.docs-sidebar-palette .docs-sidebar-palette-button-container.goog-control-selected .docs-sidebar-palette-button.docs-material-button-hover {
-  background-color: var(--ripple); 
-  border-color: var(--palerblue) !important;
-}
+  /* BUTTONS, TOGGLE */
+  /* Toggled OFF */
+  .docs-gm #kix-bordersshadingdialog-borderposition .jfk-button, 
+  .docs-horizontal-button-group .docs-material-button:not([class*="docs-material-button-selected"]), 
+  .docs-sidebar-palette .docs-sidebar-palette-button-container .docs-sidebar-palette-button {
+    background-color: var(--darkestgray);
+    border-color: var(--darkergray) !important;
+    color: var(--lightestgray);
+    transition: var(--button-off);
+  }
+  .docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-hover,
+  .docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-focused,
+  .docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-hover.jfk-button-focused, 
+  .docs-horizontal-button-group .docs-material-button:not([class*="docs-material-button-selected"]).docs-material-button-hover, 
+  .docs-horizontal-button-group .docs-material-button:not([class*="docs-material-button-selected"]).docs-material-button-focused, 
+  .docs-sidebar-palette .docs-sidebar-palette-button-container .docs-sidebar-palette-button:hover, 
+  .docs-sidebar-palette .docs-sidebar-palette-button-container .docs-sidebar-palette-button:focus {
+    background-color: var(--darkergray);
+    border-color: var(--darkergray) !important;
+    transition: var(--button-on);
+  }
+  .docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-checked, 
+  .docs-horizontal-button-group .docs-material-button:not([class*="docs-material-button-selected"]).docs-material-button-active, 
+  .docs-sidebar-palette .docs-sidebar-palette-button-container.goog-control-selected .docs-sidebar-palette-button {
+    background-color: var(--ripple);
+    border-color: var(--ripple) !important;
+  }
+  /* Toggled ON */
+  .docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-hover.jfk-button-checked, 
+  .docs-horizontal-button-group .docs-material-button-selected, 
+  .docs-horizontal-button-group .docs-material-button.docs-material-button-selected.docs-material-button-focused, 
+  .docs-sidebar-palette .docs-sidebar-palette-button-container.goog-control-selected .docs-sidebar-palette-button.docs-material-button-hover {
+    background-color: var(--ripple); 
+    border-color: var(--paleblue) !important;
+  }
 
-/* CALLOUTS */
-.boqDrivesharedialogCommonCalloutCalloutDialog {
-  background-color: var(--paleblue);
-  color: black;
-}
-.boqDrivesharedialogCommonCalloutArrowDown .Arrow, 
-.boqDrivesharedialogCommonCalloutArrowUp .Arrow {
-  border-color: var(--paleblue) transparent;
-}
-.boqDrivesharedialogCommonCalloutCloseButton .mdc-button__label {
-  color: black;
-}
+  /* CALLOUTS */
+  .boqDrivesharedialogCommonCalloutCalloutDialog {
+    background-color: var(--paleblue);
+    color: black;
+  }
+  .boqDrivesharedialogCommonCalloutArrowDown .Arrow, 
+  .boqDrivesharedialogCommonCalloutArrowUp .Arrow {
+    border-color: var(--paleblue) transparent;
+  }
+  .boqDrivesharedialogCommonCalloutCloseButton .mdc-button__label {
+    color: black;
+  }
 
-/* CHECKBOXES */
-div.docs-material-gm-checkbox, 
-span.docs-material-gm-checkbox {
-  border-color: var(--lightgray);
-  transition: var(--button-off);
-}
-div.docs-material-gm-checkbox-hover, 
-div.docs-material-gm-checkbox-focused, 
-.docs-material-gm-labeled-checkbox-hover .docs-material-gm-labeled-checkbox-checkbox, 
-span.docs-material-gm-checkbox-focused {
-  border-color: var(--lightergray);
-}
-div.docs-material-gm-checkbox-checked, 
-.docs-material-gm-labeled-checkbox-checkbox.docs-material-gm-labeled-checkbox-checked, 
-span.docs-material-gm-checkbox-checked {
-  background-color: var(--paleblue); 
-  border-color: var(--paleblue);
-  transition: var(--button-on);
-}
-div.docs-material-gm-checkbox-checked.docs-material-gm-checkbox-focused, 
-div.docs-material-gm-checkbox-checked.docs-material-gm-checkbox-hover, 
-.docs-material-gm-labeled-checkbox-hover .docs-material-gm-labeled-checkbox-checked, 
-span.docs-material-gm-checkbox-checked.docs-material-gm-checkbox-focused {
-  background-color: var(--palerblue);
-  border-color: var(--palerblue);
-  transition: var(--button-on);
-}
-.docs-material-gm-labeled-checkbox-checkbox.docs-material-gm-labeled-checkbox-checked::before, 
-div.docs-material-gm-checkbox-checked::before, 
-span.docs-material-gm-checkbox-checked::before {
-  filter: brightness(0);
-}
+  /* CHECKBOXES */
+  div.docs-material-gm-checkbox, 
+  span.docs-material-gm-checkbox {
+    border-color: var(--darkgray);
+    transition: var(--button-off);
+  }
+  div.docs-material-gm-checkbox-hover, 
+  div.docs-material-gm-checkbox-focused, 
+  .docs-material-gm-labeled-checkbox-hover .docs-material-gm-labeled-checkbox-checkbox, 
+  span.docs-material-gm-checkbox-focused {
+    border-color: var(--gray);
+  }
+  div.docs-material-gm-checkbox-checked, 
+  .docs-material-gm-labeled-checkbox-checkbox.docs-material-gm-labeled-checkbox-checked, 
+  span.docs-material-gm-checkbox-checked {
+    background-color: var(--paleblue); 
+    border-color: var(--paleblue);
+    transition: var(--button-on);
+  }
+  div.docs-material-gm-checkbox-checked.docs-material-gm-checkbox-focused, 
+  div.docs-material-gm-checkbox-checked.docs-material-gm-checkbox-hover, 
+  .docs-material-gm-labeled-checkbox-hover .docs-material-gm-labeled-checkbox-checked, 
+  span.docs-material-gm-checkbox-checked.docs-material-gm-checkbox-focused {
+    background-color: var(--palerblue);
+    border-color: var(--palerblue);
+    transition: var(--button-on);
+  }
+  .docs-material-gm-labeled-checkbox-checkbox.docs-material-gm-labeled-checkbox-checked::before, 
+  div.docs-material-gm-checkbox-checked::before, 
+  span.docs-material-gm-checkbox-checked::before {
+    filter: brightness(0);
+  }
 
-/* COLOR PICKER */
-.docs-gm .docs-colormenuitems .docs-colormenuitems-scheme-header, 
-.docs-gm .docs-colormenuitems .docs-colormenuitems-custom-header {
-  color: var(--lightergray);
-}
-.docs-customcolorpalette-add-custom-color-button {
-  border-radius: 4px;
-  transition: var(--button-off);
-}
-.docs-customcolorpalette-add-custom-color-button:hover {
-  background-color: var(--gray);
-  transition: var(--button-on);
-}
-/* Custom color picker */
-.docs-material-hsv-color-picker-text {
-  color: var(--lightergray);
-}
-.docs-material-color-picker-dragger {
-  box-shadow: none;
-}
+  /* COLOR PICKER */
+  .docs-gm .docs-colormenuitems .docs-colormenuitems-scheme-header, 
+  .docs-gm .docs-colormenuitems .docs-colormenuitems-custom-header {
+    color: var(--lightergray);
+  }
+  .docs-customcolorpalette-add-custom-color-button {
+    border-radius: 4px;
+    transition: var(--button-off);
+  }
+  .docs-customcolorpalette-add-custom-color-button:hover {
+    background-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+  /* Custom color picker */
+  .docs-material-hsv-color-picker-text {
+    color: var(--lightergray);
+  }
+  .docs-material-color-picker-dragger {
+    box-shadow: none;
+  }
 
-/* DROPDOWNS */
-.docs-gm .modal-dialog .goog-flat-menu-button, 
-.docs-material-gm-select-outer-box {
-  border-color: var(--gray);
-  transition: var(--button-off);
-}
-.docs-gm .modal-dialog .goog-flat-menu-button-hover, 
-.docs-material-gm-select-hover .docs-material-gm-select-outer-box, 
-.docs-material-gm-select-focused .docs-material-gm-select-outer-box {
-  background-color: var(--gray);
-  border-color: var(--gray);
-  transition: var(--button-on);
-}
-.docs-material-gm-select-open.docs-material-gm-select-focused .docs-material-gm-select-outer-box {
-  border-width: 2px;
-  border-color: var(--paleblue);
-  padding: 7px 5px 7px 7px;
-  transition: none;
-}
-.goog-toolbar-combo-button-dropdown {
-  filter: brightness(200%);
-}
-.docs-material-gm-select-caption {
-  color: white;
-}
-/* Dropdown content */
-.docs-gm .docs-indentationdialoggm-menu.goog-menu .goog-menuitem-content {
-  color: white;
-}
+  /* DROPDOWNS */
+  .docs-gm .modal-dialog .goog-flat-menu-button, 
+  .docs-material-gm-select-outer-box {
+    border-color: var(--darkergray);
+    transition: var(--button-off);
+  }
+  .docs-gm .modal-dialog .goog-flat-menu-button-hover, 
+  .docs-material-gm-select-hover .docs-material-gm-select-outer-box, 
+  .docs-material-gm-select-focused .docs-material-gm-select-outer-box {
+    background-color: var(--darkergray);
+    border-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+  .docs-material-gm-select-open.docs-material-gm-select-focused .docs-material-gm-select-outer-box {
+    background-color: var(--darkergray);
+  }
+  .goog-toolbar-combo-button-dropdown {
+    filter: brightness(200%);
+  }
+  .docs-material-gm-select-caption {
+    color: white;
+  }
+  /* Dropdown content */
+  .mdc-menu-surface {
+    background-color: var(--darkergray);
+  }
+  .docs-gm .docs-indentationdialoggm-menu.goog-menu .goog-menuitem-content, 
+  .GmMenu .mdc-deprecated-list {
+    color: white;
+  }
+  .boqDrivesharedialogLinkLinkvisibilityselectorMenuItem .mdc-deprecated-list-item__graphic {
+    color: var(--palerblue);
+  }
 
-/* LABELS */
+  /* LABELS */
 
-.analytics-low-data-treatment-description, 
-.analytics-sc-account-explanation, 
-.analytics-sc-document-explanation, 
-.analytics-sc-section-label, 
-.docs-customspacingdialog-paragraphspacing-label, 
-.docs-gm .kix-columnoptionsdialog-title, 
-.docs-gm .kix-translatedialog-label, 
-.docs-indentationdialoggm-label, 
-.docs-labeled-button-label, 
-.docs-material-gm-labeled-checkbox .docs-material-gm-labeled-checkbox-description, 
-.docs-material-gm-labeled-checkbox .docs-material-gm-labeled-checkbox-label, 
-.docs-number-input-label, 
-.docs-sidebar-tile-input-label, 
-.docs-sidebar-tile-label, 
-.kix-headerfooterdialog-input-label {
-  color: var(--lightergray);
-  opacity: 100%;
-}
-/* Units */
-.docs-gm .kix-columnoptionsdialog-units, 
-.docs-number-input-unit, 
-.kix-headerfooterdialog-units {
-  color: var(--lightergray);
-}
+  .analytics-low-data-treatment-description, 
+  .analytics-sc-account-explanation, 
+  .analytics-sc-document-explanation, 
+  .analytics-sc-section-label, 
+  .docs-customspacingdialog-paragraphspacing-label, 
+  .docs-gm .kix-columnoptionsdialog-title, 
+  .docs-gm .kix-translatedialog-label, 
+  .docs-indentationdialoggm-label, 
+  .docs-labeled-button-label, 
+  .docs-material-gm-labeled-checkbox .docs-material-gm-labeled-checkbox-description, 
+  .docs-material-gm-labeled-checkbox .docs-material-gm-labeled-checkbox-label, 
+  .docs-number-input-label, 
+  .docs-sidebar-tile-input-label, 
+  .docs-sidebar-tile-label, 
+  .kix-headerfooterdialog-input-label, 
+  .mdc-form-field {
+    color: var(--lightergray);
+    opacity: 100%;
+  }
+  /* Units */
+  .docs-gm .kix-columnoptionsdialog-units, 
+  .docs-number-input-unit, 
+  .kix-headerfooterdialog-units {
+    color: var(--lightergray);
+  }
+  
+  /* MENUS */
+  .docs-gm .goog-menuitem {
+    color: white;
+  }
 
-/* RADIO BUTTONS */
+  /* RADIO BUTTONS */
 
-.docs-material-gm-labeled-checkbox-checkbox, 
-.jfk-radiobutton-radio, 
-.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton:not(.jfk-radiobutton-disabled) .jfk-radiobutton-radio, 
-.kix-pageorientationdialog-orientation-container .jfk-radiobutton:not(.jfk-radiobutton-disabled) .jfk-radiobutton-radio {
-  border-color: var(--lightgray);
-  transition: var(--button-off);
-}
-.jfk-radiobutton-disabled:hover .jfk-radiobutton-radio {
-  background-color: var(--transparent);
-}
-.jfk-radiobutton:hover .jfk-radiobutton-radio, 
-.jfk-radiobutton:focus .jfk-radiobutton-radio, 
-.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton.jfk-radiobutton-hover .jfk-radiobutton-radio, 
-.kix-pageorientationdialog-orientation-container .jfk-radiobutton.jfk-radiobutton-hover .jfk-radiobutton-radio {
-  border-color: var(--lightergray);
-  transition: var(--button-on);
-}
-.jfk-radiobutton-checked .jfk-radiobutton-radio, 
-.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton-checked.jfk-radiobutton:not(.jfk-radiobutton-disabled) .jfk-radiobutton-radio, 
-.kix-pageorientationdialog-orientation-container .jfk-radiobutton-checked.jfk-radiobutton:not(.jfk-radiobutton-disabled) .jfk-radiobutton-radio {
-  border-color: var(--paleblue);
-  transition: var(--button-on);
-}
-.jfk-radiobutton-checked:hover .jfk-radiobutton-radio, 
-.jfk-radiobutton-checked.jfk-radiobutton-hover .jfk-radiobutton-radio, 
-.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton.jfk-radiobutton-checked.jfk-radiobutton-focused.jfk-radiobutton-hover .jfk-radiobutton-radio, 
-.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton.jfk-radiobutton-checked.jfk-radiobutton-hover .jfk-radiobutton-radio, 
-.kix-pageorientationdialog-orientation-container .jfk-radiobutton-checked.jfk-radiobutton.jfk-radiobutton-hover .jfk-radiobutton-radio {
-  border-color: var(--palerblue);
-  transition: var(--button-on);
-}
-/* Radio button inner dot */
-.jfk-radiobutton-checked .jfk-radiobutton-radio::after {
-  background-color: var(--paleblue) !important;
-  border-color: var(--paleblue) !important;
-  transition: var(--button-off);
-}
-.jfk-radiobutton-checked.jfk-radiobutton-hover .jfk-radiobutton-radio::after {
-  background-color: var(--palerblue) !important;
-  border-color: var(--palerblue) !important;
-  transition: var(--button-on);
-}
+  .docs-material-gm-labeled-checkbox-checkbox, 
+  .jfk-radiobutton-radio, 
+  .kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton:not(.jfk-radiobutton-disabled) .jfk-radiobutton-radio, 
+  .kix-pageorientationdialog-orientation-container .jfk-radiobutton:not(.jfk-radiobutton-disabled) .jfk-radiobutton-radio {
+    border-color: var(--darkgray);
+    transition: var(--button-off);
+  }
+  .jfk-radiobutton-disabled:hover .jfk-radiobutton-radio {
+    background-color: var(--transparent);
+  }
+  .jfk-radiobutton:hover .jfk-radiobutton-radio, 
+  .jfk-radiobutton:focus .jfk-radiobutton-radio, 
+  .kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton.jfk-radiobutton-hover .jfk-radiobutton-radio, 
+  .kix-pageorientationdialog-orientation-container .jfk-radiobutton.jfk-radiobutton-hover .jfk-radiobutton-radio {
+    border-color: var(--lightergray);
+    transition: var(--button-on);
+  }
+  .jfk-radiobutton-checked .jfk-radiobutton-radio, 
+  .kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton-checked.jfk-radiobutton:not(.jfk-radiobutton-disabled) .jfk-radiobutton-radio, 
+  .kix-pageorientationdialog-orientation-container .jfk-radiobutton-checked.jfk-radiobutton:not(.jfk-radiobutton-disabled) .jfk-radiobutton-radio {
+    border-color: var(--paleblue);
+    transition: var(--button-on);
+  }
+  .jfk-radiobutton-checked:hover .jfk-radiobutton-radio, 
+  .jfk-radiobutton-checked.jfk-radiobutton-hover .jfk-radiobutton-radio, 
+  .kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton.jfk-radiobutton-checked.jfk-radiobutton-focused.jfk-radiobutton-hover .jfk-radiobutton-radio, 
+  .kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton.jfk-radiobutton-checked.jfk-radiobutton-hover .jfk-radiobutton-radio, 
+  .kix-pageorientationdialog-orientation-container .jfk-radiobutton-checked.jfk-radiobutton.jfk-radiobutton-hover .jfk-radiobutton-radio {
+    border-color: var(--palerblue);
+    transition: var(--button-on);
+  }
+  /* Radio button inner dot */
+  .jfk-radiobutton-checked .jfk-radiobutton-radio::after {
+    background-color: var(--paleblue) !important;
+    border-color: var(--paleblue) !important;
+    transition: var(--button-off);
+  }
+  .jfk-radiobutton-checked.jfk-radiobutton-hover .jfk-radiobutton-radio::after {
+    background-color: var(--palerblue) !important;
+    border-color: var(--palerblue) !important;
+    transition: var(--button-on);
+  }
 
-/* SLIDERS */
+  /* SLIDERS */
 
-.docs-material-slider-track-on {
-  background-color: var(--paleblue);
-}
-.docs-material-slider-track-off {
-  background-color: var(--gray);
-}
-.docs-material-slider-thumb-grabber {
-  background-color: var(--paleblue);
-  border-color: var(--paleblue);
-}
-.docs-material-slider-mouse-focused .docs-material-slider-thumb-grabber {
-  background-color: var(--palerblue);
-  border-color: var(--palerblue);
-}
+  .docs-material-slider-track-on {
+    background-color: var(--paleblue);
+  }
+  .docs-material-slider-track-off {
+    background-color: var(--darkergray);
+  }
+  .docs-material-slider-thumb-grabber {
+    background-color: var(--paleblue);
+    border-color: var(--paleblue);
+  }
+  .docs-material-slider-mouse-focused .docs-material-slider-thumb-grabber {
+    background-color: var(--palerblue);
+    border-color: var(--palerblue);
+  }
 
-/* SWITCHES */
+  /* SWITCHES */
 
-/* Track */
-.apps-ui-material-slide-toggle-track {
-  background-color: var(--gray);
-  opacity: 100%;
-}
-.analytics-sc-section .apps-ui-material-slide-toggle-container-checked .apps-ui-material-slide-toggle-track {
-  background-color: var(--ripple);
-}
-/* Thumb */
-.analytics-sc-section .apps-ui-material-slide-toggle-thumb {
-  background-color: var(--lightgray);
-  transition: var(--button-off);
-}
-.analytics-sc-section .apps-ui-material-slide-toggle-container-hover .apps-ui-material-slide-toggle-thumb {
-  background-color: var(--lightergray);
-  transition: var(--button-on);
-}
-.analytics-sc-section .apps-ui-material-slide-toggle-container-checked .apps-ui-material-slide-toggle-thumb {
-  background-color: var(--paleblue);
-  transition: var(--button-off);
-}
-.analytics-sc-section .apps-ui-material-slide-toggle-container-checked.apps-ui-material-slide-toggle-container-hover .apps-ui-material-slide-toggle-thumb {
-  background-color: var(--palerblue);
-  transition: var(--button-on);
-}
+  /* Track */
+  .apps-ui-material-slide-toggle-track {
+    background-color: var(--darkergray);
+    opacity: 100%;
+  }
+  .analytics-sc-section .apps-ui-material-slide-toggle-container-checked .apps-ui-material-slide-toggle-track {
+    background-color: var(--ripple);
+  }
+  /* Thumb */
+  .analytics-sc-section .apps-ui-material-slide-toggle-thumb {
+    background-color: var(--darkgray);
+    transition: var(--button-off);
+  }
+  .analytics-sc-section .apps-ui-material-slide-toggle-container-hover .apps-ui-material-slide-toggle-thumb {
+    background-color: var(--lightergray);
+    transition: var(--button-on);
+  }
+  .analytics-sc-section .apps-ui-material-slide-toggle-container-checked .apps-ui-material-slide-toggle-thumb {
+    background-color: var(--paleblue);
+    transition: var(--button-off);
+  }
+  .analytics-sc-section .apps-ui-material-slide-toggle-container-checked.apps-ui-material-slide-toggle-container-hover .apps-ui-material-slide-toggle-thumb {
+    background-color: var(--palerblue);
+    transition: var(--button-on);
+  }
+  
+  /* TAB BARS */
+  
+  .docs-sidebar-toggle-tabs {
+    background-color: var(--darkestgray);
+    border-bottom: 1px solid var(--darkergray);
+  }
+  
+  /* Inactive tab */
+  .docs-sidebar-toggle-tabs .jfk-button.docs-sidebar-toggle-tab-inactive {
+    color: var(--lightergray);
+    transition: var(--button-off);
+  }
+  .docs-sidebar-toggle-tabs .jfk-button.docs-sidebar-toggle-tab-inactive:hover {
+    background-color: var(--darkergray);
+    color: var(--lightestgray);
+    transition: var(--button-on);
+  }
+  
+  /* Active tab */
+  .docs-sidebar-toggle-tabs .jfk-button.docs-sidebar-toggle-tab-active {
+    color: var(--palerblue);
+    transition: var(--button-off);
+  }
+  .docs-sidebar-toggle-tabs .jfk-button.docs-sidebar-toggle-tab-active:hover {
+    background-color: var(--ripple);
+    transition: var(--button-on);
+  }
+  .docs-sidebar-toggle-tabs .jfk-button.docs-sidebar-toggle-tab-active > div::after /* Active tab underline */ {
+    border-top-color: var(--palerblue);
+  }
 
-/* TEXT FIELDS */
+  /* TEXT FIELDS */
 
-/* Outlined */
-.docs-gm .docos-input-textarea, 
-.docs-gm .modal-dialog .jfk-textinput, 
-.docs-copydocdialog-destination-button, 
-.docs-material-hsv-color-picker-input, 
-.docs-gm .docos-streamdocoview-input-pane .docos-input-textarea, 
-.docs-gm.docos-xeditor .docos-input-typing > .docos-input-textarea {
-  background-color: var(--darkgray);
-  border-color: var(--gray);
-  color: white;
-  transition: var(--button-off);
-}
-.docs-gm .docos-input-typing > .docos-input-textarea {
-  color: white;
-}
-.docs-gm .docos-input-textarea:hover, 
-.docs-gm .modal-dialog .jfk-textinput:hover, 
-.docs-copydocdialog-destination-button.jfk-button-hover, 
-.docs-material-hsv-color-picker-input:hover {
-  background-color: var(--gray);
-  transition: var(--button-on);
-}
-.docs-gm .docos-input-textarea:focus, 
-.docs-gm .modal-dialog .jfk-textinput:focus, 
-.docs-material-hsv-color-picker-input:focus, 
-.docs-gm .docos-streamdocoview-input-pane .docos-input-textarea:focus, 
-.docs-gm .docos-input-textarea:focus {
-  border-color: var(--paleblue);
-  color: white;
-  transition: var(--button-on), padding 0.1s ease-in-out;
-}
+  /* Outlined */
+  .docs-gm .docos-input-textarea, 
+  .docs-gm .modal-dialog .jfk-textinput, 
+  .docs-copydocdialog-destination-button, 
+  .docs-material-hsv-color-picker-input, 
+  .docs-gm .docos-streamdocoview-input-pane .docos-input-textarea, 
+  .docs-gm.docos-xeditor .docos-input-typing > .docos-input-textarea, 
+  .kix-watermark-text-input-container input {
+    background-color: var(--darkestgray);
+    border-color: var(--darkergray);
+    color: white;
+    transition: var(--button-off);
+  }
+  .docs-gm .docos-input-typing > .docos-input-textarea {
+    color: white;
+  }
+  .docs-gm .docos-input-textarea:hover, 
+  .docs-gm .modal-dialog .jfk-textinput:hover, 
+  .docs-copydocdialog-destination-button.jfk-button-hover, 
+  .docs-material-hsv-color-picker-input:hover {
+    background-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+  .docs-gm .docos-input-textarea:focus, 
+  .docs-gm .modal-dialog .jfk-textinput:focus, 
+  .docs-material-hsv-color-picker-input:focus, 
+  .docs-gm .docos-streamdocoview-input-pane .docos-input-textarea:focus, 
+  .docs-gm .docos-input-textarea:focus, 
+  .kix-watermark-text-input-container input:focus {
+    border-color: var(--paleblue);
+    color: white;
+  }
 
-/* Underlined */
-.docs-number-input-container input {
-  background-color: transparent;
-  border-color: var(--gray);
-  color: white;
-}
-.docs-number-input-container input:hover {
-  border-color: var(--lightgray);
-}
-.docs-number-input-container input:focus {
-  border-color: var(--paleblue);
-}
+  /* Underlined */
+  .docs-number-input-container input, 
+  .picker-urlview-inner-input {
+    background-color: transparent;
+    border-color: var(--darkergray);
+    color: white;
+    transition: var(--button-off);
+  }
+  .docs-number-input-container input:hover, 
+  .picker-urlview-inner-input:hover {
+    border-color: var(--darkgray);
+    transition: var(--button-on);
+  }
+  .docs-number-input-container input:focus, 
+  .picker-urlview-inner-input:focus {
+    border-color: var(--paleblue);
+    transition: var(--button-on);
+  }
 
-/* Number increment arrows */
-.docs-number-input-up-button, .docs-number-input-down-button {
-  filter: invert(100%) contrast(80%);
-}
+  /* Number increment arrows */
+  .docs-number-input-up-button, .docs-number-input-down-button {
+    filter: invert(100%) contrast(80%);
+  }
 
-/* DIALOGS */
-.analytics-dialog, 
-.analytics-od, 
-.analytics-npd, 
-.docs-gm .modal-dialog, 
-.docs-material-gm-dialog {
-  background-color: var(--darkgray);
-  border-color: var(--gray);
-} 
-/* Title */
-.analytics-nc-navigationbar, 
-.modal-dialog-title {
-  background-color: var(--darkgray);
-  border-color: var(--gray);
-}
-.analytics-npd-title, 
-.analytics-tb-title-text, 
-.docs-gm .docs-dialog .modal-dialog-title-text, 
-.docs-gm .modal-dialog-title-text, 
-.docs-material-gm-dialog-title-text {
-  color: white;
-}
-/* Close button */
-.analytics-tb-close, 
-.docs-gm .docs-dialog .modal-dialog-title-close {
-  transition: var(--button-off), opacity 0.25s ease;
-}
-.analytics-tb-close.jfk-button-hover, 
-.docs-gm .docs-dialog .modal-dialog-title-close:hover {
-  background-color: var(--gray);
-  transition: var(--button-on), opacity 0.1s ease;
-}
-.docs-analytics-img::before, 
-.docs-gm .docs-dialog .modal-dialog-title-close::after {
-  filter: invert(100%) !important;
-}
-/* Content container */
-.analytics-npd-paragraph, 
-.docs-gm .modal-dialog-content {
-  background-color: transparent;
-  color: white;
-}
-/* Headers */
-.analytics-low-data-treatment-title, 
-.analytics-sc-account-itemlabel, 
-.analytics-sc-document-itemlabel, 
-.analytics-ssc-summary, 
-.analytics-trc, 
-.analytics-tuvc, 
-.docs-customspacingdialog-title, 
-.docs-gm .kix-translatedialog-desc, 
-.docs-indentationdialoggm-units, 
-.kix-headerfooterdialog-title, 
-.kix-pagenumberdialog-title {
-  color: white;
-  opacity: 100%; 
-}
-/* Simple links */
-.a11y-settings-dialog a, 
-.a11y-settings-dialog a:hover, 
-.a11y-settings-dialog a:visited, 
-.a11y-settings-dialog a:focus, 
-.a11y-settings-dialog a:active, 
-.analytics-sc-account-explanation a:link, 
-.analytics-sc-account-explanation a:visited, 
-.analytics-vhfc-label a:link, 
-.analytics-vhfc-label a:visited, 
-.modal-dialog a {
-  color: var(--palerblue);
+  /* DIALOGS */
+  .analytics-dialog, 
+  .analytics-od, 
+  .analytics-npd, 
+  .docs-gm .docs-offline-optinpromo.jfk-bubble, 
+  .docs-gm .docs-sync-indicator-popup.jfk-bubble, 
+  .docs-gm .modal-dialog, 
+  .docs-gm .modal-dialog.google-url-picker, 
+  .docs-material-gm-dialog {
+    background-color: var(--darkestgray);
+    border-color: var(--darkergray);
+  } 
+  /* Title */
+  .analytics-nc-navigationbar, 
+  .modal-dialog-title {
+    background-color: var(--darkestgray);
+    border-color: var(--darkergray);
+  }
+  .analytics-npd-title, 
+  .analytics-tb-title-text, 
+  .docs-gm .docs-dialog .modal-dialog-title-text, 
+  .docs-gm .modal-dialog-title-text, 
+  .docs-material-gm-dialog-title-text, 
+  .picker-urlview-header {
+    color: white;
+    font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    font-size: 22px; 
+  }
+  /* Close button */
+  .analytics-tb-close, 
+  .docs-gm .docs-dialog .modal-dialog-title-close {
+    transition: var(--button-off), opacity 0.25s ease;
+  }
+  .analytics-tb-close.jfk-button-hover, 
+  .docs-gm .docs-dialog .modal-dialog-title-close:hover {
+    background-color: var(--darkergray);
+    transition: var(--button-on), opacity 0.1s ease;
+  }
+  .docs-analytics-img::before, 
+  .docs-gm .docs-dialog .modal-dialog-title-close::after {
+    filter: invert(100%) !important;
+  }
+  /* Content container */
+  .analytics-npd-paragraph, 
+  .docs-gm .modal-dialog-content {
+    background-color: transparent;
+    color: white;
+  }
+  /* Headers */
+  .analytics-low-data-treatment-title, 
+  .analytics-sc-account-itemlabel, 
+  .analytics-sc-document-itemlabel, 
+  .analytics-ssc-summary, 
+  .analytics-trc, 
+  .analytics-tuvc, 
+  .docs-customspacingdialog-title, 
+  .docs-gm .kix-translatedialog-desc, 
+  .docs-indentationdialoggm-units, 
+  .kix-headerfooterdialog-title, 
+  .kix-pagenumberdialog-title {
+    color: white;
+    opacity: 100%; 
+  }
+  /* Simple links */
+  .a11y-settings-dialog a, 
+  .a11y-settings-dialog a:hover, 
+  .a11y-settings-dialog a:visited, 
+  .a11y-settings-dialog a:focus, 
+  .a11y-settings-dialog a:active, 
+  .analytics-sc-account-explanation a:link, 
+  .analytics-sc-account-explanation a:visited, 
+  .analytics-vhfc-label a:link, 
+  .analytics-vhfc-label a:visited, 
+  .modal-dialog a {
+    color: var(--palerblue);
+  }
 }

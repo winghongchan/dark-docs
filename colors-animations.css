@@ -1,20 +1,25 @@
+@-moz-document url-prefix("https://docs.google.com/document/d/"), url-prefix("https://docs.google.com/sharing/driveshare"), url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5"), url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%2C6%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5B") {
 /* Colors and Animations */
-:root {
-  --palerblue: #8AB4F8;
-  --paleblue: #669DF7;
-  --pale-icons: hue-rotate(3.6deg) saturate(32.2%) brightness(170%);
-  --palergreen: #81c995;
-  --pale-green-icons: hue-rotate(-2deg) saturate(38%) brightness(182%);
-  --paleyellow: #FDD663;
-  --yellowripple: #454134;
-  --ripple: #394457;
-  --lightgray: #4A4E51;
-  --lightergray: #9aa0a6;
-  --lightestgray: #f8f9fa;
-	--gray: #3C4043;
-  --darkgray: #202124;
-  --text-hover-on: text-shadow 0.05s ease;
-  --text-hover-off: text-shadow 0.25s ease;
-  --button-on: background-color 0.05s ease, border 0.05s ease, color 0.05s ease;
-	--button-off: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  :root {
+    --palerblue: #8AB4F8;
+    --paleblue: #669DF7;
+    --pale-icons: hue-rotate(3.6deg) saturate(32.2%) brightness(170%);
+    --palergreen: #81c995;
+    --greenripple: #37493F;
+    --pale-green-icons: hue-rotate(-2deg) saturate(38%) brightness(182%);
+    --paleyellow: #FDD663;
+    --yellowripple: #454134;
+    --ripple: #394457;
+    --lightestgray: #f8f9fA;
+    --lightergray: #DADCE0;
+    --lightgray: #BDC1C6;
+    --gray: #5F6368;
+    --darkgray: #4A4E51;
+    --darkergray: #3C4043;
+    --darkestgray: #202124;
+    --text-hover-on: text-shadow 0.05s ease;
+    --text-hover-off: text-shadow 0.25s ease;
+    --button-on: background-color 0.05s ease, border 0.05s ease, color 0.05s ease;
+    --button-off: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
 }

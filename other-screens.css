@@ -1,126 +1,131 @@
-/* Other screens */
+@-moz-document url-prefix("https://docs.google.com/document/d/") {
+  /* Other screens */
 
-/* VERSION HISTORY */
+  /* VERSION HISTORY */
 
-/* Revisions top bar */
-.docs-gm .docs-revisions-chromecover-content-color-default {
-  background-color: var(--darkgray);
-  color: white;
-}
-#docs-toolbar-iterator-label {
-  color: white;
-}
-#docs-revisions-sidebar-title {
-  background-color: var(--darkgray);
-}
-.docs-revisions-sidebar-title-text {
-  color: white;
-}
+  /* Revisions top bar */
+  .docs-gm .docs-revisions-chromecover-content-color-default {
+    background-color: var(--darkestgray);
+    color: white;
+  }
+  #docs-toolbar-iterator-label {
+    color: white;
+  }
+  #docs-revisions-sidebar-title {
+    background-color: var(--darkestgray);
+  }
+  .docs-revisions-sidebar-title-text {
+    color: white;
+  }
 
-/* “Restore this version button” */ 
-.docs-revisions-chromecover-titlebar-button-action, 
-.docs-revisions-chromecover-titlebar-second-button-action {
-  background-color: var(--paleblue);
-  color: black;
-  transition: var(--button-off);
-}
-.docs-revisions-chromecover-titlebar-button-action.goog-flat-button-hover:not(.goog-flat-button-active), 
-.docs-revisions-chromecover-titlebar-second-button-action .goog-flat-button-hover {
-  background-color: var(--palerblue);
-  transition: var(--button-on);
-}
+  /* “Restore this version button” */ 
+  .docs-revisions-chromecover-titlebar-button-action, 
+  .docs-revisions-chromecover-titlebar-second-button-action {
+    background-color: var(--paleblue);
+    color: black;
+    transition: var(--button-off);
+  }
+  .docs-revisions-chromecover-titlebar-button-action.goog-flat-button-hover:not(.goog-flat-button-active), 
+  .docs-revisions-chromecover-titlebar-second-button-action .goog-flat-button-hover {
+    background-color: var(--palerblue);
+    transition: var(--button-on);
+  }
 
-/* Author list */
-.docs-revisions-authorwidget-hat {
-  color: white;
-}
-.docs-revisions-authorwidget-item-name {
-  color: white;
-}
+  /* Author list */
+  .docs-revisions-authorwidget-hat {
+    color: white;
+  }
+  .docs-revisions-authorwidget-item-name {
+    color: white;
+  }
 
-/* Sidebar */
-.docs-gm .docs-revisions-sidebar {
-  border-left: 1px solid var(--gray);
-}
-.docs-gm .docs-revisions-sidebar-header {
-  background-color: var(--darkgray);
-  border-color: var(--gray) !important;
-  height: 102.5px;
-}
+  /* Sidebar */
+  .docs-gm .docs-revisions-sidebar {
+    border-left: 1px solid var(--darkergray);
+  }
+  .docs-gm .docs-revisions-sidebar-header {
+    background-color: var(--darkestgray);
+    border-color: var(--darkergray) !important;
+    height: 102.5px;
+  }
+  .docs-revisions-sidebar-revisions-list-container {
+    scrollbar-color: var(--gray) var(--darkestgray);
+  }
 
-/* History entries */
-.docs-revisions-sidebar-name-filter-switch-container {
-  border-color: var(--gray) !important;
-  height: 39px;
-}
-.docs-gm .docs-revisions-sidebar-name-filter-switch-container label {
-  color: white;
-}
-.docs-gm .docs-revisions-switch .apps-ui-material-slide-toggle-thumb {
-  background-color: var(--lightergray);
-}
-.docs-gm .docs-revisions-switch .apps-ui-material-slide-toggle-track {
-  background-color: var(--lightgray);
-}
-.docs-gm .docs-revisions-switch.apps-ui-material-slide-toggle-container-checked .apps-ui-material-slide-toggle-thumb {
-  background-color: var(--palerblue);
-}
-.docs-gm .docs-revisions-switch.apps-ui-material-slide-toggle-container-checked .apps-ui-material-slide-toggle-track {
-  background-color: var(--paleblue);
-}
+  /* History entries */
+  .docs-revisions-sidebar-name-filter-switch-container {
+    border-color: var(--darkergray) !important;
+    height: 39px;
+  }
+  .docs-gm .docs-revisions-sidebar-name-filter-switch-container label {
+    color: white;
+  }
+  .docs-gm .docs-revisions-switch .apps-ui-material-slide-toggle-thumb {
+    background-color: var(--lightergray);
+  }
+  .docs-gm .docs-revisions-switch .apps-ui-material-slide-toggle-track {
+    background-color: var(--darkgray);
+  }
+  .docs-gm .docs-revisions-switch.apps-ui-material-slide-toggle-container-checked .apps-ui-material-slide-toggle-thumb {
+    background-color: var(--palerblue);
+  }
+  .docs-gm .docs-revisions-switch.apps-ui-material-slide-toggle-container-checked .apps-ui-material-slide-toggle-track {
+    background-color: var(--paleblue);
+  }
 
-/* Version history list */
-.docs-revisions-sidebar-revisions-empty-container {
-  background-color: var(--darkgray);
-}
-.docs-gm .docs-revisions-sidebar-date-group {
-  background-color: var(--darkgray);
-  border-color: var(--gray) !important;
-  color: white;
-}
-.docs-revisions-icon-img::before {
-  filter: invert(10);
-}
-.docs-revisions-tile {
-  background-color: var(--darkgray);
-  transition: var(--button-off);
-}
-.docs-revisions-tile-hover:not(.docs-revisions-tile-selected) {
-  background-color: var(--gray);
-  transition: var(--button-on);
-}
-.docs-revisions-tile-selected {
-  background-color: var(--ripple);
-  transition: var(--button-on)
-}
-.docs-revisions-tile-text-box:disabled, 
-.docs-gm .docs-revisions-tile-descriptor, 
-.docs-gm .docs-revisions-tile-text-box ~ .docs-revisions-tile-descriptor {
-  color: white;
-}
-.docs-gm .docs-revisions-tile-selected .docs-revisions-tile-text-box, 
-.docs-gm .docs-revisions-tile-selected .docs-revisions-tile-descriptor, 
-.docs-gm .docs-revisions-tile-selected .docs-revisions-tile-text-box ~ .docs-revisions-tile-descriptor {
-  color: var(--palerblue);
-}
-.docs-gm .docs-revisions-tile-collaborator-name {
-  color: var(--lightergray);
-}
-.docs-revisions-tile-content-wrapper {
-  border-color: var(--gray);
-}
-/* Named versions only */
-.docs-gm .docs-revisions-sidebar-revisions-empty-title {
-  color: white;
-}
-.docs-gm .docs-revisions-sidebar-revisions-empty-details {
-  color: var(--lightergray);
-}
-.docs-gm a.docs-revisions-sidebar-revisions-empty-learn-more {
-  color: var(--palerblue);
-}
-/* Show changes checkbox */
-.docs-revisions-sidebar-actions {
-  background-color: var(--darkgray);
-  border-color: var(--gray);
+  /* Version history list */
+  .docs-revisions-sidebar-revisions-empty-container {
+    background-color: var(--darkestgray);
+  }
+  .docs-gm .docs-revisions-sidebar-date-group {
+    background-color: var(--darkestgray);
+    border-color: var(--darkergray) !important;
+    color: white;
+  }
+  .docs-revisions-icon-img::before {
+    filter: invert(10);
+  }
+  .docs-revisions-tile {
+    background-color: var(--darkestgray);
+    transition: var(--button-off);
+  }
+  .docs-revisions-tile-hover:not(.docs-revisions-tile-selected) {
+    background-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+  .docs-revisions-tile-selected {
+    background-color: var(--ripple);
+    transition: var(--button-on)
+  }
+  .docs-revisions-tile-text-box:disabled, 
+  .docs-gm .docs-revisions-tile-descriptor, 
+  .docs-gm .docs-revisions-tile-text-box ~ .docs-revisions-tile-descriptor {
+    color: white;
+  }
+  .docs-gm .docs-revisions-tile-selected .docs-revisions-tile-text-box, 
+  .docs-gm .docs-revisions-tile-selected .docs-revisions-tile-descriptor, 
+  .docs-gm .docs-revisions-tile-selected .docs-revisions-tile-text-box ~ .docs-revisions-tile-descriptor {
+    color: var(--palerblue);
+  }
+  .docs-gm .docs-revisions-tile-collaborator-name {
+    color: var(--lightergray);
+  }
+  .docs-revisions-tile-content-wrapper {
+    border-color: var(--darkergray);
+  }
+  /* Named versions only */
+  .docs-gm .docs-revisions-sidebar-revisions-empty-title {
+    color: white;
+  }
+  .docs-gm .docs-revisions-sidebar-revisions-empty-details {
+    color: var(--lightergray);
+  }
+  .docs-gm a.docs-revisions-sidebar-revisions-empty-learn-more {
+    color: var(--palerblue);
+  }
+  /* Show changes checkbox */
+  .docs-revisions-sidebar-actions {
+    background-color: var(--darkestgray);
+    border-color: var(--darkergray);
+  }
 }

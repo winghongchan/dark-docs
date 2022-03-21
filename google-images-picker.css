@@ -1,0 +1,220 @@
+@-moz-document url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5") {
+  /* Google Images picker */
+  
+  .ZWZruf /* Search bar background */, 
+  .CjshKe /* Landing page background */ {
+    background-color: var(--darkestgray);
+  }
+  
+  .yawtRb .Icoilb svg /* Panel close button */, 
+  .yawtRb .lVYtmc svg {
+    fill: var(--lightergray);
+  }
+  .fKz7Od .VTBa7b /* Panel close button ripple effect on click, because this one is fancy */ {
+    background-image: radial-gradient(circle farthest-side, var(--ripple), var(--ripple) 80%, var(--ripple) 100%);
+  }
+  .U26fgb.mUbCce.fKz7Od.Icoilb.M9Bg4d.j7nIZb:hover /* Panel close button on hover */ {
+    background-color: var(--darkergray);
+  }
+  
+  .fjSJOb input.yNVtPc /* Search bar placeholder */ {
+    color: var(--lightergray);
+  }
+  .fjSJOb input.Ax4B8 /* Search terms */ {
+    color: white;
+  }
+  
+  .GtrNOb /* Search bar bottom border */ {
+    border-color: var(--darkergray);
+  }
+  
+  img.hTbDCf /* Google logo */ {
+    filter: brightness(100000%);
+  }
+  .UCvCZb /* "images" */ {
+    color: var(--palerblue);
+  }
+  
+  .kkN4Se /* Copyright warning */ {
+    color: var(--lightgray);
+  }
+  .kkN4Se a /* "Learn more" */ {
+    color: var(--palerblue);
+  }
+  
+  .VOEIyf .jBmls /* Search suggestions box */ {
+    background-color: var(--darkestgray);
+    border: none;
+    border-bottom: 1px solid var(--darkergray);
+  }
+  .VOEIyf, .VOEIyf .jBmls, .oKubKe /* Search suggestion text */ {
+    color: var(--lightergray);
+    transition: var(--button-off);
+  }
+  .oKubKe[aria-selected="true"] /* Highlighted search suggestion */ {
+    background-color: var(--darkergray);
+    transition: var(--button-on);
+  }
+}
+
+@-moz-document url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%2C6%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5B") {
+  /* Google Drive file picker sidebar */
+  
+  .yawtRb /* Titlebar */, 
+  .TNg8Ce /* Tabbar */, 
+  .ye3Lg /* Grid view file listing area */, 
+  .ndfHFb-jyrRxf-haAclf .ndfHFb-XuHpsb-haAclf /* List view file listing area */, 
+  .ndfHFb-jyrRxf-tJHJj /* Sort order bar */ {
+    background-color: var(--darkestgray);
+    border-color: var(--darkergray);
+    scrollbar-color: var(--gray) var(--darkestgray);
+  }
+  .ndfHFb-jyrRxf-haAclf .ndfHFb-XuHpsb-haAclf {
+    border: none;
+    border-top: 1px solid var(--darkergray);
+  }
+  
+  .jfvobd /* Titlebar text */ {
+    color: white;
+    font: 500 16px "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  }
+  .yawtRb .vaAiZ svg /* Search icon */, 
+  .yawtRb .Icoilb svg, .yawtRb .lVYtmc svg /* Close icon */ {
+    fill: white;
+  }
+  
+  .J0uOUd .TNg8Ce /* Tabbar */, 
+  .vd0D8c /* Bar below tabbar */ {
+    border-bottom: 1px solid var(--darkergray);
+  }
+  .TNg8Ce .KKjvXb .kx3Hed /* Active tab */ {
+    color: var(--palerblue);
+  }
+  .w7qIhd, .WwvKTc /* Active tab underline */ {
+    background-color: var(--palerblue);
+    border-radius: 2px 2px 0 0;
+    height: 3px;
+  }
+  .GWh4Ge .kx3Hed /* Inactive tab */ {
+    color: var(--lightgray);
+  }
+  .ThdJC /* Tab backgrounds */ {
+    border-radius: 4px 4px 0 0;
+  }
+  .kx3Hed /* Tab text */ {
+    font: 500 14px "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    text-transform: capitalize;
+    letter-spacing: 0.3px;
+    line-height: calc(40px - 8px);
+    padding: 0 16px !important;
+  }
+  .focofd > .cbz1ld /* Tab scroll button containers */ {
+    top: 4px;
+  }
+  .TNg8Ce .XoUIOc .focofd svg /* Tab scroll buttons (circle and arrow are the same element) */ {
+    background-color: var(--darkergray);
+    fill: white;
+    transition: var(--button-off);
+  }
+  .TNg8Ce .XoUIOc .focofd svg:hover, 
+  .TNg8Ce .XoUIOc .focofd svg:focus {
+    background-color: var(--darkgray);
+    transition: var(--button-on);
+  }
+  .TNg8Ce .XoUIOc .focofd svg:active {
+    background-color: var(--ripple);
+    fill: var(--palerblue);
+    transition: var(--button-on);
+  }
+  .wly3Bc /* Tab scroll button ripple */ {
+    display: none;
+  }
+  
+  .JcDdO /* Current location */ {
+    padding-left: 20px; 
+  }
+  .IeLV9d /* Breadcrumbs */ {
+    padding: 0;
+  }
+  .IeLV9d /* Breadcrumbs */, 
+  .iXlbzd /* Repeat of active tab label in bar below tabbar */, 
+  .pGOlGd .ndfHFb-ObfsIf-haAclf .ndfHFb-rBfmuc-E2o6qc-V67aGc /* Date separators (Last week, a month ago, &c) */ {
+    color: var(--lightgray);
+  }
+  .fuIls svg /* Breadcrumb arrows */ {
+    fill: var(--lightgray);
+  }
+  .kZyufc svg /* Grid/list switcher */ {
+    fill: var(--lightgray);
+  }
+  
+  .ndfHFb-jyrRxf-tJHJj-eEDwDf, .ndfHFb-jyrRxf-tJHJj-p1I1yf:focus, .ndfHFb-jyrRxf-tJHJj-p1I1yf:hover /* List view sort order */, 
+  .pGOlGd .ndfHFb-ObfsIf-Bpn8Yb-uDEFge-sM5MNb .ndfHFb-Bpn8Yb-OomVLb-xl07Ob-LgbsSe, .ndfHFb-jyrRxf-tJHJj-Evexob /* Grid view sort order */ {
+    color: var(--lightgray);
+    font-family: Roboto, sans-serif;
+    font-weight: normal;
+  }
+  .pGOlGd .ndfHFb-jyrRxf-Bpn8Yb-mhHukc-hFsbo svg /* List view sort direction */, 
+  .pGOlGd .ndfHFb-ObfsIf-Bpn8Yb-uDEFge-sM5MNb .ndfHFb-Bpn8Yb-OomVLb-mhHukc-LgbsSe svg /* Grid view sort direction */ {
+    fill: var(--lightgray);
+  }
+  
+  .ndfHFb-jyrRxf-haAclf .ndfHFb-rBfmuc-E2o6qc-tJHJj /* Time range separators (in "Recent" view) */ {
+    border-bottom-color: var(--darkergray); 
+    padding-left: 20px;
+  }
+  .pGOlGd .ndfHFb-jyrRxf-haAclf .ndfHFb-rBfmuc-E2o6qc-V67aGc /* Time range text */ {
+    color: var(--lightgray);
+  }
+  
+  .eizQhe-ObfsIf-jXK9ad, .eizQhe-ObfsIf-jXK9ad.eizQhe-ObfsIf-yEEHq /* Grid view file tiles */, 
+  .ndfHFb-jyrRxf-oKdM2c-gk6SMd /* List view file tiles */ {
+    background-color: var(--darkestgray);
+    border-color: var(--darkergray);
+    transition: var(--button-off);
+  }
+  .onv9We-AHmuwe-TSZdd .ndfHFb-ObfsIf-jXK9ad-haAclf:focus .eizQhe-ObfsIf-jXK9ad /* Grid view file tiles when focused */ {
+    border-color: var(--paleblue);
+    transition: var(--button-on);
+  }
+  .eizQhe-ObfsIf-gk6SMd /* Grid view file tiles when selected */, 
+  .onv9We-AHmuwe-TSZdd .ndfHFb-jyrRxf-oKdM2c-gk6SMd.ndfHFb-jyrRxf-oKdM2c-BP2Omd-AHmuwe.ndfHFb-jyrRxf-oKdM2c-BP2Omd-gSKZZ .ndfHFb-jyrRxf-eEDwDf:last-child>.ndfHFb-jyrRxf-eEDwDf-hpYHOb-Q4BLdf>.ndfHFb-jyrRxf-eEDwDf-BPrWId,.onv9We-AHmuwe-TSZdd .ndfHFb-jyrRxf-oKdM2c-gk6SMd.ndfHFb-jyrRxf-oKdM2c:focus>.ndfHFb-jyrRxf-eEDwDf:last-child>.ndfHFb-jyrRxf-eEDwDf-hpYHOb-Q4BLdf>.ndfHFb-jyrRxf-eEDwDf-BPrWId /* List view file tiles when selected */ {
+    background-color: var(--ripple);
+    border-color: var(--paleblue);
+  }
+  img.eizQhe-ObfsIf-mJRMzd-PFprWc-RJLb9c /* File thumbnails */ {
+    filter: brightness(80%);
+  }
+  .HiaYvf-SfQLQb-jAb3A-AHe6Kc /* File thumbnail transparent areas */ {
+    background-color: var(--darkestgray);
+    background-image: 
+      linear-gradient(45deg, var(--darkergray) 25%,transparent 25%,transparent 75%, var(--darkergray) 75%, var(--darkergray)),
+      linear-gradient(45deg, var(--darkergray) 25%,transparent 25%,transparent 75%, var(--darkergray) 75%, var(--darkergray));
+  }
+  .eizQhe-jyrRxf-V1ur5d-r4nke > .eizQhe-mJRMzd-V1ur5d-fmcmS /* List view file names */, 
+  .pGOlGd .eizQhe-ObfsIf-mJRMzd:not(.eizQhe-ObfsIf-gk6SMd) .eizQhe-mJRMzd-V1ur5d-fmcmS, 
+  .pGOlGd .eizQhe-ObfsIf-yEEHq:not(.eizQhe-ObfsIf-gk6SMd) .eizQhe-ObfsIf-r4nke, .eizQhe-ObfsIf-r4nke /* Grid view file names */ {
+    color: var(--lightestgray); 
+  }
+  .eizQhe-ObfsIf-gk6SMd .eizQhe-ObfsIf-r4nke /* Grid view file names when selected */, 
+  .ndfHFb-jyrRxf-oKdM2c-gk6SMd, .ndfHFb-jyrRxf-oKdM2c-gk6SMd .eizQhe-jyrRxf-V1ur5d-r4nke > .eizQhe-mJRMzd-V1ur5d-fmcmS /* List view */ {
+    color: var(--palerblue);
+  }
+  
+  .ndfHFb-vWsuo-haDnnc-At1hV-edvN0e /* Shared file icon */ {
+    fill: white;
+  }
+  
+  .BxNLed /* Background of bottom bar with "Insert" button */ {
+    background-color: var(--darkergray);
+  }
+  .U26fgb.mUbCce.fKz7Od.M9Bg4d .xjKiLb .Ce1Y1c svg /* Close button in that bar */ {
+    fill: white;
+  }
+  .e0eYxe /* Number of selected items */ {
+    color: white;
+  }
+  .zP15X /* "Insert" button */ {
+    color: white;
+  }
+}

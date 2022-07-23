@@ -3,7 +3,7 @@ A dark theme for Google Docs web, based on the colors used in dark modes in othe
 
 [![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-238b8b.svg)](https://userstyles.world/api/style/2597.user.css)
 
-![](Screenshot_20220722_224909.png)
+![](Screenshot_20220723_183923.png)
 
 ## Installation
 

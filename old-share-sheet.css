@@ -1,0 +1,108 @@
+.GmCard {
+  background-color: var(--darkestgray);
+  border: 1px solid var(--darkergray);
+}
+
+.GmButtonText:not(:disabled), 
+.GmButtonText:hover:not(:disabled), 
+.GmButtonText:active:not(:disabled) {
+  color: var(--palerblue);
+}
+
+
+/* Titlebar */
+
+.boqDrivesharedialogCommonTitlebarTitleBar .boqDrivesharedialogCommonTitlebarIconContainer.Collapsed {
+  background-color: var(--darkgray);
+}
+.boqDrivesharedialogCommonTitlebarTitleBar .boqDrivesharedialogCommonTitlebarIconContainer {
+  background-color: var(--blueripple);
+}
+.boqDrivesharedialogCommonTitlebarTitleBar .Heading .Title, 
+.boqDrivesharedialogCommonTitlebarTitleBar .SettingsButton {
+  color: white;
+}
+
+/* Icon buttons */
+.DisabledSettingsButton {
+  color: white;
+}
+
+/* Add people and groups */
+
+.appsDriveElementsMaterialFormfield_filledFieldContainer, 
+.appsDriveElementsMaterialFormfieldFilledFieldContainer, 
+.boqDrivePeopleWebMultiselectAutocompleteMenu {
+  background-color: var(--darkergray);
+  transition: var(--button-off);
+}
+.appsDriveElementsMaterialFormfield_filledFieldContainer:hover, 
+.appsDriveElementsMaterialFormfieldFilledFieldContainer:hover {
+  background-color: var(--darkgray);
+  transition: var(--button-on);
+}
+.appsDriveElementsMaterialFormfield_baseEl.isFocusedWithin {
+  color: var(--paleblue);
+}
+.boqDrivePeopleWebMultiselectInputchipInputBase, 
+.boqDrivePeopleWebMultiselectAutocompleteMenu ul .mdc-deprecated-list-item__primary-text, 
+.boqDrivesharedialogPermissionslistPermissionrowMain .boqDrivesharedialogPermissionslistPermissionrowPrimary {
+  caret-color: var(--paleblue);
+  color: white;
+}
+.boqDrivesharedialogPermissionslistPermissionsummarySummary, 
+.mdc-deprecated-list-item__secondary-text, 
+.boqDrivesharedialogPermissionslistPermissionrowMain .boqDrivesharedialogPermissionslistPermissionrowSecondary, 
+.boqDrivePeopleWebMultiselectInputchipWrapper::after {
+  color: var(--lightergray);
+}
+.isFocusedWithin .appsDriveElementsMaterialFormfieldFilledFieldContainer::after {
+  border-color: var(--paleblue);
+}
+
+/* List of people who have access and permissions list items */
+
+.appsDriveElementsMaterialScrollcontainerSeamCoverTop, 
+.appsDriveElementsMaterialScrollcontainerSeamCoverBottom {
+  border-color: var(--darkergray);
+}
+.boqDrivesharedialogLinkLinkpermissionIconAnyone, 
+.boqDrivesharedialogLinkLinkpermissionIconVaries, 
+.boqDrivesharedialogLinkLinkpermissionLinkPermissionRow:hover .boqDrivesharedialogLinkLinkpermissionIcon, 
+.boqDrivesharedialogLinkLinkpermissionLinkPermissionRow:focus-within .boqDrivesharedialogLinkLinkpermissionIcon {
+  background-color: var(--darkgray);
+}
+.boqDrivesharedialogPermissionslistPermissionrowPermissionRow, 
+.boqDrivesharedialogLinkLinkpermissionLinkPermissionRow {
+  transition: var(--button-off);
+}
+.boqDrivesharedialogPermissionslistPermissionrowListItem:hover .boqDrivesharedialogPermissionslistPermissionrowPermissionRow,
+.boqDrivesharedialogPermissionslistPermissionrowListItem:focus-within .boqDrivesharedialogPermissionslistPermissionrowPermissionRow, 
+.boqDrivesharedialogLinkLinkpermissionLinkPermissionRow:hover, 
+.boqDrivesharedialogLinkLinkpermissionLinkPermissionRow:focus-within {
+  background-color: var(--darkergray);
+  transition: var(--button-on) !important;
+}
+.boqDrivePeopleWebBubbleBaseEl.hasPhoto {
+  background-color: var(--darkergray);
+}
+.boqDrivesharedialogCommonRoleselectorMenuTextButton.mdc-button, 
+.boqDrivesharedialogLinkLinkpermissionVisibilityMenuTextButton.mdc-button:not(:disabled) {
+  color: var(--lightestgray);
+}
+.boqDrivesharedialogLinkLinkpermissionLinkPermissionSummary {
+  color: var(--lightergray);
+}
+
+/* Get link */
+
+.boqDrivesharedialogLinkLinksummaryLinkPermissionsSummary .boqDrivesharedialogLinkLinksummaryBolded {
+  color: white;
+}
+.boqDrivesharedialogLinkLinkcopyUrlsBoxAnyone {
+  background-color: var(--greenripple);
+  color: var(--palergreen);
+}
+.boqDrivesharedialogLinkLinksummaryLinkPermissionsSummary {
+  color: var(--lightergray);
+}

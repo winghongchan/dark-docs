@@ -1,6 +1,3 @@
-@-moz-document url-prefix("https://docs.google.com/document/d/") {
-  /* Side panels */
-
   /* COMMON ELEMENTS */
 
   /* Titlebar */
@@ -14,13 +11,13 @@
     color: white;
   }
   /* Titlebar icon */
-  .docs-gm .docs-gm-sidebar-icon-path {
+  .docs-gm .docs-gm-sidebar-icon-path, 
+  .docs-gm-sidebar-icon path {
     fill: var(--paleblue);
   }
   .docs-gm .docs-contentembedding-titlebar .docs-gm-sidebar-icon, 
   .kix-watermark-sidebar-header .kix-watermark-icon-container .docs-icon-img {
-    filter: none;
-    filter: var(--pale-icons);
+    filter: var(--paleblue-icons);
   }
   /* Titlebar buttons */
   .docs-gm .docs-tiled-sidebar-header {
@@ -37,7 +34,7 @@
     transition: var(--button-on) !important;
   }
   .docs-sidebar-gm-titlebar-icon-button.jfk-button-active {
-    background-color: var(--ripple);
+    background-color: var(--blueripple);
   }
   /* Background */
   .docs-contentembedding-sidebar, 
@@ -139,7 +136,7 @@
   }
   .kix-citations-flat-button.goog-flat-button-hover, 
   .kix-citations-add-source-button.goog-flat-button-hover {
-    background-color: var(--ripple);
+    background-color: var(--blueripple);
     color: var(--palerblue) !important;
     transition: var(--button-on);
   }
@@ -444,7 +441,7 @@
     transition: var(--button-on);
   }
   .kix-watermark-remove-button.docs-material-button-hairline-default.docs-material-button-active {
-    background-color: var(--ripple);
+    background-color: var(--blueripple);
     transition: var(--button-on);
   }
   .kix-watermark-remove-button svg>path:last-of-type {
@@ -485,6 +482,5 @@
     background-color: var(--darkergray);
   }
   .companion-guest-app-switcher .app-switcher-button-selected .app-switcher-button-icon-background-inner {
-    background-color: var(--ripple);
+    background-color: var(--blueripple);
   }
-}

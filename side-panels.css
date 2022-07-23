@@ -1,486 +1,486 @@
-  /* COMMON ELEMENTS */
+/* COMMON ELEMENTS */
 
-  /* Titlebar */
-  .docs-contentembedding-titlebar, 
-  .docs-gm .docs-explore-sidebar-title, 
-  .docs-gm .docs-dictionary-titlebar, 
-  .kix-citations-sidebar-titlebar, 
-  .kix-watermark-sidebar-header {
-    background-color: var(--darkestgray);
-    border-color: var(--darkergray);
-    color: white;
-  }
-  /* Titlebar icon */
-  .docs-gm .docs-gm-sidebar-icon-path, 
-  .docs-gm-sidebar-icon path {
-    fill: var(--paleblue);
-  }
-  .docs-gm .docs-contentembedding-titlebar .docs-gm-sidebar-icon, 
-  .kix-watermark-sidebar-header .kix-watermark-icon-container .docs-icon-img {
-    filter: var(--paleblue-icons);
-  }
-  /* Titlebar buttons */
-  .docs-gm .docs-tiled-sidebar-header {
-    background-color: var(--darkestgray);
-    border-color: var(--darkergray);
-    color: white;
-  }
-  .docs-sidebar-gm-titlebar-icon-button {
-    transition: var(--button-off);
-  }
-  .docs-sidebar-gm-titlebar-icon-button:hover, 
-  .docs-sidebar-gm-titlebar-icon-button:focus {
-    background-color: var(--darkergray);
-    transition: var(--button-on) !important;
-  }
-  .docs-sidebar-gm-titlebar-icon-button.jfk-button-active {
-    background-color: var(--blueripple);
-  }
-  /* Background */
-  .docs-contentembedding-sidebar, 
-  .docs-gm .docs-onepick-integrated-sidebar, 
-  .docs-gm .docs-tiled-sidebar, 
-  .docs-explore-sidebar, 
-  .docs-gm .docs-explore-sidebar .docs-explore-datapage.docs-explore-sidebar-zerostate, 
-  .docs-dictionary-sidebar,
-  .kix-citations-sidebar, 
-  .kix-watermark-sidebar {
-    background-color: var(--darkestgray);
-    border-left: 1px solid var(--darkergray);
-    border-color: var(--darkergray);
-    box-shadow: none;
-  }
-  /* Zero state */
-  .docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-header, 
-  .docs-gm .docs-tiled-sidebar, 
-  .kix-citations-source-list-zero-state-heading, 
-  .docs-explore-errorstate-title {
-    color: white;
-  }
-  .docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-body, 
-  .kix-citations-source-list-zero-state-content, 
-  .docs-gm .docs-dictionary-sidebar .docs-explore-emptylist-body {
-    color: var(--lightergray);
-  }
-  .docs-explore-errorstate-retry-button {
-    color: var(--palerblue);
-  }
-  /* Search bar */
-  .docs-explore-searchbar-labelinput, 
-  .docs-explore-searchbar-labelinput:focus {
-    background-color: var(--darkergray);
-    color: white;
-    width: 100%;
-  }
-  /* Collapsible sections */
-  .docs-sidebar-tile-header-cursor, 
+/* Titlebar */
+.docs-contentembedding-titlebar, 
+.docs-gm .docs-explore-sidebar-title, 
+.docs-gm .docs-dictionary-titlebar, 
+.kix-citations-sidebar-titlebar, 
+.kix-watermark-sidebar-header {
+  background-color: var(--darkestgray);
+  border-color: var(--darkergray);
+  color: white;
+}
+/* Titlebar icon */
+.docs-gm .docs-gm-sidebar-icon-path, 
+.docs-gm-sidebar-icon path {
+  fill: var(--paleblue);
+}
+.docs-gm .docs-contentembedding-titlebar .docs-gm-sidebar-icon, 
+.kix-watermark-sidebar-header .kix-watermark-icon-container .docs-icon-img {
+  filter: var(--paleblue-icons);
+}
+/* Titlebar buttons */
+.docs-gm .docs-tiled-sidebar-header {
+  background-color: var(--darkestgray);
+  border-color: var(--darkergray);
+  color: white;
+}
+.docs-sidebar-gm-titlebar-icon-button {
+  transition: var(--button-off);
+}
+.docs-sidebar-gm-titlebar-icon-button:hover, 
+.docs-sidebar-gm-titlebar-icon-button:focus {
+  background-color: var(--darkergray);
+  transition: var(--button-on) !important;
+}
+.docs-sidebar-gm-titlebar-icon-button.jfk-button-active {
+  background-color: var(--blueripple);
+}
+/* Background */
+.docs-contentembedding-sidebar, 
+.docs-gm .docs-onepick-integrated-sidebar, 
+.docs-gm .docs-tiled-sidebar, 
+.docs-explore-sidebar, 
+.docs-gm .docs-explore-sidebar .docs-explore-datapage.docs-explore-sidebar-zerostate, 
+.docs-dictionary-sidebar,
+.kix-citations-sidebar, 
+.kix-watermark-sidebar {
+  background-color: var(--darkestgray);
+  border-left: 1px solid var(--darkergray);
+  border-color: var(--darkergray);
+  box-shadow: none;
+}
+/* Zero state */
+.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-header, 
+.docs-gm .docs-tiled-sidebar, 
+.kix-citations-source-list-zero-state-heading, 
+.docs-explore-errorstate-title {
+  color: white;
+}
+.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-body, 
+.kix-citations-source-list-zero-state-content, 
+.docs-gm .docs-dictionary-sidebar .docs-explore-emptylist-body {
+  color: var(--lightergray);
+}
+.docs-explore-errorstate-retry-button {
+  color: var(--palerblue);
+}
+/* Search bar */
+.docs-explore-searchbar-labelinput, 
+.docs-explore-searchbar-labelinput:focus {
+  background-color: var(--darkergray);
+  color: white;
+  width: 100%;
+}
+/* Collapsible sections */
+.docs-sidebar-tile-header-cursor, 
+.docs-gm .goog-zippy-expanded.docs-sidebar-tile-header {
+  background-color: transparent;
+  transition: var(--button-off);
+}
+.docs-sidebar-tile-header-cursor:hover, 
+.docs-sidebar-tile-header-cursor:focus:not(.docs-sidebar-tile-header-no-focus), 
+.docs-gm .goog-zippy-expanded.docs-sidebar-tile-header:focus {
+  background-color: var(--darkergray);
+  transition: var(--button-on);
+}
+.docs-gm .docs-sidebar-tile-header {
+  color: white;
+}
+.docs-sidebar-tile-header.docs-sidebar-tile-header-disabled {
+  color: var(--darkgray);
+}
+.docs-gm .docs-sidebar-tile-controls {
+  background-color: transparent;
+}
   .docs-gm .goog-zippy-expanded.docs-sidebar-tile-header {
-    background-color: transparent;
-    transition: var(--button-off);
+    border-top: 1px solid var(--darkergray);
   }
-  .docs-sidebar-tile-header-cursor:hover, 
-  .docs-sidebar-tile-header-cursor:focus:not(.docs-sidebar-tile-header-no-focus), 
-  .docs-gm .goog-zippy-expanded.docs-sidebar-tile-header:focus {
-    background-color: var(--darkergray);
-    transition: var(--button-on);
-  }
-  .docs-gm .docs-sidebar-tile-header {
-    color: white;
-  }
-  .docs-sidebar-tile-header.docs-sidebar-tile-header-disabled {
-    color: var(--darkgray);
-  }
-  .docs-gm .docs-sidebar-tile-controls {
-    background-color: transparent;
-  }
-    .docs-gm .goog-zippy-expanded.docs-sidebar-tile-header {
-      border-top: 1px solid var(--darkergray);
-    }
-  .docs-gm .docs-sidebar-tile.docs-sidebar-tile-expanded {
-    border-bottom: 1px solid var(--darkergray);
-    border-radius: 0;
-    box-shadow: none;
-  }
-  .docs-gm .goog-zippy-expanded.docs-sidebar-tile-header:hover {
-    background-color: var(--darkergray);
-    transition: var(--button-on);
-  }
-  .docs-sidebar-tile {
-    color: white;
-  }
+.docs-gm .docs-sidebar-tile.docs-sidebar-tile-expanded {
+  border-bottom: 1px solid var(--darkergray);
+  border-radius: 0;
+  box-shadow: none;
+}
+.docs-gm .goog-zippy-expanded.docs-sidebar-tile-header:hover {
+  background-color: var(--darkergray);
+  transition: var(--button-on);
+}
+.docs-sidebar-tile {
+  color: white;
+}
 
-  /* CITATIONS PANEL */
+/* CITATIONS PANEL */
 
-  /* Add and view citations */
-  .kix-citations-create-view-search, 
-  .kix-citations-create-view-top, 
-  .kix-citations-list-view-top {
-    background-color: var(--darkergray);
-    border-color: var(--darkergray);
-  }
-  .kix-citations-label, 
-  .kix-citations-accessed-by-select-label, 
-  .kix-citations-source-type-select-label {
-    color: white;
-  }
-  .kix-citations-select, 
-  .kix-citations-accessed-by-select, 
-  .kix-citations-source-type-select, 
-  .kix-citations-format-select {
-    background-color: var(--darkergray);
-  }
-  /* “+ Add citation source” button */
-  .kix-citations-flat-button.goog-flat-button, 
-  .kix-citations-add-source-button.goog-flat-button {
-    transition: var(--button-off);
-  }
-  .kix-citations-flat-button.goog-flat-button-hover, 
-  .kix-citations-add-source-button.goog-flat-button-hover {
-    background-color: var(--blueripple);
-    color: var(--palerblue) !important;
-    transition: var(--button-on);
-  }
-  .kix-citations-flat-button-icon-path, 
-  .kix-citations-add-source-button-icon-path {
-    fill: var(--paleblue);
-    transition: fill 0.25s ease;
-  }
-  .goog-flat-button-hover .kix-citations-flat-button-icon-path, 
-  .goog-flat-button-hover .kix-citations-add-source-button-icon-path {
-    fill: var(--palerblue) !important;
-    transition: fill 0.1s ease;
-  }
-  .kix-citations-flat-button.goog-flat-button, 
-  .kix-citations-add-source-button.goog-flat-button {
-    color: var(--paleblue);
-  }
-  /* Citations panel list */
-  .kix-citations-source-list-item,
-  .kix-citations-source-list-item:hover, 
-  .kix-citations-source-list-item:focus {
-    border-color: var(--darkergray);
-    background-color: var(--darkestgray);
-  }
-  .kix-citations-source-list-item-content span {
-    color: white !important;
-    /* For the many essays that are written in this font → font-family: 'Times', 'Times New Roman', Freeserif, serif !important; */
-  }
-  /* Little toolbar with “Cite” and an overflow menu */
-  .goog-toolbar.kix-citations-source-list-item-toolbar {
-    background-color: var(--darkergray);
-  }
-  .goog-toolbar.kix-citations-source-list-item-toolbar .goog-toolbar-menu-button-hover,
-  .goog-toolbar.kix-citations-source-list-item-toolbar .goog-toolbar-button-hover {
-    background-color: var(--darkgray) !important;
-  }
-  .kix-citations-source-list-item-insert-button {
-    color: var(--paleblue);
-    transition: var(--button-off);
-  }
-  .goog-toolbar-button-hover .kix-citations-source-list-item-insert-button {
-    color: var(--palerblue);
-    transition: var(--button-on);
-  }
-  /* Citations panel automatic cite results */
-  .kix-citations-search-result-attribute-label {
-    color: var(--lightergray);
-  }
-  .kix-citations-search-result-attribute-value, 
-  .kix-citations-search-result-attribute-value a:visited {
-    color: white;
-  }
-  /* Citations panel source details editor */
-  .kix-citations-create-view-attributes-subtitle,
-  .kix-citations-create-view-recommended-mark {
-    color: var(--paleblue);
-  }
-  .kix-citations-contributor-type-select,
-  .kix-citations-create-view-input, 
-  .kix-citations-search-input {
-    background-color: transparent;
-    border-color: var(--lightergray);
-    color: white;
-    transition: border-color 0.25s ease;
-  }
-  .kix-citations-search-input:focus, 
-  .kix-citations-create-view-input:focus {
-    border-color: var(--paleblue);
-    transition: border-color 0.1s ease;
-  }
-  .kix-citations-select .docs-material-gm-select-outer-box {
-    border-color: var(--darkgray);
-  }
-  .kix-citations-create-view-attribute-label {
-    color: var(--lightergray);
-  }
-  .kix-citations-flat-button.goog-flat-button-hover {
-    background-color: var(--darkgray);
-  }
-  /* Citations - Insert Works Cited button */
-  .kix-citations-search-result-view-attributes-bottom, 
-  .kix-citations-create-view-bottom, 
-  .kix-citations-insert-bibliography-container {
-    background-color: var(--darkergray);
-  }
+/* Add and view citations */
+.kix-citations-create-view-search, 
+.kix-citations-create-view-top, 
+.kix-citations-list-view-top {
+  background-color: var(--darkergray);
+  border-color: var(--darkergray);
+}
+.kix-citations-label, 
+.kix-citations-accessed-by-select-label, 
+.kix-citations-source-type-select-label {
+  color: white;
+}
+.kix-citations-select, 
+.kix-citations-accessed-by-select, 
+.kix-citations-source-type-select, 
+.kix-citations-format-select {
+  background-color: var(--darkergray);
+}
+/* “+ Add citation source” button */
+.kix-citations-flat-button.goog-flat-button, 
+.kix-citations-add-source-button.goog-flat-button {
+  transition: var(--button-off);
+}
+.kix-citations-flat-button.goog-flat-button-hover, 
+.kix-citations-add-source-button.goog-flat-button-hover {
+  background-color: var(--blueripple);
+  color: var(--palerblue) !important;
+  transition: var(--button-on);
+}
+.kix-citations-flat-button-icon-path, 
+.kix-citations-add-source-button-icon-path {
+  fill: var(--paleblue);
+  transition: fill 0.25s ease;
+}
+.goog-flat-button-hover .kix-citations-flat-button-icon-path, 
+.goog-flat-button-hover .kix-citations-add-source-button-icon-path {
+  fill: var(--palerblue) !important;
+  transition: fill 0.1s ease;
+}
+.kix-citations-flat-button.goog-flat-button, 
+.kix-citations-add-source-button.goog-flat-button {
+  color: var(--paleblue);
+}
+/* Citations panel list */
+.kix-citations-source-list-item,
+.kix-citations-source-list-item:hover, 
+.kix-citations-source-list-item:focus {
+  border-color: var(--darkergray);
+  background-color: var(--darkestgray);
+}
+.kix-citations-source-list-item-content span {
+  color: white !important;
+  /* For the many essays that are written in this font → font-family: 'Times', 'Times New Roman', Freeserif, serif !important; */
+}
+/* Little toolbar with “Cite” and an overflow menu */
+.goog-toolbar.kix-citations-source-list-item-toolbar {
+  background-color: var(--darkergray);
+}
+.goog-toolbar.kix-citations-source-list-item-toolbar .goog-toolbar-menu-button-hover,
+.goog-toolbar.kix-citations-source-list-item-toolbar .goog-toolbar-button-hover {
+  background-color: var(--darkgray) !important;
+}
+.kix-citations-source-list-item-insert-button {
+  color: var(--paleblue);
+  transition: var(--button-off);
+}
+.goog-toolbar-button-hover .kix-citations-source-list-item-insert-button {
+  color: var(--palerblue);
+  transition: var(--button-on);
+}
+/* Citations panel automatic cite results */
+.kix-citations-search-result-attribute-label {
+  color: var(--lightergray);
+}
+.kix-citations-search-result-attribute-value, 
+.kix-citations-search-result-attribute-value a:visited {
+  color: white;
+}
+/* Citations panel source details editor */
+.kix-citations-create-view-attributes-subtitle,
+.kix-citations-create-view-recommended-mark {
+  color: var(--paleblue);
+}
+.kix-citations-contributor-type-select,
+.kix-citations-create-view-input, 
+.kix-citations-search-input {
+  background-color: transparent;
+  border-color: var(--lightergray);
+  color: white;
+  transition: border-color 0.25s ease;
+}
+.kix-citations-search-input:focus, 
+.kix-citations-create-view-input:focus {
+  border-color: var(--paleblue);
+  transition: border-color 0.1s ease;
+}
+.kix-citations-select .docs-material-gm-select-outer-box {
+  border-color: var(--darkgray);
+}
+.kix-citations-create-view-attribute-label {
+  color: var(--lightergray);
+}
+.kix-citations-flat-button.goog-flat-button-hover {
+  background-color: var(--darkgray);
+}
+/* Citations - Insert Works Cited button */
+.kix-citations-search-result-view-attributes-bottom, 
+.kix-citations-create-view-bottom, 
+.kix-citations-insert-bibliography-container {
+  background-color: var(--darkergray);
+}
 
-  /* EXPLORE PANEL */
+/* EXPLORE PANEL */
 
-  /* Suggestions */
-  .docs-explore-searchbar-ac-renderer {
-    background-color: var(--darkestgray);
-    transition: var(--button-on);
-  }
-  .docs-explore-searchbar-ac-active {
-    background-color: var(--darkergray);
-    transition: var(--button-on);
-  }
-  .docs-explore-searchbar-suggestion-itemview-title {
-    color: white;
-  }
-  /* Fixes for white line under search bar */
-  .docs-gm .docs-explore-sidebar .docs-explore-datapage.docs-explore-sidebar-zerostate {
-    bottom: 0;
-    height: calc(100% - 103px);
-  }
-  .docs-explore-card {
-    background-color: var(--darkestgray);
-  }
-  /* Cards */
-  .docs-explore-datapage:not(.docs-explore-datapage-with-animated-dataviews) .docs-explore-nugget-card:not(.docs-explore-last-card) {
-    /* As cards and shadows are difficult to distinguish in dark mode, the space between cards is removed and a gray divider is used. */
-    margin: 0;
-    border-bottom: 1px solid var(--darkergray);
-  }
-  .docs-gm .docs-explore-card-title-heading, 
-  .docs-explore-snippetitem-body-title {
-    color: white;
-  }
-  .docs-gm .docs-explore-card-more-button {
-    color: var(--palerblue);
-  }
-  .docs-explore-topicitem, 
-  .docs-explore-snippetitem {
-    transition: var(--button-off);
-  }
-  .docs-explore-topicitem.goog-control-hover, 
-  .docs-explore-snippetitem.goog-control-hover{
-    background-color: var(--darkergray);
-    transition: var(--button-on);
-  }
-  .docs-explore-insert-button, 
-  .docs-explore-serp-webresult-cite-button {
-    background-color: var(--darkgray);
-    border-bottom-left-radius: 8px;
-    box-shadow: none !important;
-  }
-  .docs-explore-insert-button .docs-explore-insert-button-icon {
-    filter: invert(100%);
-    opacity: 100%;
-  }
-  .docs-explore-topicitem-title, 
-  .docs-explore-snippetitem-body-text {
-    color: white;
-  }
-  .docs-explore-topicitem-generator-text {
-    color: var(--lightergray);
-  }
-  .docs-explore-snippetitem-body-domain {
-    color: var(--palergreen);
-  }
-  /* Search result tabs */
-  .docs-explore-tabbar {
-    background-color: var(--darkestgray);
-    border-bottom-width: 0;
-  }
-  .docs-explore-tabbar-tab-label {
-    color: var(--lightergray);
-    font-family: Google Sans;
-    text-transform: none;
-  }
-  .docs-explore-tabbar-tab-selected, 
-  .docs-explore-tabbar-tab-selected .docs-explore-tabbar-tab-label {
-    border-color: var(--palerblue);
-    color: var(--palerblue);
-  }
-  /* Search result knowledge card */
-  .docs-explore-serp-webresultsview-card-container {
-    background-color: var(--darkestgray);
-    border: none;
-    height: 100%;
-    padding: 0;
-  }
-  .docs-explore-kacard {
-    background-color: var(--darkestgray);
-    border-color: transparent; border-bottom-color: var(--darkergray);
-    margin: 0;
-  }
-  .docs-explore-kacard div {
-    color: var(--lightergray);
-  }
-  .docs-explore-kacard-name {
-    color: white !important;
-  }
-  .docs-explore-kacard a {
-    color: var(--palerblue);
-  }
-  a.docs-explore-serp-webresultscard-header-text:link, 
-  a.docs-explore-serp-webresultscard-header-text:visited, 
-  a.docs-explore-serp-webresultscard-allresults:link .docs-explore-serp-webresultscard-allresults-text, 
-  a.docs-explore-serp-webresultscard-allresults:visited .docs-explore-serp-webresultscard-allresults-text, 
-  a.docs-explore-kacard-knowledgepanel-learnmore:link .docs-explore-kacard-knowledgepanel-learnmore-text, 
-  a.docs-explore-kacard-knowledgepanel-learnmore:visited .docs-explore-kacard-knowledgepanel-learnmore-text {
-    color: white;
-  }
-  .docs-explore-forward-arrow-black, 
-  .docs-explore-more-black, 
-  .docs-explore-cite-black-18 {
-    filter: invert(100%);
-  }
-  /* Search result webpages list */
-  .docs-explore-serp-webresultscard {
-    background-color: var(--darkestgray);
-  }
-  .docs-explore-kacard-knowledgepanel-learnmore, 
-  .docs-explore-serp-webresult, 
-  .docs-explore-serp-webresultscard-allresults {
-    transition: var(--button-off);
-  }
-  .docs-explore-kacard-knowledgepanel-learnmore:hover, 
-  .docs-explore-serp-webresult:hover, 
-  .docs-explore-serp-webresultscard-allresults:hover {
-    background-color: var(--darkergray);
-    transition: var(--button-on);
-  }
-  a.docs-explore-serp-webresultscard-header-text:link {
-    color: white;
-  }
-  a.docs-explore-serp-webresult-title-link:link {
-    color: var(--palerblue);
-  }
-  .docs-explore-serp-webresult-url {
-    color: var(--palergreen);
-  }
-  .docs-explore-serp-webresult-snippet {
-    color: var(--lightergray);
-  }
-  /* Citation format picker */
-  .docs-explore-citation-format-picker-menu .goog-menuheader {
-    color: white;
-  }
+/* Suggestions */
+.docs-explore-searchbar-ac-renderer {
+  background-color: var(--darkestgray);
+  transition: var(--button-on);
+}
+.docs-explore-searchbar-ac-active {
+  background-color: var(--darkergray);
+  transition: var(--button-on);
+}
+.docs-explore-searchbar-suggestion-itemview-title {
+  color: white;
+}
+/* Fixes for white line under search bar */
+.docs-gm .docs-explore-sidebar .docs-explore-datapage.docs-explore-sidebar-zerostate {
+  bottom: 0;
+  height: calc(100% - 103px);
+}
+.docs-explore-card {
+  background-color: var(--darkestgray);
+}
+/* Cards */
+.docs-explore-datapage:not(.docs-explore-datapage-with-animated-dataviews) .docs-explore-nugget-card:not(.docs-explore-last-card) {
+  /* As cards and shadows are difficult to distinguish in dark mode, the space between cards is removed and a gray divider is used. */
+  margin: 0;
+  border-bottom: 1px solid var(--darkergray);
+}
+.docs-gm .docs-explore-card-title-heading, 
+.docs-explore-snippetitem-body-title {
+  color: white;
+}
+.docs-gm .docs-explore-card-more-button {
+  color: var(--palerblue);
+}
+.docs-explore-topicitem, 
+.docs-explore-snippetitem {
+  transition: var(--button-off);
+}
+.docs-explore-topicitem.goog-control-hover, 
+.docs-explore-snippetitem.goog-control-hover{
+  background-color: var(--darkergray);
+  transition: var(--button-on);
+}
+.docs-explore-insert-button, 
+.docs-explore-serp-webresult-cite-button {
+  background-color: var(--darkgray);
+  border-bottom-left-radius: 8px;
+  box-shadow: none !important;
+}
+.docs-explore-insert-button .docs-explore-insert-button-icon {
+  filter: invert(100%);
+  opacity: 100%;
+}
+.docs-explore-topicitem-title, 
+.docs-explore-snippetitem-body-text {
+  color: white;
+}
+.docs-explore-topicitem-generator-text {
+  color: var(--lightergray);
+}
+.docs-explore-snippetitem-body-domain {
+  color: var(--palergreen);
+}
+/* Search result tabs */
+.docs-explore-tabbar {
+  background-color: var(--darkestgray);
+  border-bottom-width: 0;
+}
+.docs-explore-tabbar-tab-label {
+  color: var(--lightergray);
+  font-family: Google Sans;
+  text-transform: none;
+}
+.docs-explore-tabbar-tab-selected, 
+.docs-explore-tabbar-tab-selected .docs-explore-tabbar-tab-label {
+  border-color: var(--palerblue);
+  color: var(--palerblue);
+}
+/* Search result knowledge card */
+.docs-explore-serp-webresultsview-card-container {
+  background-color: var(--darkestgray);
+  border: none;
+  height: 100%;
+  padding: 0;
+}
+.docs-explore-kacard {
+  background-color: var(--darkestgray);
+  border-color: transparent; border-bottom-color: var(--darkergray);
+  margin: 0;
+}
+.docs-explore-kacard div {
+  color: var(--lightergray);
+}
+.docs-explore-kacard-name {
+  color: white !important;
+}
+.docs-explore-kacard a {
+  color: var(--palerblue);
+}
+a.docs-explore-serp-webresultscard-header-text:link, 
+a.docs-explore-serp-webresultscard-header-text:visited, 
+a.docs-explore-serp-webresultscard-allresults:link .docs-explore-serp-webresultscard-allresults-text, 
+a.docs-explore-serp-webresultscard-allresults:visited .docs-explore-serp-webresultscard-allresults-text, 
+a.docs-explore-kacard-knowledgepanel-learnmore:link .docs-explore-kacard-knowledgepanel-learnmore-text, 
+a.docs-explore-kacard-knowledgepanel-learnmore:visited .docs-explore-kacard-knowledgepanel-learnmore-text {
+  color: white;
+}
+.docs-explore-forward-arrow-black, 
+.docs-explore-more-black, 
+.docs-explore-cite-black-18 {
+  filter: invert(100%);
+}
+/* Search result webpages list */
+.docs-explore-serp-webresultscard {
+  background-color: var(--darkestgray);
+}
+.docs-explore-kacard-knowledgepanel-learnmore, 
+.docs-explore-serp-webresult, 
+.docs-explore-serp-webresultscard-allresults {
+  transition: var(--button-off);
+}
+.docs-explore-kacard-knowledgepanel-learnmore:hover, 
+.docs-explore-serp-webresult:hover, 
+.docs-explore-serp-webresultscard-allresults:hover {
+  background-color: var(--darkergray);
+  transition: var(--button-on);
+}
+a.docs-explore-serp-webresultscard-header-text:link {
+  color: white;
+}
+a.docs-explore-serp-webresult-title-link:link {
+  color: var(--palerblue);
+}
+.docs-explore-serp-webresult-url {
+  color: var(--palergreen);
+}
+.docs-explore-serp-webresult-snippet {
+  color: var(--lightergray);
+}
+/* Citation format picker */
+.docs-explore-citation-format-picker-menu .goog-menuheader {
+  color: white;
+}
 
-  /* DICTIONARY PANEL */
+/* DICTIONARY PANEL */
 
-  /* Entries */
-  .docs-gm .docs-explore-dictionaryentry-title {
-    color: white;
-  }
-  .docs-gm .docs-explore-dictionaryentries, 
-  .docs-explore-dictionaryentry-sensefamily-morphunits, 
-  .docs-explore-dictionaryentry-sense-synonym-prefix, 
-  .docs-explore-dictionaryentry-sense-antonym-prefix {
-    color: var(--lightergray);
-  }
-  .docs-explore-dictionaryentry-sense-synonym-clickable, 
-  .docs-explore-dictionaryentry-sense-antonym-clickable {
-    color: var(--palerblue);
-  }
+/* Entries */
+.docs-gm .docs-explore-dictionaryentry-title {
+  color: white;
+}
+.docs-gm .docs-explore-dictionaryentries, 
+.docs-explore-dictionaryentry-sensefamily-morphunits, 
+.docs-explore-dictionaryentry-sense-synonym-prefix, 
+.docs-explore-dictionaryentry-sense-antonym-prefix {
+  color: var(--lightergray);
+}
+.docs-explore-dictionaryentry-sense-synonym-clickable, 
+.docs-explore-dictionaryentry-sense-antonym-clickable {
+  color: var(--palerblue);
+}
 
-  /* WATERMARK PANEL */
+/* WATERMARK PANEL */
 
-  .kix-watermark-sidebar-header {
-    border-bottom: none;
-  }
-  .kix-watermark-tab-menu {
-    margin-top: 0;
-  }
-  .docs-sidebar-toggle-tabs {
-    height: min-content;
-  }
-  .kix-watermark-tab-menu .docs-sidebar-toggle-tab {
-    margin-top: 0 !important;
-  }
-  .kix-watermark-select-image-button-container .docs-material-button-hairline-primary.docs-material-button {
-    background-color: var(--darkestgray);
-    border-color: var(--darkergray) !important;
-  }
-  .kix-watermark-image-edit-view {
-    background-color: var(--darkergray);
-    transition: var(--button-off);
-  }
-  .docs-material-button-hover .kix-watermark-image-edit-view {
-    background-color: var(--darkgray);
-    transition: var(--button-on) !important;
-  }
-  .kix-watermark-image-edit-view svg>path:last-of-type {
-    fill: var(--palerblue);
-  }
-  .kix-watermark-section-header {
-    color: white;
-  }
-  .kix-watermark-format-label {
-    color: white;
-  }
-  .kix-watermark-scale-combobox-container .goog-toolbar-combo-button {
-    border: 1px solid var(--darkergray) !important;
-  }
-  .docs-gm .kix-watermark-scale-combobox-container .goog-toolbar-combo-button-input {
-    color: white;
-  }
-  .kix-watermark-remove-button-container {
-    border-color: var(--darkergray);
-  }
-  .kix-watermark-remove-button.docs-material-button-hairline-default.docs-material-button {
-    background-color: var(--darkestgray);
-    color: var(--palerblue);
-    transition: var(--button-off);
-  }
-  .kix-watermark-remove-button.docs-material-button-hairline-default.docs-material-button-hover, 
-  .kix-watermark-remove-button.docs-material-button-hairline-default.docs-material-button-focused {
-    background-color: var(--darkergray);
-    border-radius: 0;
-    transition: var(--button-on);
-  }
-  .kix-watermark-remove-button.docs-material-button-hairline-default.docs-material-button-active {
-    background-color: var(--blueripple);
-    transition: var(--button-on);
-  }
-  .kix-watermark-remove-button svg>path:last-of-type {
-    fill: var(--palerblue);
-  }
+.kix-watermark-sidebar-header {
+  border-bottom: none;
+}
+.kix-watermark-tab-menu {
+  margin-top: 0;
+}
+.docs-sidebar-toggle-tabs {
+  height: min-content;
+}
+.kix-watermark-tab-menu .docs-sidebar-toggle-tab {
+  margin-top: 0 !important;
+}
+.kix-watermark-select-image-button-container .docs-material-button-hairline-primary.docs-material-button {
+  background-color: var(--darkestgray);
+  border-color: var(--darkergray) !important;
+}
+.kix-watermark-image-edit-view {
+  background-color: var(--darkergray);
+  transition: var(--button-off);
+}
+.docs-material-button-hover .kix-watermark-image-edit-view {
+  background-color: var(--darkgray);
+  transition: var(--button-on) !important;
+}
+.kix-watermark-image-edit-view svg>path:last-of-type {
+  fill: var(--palerblue);
+}
+.kix-watermark-section-header {
+  color: white;
+}
+.kix-watermark-format-label {
+  color: white;
+}
+.kix-watermark-scale-combobox-container .goog-toolbar-combo-button {
+  border: 1px solid var(--darkergray) !important;
+}
+.docs-gm .kix-watermark-scale-combobox-container .goog-toolbar-combo-button-input {
+  color: white;
+}
+.kix-watermark-remove-button-container {
+  border-color: var(--darkergray);
+}
+.kix-watermark-remove-button.docs-material-button-hairline-default.docs-material-button {
+  background-color: var(--darkestgray);
+  color: var(--palerblue);
+  transition: var(--button-off);
+}
+.kix-watermark-remove-button.docs-material-button-hairline-default.docs-material-button-hover, 
+.kix-watermark-remove-button.docs-material-button-hairline-default.docs-material-button-focused {
+  background-color: var(--darkergray);
+  border-radius: 0;
+  transition: var(--button-on);
+}
+.kix-watermark-remove-button.docs-material-button-hairline-default.docs-material-button-active {
+  background-color: var(--blueripple);
+  transition: var(--button-on);
+}
+.kix-watermark-remove-button svg>path:last-of-type {
+  fill: var(--palerblue);
+}
 
-  /* APPS PANEL */
-  /* Show apps panel */
-  .companion-collapser-button.app-switcher-button-checked .app-switcher-button-icon-background {
-    background-color: var(--darkestgray);
-    border: 1px solid var(--darkergray);
-    transition: var(--button-off);
-  }
-  .companion-collapser-button.app-switcher-button-checked.app-switcher-button-hover .app-switcher-button-icon-background {
-    background-color: var(--darkergray);
-    transition: var(--button-on);
-  }
-  .app-switcher-button-icon {
-    filter: brightness(2);
-  }
-  /* Apps panel toggle */
-  .companion-app-switcher-container {
-    background-color: var(--darkestgray);
-    border-color: var(--darkergray);
-  }
-  .docs-companion-app-switcher-container,
-  .companion-app-switcher-separator {
-    border-top-color: var(--darkergray);
-  }
-  .companion-collapser-button.app-switcher-button-checked.app-switcher-button-focused .app-switcher-button-icon-background,
-  .app-switcher-button-focused .app-switcher-button-icon-background,
-  .app-switcher-button-focused.app-switcher-button-hover .app-switcher-button-icon-background {
-    background-color: var(--darkergray);
-  }
-  /* Apps panel icons */
-  .app-switcher-button-hover .app-switcher-button-icon-background,
-  .app-switcher-button-selected.agca-gab-blue.app-switcher-button-hover .app-switcher-button-icon-background-inner{
-    background-color: var(--darkergray);
-  }
-  .companion-guest-app-switcher .app-switcher-button-selected .app-switcher-button-icon-background-inner {
-    background-color: var(--blueripple);
-  }
+/* APPS PANEL */
+/* Show apps panel */
+.companion-collapser-button.app-switcher-button-checked .app-switcher-button-icon-background {
+  background-color: var(--darkestgray);
+  border: 1px solid var(--darkergray);
+  transition: var(--button-off);
+}
+.companion-collapser-button.app-switcher-button-checked.app-switcher-button-hover .app-switcher-button-icon-background {
+  background-color: var(--darkergray);
+  transition: var(--button-on);
+}
+.app-switcher-button-icon {
+  filter: brightness(2);
+}
+/* Apps panel toggle */
+.companion-app-switcher-container {
+  background-color: var(--darkestgray);
+  border-color: var(--darkergray);
+}
+.docs-companion-app-switcher-container,
+.companion-app-switcher-separator {
+  border-top-color: var(--darkergray);
+}
+.companion-collapser-button.app-switcher-button-checked.app-switcher-button-focused .app-switcher-button-icon-background,
+.app-switcher-button-focused .app-switcher-button-icon-background,
+.app-switcher-button-focused.app-switcher-button-hover .app-switcher-button-icon-background {
+  background-color: var(--darkergray);
+}
+/* Apps panel icons */
+.app-switcher-button-hover .app-switcher-button-icon-background,
+.app-switcher-button-selected.agca-gab-blue.app-switcher-button-hover .app-switcher-button-icon-background-inner{
+  background-color: var(--darkergray);
+}
+.companion-guest-app-switcher .app-switcher-button-selected .app-switcher-button-icon-background-inner {
+  background-color: var(--blueripple);
+}

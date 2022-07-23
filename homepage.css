@@ -1,0 +1,296 @@
+html, body {
+  background-color: var(--darkestgray);
+  scrollbar-color: var(--lightgray) transparent;
+}
+
+/* Header */
+header {
+  background-color: var(--darkestgray) !important;
+}
+
+.gb_oa svg, /* Main menu (hamburger), search icon (magnifying glass), apps icon (waffle) */
+.gb_Ec svg, /* idk */
+.gb_4d.gb_1c /* “Docs” */{
+  color: var(--lightergray);
+}
+
+.gb_Se /* Search bar */, 
+.gb_Se.gb_Te /* Active search bar */ {
+  background-color: var(--darkergray);
+}
+.gb_Se:hover {
+  background-color: var(--darkgray);
+}
+input.gb_df::placeholder, /* “Search” */
+.gb_Re.gb_Se input::placeholder, /* “Search” in active search bar */
+.gb_cf /* Search term */ {
+  color: var(--lightergray) !important;
+  opacity: 100%;
+}
+
+.gb_Re /* Account and apps area */ {
+  background: none;
+}
+.gb_ia /* Google Workspace organization logo box */ {
+  background-color: var(--darkestgray);
+  border-color: var(--darkergray);
+  transition: var(--button-off);
+}
+.gb_ia:hover {
+  background-color: var(--darkergray);
+  border-color: var(--darkgray);
+  transition: var(--button-on);
+}
+img.gb_yc /* Logo */ {
+  filter: var(--darkfilter);
+}
+
+/* Left side menu */
+.gb_Fc /* Docs Editors menu */ {
+  background-color: var(--darkergray);
+}
+.goog-menu.docs-homescreen-leftmenu {
+  background-color: transparent;
+}
+.gb_tc .gb_fe /* Google logo */ {
+  filter: brightness(500%) saturate(0%);
+}
+.gb_Qc .gb_3d /* “Docs” */ {
+  color: white;
+}
+.docs-homescreen-leftmenu-menuitem-text /* Menu items */ {
+  color: var(--lightestgray);
+}
+
+/* Template gallery */
+.docs-homescreen-templates-bar /* “Templates” title bar, shown when template gallery is expanded */ {
+  background-color: var(--darkestgray);
+}
+.docs-homescreen-templates-bar-back {
+  filter: var(--white-icons);
+}
+.docs-homescreen-templates-bar-header {
+  color: var(--lightestgray);
+}
+
+.docs-hs-tmp-expandedcontentholder-tabbarrow /* Templates gallery tabbar (shown for organizations) */ {
+  background-color: var(--darkestgray);
+}
+
+.docs-homescreen-fcc-content /* Template gallery background */ {
+  background-color: var(--darkergray);
+}
+
+.docs-hs-tmp-contractedheader-text /* “Start a new document ” */ {
+  color: var(--lightestgray);
+}
+
+.jfk-button.docs-hs-tmp-contractedheader-more, /* “Template gallery” button */
+.docs-hs-tmp-sc-showcase .docs-homescreen-grid-header-title.docs-homescreen-grid-header-title, /* “Recently used” */
+.docs-hs-tmp-sc-default .docs-homescreen-grid-header-title.docs-homescreen-grid-header-title /* Other template group titles */ {
+  background-color: transparent;
+  color: var(--lightestgray);
+}
+.docs-hs-tmp-contractedheader-actions .docs-homescreen-icon /* Template gallery icon buttons */ {
+  filter: var(--white-icons);
+}
+
+.docs-hs-tmp-emptydomaingallery-image /* No templates empty state */ {
+  display: none; /* sorry I couldn’t darken this photo nicely */
+}
+.docs-hs-tmp-emptydomaingallery-header {
+  color: var(--lightestgray);
+}
+.docs-hs-tmp-emptydomaingallery-msg {
+  color: var(--lightergray);
+}
+.docs-hs-tmp-submitbutton-embossed /* “Submit template” button */ {
+  background-color: transparent;
+  border: 1px solid var(--darkgray);
+  border-radius: 4px;
+  box-shadow: none;
+  transition: var(--button-off);
+}
+.docs-hs-tmp-submitbutton-embossed.docs-hs-tmp-submitbutton-embossed-hover {
+  background-color: var(--darkgray);
+  transition: var(--button-on);
+}
+.docs-hs-tmp-submitbutton-embossed.docs-hs-tmp-submitbutton-embossed-active {
+  background-color: var(--blueripple);
+  border-color: var(--blueripple);
+}
+.docs-hs-tmp-submitbutton-icon {
+  filter: var(--paleblue-icons);
+}
+.docs-hs-tmp-submitbutton-label {
+  color: var(--palerblue);
+}
+
+.docs-homescreen-templates-templateview-preview /* Template thumbnail */ {
+  background-color: var(--darkgray);
+  border-color: var(--darkgray);
+  transition: var(--button-off);
+}
+.docs-homescreen-templates-templateview-preview:hover {
+  border-color: var(--gray);
+  transition: var(--button-on);
+}
+.goog-control-active .docs-homescreen-templates-templateview-preview {
+  border-color: var(--paleblue);
+  transition: var(--button-on);
+}
+.docs-homescreen-templates-templateview-preview img /* Template preview image */ {
+  filter: opacity(75%) contrast(80%);
+  transition: filter 0.5s ease;
+}
+.docs-homescreen-templates-templateview-preview img:hover {
+  filter: none;
+  transition: filter 0.25s ease;
+}
+
+.docs-homescreen-templates-templateview-title /* Template names */ {
+  color: var(--lightestgray);
+}
+.docs-homescreen-templates-templateview-brandauthor, 
+.docs-homescreen-templates-templateview-style /* Template info */ {
+  color: var(--lightergray);
+  font-weight: 400;
+}
+.docs-homescreen-templates-templateview-addon /* “Add-on” badge */ {
+  background-color: var(--paleblue);
+  color: var(--darkestgray);
+}
+
+/* Recent documents list */
+.docs-homescreen-container /* Homepage background */ {
+  background-color: transparent;
+}
+.docs-homescreen-floater-header, /* “Recent documents” and sorting buttons bar */
+.docs-homescreen-grid-header, .docs-homescreen-list-header {
+  background-color: var(--darkestgray);
+}
+.docs-homescreen-floater-header-shadow, 
+.docs-homescreen-floater-header-shadow>.docs-homescreen-floater-header /* Sorting buttons bar, but once the view is scrolled enough */ {
+  background-color: var(--darkergray);
+  box-shadow: none;
+}
+.docs-homescreen-floater-header /* “Recent documents” */ {
+  color: var(--lightestgray);
+}
+.docs-homescreen-owner-filter-button /* Owner filter dropdown */ {
+  background-color: transparent;
+  color: var(--lightestgray);
+}
+.docs-homescreen-owner-filter-button.goog-menu-button-hover {
+  background-color: var(--darkgray);
+}
+.docs-homescreen-floater-header-buttons .docs-homescreen-img {
+  filter: var(--white-icons);
+}
+
+/* Thumbnail view */
+.docs-homescreen-grid-item {
+  background-color: var(--darkestgray);
+  border-color: var(--darkergray);
+  transition: var(--button-off);
+}
+.docs-homescreen-grid-item.goog-control-hover {
+  background-color: var(--darkergray);
+  border-color: var(--gray);
+  transition: var(--button-on);
+}
+.docs-homescreen-grid-item.goog-control-active {
+  background-color: var(--blueripple);
+  border-color: var(--paleblue);
+  transition: var(--button-on);
+}
+.docs-homescreen-grid-item-thumbnail {
+  filter: invert(100%) hue-rotate(180deg) contrast(80%);
+}
+.docs-homescreen-grid-item-metadata-container /* Textbox below thumbnails */ {
+  background-color: transparent;
+  border-color: var(--darkergray);
+}
+.docs-homescreen-grid-item-title {
+  color: var(--lightestgray);
+}
+.docs-homescreen-grid-item .docs-homescreen-grid-item-shared-icon .docs-homescreen-img, /* Icon for shared items */
+.docs-homescreen-grid-item .docs-homescreen-item-overflow .docs-homescreen-img /* More options (kebab) */ {
+  filter: brightness(165%) saturate(70%);
+}
+.docs-homescreen-grid-item-time-container {
+  color: var(--lightgray);
+}
+
+/* File options menu */
+.docs-homescreen-item-overflow /* Menu button */ {
+  transition: var(--button-off);
+}
+.docs-homescreen-item-overflow:hover, 
+.docs-homescreen-item-overflow:focus {
+  background-color: var(--gray);
+  transition: var(--button-on);
+}
+.docs-homescreen-item-section .docsshared-menu-bubble /* Menu container */ {
+  background-color: var(--darkergray);
+  border: 1px solid var(--darkgray);
+  box-shadow: none;
+}
+.docs-homescreen-iconmenu .goog-menuitem /* Menu items */ {
+  transition: var(--button-off);
+}
+.docs-homescreen-iconmenu .goog-menuitem-highlight {
+  background-color: var(--darkgray);
+  transition: var(--button-on);
+}
+.docs-homescreen-iconmenu .goog-menuitem-active {
+  background-color: var(--gray);
+  transition: var(--button-on);
+}
+.docs-homescreen-overflowmenuitem-icon .docs-homescreen-img /* Menu icon */ {
+  filter: var(--white-icons);
+}
+.docs-homescreen-iconmenu .goog-menuitem-highlight .goog-menuitem-content /* Menu text */ {
+  color: var(--lightestgray);
+}
+.docs-homescreen-iconmenu .goog-menuitem-disabled .docs-homescreen-overflowmenuitem-text {
+  text-decoration: line-through;
+}
+.docs-homescreen-iconmenu .goog-menuitem-disabled .docs-homescreen-overflowmenuitem-text-container div {
+  color: var(--gray);
+}  
+
+/* List view */
+.docs-homescreen-list-item /* Each row */ {
+  background-color: transparent;
+  border-color: var(--darkergray);
+  border-radius: 0;
+  color: var(--lightestgray);
+  transition: var(--button-off);
+}
+.docs-homescreen-list-item.goog-control-hover, .docs-homescreen-list-item.goog-control-focus {
+  background-color: var(--darkergray);
+  border-color: transparent;
+  border-radius: 0;
+  outline: none;
+  transition: var(--button-on);
+}
+.docs-homescreen-list-item.goog-control-active {
+  background-color: var(--blueripple);
+  transition: var(--button-on);
+}
+.docs-homescreen-list-item-icon /* Filetype icon */ {
+  border-color: transparent;
+}
+.docs-homescreen-list-item-owner, 
+.docs-homescreen-list-item-time /* File details */ {
+  color: var(--lightgray);
+}
+.docs-homescreen-list-item .docs-homescreen-list-item-shared-icon .docs-homescreen-img, /* Icon for shared items */
+.docs-homescreen-list-item .docs-homescreen-item-overflow .docs-homescreen-img /* More options (kebab) */ {
+  filter: brightness(165%) saturate(70%);
+}
+
+.docs-homescreen-fab /* The round button in the corner that appears when you scroll down */ {
+  background-color: var(--darkergray);
+}

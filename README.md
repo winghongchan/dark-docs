@@ -9,7 +9,7 @@ A dark theme for Google Docs web, based on the colors used in dark modes in othe
 
 ### Automatic
 
-Install the theme at [Dark Docs on UserStyles.world](https://userstyles.world/style/2597/dark-docs). 
+Install the theme at [Dark Docs on UserStyles.world](https://userstyles.world/style/2597/dark-docs). Doing this will make it easy to receive updates. 
 
 ### Manual 
 

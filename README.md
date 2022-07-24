@@ -1,8 +1,6 @@
 # Dark Docs
 A dark theme for Google Docs web, based on the colors used in dark modes in other Google products. Subtle animations added. 
 
-[![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-238b8b.svg)](https://userstyles.world/api/style/2597.user.css)
-
 ![](Screenshot_20220723_183923.png)
 
 ## Installation
@@ -10,6 +8,8 @@ A dark theme for Google Docs web, based on the colors used in dark modes in othe
 ### Automatic
 
 Install the theme at [Dark Docs on UserStyles.world](https://userstyles.world/style/2597/dark-docs). Doing this will make it easy to receive updates. 
+
+If [Stylus](https://github.com/openstyles/stylus/) is installed on your browser, [![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-238b8b.svg)](https://userstyles.world/api/style/2597.user.css)
 
 ### Manual 
 

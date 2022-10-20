@@ -1,64 +1,73 @@
 /* COMMON ELEMENTS */
 
 /* Titlebar */
-.docs-contentembedding-titlebar, 
-.docs-gm .docs-explore-sidebar-title, 
-.docs-gm .docs-dictionary-titlebar, 
-.kix-citations-sidebar-titlebar, 
+.docs-contentembedding-titlebar,
+.docs-chat-title-bar,
+.docs-gm .docs-explore-sidebar-title,
+.docs-gm .docs-dictionary-titlebar,
+.kix-citations-sidebar-titlebar,
 .kix-watermark-sidebar-header {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
   color: white;
 }
 /* Titlebar icon */
-.docs-gm .docs-gm-sidebar-icon-path, 
-.docs-gm-sidebar-icon path {
+.docs-gm .docs-gm-sidebar-icon-path,
+.docs-gm-sidebar-icon-path {
   fill: var(--paleblue);
 }
-.docs-gm .docs-contentembedding-titlebar .docs-gm-sidebar-icon, 
 .kix-watermark-sidebar-header .kix-watermark-icon-container .docs-icon-img {
   filter: var(--paleblue-icons);
 }
 /* Titlebar buttons */
 .docs-gm .docs-tiled-sidebar-header {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
   color: white;
 }
 .docs-sidebar-gm-titlebar-icon-button {
-  transition: var(--button-off);
+  transition: var(--off);
 }
-.docs-sidebar-gm-titlebar-icon-button:hover, 
+.docs-sidebar-gm-titlebar-icon-button:hover,
 .docs-sidebar-gm-titlebar-icon-button:focus {
-  background-color: var(--darkergray);
-  transition: var(--button-on) !important;
+  background-color: var(--darkgray);
+  transition: var(--on) !important;
 }
+.docs-sidebar-gm-titlebar-icon-button.goog-flat-button-active,
 .docs-sidebar-gm-titlebar-icon-button.jfk-button-active {
-  background-color: var(--blueripple);
+  background-color: var(--blue-ripple);
+}
+.docs-contentembedding-sidebar .docs-icon-reload,
+.docs-sidebar-gm-close-button .docs-icon-close,
+.docs-sidebar-gm-titlebar-icon-button .docs-icon-back,
+.docs-tiled-sidebar-header .docs-icon-close {
+  filter: var(--white-icons);
 }
 /* Background */
-.docs-contentembedding-sidebar, 
-.docs-gm .docs-onepick-integrated-sidebar, 
-.docs-gm .docs-tiled-sidebar, 
-.docs-explore-sidebar, 
-.docs-gm .docs-explore-sidebar .docs-explore-datapage.docs-explore-sidebar-zerostate, 
+.docs-contentembedding-sidebar,
+.docs-gm .docs-chat-pane,
+.docs-gm .docs-onepick-integrated-sidebar,
+.docs-gm .docs-tiled-sidebar,
+.docs-explore-sidebar,
+.docs-gm .docs-explore-sidebar .docs-explore-datapage.docs-explore-sidebar-zerostate,
 .docs-dictionary-sidebar,
-.kix-citations-sidebar, 
+.kix-citations-sidebar,
 .kix-watermark-sidebar {
   background-color: var(--darkestgray);
-  border-left: 1px solid var(--darkergray);
-  border-color: var(--darkergray);
+  border-left: 1px solid var(--darkgray);
+  border-color: var(--darkgray);
   box-shadow: none;
 }
 /* Zero state */
-.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-header, 
-.docs-gm .docs-tiled-sidebar, 
-.kix-citations-source-list-zero-state-heading, 
+.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-header,
+.docs-gm .docs-tiled-sidebar,
+.kix-citations-source-list-zero-state-heading,
+.kix-citations-create-view-zero-state-content,
 .docs-explore-errorstate-title {
-  color: white;
+  color: var(--lightergray);
 }
-.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-body, 
-.kix-citations-source-list-zero-state-content, 
+.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-body,
+.kix-citations-source-list-zero-state-content,
 .docs-gm .docs-dictionary-sidebar .docs-explore-emptylist-body {
   color: var(--lightergray);
 }
@@ -66,99 +75,175 @@
   color: var(--palerblue);
 }
 /* Search bar */
-.docs-explore-searchbar-labelinput, 
+.docs-explore-searchbar-labelinput,
 .docs-explore-searchbar-labelinput:focus {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
   color: white;
   width: 100%;
 }
 /* Collapsible sections */
-.docs-sidebar-tile-header-cursor, 
+.docs-sidebar-tile-header-cursor,
 .docs-gm .goog-zippy-expanded.docs-sidebar-tile-header {
   background-color: transparent;
-  transition: var(--button-off);
+  transition: var(--off);
 }
-.docs-sidebar-tile-header-cursor:hover, 
-.docs-sidebar-tile-header-cursor:focus:not(.docs-sidebar-tile-header-no-focus), 
+.docs-sidebar-tile-header-cursor:hover,
+.docs-sidebar-tile-header-cursor:focus:not(.docs-sidebar-tile-header-no-focus),
 .docs-gm .goog-zippy-expanded.docs-sidebar-tile-header:focus {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
+}
+.docs-tiled-sidebar-content .docs-icon-chevron-down-24 {
+  filter: var(--white-icons);
 }
 .docs-gm .docs-sidebar-tile-header {
   color: white;
 }
 .docs-sidebar-tile-header.docs-sidebar-tile-header-disabled {
-  color: var(--darkgray);
+  color: var(--mediumdarkgray);
 }
 .docs-gm .docs-sidebar-tile-controls {
   background-color: transparent;
 }
-  .docs-gm .goog-zippy-expanded.docs-sidebar-tile-header {
-    border-top: 1px solid var(--darkergray);
-  }
+.docs-gm .goog-zippy-expanded.docs-sidebar-tile-header {
+  border-top: 1px solid var(--darkgray);
+}
 .docs-gm .docs-sidebar-tile.docs-sidebar-tile-expanded {
-  border-bottom: 1px solid var(--darkergray);
+  border-bottom: 1px solid var(--darkgray);
   border-radius: 0;
   box-shadow: none;
 }
 .docs-gm .goog-zippy-expanded.docs-sidebar-tile-header:hover {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
 .docs-sidebar-tile {
   color: white;
 }
 
+/* Scrollbar */
+.docs-chat-messages,
+.docs-tiled-sidebar-scroll {
+  scrollbar-color: var(--gray) transparent;
+}
+
+/* CHAT PANEL */
+
+.docs-chat-pane .docs-chat-title-message .docs-icon {
+  filter: var(--white-icons);
+}
+.docs-chat-pane .docs-chat-title-message h2 {
+  color: var(--lightergray);
+}
+
+.docs-chat-pane .docs-chat-messages /* Where sent messages appear */ {
+  background-color: var(--darkestgray);
+}
+.docs-chat-pane .docs-chat-nametag {
+  color: var(--lightgray);
+}
+.docs-chat-pane .docs-chat-message-bubble div {
+  filter: var(--darkfilter) brightness(140%) /* Using a filter because messages are slightly tinted for each chat participant */;
+}
+.docs-chat-pane .docs-chat-status /* User has left the chat, &c. */ {
+  color: var(--lightgray);
+}
+
+.docs-chat-pane .docs-chat-edit-container /* The lower section that contains the message editor */ {
+  background-color: var(--darkestgray);
+  border-top: 1px solid var(--darkgray);
+}
+.docs-chat-pane .docs-chat-edit-box {
+  background-color: var(--darkestgray);
+  border-color: var(--darkgray);
+  color: var(--lightestgray);
+  transition: var(--off);
+}
+.docs-chat-pane .docs-chat-edit-box::placeholder {
+  color: var(--lightgray);
+  opacity: 100%;
+}
+.docs-chat-pane .docs-chat-edit-box::selection {
+  background-color: var(--blue-ripple);
+}
+.docs-chat-pane .docs-chat-edit-box-focus {
+  border-color: var(--palerblue);
+  transition: var(--on);
+}
+
 /* CITATIONS PANEL */
 
 /* Add and view citations */
-.kix-citations-create-view-search, 
-.kix-citations-create-view-top, 
+.kix-citations-create-view-search,
+.kix-citations-create-view-top,
 .kix-citations-list-view-top {
-  background-color: var(--darkergray);
-  border-color: var(--darkergray);
+  background-color: var(--darkestgray);
+  border-color: var(--darkgray);
 }
-.kix-citations-label, 
-.kix-citations-accessed-by-select-label, 
+.kix-citations-label,
+.kix-citations-accessed-by-select-label,
 .kix-citations-source-type-select-label {
   color: white;
 }
-.kix-citations-select, 
-.kix-citations-accessed-by-select, 
-.kix-citations-source-type-select, 
-.kix-citations-format-select {
-  background-color: var(--darkergray);
+.kix-citations-select,
+.kix-citations-accessed-by-select,
+.kix-citations-source-type-select,
+.kix-citations-format-select /* Box wrapped tightly around each dropdown for some reason */ {
+  background-color: transparent;
 }
+.kix-citations-sidebar .docs-icon-arrow-dropdown {
+  filter: var(--white-icons);
+}
+
 /* “+ Add citation source” button */
-.kix-citations-flat-button.goog-flat-button, 
+.kix-citations-flat-button.goog-flat-button,
 .kix-citations-add-source-button.goog-flat-button {
-  transition: var(--button-off);
+  transition: var(--off);
 }
-.kix-citations-flat-button.goog-flat-button-hover, 
-.kix-citations-add-source-button.goog-flat-button-hover {
-  background-color: var(--blueripple);
+.kix-citations-add-source-button.goog-flat-button-hover,
+.kix-citations-add-source-button.goog-flat-button-focused {
+  background-color: var(--darkgray);
   color: var(--palerblue) !important;
-  transition: var(--button-on);
+  transition: var(--on);
 }
-.kix-citations-flat-button-icon-path, 
+.kix-citations-add-source-button.goog-flat-button-active {
+  background-color: var(--blue-ripple);
+}
+.kix-citations-flat-button-icon-path,
 .kix-citations-add-source-button-icon-path {
   fill: var(--paleblue);
   transition: fill 0.25s ease;
 }
-.goog-flat-button-hover .kix-citations-flat-button-icon-path, 
+.goog-flat-button-hover .kix-citations-flat-button-icon-path,
 .goog-flat-button-hover .kix-citations-add-source-button-icon-path {
   fill: var(--palerblue) !important;
   transition: fill 0.1s ease;
 }
-.kix-citations-flat-button.goog-flat-button, 
+.kix-citations-flat-button.goog-flat-button,
 .kix-citations-add-source-button.goog-flat-button {
   color: var(--paleblue);
 }
+
+/* “Search with a URL” and other text fields */
+.kix-citations-contributor-type-select,
+.kix-citations-create-view-input,
+.kix-citations-search-input {
+  background-color: transparent;
+  border-color: var(--darkgray);
+  color: var(--lightestgray);
+  transition: var(--off);
+}
+.kix-citations-search-input:focus,
+.kix-citations-create-view-input:focus {
+  border-color: var(--paleblue);
+  transition: var(--on);
+}
+
 /* Citations panel list */
 .kix-citations-source-list-item,
-.kix-citations-source-list-item:hover, 
+.kix-citations-source-list-item:hover,
 .kix-citations-source-list-item:focus {
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
   background-color: var(--darkestgray);
 }
 .kix-citations-source-list-item-content span {
@@ -167,25 +252,25 @@
 }
 /* Little toolbar with “Cite” and an overflow menu */
 .goog-toolbar.kix-citations-source-list-item-toolbar {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
 }
 .goog-toolbar.kix-citations-source-list-item-toolbar .goog-toolbar-menu-button-hover,
 .goog-toolbar.kix-citations-source-list-item-toolbar .goog-toolbar-button-hover {
-  background-color: var(--darkgray) !important;
+  background-color: var(--mediumdarkgray) !important;
 }
 .kix-citations-source-list-item-insert-button {
   color: var(--paleblue);
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .goog-toolbar-button-hover .kix-citations-source-list-item-insert-button {
   color: var(--palerblue);
-  transition: var(--button-on);
+  transition: var(--on);
 }
 /* Citations panel automatic cite results */
 .kix-citations-search-result-attribute-label {
   color: var(--lightergray);
 }
-.kix-citations-search-result-attribute-value, 
+.kix-citations-search-result-attribute-value,
 .kix-citations-search-result-attribute-value a:visited {
   color: white;
 }
@@ -194,33 +279,21 @@
 .kix-citations-create-view-recommended-mark {
   color: var(--paleblue);
 }
-.kix-citations-contributor-type-select,
-.kix-citations-create-view-input, 
-.kix-citations-search-input {
-  background-color: transparent;
-  border-color: var(--lightergray);
-  color: white;
-  transition: border-color 0.25s ease;
-}
-.kix-citations-search-input:focus, 
-.kix-citations-create-view-input:focus {
-  border-color: var(--paleblue);
-  transition: border-color 0.1s ease;
-}
+
 .kix-citations-select .docs-material-gm-select-outer-box {
-  border-color: var(--darkgray);
+  border-color: var(--mediumdarkgray);
 }
 .kix-citations-create-view-attribute-label {
   color: var(--lightergray);
 }
 .kix-citations-flat-button.goog-flat-button-hover {
-  background-color: var(--darkgray);
+  background-color: var(--mediumdarkgray);
 }
 /* Citations - Insert Works Cited button */
-.kix-citations-search-result-view-attributes-bottom, 
-.kix-citations-create-view-bottom, 
+.kix-citations-search-result-view-attributes-bottom,
+.kix-citations-create-view-bottom,
 .kix-citations-insert-bibliography-container {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
 }
 
 /* EXPLORE PANEL */
@@ -228,11 +301,11 @@
 /* Suggestions */
 .docs-explore-searchbar-ac-renderer {
   background-color: var(--darkestgray);
-  transition: var(--button-on);
+  transition: var(--on);
 }
 .docs-explore-searchbar-ac-active {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
 .docs-explore-searchbar-suggestion-itemview-title {
   color: white;
@@ -249,27 +322,27 @@
 .docs-explore-datapage:not(.docs-explore-datapage-with-animated-dataviews) .docs-explore-nugget-card:not(.docs-explore-last-card) {
   /* As cards and shadows are difficult to distinguish in dark mode, the space between cards is removed and a gray divider is used. */
   margin: 0;
-  border-bottom: 1px solid var(--darkergray);
+  border-bottom: 1px solid var(--darkgray);
 }
-.docs-gm .docs-explore-card-title-heading, 
+.docs-gm .docs-explore-card-title-heading,
 .docs-explore-snippetitem-body-title {
   color: white;
 }
 .docs-gm .docs-explore-card-more-button {
   color: var(--palerblue);
 }
-.docs-explore-topicitem, 
+.docs-explore-topicitem,
 .docs-explore-snippetitem {
-  transition: var(--button-off);
+  transition: var(--off);
 }
-.docs-explore-topicitem.goog-control-hover, 
+.docs-explore-topicitem.goog-control-hover,
 .docs-explore-snippetitem.goog-control-hover{
-  background-color: var(--darkergray);
-  transition: var(--button-on);
-}
-.docs-explore-insert-button, 
-.docs-explore-serp-webresult-cite-button {
   background-color: var(--darkgray);
+  transition: var(--on);
+}
+.docs-explore-insert-button,
+.docs-explore-serp-webresult-cite-button {
+  background-color: var(--mediumdarkgray);
   border-bottom-left-radius: 8px;
   box-shadow: none !important;
 }
@@ -277,7 +350,7 @@
   filter: invert(100%);
   opacity: 100%;
 }
-.docs-explore-topicitem-title, 
+.docs-explore-topicitem-title,
 .docs-explore-snippetitem-body-text {
   color: white;
 }
@@ -297,7 +370,7 @@
   font-family: Google Sans;
   text-transform: none;
 }
-.docs-explore-tabbar-tab-selected, 
+.docs-explore-tabbar-tab-selected,
 .docs-explore-tabbar-tab-selected .docs-explore-tabbar-tab-label {
   border-color: var(--palerblue);
   color: var(--palerblue);
@@ -311,7 +384,7 @@
 }
 .docs-explore-kacard {
   background-color: var(--darkestgray);
-  border-color: transparent; border-bottom-color: var(--darkergray);
+  border-color: transparent; border-bottom-color: var(--darkgray);
   margin: 0;
 }
 .docs-explore-kacard div {
@@ -323,16 +396,16 @@
 .docs-explore-kacard a {
   color: var(--palerblue);
 }
-a.docs-explore-serp-webresultscard-header-text:link, 
-a.docs-explore-serp-webresultscard-header-text:visited, 
-a.docs-explore-serp-webresultscard-allresults:link .docs-explore-serp-webresultscard-allresults-text, 
-a.docs-explore-serp-webresultscard-allresults:visited .docs-explore-serp-webresultscard-allresults-text, 
-a.docs-explore-kacard-knowledgepanel-learnmore:link .docs-explore-kacard-knowledgepanel-learnmore-text, 
+a.docs-explore-serp-webresultscard-header-text:link,
+a.docs-explore-serp-webresultscard-header-text:visited,
+a.docs-explore-serp-webresultscard-allresults:link .docs-explore-serp-webresultscard-allresults-text,
+a.docs-explore-serp-webresultscard-allresults:visited .docs-explore-serp-webresultscard-allresults-text,
+a.docs-explore-kacard-knowledgepanel-learnmore:link .docs-explore-kacard-knowledgepanel-learnmore-text,
 a.docs-explore-kacard-knowledgepanel-learnmore:visited .docs-explore-kacard-knowledgepanel-learnmore-text {
   color: white;
 }
-.docs-explore-forward-arrow-black, 
-.docs-explore-more-black, 
+.docs-explore-forward-arrow-black,
+.docs-explore-more-black,
 .docs-explore-cite-black-18 {
   filter: invert(100%);
 }
@@ -340,16 +413,16 @@ a.docs-explore-kacard-knowledgepanel-learnmore:visited .docs-explore-kacard-know
 .docs-explore-serp-webresultscard {
   background-color: var(--darkestgray);
 }
-.docs-explore-kacard-knowledgepanel-learnmore, 
-.docs-explore-serp-webresult, 
+.docs-explore-kacard-knowledgepanel-learnmore,
+.docs-explore-serp-webresult,
 .docs-explore-serp-webresultscard-allresults {
-  transition: var(--button-off);
+  transition: var(--off);
 }
-.docs-explore-kacard-knowledgepanel-learnmore:hover, 
-.docs-explore-serp-webresult:hover, 
+.docs-explore-kacard-knowledgepanel-learnmore:hover,
+.docs-explore-serp-webresult:hover,
 .docs-explore-serp-webresultscard-allresults:hover {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
 a.docs-explore-serp-webresultscard-header-text:link {
   color: white;
@@ -374,15 +447,65 @@ a.docs-explore-serp-webresult-title-link:link {
 .docs-gm .docs-explore-dictionaryentry-title {
   color: white;
 }
-.docs-gm .docs-explore-dictionaryentries, 
-.docs-explore-dictionaryentry-sensefamily-morphunits, 
-.docs-explore-dictionaryentry-sense-synonym-prefix, 
+.docs-gm .docs-explore-dictionaryentries,
+.docs-explore-dictionaryentry-sensefamily-morphunits,
+.docs-explore-dictionaryentry-sense-synonym-prefix,
 .docs-explore-dictionaryentry-sense-antonym-prefix {
   color: var(--lightergray);
 }
-.docs-explore-dictionaryentry-sense-synonym-clickable, 
+.docs-explore-dictionaryentry-sense-synonym-clickable,
 .docs-explore-dictionaryentry-sense-antonym-clickable {
   color: var(--palerblue);
+}
+
+/* IMAGE OPTIONS PANEL */
+
+/* 90° rotation button */
+.docs-format-options-sidebar .docs-material-button[aria-label="Rotate 90°"] {
+  transition: var(--off);
+}
+.docs-format-options-sidebar .docs-material-button[aria-label="Rotate 90°"].docs-material-button-hover {
+  background-color: var(--darkgray);
+  transition: var(--on);
+}
+.docs-format-options-sidebar .docs-material-button[aria-label="Rotate 90°"] .docs-material-button-ripple-element {
+  background-color: var(--paleblue);
+  opacity: 20%;
+}
+.docs-format-options-sidebar .docs-material-button[aria-label="Rotate 90°"] .docs-icon-rotate-cw {
+  filter: var(--white-icons);
+}
+
+/* LINKED OBJECTS PANEL */
+
+.docs-contentembedding-sidebar-loading-indicator-container .docs-indeterminate-loading-bar {
+  background-color: var(--blue-ripple);
+}
+.docs-contentembedding-sidebar-loading-indicator-container .docs-indeterminate-loading-bar>div {
+  background-color: var(--paleblue);
+}
+
+.docs-contentembedding-sidebar .docs-contentembedding-sidebar-tile /* Each entry of linked object list */ {
+  border-bottom-color: var(--darkgray);
+  transition: var(--off);
+}
+.docs-contentembedding-sidebar .docs-contentembedding-sidebar-tile:hover,
+.docs-contentembedding-sidebar .docs-contentembedding-sidebar-tile:focus {
+  background-color: var(--darkgray);
+  transition: var(--on);
+}
+.docs-contentembedding-sidebar .docs-contentembedding-sidebar-tile:active {
+  background-color: var(--blue-ripple);
+}
+.docs-contentembedding-sidebar-tile-title {
+  color: var(--lightestgray);
+}
+.docs-contentembedding-sidebar-tile-subtitle {
+  color: var(--lightgray);
+}
+.docs-contentembedding-sidebar-tile-icon .docs-icon-img {
+  filter: var(--white-icons);
+  opacity: 80%;
 }
 
 /* WATERMARK PANEL */
@@ -401,15 +524,15 @@ a.docs-explore-serp-webresult-title-link:link {
 }
 .kix-watermark-select-image-button-container .docs-material-button-hairline-primary.docs-material-button {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray) !important;
+  border-color: var(--darkgray) !important;
 }
 .kix-watermark-image-edit-view {
-  background-color: var(--darkergray);
-  transition: var(--button-off);
+  background-color: var(--darkgray);
+  transition: var(--off);
 }
 .docs-material-button-hover .kix-watermark-image-edit-view {
-  background-color: var(--darkgray);
-  transition: var(--button-on) !important;
+  background-color: var(--mediumdarkgray);
+  transition: var(--on) !important;
 }
 .kix-watermark-image-edit-view svg>path:last-of-type {
   fill: var(--palerblue);
@@ -421,28 +544,28 @@ a.docs-explore-serp-webresult-title-link:link {
   color: white;
 }
 .kix-watermark-scale-combobox-container .goog-toolbar-combo-button {
-  border: 1px solid var(--darkergray) !important;
+  border: 1px solid var(--darkgray) !important;
 }
 .docs-gm .kix-watermark-scale-combobox-container .goog-toolbar-combo-button-input {
   color: white;
 }
 .kix-watermark-remove-button-container {
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }
 .kix-watermark-remove-button.docs-material-button-hairline-default.docs-material-button {
   background-color: var(--darkestgray);
   color: var(--palerblue);
-  transition: var(--button-off);
+  transition: var(--off);
 }
-.kix-watermark-remove-button.docs-material-button-hairline-default.docs-material-button-hover, 
+.kix-watermark-remove-button.docs-material-button-hairline-default.docs-material-button-hover,
 .kix-watermark-remove-button.docs-material-button-hairline-default.docs-material-button-focused {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
   border-radius: 0;
-  transition: var(--button-on);
+  transition: var(--on);
 }
 .kix-watermark-remove-button.docs-material-button-hairline-default.docs-material-button-active {
-  background-color: var(--blueripple);
-  transition: var(--button-on);
+  background-color: var(--blue-ripple);
+  transition: var(--on);
 }
 .kix-watermark-remove-button svg>path:last-of-type {
   fill: var(--palerblue);
@@ -452,12 +575,12 @@ a.docs-explore-serp-webresult-title-link:link {
 /* Show apps panel */
 .companion-collapser-button.app-switcher-button-checked .app-switcher-button-icon-background {
   background-color: var(--darkestgray);
-  border: 1px solid var(--darkergray);
-  transition: var(--button-off);
+  border: 1px solid var(--darkgray);
+  transition: var(--off);
 }
 .companion-collapser-button.app-switcher-button-checked.app-switcher-button-hover .app-switcher-button-icon-background {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
 .app-switcher-button-icon {
   filter: brightness(2);
@@ -465,22 +588,22 @@ a.docs-explore-serp-webresult-title-link:link {
 /* Apps panel toggle */
 .companion-app-switcher-container {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }
 .docs-companion-app-switcher-container,
 .companion-app-switcher-separator {
-  border-top-color: var(--darkergray);
+  border-top-color: var(--darkgray);
 }
 .companion-collapser-button.app-switcher-button-checked.app-switcher-button-focused .app-switcher-button-icon-background,
 .app-switcher-button-focused .app-switcher-button-icon-background,
 .app-switcher-button-focused.app-switcher-button-hover .app-switcher-button-icon-background {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
 }
 /* Apps panel icons */
 .app-switcher-button-hover .app-switcher-button-icon-background,
 .app-switcher-button-selected.agca-gab-blue.app-switcher-button-hover .app-switcher-button-icon-background-inner{
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
 }
 .companion-guest-app-switcher .app-switcher-button-selected .app-switcher-button-icon-background-inner {
-  background-color: var(--blueripple);
+  background-color: var(--blue-ripple);
 }

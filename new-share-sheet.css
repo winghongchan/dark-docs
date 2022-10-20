@@ -1,0 +1,245 @@
+body {
+  scrollbar-color: var(--gray) transparent;
+}
+
+.KC1dQ /* Background */ {
+  background-color: var(--darkestgray);
+}
+
+.mNL6p .d3Kuye .zv7tnb /* “Share "<whatever>"”, “Settings for "<whatever>"” */{
+  color: var(--lightestgray);
+}
+.RTwQId i.google-material-icons /* ❔ and ⚙️ icons */,
+.NMm5M.hhikbc /* ← icon */ {
+  color: var(--lightestgray);
+}
+
+/* ANNOUNCEMENT BANNER */
+
+.XzbSje.AVUQbb.eJxL0c /* “Sharing is simpler” banner */ {
+  background-color: var(--blue-ripple);
+  border-color: var(--blue-ripple);
+}
+
+/* ADD PEOPLE AND GROUPS */
+
+.yid0mf /* Search box background */ {
+  background-color: var(--darkgray);
+  transition: var(--off);
+}
+.yid0mf:hover {
+  background-color: var(--mediumdarkgray);
+  transition: var(--on);
+}
+.SN5W1d.iPMcJc /* Search box underline, but this is the parent element. The actual item getting colored uses currentcolor. */ {
+  color: var(--paleblue);
+}
+
+div.YMNIz::after /* Placeholder */ {
+  color: var(--lightgray);
+}
+input.zeumMd.d2j1H /* Text in search box, */ {
+  color: var(--lightestgray);
+  caret-color: var(--palerblue);
+}
+.m0PB1.P2wJPb /* Person chips in search box */ {
+  background-color: var(--darkgray);
+  border-color: var(--gray);
+  color: var(--lightergray);
+}
+.Zx360 .VfPpkd-StrnGf-XPtOyb-UbuQg-XCaCob::before,
+.Zx360 .VfPpkd-StrnGf-XPtOyb-UbuQg-XCaCob::after /* × button shading */ {
+  background-color: var(--paleblue);
+}
+.P2wJPb button.VfPpkd-StrnGf-XPtOyb-UbuQg-JIbuQc,
+.P2wJPb:hover button.VfPpkd-StrnGf-XPtOyb-UbuQg-JIbuQc,
+.P2wJPb:active button.VfPpkd-StrnGf-XPtOyb-UbuQg-JIbuQc,
+.P2wJPb:hover .VfPpkd-StrnGf-XPtOyb-UbuQg-JIbuQc,
+.P2wJPb.VfPpkd-ksKsZd-mWPk3d-OWXEXe-AHe6Kc-XpnDCe .VfPpkd-StrnGf-XPtOyb-UbuQg-JIbuQc,
+.P2wJPb:not(.VfPpkd-ksKsZd-mWPk3d):focus .VfPpkd-StrnGf-XPtOyb-UbuQg-JIbuQc,
+.P2wJPb:active .VfPpkd-StrnGf-XPtOyb-UbuQg-JIbuQc/* × icon in person chip */ {
+  color: var(--lightestgray);
+}
+
+div.VfPpkd-xl07Ob-XxIAqe /* Search suggestions box */ {
+  background-color: var(--darkgray);
+}
+span.VfPpkd-StrnGf-rymPhb-fpDzbe-fmcmS /* Name */ {
+  color: var(--lightestgray);
+}
+span.VfPpkd-StrnGf-rymPhb-L8ivfd-fmcmS /* Email */ {
+  color: var(--lightgray);
+}
+
+button.jTGNhb:not(:disabled) /* Role picker (for new people listed in the search box) */ {
+  background-color: var(--darkgray);
+  color: var(--lightestgray);
+  transition: var(--off);
+}
+button.jTGNhb:hover:not(:disabled),
+button.jTGNhb:focus:not(:disabled) {
+  background-color: var(--mediumdarkgray);
+  color: var(--lightestgray);
+  transition: var(--on);
+}
+button.jTGNhb:active:not(:disabled) {
+  background-color: var(--blue-ripple);
+  color: var(--lightestgray);
+}
+button.jTGNhb.LjDxcd.VfPpkd-ksKsZd-mWPk3d-OWXEXe-AHe6Kc-XpnDCe:not(.VfPpkd-ksKsZd-mWPk3d):not(:disabled) /* Apparently when the role picker dropdown is open */ {
+  background-color: var(--blue-ripple);
+  color: var(--palerblue);
+}
+span.VfPpkd-StrnGf-rymPhb-b9t22c /* Contents of the role picker dropdown */ {
+  color: var(--lightestgray);
+}
+.urwdP.VfPpkd-StrnGf-rymPhb-ibnC6b span.VfPpkd-StrnGf-rymPhb-f7MjDc /* Checkmark beside selected role */ {
+  color: var(--paleblue);
+}
+
+.Ne8lhe .VfPpkd-muHVFf-bMcfAe:enabled:checked ~ .VfPpkd-YQoJzd /* “Notify people” checkbox (and other checkboxes) */ {
+  background-color: var(--paleblue);
+  border-color: var(--paleblue);
+  transition: var(--off);
+}
+.Ne8lhe:hover .VfPpkd-muHVFf-bMcfAe:enabled:checked ~ .VfPpkd-YQoJzd {
+  background-color: var(--palerblue);
+  border-color: var(--palerblue);
+  transition: var(--on);
+}
+.Ne8lhe:not(:disabled):active .VfPpkd-muHVFf-bMcfAe:enabled:checked ~ .VfPpkd-YQoJzd {
+  background-color: var(--palerblue);
+  border-color: var(--palerblue);
+}
+
+.Ne8lhe .VfPpkd-muHVFf-bMcfAe:enabled ~ .VfPpkd-YQoJzd svg.VfPpkd-HUofsb /* Check mark inside “Notify people” checkbox */ {
+  color: black;
+}
+.Ne8lhe:not(:disabled):active .VfPpkd-muHVFf-bMcfAe:enabled:checked ~ .VfPpkd-YQoJzd > VfPpkd-HUofsb {
+  color: var(--blue-ripple);
+}
+
+.fWf7qe .Yalane /* Message box to invitees */ {
+  background-color: var(--darkgray);
+  transition: var(--off);
+}
+.fWf7qe:not(.RDPZE):hover .Yalane {
+  background-color: var(--mediumdarkgray);
+  transition: var(--on);
+}
+.aCxcAe /* Message box underline */ {
+  background-color: var(--paleblue);
+}
+
+.CYSZae /* Message box placeholder */ {
+  color: var(--lightgray);
+}
+.jsbB5e.u3bW4e .CYSZae /* Message box label (when it turns blue) */ {
+  color: var(--palerblue);
+}
+textarea.hqfVKd /* The message itself */ {
+  caret-color: var(--palerblue);
+  color: var(--lightestgray);
+}
+
+.WaWjk /* “People with access” */,
+.quTB6 /* “General access" */ {
+  color: var(--lightergray);
+}
+
+.mjB9rc /* Lines below “People with access” and “General access” */,
+.yF6xpb /* Line above “Copy link” and “Done” buttons */ {
+  border-color: var(--darkestgray);
+}
+
+.aUQx::before /* Line above list of people with access */,
+.aUQx::after /* Line below */ {
+  border-color: var(--mediumdarkgray);
+}
+
+/* People with access */
+
+.ZelW3e .FYhd9e /* Half-pill shapes around people */ {
+  background-color: transparent;
+  transition: var(--off);
+}
+.ZelW3e:hover .FYhd9e,
+.ZelW3e:focus .FYhd9e,
+.ZelW3e:focus-within .FYhd9e {
+  background-color: var(--darkgray);
+  transition: var(--on);
+}
+.fOEalf .Jw4Ike /* Names */ {
+  color: var(--lightergray);
+}
+.fOEalf .EDtwUe /* Email addresses */ {
+  color: var(--lightgray);
+}
+.xPGlDb.JV9EZd.LjDxcd:disabled,
+.xPGlDb.JV9EZd.LjDxcd /* Permissions */ {
+  color: var(--lightgray);
+}
+
+/* General access */
+
+.lfDNBb:hover,
+.lfDNBb:focus-within /* Half-pill shape */ {
+  background: none /* It was a bit silly to have a half-pill shape around this area, since it isn’t a list */;
+}
+.S9uFJc.VfPpkd-LgbsSe:not(:disabled) /* Link access */ {
+  color: var(--lightergray);
+}
+.RJS6zb /* Link access info */ {
+  color: var(--lightgray);
+}
+
+/* “Copy link” button (and other outlined buttons) */
+.uJtSke.sj692e {
+  border-color: var(--darkgray);
+  color: var(--paleblue);
+  transition: var(--off);
+}
+.uJtSke.sj692e:hover,
+.uJtSke.sj692e:focus,
+.Rj2Mlf:not(.VfPpkd-ksKsZd-mWPk3d):focus:not(:disabled) {
+  background-color: var(--darkgray);
+  border-color: var(--darkgray);
+  color: var(--paleblue);
+  transition: var(--on);
+}
+.uJtSke.sj692e:focus:active {
+  background-color: var(--blue-ripple);
+  border-color: var(--blue-ripple);
+  color: var(--palerblue);
+  transition: var(--on);
+}
+
+/* “Cancel” button (and other text buttons) */
+.LjDxcd:not(:disabled) {
+  color: var(--lightgray);
+  transition: var(--off);
+}
+.LjDxcd:hover:not(:disabled),
+.LjDxcd.VfPpkd-ksKsZd-mWPk3d-OWXEXe-AHe6Kc-XpnDCe:not(:disabled),
+.LjDxcd:not(.VfPpkd-ksKsZd-mWPk3d):focus:not(:disabled),
+.LjDxcd:active:not(:disabled) {
+  --gm-neutraltextbutton-state-color: var(--lightestgray);
+  color: var(--lightestgray);
+  transition: var(--on);
+}
+.LjDxcd:active:not(:disabled) {
+  --gm-neutraltextbutton-state-color: var(--paleblue);
+  color: var(--palerblue);
+}
+
+/* “Done” button (and other filled buttons) */
+.nCP5yc:not(:disabled) {
+  background-color: var(--paleblue);
+  color: black;
+}
+
+/* Settings for document */
+
+.VfPpkd-I9GLp-yrriRe > label /* Checkbox label */ {
+  color: var(--lightergray);
+}

@@ -1,3 +1,8 @@
+body {
+  background-color: var(--darkestgray);
+  color: var(--lightestgray);
+}
+
 /* Scrollbar */
 .docs-gm ::-webkit-scrollbar-thumb {
   background-color: var(--lightgray);
@@ -6,127 +11,127 @@
 /* BUTTONS */
 
 /* Filled */
-.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-disabled, 
-.docs-gm .modal-dialog .goog-buttonset-action[disabled], 
-.docs-gm .modal-dialog .jfk-button-action.jfk-button-disabled, 
+.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-disabled,
+.docs-gm .modal-dialog .goog-buttonset-action[disabled],
+.docs-gm .modal-dialog .jfk-button-action.jfk-button-disabled,
 .docs-gm .docs-material-bubble .jfk-button-action.jfk-button-disabled {
-  background-color: var(--darkergray) !important;
-  border-color: var(--darkergray) !important;
+  background-color: var(--darkgray) !important;
+  border-color: var(--darkgray) !important;
   color: var(--darkestgray) !important;
   opacity: 100%;
-  transition: var(--button-off);
+  transition: var(--off);
 }
-.analytics-btn-fill.jfk-button, 
-.docos.docs-gm .jfk-button.jfk-button-action, 
-.docs-material-button-fill-primary.docs-material-button, 
-.docs-gm #docs-titlebar-share-client-button .jfk-button, 
-.docs-gm .modal-dialog .goog-buttonset-action, 
-.docs-gm .modal-dialog .jfk-button-action, 
-.docs-gm .docs-material-bubble .jfk-button-action, 
+.analytics-btn-fill.jfk-button,
+.docos.docs-gm .jfk-button.jfk-button-action,
+.docs-material-button-fill-primary.docs-material-button,
+.docs-gm #docs-titlebar-share-client-button .jfk-button,
+.docs-gm .modal-dialog .goog-buttonset-action,
+.docs-gm .modal-dialog .jfk-button-action,
+.docs-gm .docs-material-bubble .jfk-button-action,
 .GmFillButton:not(:disabled) {
   background-color: var(--paleblue);
   color: black;
-  transition: var(--button-off);
+  transition: var(--off);
 }
-.analytics-btn-fill.jfk-button.jfk-button-hover, 
-.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-hover, 
-.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-focused, 
-.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-hover.jfk-button-focused, 
-.docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-hover, 
-.docs-gm #docs-titlebar-share-client-button .jfk-button:focus, 
-.docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-hover:focus, 
-.docs-gm .modal-dialog .goog-buttonset-action:hover:focus, 
-.docs-gm .modal-dialog .jfk-button-action.jfk-button-hover.jfk-button-focused, 
-.docs-gm .modal-dialog .goog-buttonset-action:focus, 
-.docs-gm .modal-dialog .jfk-button-action.jfk-button-focused, 
-.docs-gm .modal-dialog .goog-buttonset-action:hover, 
-.docs-gm .modal-dialog .jfk-button-action.jfk-button-hover, 
+.analytics-btn-fill.jfk-button.jfk-button-hover,
+.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-hover,
+.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-focused,
+.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-hover.jfk-button-focused,
+.docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-hover,
+.docs-gm #docs-titlebar-share-client-button .jfk-button:focus,
+.docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-hover:focus,
+.docs-gm .modal-dialog .goog-buttonset-action:hover:focus,
+.docs-gm .modal-dialog .jfk-button-action.jfk-button-hover.jfk-button-focused,
+.docs-gm .modal-dialog .goog-buttonset-action:focus,
+.docs-gm .modal-dialog .jfk-button-action.jfk-button-focused,
+.docs-gm .modal-dialog .goog-buttonset-action:hover,
+.docs-gm .modal-dialog .jfk-button-action.jfk-button-hover,
 .docs-gm .modal-dialog .jfk-button-action.jfk-button-hover,
 .docs-gm .modal-dialog .jfk-button-action.jfk-button-focused,
-.docs-material-button-fill-primary.docs-material-button-hover, 
-.docs-material-button-fill-primary.docs-material-button-focused.docs-material-button-no-focus-border, 
+.docs-material-button-fill-primary.docs-material-button-hover,
+.docs-material-button-fill-primary.docs-material-button-focused.docs-material-button-no-focus-border,
 .docs-material-button-fill-primary.docs-material-button-hover.docs-material-button-focused {
   background-color: var(--palerblue);
   color: black;
-  transition: var(--button-on);
+  transition: var(--on);
 }
-.analytics-btn-fill.jfk-button.jfk-button-focused.jfk-button-active, 
-.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-focused.jfk-button-active, 
-.docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-focused.jfk-button-active, 
-.docs-gm .modal-dialog .goog-buttonset-action:active, 
-.docs-gm .modal-dialog .goog-buttonset-action:focus:active, 
-.docs-gm .modal-dialog .jfk-button-action.jfk-button-active, 
-.docs-gm .modal-dialog .jfk-button-action.jfk-button-focus.jfk-button-active, 
-.docs-gm .docs-material-bubble .jfk-button-action.jfk-button-active, 
-.docs-gm .docs-material-bubble .jfk-button-action.jfk-button-focus.jfk-button-active, 
-.docs-gm .modal-dialog .jfk-button-action.jfk-button-hover.jfk-button-focused, 
+.analytics-btn-fill.jfk-button.jfk-button-focused.jfk-button-active,
+.docos.docs-gm .jfk-button.jfk-button-action.jfk-button-focused.jfk-button-active,
+.docs-gm #docs-titlebar-share-client-button .jfk-button.jfk-button-focused.jfk-button-active,
+.docs-gm .modal-dialog .goog-buttonset-action:active,
+.docs-gm .modal-dialog .goog-buttonset-action:focus:active,
+.docs-gm .modal-dialog .jfk-button-action.jfk-button-active,
+.docs-gm .modal-dialog .jfk-button-action.jfk-button-focus.jfk-button-active,
+.docs-gm .docs-material-bubble .jfk-button-action.jfk-button-active,
+.docs-gm .docs-material-bubble .jfk-button-action.jfk-button-focus.jfk-button-active,
+.docs-gm .modal-dialog .jfk-button-action.jfk-button-hover.jfk-button-focused,
 .docs-material-button-fill-primary.docs-material-button-focused.docs-material-button-active {
   background-color: var(--palerblue);
-  color: var(--blueripple);
+  color: var(--blue-ripple);
 }
 
 /* Outlined */
-.docs-gm .modal-dialog button[disabled], 
+.docs-gm .modal-dialog button[disabled],
 .docs-gm .modal-dialog .jfk-button-standard.jfk-button-disabled {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray) !important;
-  color: var(--darkergray);
+  border-color: var(--darkgray) !important;
+  color: var(--darkgray);
   opacity: 100% !important;
-  transition: var(--button-off);
+  transition: var(--off);
 }
-.analytics-btn-hairline.jfk-button, 
-.docs-checkupdialog-button-ignore.docs-material-button-hairline-default.docs-material-button, 
-.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button, 
-.docos.docs-gm .jfk-button.jfk-button-standard, 
-.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-standard, 
-.docs-gm .modal-dialog button, 
-.docs-gm .modal-dialog .jfk-button-standard, 
+.analytics-btn-hairline.jfk-button,
+.docs-checkupdialog-button-ignore.docs-material-button-hairline-default.docs-material-button,
+.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button,
+.docos.docs-gm .jfk-button.jfk-button-standard,
+.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-standard,
+.docs-gm .modal-dialog button,
+.docs-gm .modal-dialog .jfk-button-standard,
 .docs-material-button-hairline-primary.docs-material-button {
   background-color: transparent;
-  border-color: var(--darkergray) !important;
+  border-color: var(--darkgray) !important;
   color: var(--palerblue);
-  transition: var(--button-off);
+  transition: var(--off);
 }
-.analytics-btn-hairline.jfk-button.jfk-button-hover, 
-.docs-checkupdialog-button-ignore.docs-material-button-hairline-default.docs-material-button-hover, 
-.docs-checkupdialog-button-ignore.docs-material-button-hairline-default.docs-material-button-focus, 
-.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button:hover, 
-.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button:focus, 
-.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover, 
-.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover:focus, 
-.docs-gm .modal-dialog button:focus, 
-.docs-gm .modal-dialog .jfk-button-standard.jfk-button-focused, 
-.docs-gm .modal-dialog button:hover, 
-.docs-gm .modal-dialog .jfk-button-standard.jfk-button-hover, 
-.docs-gm .modal-dialog .jfk-button-standard.jfk-button-focused, 
-.docs-gm .modal-dialog button:hover:focus, 
-.docs-gm .modal-dialog .jfk-button-standard.jfk-button-hover.jfk-button-focused, 
+.analytics-btn-hairline.jfk-button.jfk-button-hover,
+.docs-checkupdialog-button-ignore.docs-material-button-hairline-default.docs-material-button-hover,
+.docs-checkupdialog-button-ignore.docs-material-button-hairline-default.docs-material-button-focus,
+.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button:hover,
+.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button:focus,
+.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover,
+.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover:focus,
+.docs-gm .modal-dialog button:focus,
+.docs-gm .modal-dialog .jfk-button-standard.jfk-button-focused,
+.docs-gm .modal-dialog button:hover,
+.docs-gm .modal-dialog .jfk-button-standard.jfk-button-hover,
+.docs-gm .modal-dialog .jfk-button-standard.jfk-button-focused,
+.docs-gm .modal-dialog button:hover:focus,
+.docs-gm .modal-dialog .jfk-button-standard.jfk-button-hover.jfk-button-focused,
 .docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-hover,
-.docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-focused, 
-.docs-material-button-hairline-primary.docs-material-button-hover, 
-.docs-material-button-hairline-primary.docs-material-button-focused, 
-.docs-material-button-hairline-primary.docs-material-button-hover.docs-material-button-focused, 
+.docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-focused,
+.docs-material-button-hairline-primary.docs-material-button-hover,
+.docs-material-button-hairline-primary.docs-material-button-focused,
+.docs-material-button-hairline-primary.docs-material-button-hover.docs-material-button-focused,
 .docs-material-button-hairline-primary.docs-material-button-focused.docs-material-button-no-focus-border {
-  background-color: var(--darkergray);
-  border-color: var(--darkergray) !important;
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  border-color: var(--darkgray) !important;
+  transition: var(--on);
 }
-.analytics-btn-hairline.jfk-button.jfk-button-hover.jfk-button-active, 
+.analytics-btn-hairline.jfk-button.jfk-button-hover.jfk-button-active,
 .docs-checkupdialog-button-ignore.docs-material-button-hairline-default.docs-material-button-active,
-.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button:active, 
-.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover.jfk-button-active, 
-.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover.jfk-button-focused.jfk-button-active, 
-.docs-gm .modal-dialog button:active, 
-.docs-gm .modal-dialog button:focus:active, 
-.docs-gm .modal-dialog .jfk-button-standard.jfk-button-active, 
-.docs-gm .modal-dialog .jfk-button-standard.jfk-button-focus.jfk-button-active, 
+.docs-contentembedding-sidebar-zero-state .docs-contentembedding-sidebar-zero-state-button:active,
+.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover.jfk-button-active,
+.docs-gm .docs-image-effect-adjustment-reset-button.jfk-button-hover.jfk-button-focused.jfk-button-active,
+.docs-gm .modal-dialog button:active,
+.docs-gm .modal-dialog button:focus:active,
+.docs-gm .modal-dialog .jfk-button-standard.jfk-button-active,
+.docs-gm .modal-dialog .jfk-button-standard.jfk-button-focus.jfk-button-active,
 .docos.docs-gm .jfk-button.jfk-button-standard.jfk-button-focused.jfk-button-hover,
-.docs-gm .modal-dialog .jfk-button-standard.jfk-button-hover.jfk-button-focused, 
+.docs-gm .modal-dialog .jfk-button-standard.jfk-button-hover.jfk-button-focused,
 .docs-material-button-hairline-primary.docs-material-button-active.docs-material-button-focused {
-  background-color: var(--blueripple);
-  border-color: var(--blueripple) !important;
+  background-color: var(--blue-ripple);
+  border-color: var(--blue-ripple) !important;
   color: var(--palerblue);
-  transition: var(--button-on);
+  transition: var(--on);
 }
 
 /* No fill, no border text buttons */
@@ -134,33 +139,33 @@
   color: white;
   opacity: 25%;
 }
-.analytics-btn-text.jfk-button, 
-.docs-link-back-to-search-icon-button, 
-.docs-link-smartinsertlinkbubble-apply-button, .docs-link-smartinsertlinkbubble-apply-button.jfk-button.jfk-button-standard, 
-.docs-material-button-text-default.docs-material-button, 
-.appsMaterialWizButtonPaperbuttonTextColored, .appsMaterialWizButtonPaperbuttonTextColored .exportButtonNestedLink, 
+.analytics-btn-text.jfk-button,
+.docs-link-back-to-search-icon-button,
+.docs-link-smartinsertlinkbubble-apply-button, .docs-link-smartinsertlinkbubble-apply-button.jfk-button.jfk-button-standard,
+.docs-material-button-text-default.docs-material-button,
+.appsMaterialWizButtonPaperbuttonTextColored, .appsMaterialWizButtonPaperbuttonTextColored .exportButtonNestedLink,
 .kix-smart-summary-view .jfk-button {
   background-color: transparent;
   color: var(--palerblue);
   font-weight: 500;
-  transition: var(--button-off);
+  transition: var(--off);
 }
-.analytics-btn-text.jfk-button-hover, 
-.analytics-btn-text.jfk-button-focused.jfk-button-hover, 
-.docs-link-back-to-search-icon-button:hover, .docs-link-back-to-search-icon-button:focus, 
-.docs-link-smartinsertlinkbubble-apply-button:hover, .docs-link-smartinsertlinkbubble-apply-button.jfk-button.jfk-button-standard:hover, .docs-link-smartinsertlinkbubble-apply-button:focus, .docs-link-smartinsertlinkbubble-apply-button.jfk-button.jfk-button-standard:focus, 
-.docs-material-button-hover.docs-material-button-text-default, 
+.analytics-btn-text.jfk-button-hover,
+.analytics-btn-text.jfk-button-focused.jfk-button-hover,
+.docs-link-back-to-search-icon-button:hover, .docs-link-back-to-search-icon-button:focus,
+.docs-link-smartinsertlinkbubble-apply-button:hover, .docs-link-smartinsertlinkbubble-apply-button.jfk-button.jfk-button-standard:hover, .docs-link-smartinsertlinkbubble-apply-button:focus, .docs-link-smartinsertlinkbubble-apply-button.jfk-button.jfk-button-standard:focus,
+.docs-material-button-hover.docs-material-button-text-default,
 .kix-smart-summary-view .jfk-button:focus, .kix-smart-summary-view .jfk-button:hover{
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
   color: var(--palerblue);
-  transition: var(--button-on);
+  transition: var(--on);
 }
-.analytics-btn-text.jfk-button-focused.jfk-button-hover.jfk-button-active, 
-.docs-link-back-to-search-icon-button.jfk-button-active, 
-.docs-link-smartinsertlinkbubble-apply-button.jfk-button.jfk-button-hover.jfk-button-active.jfk-button-clear-outline, 
-.docs-material-button-text-default>.docs-material-button-ripple-element, 
+.analytics-btn-text.jfk-button-focused.jfk-button-hover.jfk-button-active,
+.docs-link-back-to-search-icon-button.jfk-button-active,
+.docs-link-smartinsertlinkbubble-apply-button.jfk-button.jfk-button-hover.jfk-button-active.jfk-button-clear-outline,
+.docs-material-button-text-default>.docs-material-button-ripple-element,
 .kix-smart-summary-view .jfk-button:active {
-  background-color: var(--blueripple);
+  background-color: var(--blue-ripple);
   color: var(--palerblue);
 }
 
@@ -171,37 +176,37 @@
 
 /* BUTTONS, TOGGLE */
 /* Toggled OFF */
-.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button, 
-.docs-horizontal-button-group .docs-material-button:not([class*="docs-material-button-selected"]), 
+.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button,
+.docs-horizontal-button-group .docs-material-button:not([class*="docs-material-button-selected"]),
 .docs-sidebar-palette .docs-sidebar-palette-button-container .docs-sidebar-palette-button {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray) !important;
+  border-color: var(--darkgray) !important;
   color: var(--lightestgray);
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-hover,
 .docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-focused,
-.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-hover.jfk-button-focused, 
-.docs-horizontal-button-group .docs-material-button:not([class*="docs-material-button-selected"]).docs-material-button-hover, 
-.docs-horizontal-button-group .docs-material-button:not([class*="docs-material-button-selected"]).docs-material-button-focused, 
-.docs-sidebar-palette .docs-sidebar-palette-button-container .docs-sidebar-palette-button:hover, 
+.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-hover.jfk-button-focused,
+.docs-horizontal-button-group .docs-material-button:not([class*="docs-material-button-selected"]).docs-material-button-hover,
+.docs-horizontal-button-group .docs-material-button:not([class*="docs-material-button-selected"]).docs-material-button-focused,
+.docs-sidebar-palette .docs-sidebar-palette-button-container .docs-sidebar-palette-button:hover,
 .docs-sidebar-palette .docs-sidebar-palette-button-container .docs-sidebar-palette-button:focus {
-  background-color: var(--darkergray);
-  border-color: var(--darkergray) !important;
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  border-color: var(--darkgray) !important;
+  transition: var(--on);
 }
-.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-checked, 
-.docs-horizontal-button-group .docs-material-button:not([class*="docs-material-button-selected"]).docs-material-button-active, 
+.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-checked,
+.docs-horizontal-button-group .docs-material-button:not([class*="docs-material-button-selected"]).docs-material-button-active,
 .docs-sidebar-palette .docs-sidebar-palette-button-container.goog-control-selected .docs-sidebar-palette-button {
-  background-color: var(--blueripple);
-  border-color: var(--blueripple) !important;
+  background-color: var(--blue-ripple);
+  border-color: var(--blue-ripple) !important;
 }
 /* Toggled ON */
-.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-hover.jfk-button-checked, 
-.docs-horizontal-button-group .docs-material-button-selected, 
-.docs-horizontal-button-group .docs-material-button.docs-material-button-selected.docs-material-button-focused, 
+.docs-gm #kix-bordersshadingdialog-borderposition .jfk-button.jfk-button-hover.jfk-button-checked,
+.docs-horizontal-button-group .docs-material-button-selected,
+.docs-horizontal-button-group .docs-material-button.docs-material-button-selected.docs-material-button-focused,
 .docs-sidebar-palette .docs-sidebar-palette-button-container.goog-control-selected .docs-sidebar-palette-button.docs-material-button-hover {
-  background-color: var(--blueripple); 
+  background-color: var(--blue-ripple);
   border-color: var(--paleblue) !important;
 }
 
@@ -210,7 +215,7 @@
   background-color: var(--paleblue);
   color: black;
 }
-.boqDrivesharedialogCommonCalloutArrowDown .Arrow, 
+.boqDrivesharedialogCommonCalloutArrowDown .Arrow,
 .boqDrivesharedialogCommonCalloutArrowUp .Arrow {
   border-color: var(--paleblue) transparent;
 }
@@ -219,54 +224,58 @@
 }
 
 /* CHECKBOXES */
-div.docs-material-gm-checkbox, 
+div.docs-material-gm-checkbox,
 span.docs-material-gm-checkbox {
-  border-color: var(--darkgray);
-  transition: var(--button-off);
+  border-color: var(--mediumdarkgray);
+  transition: var(--off);
 }
-div.docs-material-gm-checkbox-hover, 
-div.docs-material-gm-checkbox-focused, 
-.docs-material-gm-labeled-checkbox-hover .docs-material-gm-labeled-checkbox-checkbox, 
+div.docs-material-gm-checkbox-hover,
+div.docs-material-gm-checkbox-focused,
+.docs-material-gm-labeled-checkbox-hover .docs-material-gm-labeled-checkbox-checkbox,
 span.docs-material-gm-checkbox-focused {
   border-color: var(--gray);
 }
-div.docs-material-gm-checkbox-checked, 
-.docs-material-gm-labeled-checkbox-checkbox.docs-material-gm-labeled-checkbox-checked, 
+div.docs-material-gm-checkbox-checked,
+.docs-material-gm-labeled-checkbox-checkbox.docs-material-gm-labeled-checkbox-checked,
 span.docs-material-gm-checkbox-checked {
-  background-color: var(--paleblue); 
+  background-color: var(--paleblue);
   border-color: var(--paleblue);
-  transition: var(--button-on);
+  transition: var(--on);
 }
-div.docs-material-gm-checkbox-checked.docs-material-gm-checkbox-focused, 
-div.docs-material-gm-checkbox-checked.docs-material-gm-checkbox-hover, 
-.docs-material-gm-labeled-checkbox-hover .docs-material-gm-labeled-checkbox-checked, 
+div.docs-material-gm-checkbox-checked.docs-material-gm-checkbox-focused,
+div.docs-material-gm-checkbox-checked.docs-material-gm-checkbox-hover,
+.docs-material-gm-labeled-checkbox-hover .docs-material-gm-labeled-checkbox-checked,
 span.docs-material-gm-checkbox-checked.docs-material-gm-checkbox-focused {
   background-color: var(--palerblue);
   border-color: var(--palerblue);
-  transition: var(--button-on);
+  transition: var(--on);
 }
-.docs-material-gm-labeled-checkbox-checkbox.docs-material-gm-labeled-checkbox-checked::before, 
-div.docs-material-gm-checkbox-checked::before, 
+.docs-material-gm-labeled-checkbox-checkbox.docs-material-gm-labeled-checkbox-checked::before,
+div.docs-material-gm-checkbox-checked::before,
 span.docs-material-gm-checkbox-checked::before {
   filter: brightness(0);
 }
 
 /* COLOR PICKER */
-.docs-gm .docs-colormenuitems .docs-colormenuitems-scheme-header, 
+.docs-gm .docs-colormenuitems .docs-colormenuitems-scheme-header,
 .docs-gm .docs-colormenuitems .docs-colormenuitems-custom-header {
   color: var(--lightergray);
 }
 .docs-customcolorpalette-add-custom-color-button {
   border-radius: 4px;
-  transition: var(--button-off);
+  transition: var(--off);
+
+  & .docs-icon-add-item {
+    filter: var(--white-icons);
+  }
 }
 .docs-customcolorpalette-add-custom-color-button:hover {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
 /* “None” button */
 .docs-gm .colormenuitems-ob-order .goog-menuitem.colormenuitems-no-color {
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }
 .colormenuitems-ob-order .docs-icon-no-color {
   filter: var(--white-icons);
@@ -281,20 +290,20 @@ span.docs-material-gm-checkbox-checked::before {
 
 /* DROPDOWNS */
 /* Dropdown opener */
-.docs-gm .modal-dialog .goog-flat-menu-button, 
+.docs-gm .modal-dialog .goog-flat-menu-button,
 .docs-material-gm-select-outer-box {
-  border-color: var(--darkergray);
-  transition: var(--button-off);
+  border-color: var(--darkgray);
+  transition: var(--off);
 }
-.docs-gm .modal-dialog .goog-flat-menu-button-hover, 
-.docs-material-gm-select-hover .docs-material-gm-select-outer-box, 
+.docs-gm .modal-dialog .goog-flat-menu-button-hover,
+.docs-material-gm-select-hover .docs-material-gm-select-outer-box,
 .docs-material-gm-select-focused .docs-material-gm-select-outer-box {
-  background-color: var(--darkergray);
-  border-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  border-color: var(--darkgray);
+  transition: var(--on);
 }
 .docs-material-gm-select-open.docs-material-gm-select-focused .docs-material-gm-select-outer-box {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
 }
 .goog-toolbar-combo-button-dropdown {
   filter: brightness(200%);
@@ -303,11 +312,11 @@ span.docs-material-gm-checkbox-checked::before {
   color: white;
 }
 /* Dropdown content */
-.docs-gm .kix-header-footer-bubble-menu.goog-menu, 
+.docs-gm .kix-header-footer-bubble-menu.goog-menu,
 .mdc-menu-surface /* Background */ {
   background-color: var(--darkestgray);
 }
-.docs-gm .docs-indentationdialoggm-menu.goog-menu .goog-menuitem-content, 
+.docs-gm .docs-indentationdialoggm-menu.goog-menu .goog-menuitem-content,
 .GmMenu .mdc-deprecated-list {
   color: white;
 }
@@ -317,28 +326,28 @@ span.docs-material-gm-checkbox-checked::before {
 
 /* LABELS */
 
-.analytics-low-data-treatment-description, 
-.analytics-sc-account-explanation, 
-.analytics-sc-document-explanation, 
-.analytics-sc-section-label, 
-.docs-customspacingdialog-paragraphspacing-label, 
-.docs-gm .kix-columnoptionsdialog-title, 
-.docs-gm .kix-translatedialog-label, 
-.docs-indentationdialoggm-label, 
-.docs-labeled-button-label, 
-.docs-material-gm-labeled-checkbox .docs-material-gm-labeled-checkbox-description, 
-.docs-material-gm-labeled-checkbox .docs-material-gm-labeled-checkbox-label, 
-.docs-number-input-label, 
-.docs-sidebar-tile-input-label, 
-.docs-sidebar-tile-label, 
-.kix-headerfooterdialog-input-label, 
+.analytics-low-data-treatment-description,
+.analytics-sc-account-explanation,
+.analytics-sc-document-explanation,
+.analytics-sc-section-label,
+.docs-customspacingdialog-paragraphspacing-label,
+.docs-gm .kix-columnoptionsdialog-title,
+.docs-gm .kix-translatedialog-label,
+.docs-indentationdialoggm-label,
+.docs-labeled-button-label,
+.docs-material-gm-labeled-checkbox .docs-material-gm-labeled-checkbox-description,
+.docs-material-gm-labeled-checkbox .docs-material-gm-labeled-checkbox-label,
+.docs-number-input-label,
+.docs-sidebar-tile-input-label,
+.docs-sidebar-tile-label,
+.kix-headerfooterdialog-input-label,
 .mdc-form-field {
   color: var(--lightergray);
   opacity: 100%;
 }
 /* Units */
-.docs-gm .kix-columnoptionsdialog-units, 
-.docs-number-input-unit, 
+.docs-gm .kix-columnoptionsdialog-units,
+.docs-number-input-unit,
 .kix-headerfooterdialog-units {
   color: var(--lightergray);
 }
@@ -347,50 +356,53 @@ span.docs-material-gm-checkbox-checked::before {
 
 /* Entry text */
 .docs-gm .goog-menuitem,
-.goog-menuitem-highlight .goog-menuitem-content, 
+.goog-menuitem-highlight .goog-menuitem-content,
 .goog-option-selected .goog-menuitem-content {
   color: var(--lightestgray);
-  transition: var(--button-off);
+  transition: var(--off);
 }
 
 /* Menus */
 .docs-gm .goog-menu {
   background-color: var(--darkestgray);
-  border: 1px solid var(--darkergray);
-  transition: var(--button-off);
+  border: 1px solid var(--darkgray);
+  transition: var(--off);
 }
 .docs-gm .goog-menuitem-highlight {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
 .docs-gm .goog-menuitem-accel, .docs-gm .goog-menuitem-disabled .goog-menuitem-accel {
   color: var(--lightergray) !important;
 }
-.docs-gm .goog-menuitem-active, 
+.docs-gm .goog-menuitem-active,
 .docs-gm .goog-menuitem-active:hover:active {
-  background-color: var(--blueripple);
-  transition: var(--button-on);
+  background-color: var(--blue-ripple);
+  transition: var(--on);
 }
 
 /* Legacy menu checkmark fix */
-div:not(.docs-material) .goog-option-selected::after {
+div:not(.docs-material) div:not(.docs-fontmenu-fonts) .goog-option-selected::after,
+.ia-menu:not(.ia-primary-menu) .goog-menuitem.goog-option-selected:not(.apps-menuitem)::after /* Just for the language picker under File */,
+.kix-embedded-entity-options-margins-menu>.goog-option-selected::after,
+.kix-embedded-entity-options-relative-base-menu>.goog-option-selected::after {
   content: "";
   position: absolute;
-  top: 0; left: 0;
+  top: 0; left: 8px;
   width: 100%; height: 100%;
   background-image: url(https://ssl.gstatic.com/ui/v1/menu/checkmark.png);
   background-repeat: no-repeat;
   background-position: left center;
   filter: invert(100%);
-} 
+}
 
 /* Separators */
 .apps-hoverable-menu-separator-container .apps-hoverable-menu-separator-bottom {
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }
-.docs-gm .goog-menuseparator, 
+.docs-gm:not(.docs-homescreen-material-bar-enabled) .goog-menuseparator,
 .goog-menuitem.docs-submenuitem /* Dividers in submenus are different */ {
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }
 
 /* Icons */
@@ -400,47 +412,47 @@ div:not(.docs-material) .goog-option-selected::after {
 
 /* RADIO BUTTONS */
 
-.docs-material-gm-labeled-checkbox-checkbox, 
-.jfk-radiobutton-radio, 
-.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton:not(.jfk-radiobutton-disabled) .jfk-radiobutton-radio, 
+.docs-material-gm-labeled-checkbox-checkbox,
+.jfk-radiobutton-radio,
+.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton:not(.jfk-radiobutton-disabled) .jfk-radiobutton-radio,
 .kix-pageorientationdialog-orientation-container .jfk-radiobutton:not(.jfk-radiobutton-disabled) .jfk-radiobutton-radio {
-  border-color: var(--darkgray);
-  transition: var(--button-off);
+  border-color: var(--mediumdarkgray);
+  transition: var(--off);
 }
 .jfk-radiobutton-disabled:hover .jfk-radiobutton-radio {
   background-color: var(--transparent);
 }
-.jfk-radiobutton:hover .jfk-radiobutton-radio, 
-.jfk-radiobutton:focus .jfk-radiobutton-radio, 
-.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton.jfk-radiobutton-hover .jfk-radiobutton-radio, 
+.jfk-radiobutton:hover .jfk-radiobutton-radio,
+.jfk-radiobutton:focus .jfk-radiobutton-radio,
+.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton.jfk-radiobutton-hover .jfk-radiobutton-radio,
 .kix-pageorientationdialog-orientation-container .jfk-radiobutton.jfk-radiobutton-hover .jfk-radiobutton-radio {
   border-color: var(--lightergray);
-  transition: var(--button-on);
+  transition: var(--on);
 }
-.jfk-radiobutton-checked .jfk-radiobutton-radio, 
-.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton-checked.jfk-radiobutton:not(.jfk-radiobutton-disabled) .jfk-radiobutton-radio, 
+.jfk-radiobutton-checked .jfk-radiobutton-radio,
+.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton-checked.jfk-radiobutton:not(.jfk-radiobutton-disabled) .jfk-radiobutton-radio,
 .kix-pageorientationdialog-orientation-container .jfk-radiobutton-checked.jfk-radiobutton:not(.jfk-radiobutton-disabled) .jfk-radiobutton-radio {
   border-color: var(--paleblue);
-  transition: var(--button-on);
+  transition: var(--on);
 }
-.jfk-radiobutton-checked:hover .jfk-radiobutton-radio, 
-.jfk-radiobutton-checked.jfk-radiobutton-hover .jfk-radiobutton-radio, 
-.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton.jfk-radiobutton-checked.jfk-radiobutton-focused.jfk-radiobutton-hover .jfk-radiobutton-radio, 
-.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton.jfk-radiobutton-checked.jfk-radiobutton-hover .jfk-radiobutton-radio, 
+.jfk-radiobutton-checked:hover .jfk-radiobutton-radio,
+.jfk-radiobutton-checked.jfk-radiobutton-hover .jfk-radiobutton-radio,
+.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton.jfk-radiobutton-checked.jfk-radiobutton-focused.jfk-radiobutton-hover .jfk-radiobutton-radio,
+.kix-pagenumberdialog-radio-button-group-controls .jfk-radiobutton.jfk-radiobutton-checked.jfk-radiobutton-hover .jfk-radiobutton-radio,
 .kix-pageorientationdialog-orientation-container .jfk-radiobutton-checked.jfk-radiobutton.jfk-radiobutton-hover .jfk-radiobutton-radio {
   border-color: var(--palerblue);
-  transition: var(--button-on);
+  transition: var(--on);
 }
 /* Radio button inner dot */
 .jfk-radiobutton-checked .jfk-radiobutton-radio::after {
   background-color: var(--paleblue) !important;
   border-color: var(--paleblue) !important;
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .jfk-radiobutton-checked.jfk-radiobutton-hover .jfk-radiobutton-radio::after {
   background-color: var(--palerblue) !important;
   border-color: var(--palerblue) !important;
-  transition: var(--button-on);
+  transition: var(--on);
 }
 
 /* SLIDERS */
@@ -449,7 +461,7 @@ div:not(.docs-material) .goog-option-selected::after {
   background-color: var(--paleblue);
 }
 .docs-material-slider-track-off {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
 }
 .docs-material-slider-thumb-grabber {
   background-color: var(--paleblue);
@@ -464,69 +476,69 @@ div:not(.docs-material) .goog-option-selected::after {
 
 /* Track */
 .apps-ui-material-slide-toggle-track {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
   opacity: 100%;
 }
 .analytics-sc-section .apps-ui-material-slide-toggle-container-checked .apps-ui-material-slide-toggle-track {
-  background-color: var(--blueripple);
+  background-color: var(--blue-ripple);
 }
 /* Thumb */
 .analytics-sc-section .apps-ui-material-slide-toggle-thumb {
-  background-color: var(--darkgray);
-  transition: var(--button-off);
+  background-color: var(--mediumdarkgray);
+  transition: var(--off);
 }
 .analytics-sc-section .apps-ui-material-slide-toggle-container-hover .apps-ui-material-slide-toggle-thumb {
   background-color: var(--lightergray);
-  transition: var(--button-on);
+  transition: var(--on);
 }
 .analytics-sc-section .apps-ui-material-slide-toggle-container-checked .apps-ui-material-slide-toggle-thumb {
   background-color: var(--paleblue);
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .analytics-sc-section .apps-ui-material-slide-toggle-container-checked.apps-ui-material-slide-toggle-container-hover .apps-ui-material-slide-toggle-thumb {
   background-color: var(--palerblue);
-  transition: var(--button-on);
+  transition: var(--on);
 }
 
 /* TAB BARS */
 
 .docs-sidebar-toggle-tabs {
   background-color: var(--darkestgray);
-  border-bottom: 1px solid var(--darkergray);
+  border-bottom: 1px solid var(--darkgray);
 }
 
 /* Inactive tab */
-.docs-sidebar-toggle-tabs .jfk-button.docs-sidebar-toggle-tab-inactive, 
+.docs-sidebar-toggle-tabs .jfk-button.docs-sidebar-toggle-tab-inactive,
 .docs-tabbar-tablabel {
   color: var(--lightgray);
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .docs-sidebar-toggle-tabs .jfk-button.docs-sidebar-toggle-tab-inactive:hover {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
   color: var(--lightestgray);
-  transition: var(--button-on);
+  transition: var(--on);
 }
-.docs-tabbar-mouseactive .docs-tabbar-tab-hover .docs-tabbar-tablabel, 
+.docs-tabbar-mouseactive .docs-tabbar-tab-hover .docs-tabbar-tablabel,
 .docs-tabbar-tab-hover .docs-tabbar-tablabel /* This kind of tab, found on the templates gallery, needs some retooling before it makes sense to change the tab background on hover */ {
   color: var(--lightestgray);
-  transition: var(--button-on);
+  transition: var(--on);
 }
 
 /* Active tab */
-.docs-sidebar-toggle-tabs .jfk-button.docs-sidebar-toggle-tab-active, 
+.docs-sidebar-toggle-tabs .jfk-button.docs-sidebar-toggle-tab-active,
 .docs-tabbar-tab-selected .docs-tabbar-tablabel {
   color: var(--palerblue);
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .docs-sidebar-toggle-tabs .jfk-button.docs-sidebar-toggle-tab-active:hover {
-  background-color: var(--blueripple);
-  transition: var(--button-on);
+  background-color: var(--blue-ripple);
+  transition: var(--on);
 }
-.docs-tabbar-mouseactive .docs-tabbar-tab-selected.docs-tabbar-tab-hover .docs-tabbar-tablabel, 
+.docs-tabbar-mouseactive .docs-tabbar-tab-selected.docs-tabbar-tab-hover .docs-tabbar-tablabel,
 .docs-tabbar-tab-selected.docs-tabbar-tab-hover .docs-tabbar-tablabel {
   color: var(--palerblue);
 }
-.docs-sidebar-toggle-tabs .jfk-button.docs-sidebar-toggle-tab-active > div::after, 
+.docs-sidebar-toggle-tabs .jfk-button.docs-sidebar-toggle-tab-active > div::after,
 .docs-tabbar-tab-selected::before /* Active tab underline */ {
   border-top-color: var(--palerblue);
 }
@@ -534,62 +546,62 @@ div:not(.docs-material) .goog-option-selected::after {
 /* TEXT FIELDS */
 
 /* Outlined */
-.docs-gm .docos-input-textarea, 
-.docs-gm .modal-dialog .jfk-textinput, 
-.docs-gm .docs-link-searchinput-search, 
-.docs-gm .docs-material-bubble .jfk-textinput, 
-.docs-gm.docs-material-gm-dialog .jfk-textinput, 
-.docs-gm .docs-smart-link-searchinput-search-container, 
-.docs-copydocdialog-destination-button, 
-.docs-material-hsv-color-picker-input, 
-.docs-gm .docos-streamdocoview-input-pane .docos-input-textarea, 
-.docs-gm.docos-xeditor .docos-input-typing > .docos-input-textarea, 
+.docs-gm .docos-input-textarea,
+.docs-gm .modal-dialog .jfk-textinput,
+.docs-gm .docs-link-searchinput-search,
+.docs-gm .docs-material-bubble .jfk-textinput,
+.docs-gm.docs-material-gm-dialog .jfk-textinput,
+.docs-gm .docs-smart-link-searchinput-search-container,
+.docs-copydocdialog-destination-button,
+.docs-material-hsv-color-picker-input,
+.docs-gm .docos-streamdocoview-input-pane .docos-input-textarea,
+.docs-gm.docos-xeditor .docos-input-typing > .docos-input-textarea,
 .kix-watermark-text-input-container input {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
   color: white;
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .docs-gm .docos-input-typing > .docos-input-textarea {
   color: white;
 }
-.docs-gm .docos-input-textarea:hover, 
-.docs-gm .docs-material-bubble .jfk-textinput:hover, 
-.docs-gm .modal-dialog .jfk-textinput:hover, 
-.docs-gm .docs-smart-link-searchinput-search-container:hover, 
-.docs-copydocdialog-destination-button.jfk-button-hover, 
+.docs-gm .docos-input-textarea:hover,
+.docs-gm .docs-material-bubble .jfk-textinput:hover,
+.docs-gm .modal-dialog .jfk-textinput:hover,
+.docs-gm .docs-smart-link-searchinput-search-container:hover,
+.docs-copydocdialog-destination-button.jfk-button-hover,
 .docs-material-hsv-color-picker-input:hover {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
-.docs-gm .docos-input-textarea:focus, 
-.docs-gm .docs-material-bubble .docs-link-smartinsertlinkbubble-text:focus, 
-.docs-gm .modal-dialog .jfk-textinput:focus, 
-.docs-material-hsv-color-picker-input:focus, 
-.docs-gm .docos-streamdocoview-input-pane .docos-input-textarea:focus, 
-.docs-gm .docos-input-textarea:focus, 
+.docs-gm .docos-input-textarea:focus,
+.docs-gm .docs-material-bubble .docs-link-smartinsertlinkbubble-text:focus,
+.docs-gm .modal-dialog .jfk-textinput:focus,
+.docs-material-hsv-color-picker-input:focus,
+.docs-gm .docos-streamdocoview-input-pane .docos-input-textarea:focus,
+.docs-gm .docos-input-textarea:focus,
 .kix-watermark-text-input-container input:focus {
   border-color: var(--paleblue);
   color: white;
 }
 
 /* Underlined */
-.docs-number-input-container input, 
+.docs-number-input-container input,
 .picker-urlview-inner-input {
   background-color: transparent;
-  border-color: var(--darkergray);
-  color: white;
-  transition: var(--button-off);
-}
-.docs-number-input-container input:hover, 
-.picker-urlview-inner-input:hover {
   border-color: var(--darkgray);
-  transition: var(--button-on);
+  color: white;
+  transition: var(--off);
 }
-.docs-number-input-container input:focus, 
+.docs-number-input-container input:hover,
+.picker-urlview-inner-input:hover {
+  border-color: var(--mediumdarkgray);
+  transition: var(--on);
+}
+.docs-number-input-container input:focus,
 .picker-urlview-inner-input:focus {
   border-color: var(--paleblue);
-  transition: var(--button-on);
+  transition: var(--on);
 }
 
 /* Number increment arrows */
@@ -598,30 +610,26 @@ div:not(.docs-material) .goog-option-selected::after {
 }
 
 /* DIALOGS */
-.analytics-dialog, 
-.analytics-od, 
-.analytics-npd, 
-.docs-gm .docs-offline-optinpromo.jfk-bubble, 
-.docs-gm .docs-sync-indicator-popup.jfk-bubble, 
-.docs-gm .docos-calltoactionview-container, 
-.docs-gm .modal-dialog, 
-.docs-gm .modal-dialog.google-url-picker, 
+.analytics-od,
+.analytics-npd,
+.docs-gm .docs-offline-optinpromo.jfk-bubble,
+.docs-gm .docs-sync-indicator-popup.jfk-bubble,
+.docs-gm .docos-calltoactionview-container,
+.docs-gm .modal-dialog,
+.docs-gm .modal-dialog.google-url-picker,
 .docs-material-gm-dialog {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray);
-} 
+  border-color: var(--darkgray);
+}
 /* Title */
-.analytics-nc-navigationbar, 
 .modal-dialog-title {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }
-.analytics-npd-title, 
-.analytics-tb-title-text, 
-.docs-gm .docs-dialog .modal-dialog-title-text, 
-.docs-gm .modal-dialog-title-text, 
-.docs-material-gm-dialog-title-text, 
-.picker-urlview-header, 
+.docs-gm .docs-dialog .modal-dialog-title-text,
+.docs-gm .modal-dialog-title-text,
+.docs-material-gm-dialog-title-text,
+.picker-urlview-header,
 .visual-treatment-pageless-promo .docos-calltoactionview-header {
   color: white;
 }
@@ -638,50 +646,47 @@ div:not(.docs-material) .goog-option-selected::after {
   color: var(--palerblue);
 }
 /* Close button */
-.analytics-tb-close, 
 .docs-gm .docs-dialog .modal-dialog-title-close {
-  transition: var(--button-off), opacity 0.25s ease;
+  transition: var(--off), opacity 0.25s ease;
 }
-.analytics-tb-close.jfk-button-hover, 
 .docs-gm .docs-dialog .modal-dialog-title-close:hover {
-  background-color: var(--darkergray);
-  transition: var(--button-on), opacity 0.1s ease;
+  background-color: var(--darkgray);
+  transition: var(--on), opacity 0.1s ease;
 }
-.docs-analytics-img::before, 
 .docs-gm .docs-dialog .modal-dialog-title-close::after {
   filter: invert(100%) !important;
 }
 /* Content container */
-.analytics-npd-paragraph, 
+.analytics-npd-paragraph,
 .docs-gm .modal-dialog-content {
   background-color: transparent;
   color: white;
 }
 /* Headers */
-.analytics-low-data-treatment-title, 
-.analytics-sc-account-itemlabel, 
-.analytics-sc-document-itemlabel, 
-.analytics-ssc-summary, 
-.analytics-trc, 
-.analytics-tuvc, 
-.docs-customspacingdialog-title, 
-.docs-gm .kix-translatedialog-desc, 
-.docs-indentationdialoggm-units, 
-.kix-headerfooterdialog-title, 
+.analytics-low-data-treatment-title,
+.analytics-sc-account-itemlabel,
+.analytics-sc-document-itemlabel,
+.analytics-ssc-summary,
+.analytics-trc,
+.analytics-tuvc,
+.docs-customspacingdialog-title,
+.docs-gm .kix-translatedialog-desc,
+.docs-indentationdialoggm-units,
+.kix-headerfooterdialog-title,
 .kix-pagenumberdialog-title {
   color: white;
-  opacity: 100%; 
+  opacity: 100%;
 }
 /* Simple links */
-.a11y-settings-dialog a, 
-.a11y-settings-dialog a:hover, 
-.a11y-settings-dialog a:visited, 
-.a11y-settings-dialog a:focus, 
-.a11y-settings-dialog a:active, 
-.analytics-sc-account-explanation a:link, 
-.analytics-sc-account-explanation a:visited, 
-.analytics-vhfc-label a:link, 
-.analytics-vhfc-label a:visited, 
+.a11y-settings-dialog a,
+.a11y-settings-dialog a:hover,
+.a11y-settings-dialog a:visited,
+.a11y-settings-dialog a:focus,
+.a11y-settings-dialog a:active,
+.analytics-sc-account-explanation a:link,
+.analytics-sc-account-explanation a:visited,
+.analytics-vhfc-label a:link,
+.analytics-vhfc-label a:visited,
 .modal-dialog a {
   color: var(--palerblue);
 }

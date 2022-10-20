@@ -1,0 +1,70 @@
+body {
+  color: var(--lightestgray);
+}
+
+/* JOIN OR START A MEETING */
+
+/* “There are no upcoming meetings…” */
+.VrLcze {
+  background-color: var(--darkgray);
+  color: var(--lightergray);
+}
+
+/* Dividing line */
+.Sbv7sf .VfPpkd-StrnGf-rymPhb-clz4Ic {
+  border-bottom-color: var(--darkgray);
+}
+
+/* “Start a new meeting,” &c. */
+.Sbv7sf .RLolmf .VfPpkd-StrnGf-rymPhb-f7MjDc,
+.Sbv7sf .RLolmf .VfPpkd-StrnGf-rymPhb-IhFlZd /* Icon fonts */ ,
+.Sbv7sf .RLolmf /* Labels */ {
+  color: var(--lightestgray);
+}
+
+/* MEETING CODE INPUT SCREEN */
+
+.LcaTt .v0mzof /* Back button */ {
+  color: var(--lightestgray);
+}
+
+.P2Jqye /* Instruction to “Enter the meeting code or …” */ {
+  color: var(--lightgray);
+}
+
+/* Box around code or link input field */
+.cfWmIb:not(.VfPpkd-fmcmS-yrriRe-OWXEXe-OWB6Me) .VfPpkd-NSFCdd-Brv4Fb,
+.cfWmIb:not(.VfPpkd-fmcmS-yrriRe-OWXEXe-OWB6Me) .VfPpkd-NSFCdd-Ra9xwd,
+.cfWmIb:not(.VfPpkd-fmcmS-yrriRe-OWXEXe-OWB6Me) .VfPpkd-NSFCdd-MpmGFe /* Normal */ {
+  border-color: var(--darkgray);
+  transition: var(--off);
+}
+.cfWmIb:not(.VfPpkd-fmcmS-yrriRe-OWXEXe-OWB6Me):not(.VfPpkd-fmcmS-yrriRe-OWXEXe-XpnDCe):hover .VfPpkd-NSFCdd-i5vt6e .VfPpkd-NSFCdd-Brv4Fb,
+.cfWmIb:not(.VfPpkd-fmcmS-yrriRe-OWXEXe-OWB6Me):not(.VfPpkd-fmcmS-yrriRe-OWXEXe-XpnDCe):hover .VfPpkd-NSFCdd-i5vt6e .VfPpkd-NSFCdd-Ra9xwd,
+.cfWmIb:not(.VfPpkd-fmcmS-yrriRe-OWXEXe-OWB6Me):not(.VfPpkd-fmcmS-yrriRe-OWXEXe-XpnDCe):hover .VfPpkd-NSFCdd-i5vt6e .VfPpkd-NSFCdd-MpmGFe /* Hover */ {
+  border-color: var(--gray);
+  transition: var(--on);
+}
+.cfWmIb.VfPpkd-fmcmS-yrriRe-OWXEXe-XpnDCe:not(.VfPpkd-fmcmS-yrriRe-OWXEXe-OWB6Me) .VfPpkd-NSFCdd-Brv4Fb,
+.cfWmIb.VfPpkd-fmcmS-yrriRe-OWXEXe-XpnDCe:not(.VfPpkd-fmcmS-yrriRe-OWXEXe-OWB6Me) .VfPpkd-NSFCdd-Ra9xwd,
+.cfWmIb.VfPpkd-fmcmS-yrriRe-OWXEXe-XpnDCe:not(.VfPpkd-fmcmS-yrriRe-OWXEXe-OWB6Me) .VfPpkd-NSFCdd-MpmGFe /* Active */ {
+  border-color: var(--paleblue);
+}
+
+/* Code or link input field */
+.cfWmIb:not(.VfPpkd-fmcmS-yrriRe-OWXEXe-OWB6Me) .VfPpkd-fmcmS-wGMbrd {
+  caret-color: var(--paleblue);
+  color: var(--lightestgray);
+}
+
+/* “Continue” button */
+.nCP5yc:disabled {
+  background-color: var(--darkgray);
+  color: var(--darkestgray);
+  transition: var(--off);
+}
+.nCP5yc:not(:disabled) {
+  background-color: var(--paleblue);
+  color: var(--darkestgray);
+  transition: var(--off);
+}

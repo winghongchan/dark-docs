@@ -14,18 +14,22 @@
 .docs-revisions-sidebar-title-text {
   color: white;
 }
+/* Accessibility menu icons */
+#docs-editor-container ~ .goog-menu.apps-menu-hide-mnemonics:not(.ia-menu) .docs-icon-img {
+  filter: var(--white-icons);
+}
 
-/* “Restore this version button” */ 
-.docs-revisions-chromecover-titlebar-button-action, 
+/* “Restore this version button” */
+.docs-revisions-chromecover-titlebar-button-action,
 .docs-revisions-chromecover-titlebar-second-button-action {
   background-color: var(--paleblue);
   color: black;
-  transition: var(--button-off);
+  transition: var(--off);
 }
-.docs-revisions-chromecover-titlebar-button-action.goog-flat-button-hover:not(.goog-flat-button-active), 
+.docs-revisions-chromecover-titlebar-button-action.goog-flat-button-hover:not(.goog-flat-button-active),
 .docs-revisions-chromecover-titlebar-second-button-action .goog-flat-button-hover {
   background-color: var(--palerblue);
-  transition: var(--button-on);
+  transition: var(--on);
 }
 
 /* Author list */
@@ -38,11 +42,11 @@
 
 /* Sidebar */
 .docs-gm .docs-revisions-sidebar {
-  border-left: 1px solid var(--darkergray);
+  border-left: 1px solid var(--darkgray);
 }
 .docs-gm .docs-revisions-sidebar-header {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray) !important;
+  border-color: var(--darkgray) !important;
   height: 102.5px;
 }
 .docs-revisions-sidebar-revisions-list-container {
@@ -51,7 +55,7 @@
 
 /* History entries */
 .docs-revisions-sidebar-name-filter-switch-container {
-  border-color: var(--darkergray) !important;
+  border-color: var(--darkgray) !important;
   height: 39px;
 }
 .docs-gm .docs-revisions-sidebar-name-filter-switch-container label {
@@ -61,7 +65,7 @@
   background-color: var(--lightergray);
 }
 .docs-gm .docs-revisions-switch .apps-ui-material-slide-toggle-track {
-  background-color: var(--darkgray);
+  background-color: var(--mediumdarkgray);
 }
 .docs-gm .docs-revisions-switch.apps-ui-material-slide-toggle-container-checked .apps-ui-material-slide-toggle-thumb {
   background-color: var(--palerblue);
@@ -76,7 +80,7 @@
 }
 .docs-gm .docs-revisions-sidebar-date-group {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray) !important;
+  border-color: var(--darkgray) !important;
   color: white;
 }
 .docs-revisions-icon-img::before {
@@ -84,23 +88,23 @@
 }
 .docs-revisions-tile {
   background-color: var(--darkestgray);
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .docs-revisions-tile-hover:not(.docs-revisions-tile-selected) {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
 .docs-revisions-tile-selected {
-  background-color: var(--blueripple);
-  transition: var(--button-on)
+  background-color: var(--blue-ripple);
+  transition: var(--on)
 }
-.docs-revisions-tile-text-box:disabled, 
-.docs-gm .docs-revisions-tile-descriptor, 
+.docs-revisions-tile-text-box:disabled,
+.docs-gm .docs-revisions-tile-descriptor,
 .docs-gm .docs-revisions-tile-text-box ~ .docs-revisions-tile-descriptor {
   color: white;
 }
-.docs-gm .docs-revisions-tile-selected .docs-revisions-tile-text-box, 
-.docs-gm .docs-revisions-tile-selected .docs-revisions-tile-descriptor, 
+.docs-gm .docs-revisions-tile-selected .docs-revisions-tile-text-box,
+.docs-gm .docs-revisions-tile-selected .docs-revisions-tile-descriptor,
 .docs-gm .docs-revisions-tile-selected .docs-revisions-tile-text-box ~ .docs-revisions-tile-descriptor {
   color: var(--palerblue);
 }
@@ -108,7 +112,7 @@
   color: var(--lightergray);
 }
 .docs-revisions-tile-content-wrapper {
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }
 /* Named versions only */
 .docs-gm .docs-revisions-sidebar-revisions-empty-title {
@@ -123,5 +127,5 @@
 /* Show changes checkbox */
 .docs-revisions-sidebar-actions {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }

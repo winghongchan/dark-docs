@@ -1,24 +1,23 @@
 :root {
   --palerblue: #8AB4F8; /* For blue text, icons, nearby items that need to be paleblue, and paleblue buttons on hover. */
   --paleblue: #669DF7; /* For blue buttons and other wider areas of paleblue. */
-  --blueripple: #394457; /* Background color to indicate that something is active (toggled on or being clicked, for example). */
+  --blue-ripple: #394457; /* Background color to indicate that something is active (toggled on or being clicked, for example). */
   --paleblue-icons: hue-rotate(3.6deg) saturate(32.2%) brightness(170%); /* To desaturate blue icons to make them more legible against a dark background. If it is an inline SVG, changing its fill color to palerblue is preferable. */
   --palergreen: #81C995; /* Mostly for suggesting mode. */
-  --greenripple: #37493F; 
-  --palegreen-icons: hue-rotate(-2deg) saturate(38%) brightness(182%); 
+  --green-ripple: #37493F;
+  --palegreen-icons: hue-rotate(-2deg) saturate(38%) brightness(182%);
   --paleyellow: #FDD663; /* Mostly for comments. */
-  --yellowripple: #454134; 
+  --yellow-ripple: #454134;
   --lightestgray: #F8F9FA; /* For slightly less prominent text than white text. */
-  --lightergray: #DADCE0; 
+  --lightergray: #DADCE0;
   --lightgray: #BDC1C6;
   --gray: #5F6368;
-  --darkgray: #4A4E51;
-  --darkergray: #3C4043; /* Multiple purposes, like outlining dialog boxes to make them separate from what's behind them. */
+  --mediumdarkgray: #4A4E51;
+  --darkgray: #3C4043; /* Multiple purposes, like outlining dialog boxes to make them separate from what's behind them. */
+  --darkergray: #303235; /* Presumably for popups */
   --darkestgray: #202124; /* For backgrounds. */
   --white-icons: brightness(240%) saturate(10%);
   --darkfilter: invert(100%) hue-rotate(180deg) contrast(80%);
-  --text-hover-on: text-shadow 0.05s ease;
-  --text-hover-off: text-shadow 0.25s ease;
-  --button-on: background-color 0.05s ease, border-color 0.06s ease, color 0.05s ease, filter 0.05s ease;
-  --button-off: background-color 0.25s ease, border-color 0.1s ease, color 0.25s ease, filter 0.05s ease;
+  --on: background-color 0.05s ease, border-color 0.06s ease, color 0.05s ease, filter 0.05s ease;
+  --off: background-color 0.25s ease, border-color 0.1s ease, color 0.25s ease, filter 0.25s ease;
 }

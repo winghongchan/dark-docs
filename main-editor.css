@@ -1,20 +1,20 @@
 /* Butter bar (Messages in the top middle for moved file, fullscreen mode, etc) */
 
 .docs-gm .jfk-butterBar-info {
-  background-color: var(--blueripple);
+  background-color: var(--blue-ripple);
   color: white;
 }
-.docs-gm .jfk-butterBar-info .docs-butterbar-butter-action, 
-.docs-gm .jfk-butterBar-info .docs-butterbar-dismiss, 
-.docs-gm .jfk-butterBar-info .docs-butterbar-dismiss:hover, 
-.docs-gm .jfk-butterBar-info .docs-butterbar-link, 
-.docs-gm .jfk-butterBar-info a.docs-butterbar-link:link, 
-.docs-gm .jfk-butterBar-info a.docs-butterbar-link:visited, 
-.docs-gm .jfk-butterBar-info .docs-butterbar-link-no-pad, 
-.docs-gm .jfk-butterBar-info a.docs-butterbar-link-no-pad:link, 
+.docs-gm .jfk-butterBar-info .docs-butterbar-butter-action,
+.docs-gm .jfk-butterBar-info .docs-butterbar-dismiss,
+.docs-gm .jfk-butterBar-info .docs-butterbar-dismiss:hover,
+.docs-gm .jfk-butterBar-info .docs-butterbar-link,
+.docs-gm .jfk-butterBar-info a.docs-butterbar-link:link,
+.docs-gm .jfk-butterBar-info a.docs-butterbar-link:visited,
+.docs-gm .jfk-butterBar-info .docs-butterbar-link-no-pad,
+.docs-gm .jfk-butterBar-info a.docs-butterbar-link-no-pad:link,
 .docs-gm .jfk-butterBar-info a.docs-butterbar-link-no-pad:visited {
   color: var(--palerblue);
-  transition: var(--button-off);
+  transition: var(--off);
 }
 
 /*Top bar*/
@@ -26,15 +26,15 @@
 /* Document title */
 .docs-title-input {
   background-color: transparent;
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .docs-title-input:hover {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
   border: 1px solid transparent;
-  transition: var(--button-on);
+  transition: var(--on);
 }
 .docs-title-input:focus {
-  background-color: var(--blueripple);
+  background-color: var(--blue-ripple);
   color: white;
 }
 .docs-title-input-label {
@@ -42,31 +42,38 @@
 }
 
 /* Document location (shown while editing file name) */
-.docs-parent-collections-container-prefix, 
-.docs-parent-collections-container-text, 
+.docs-parent-collections-container-prefix,
+.docs-parent-collections-container-text,
 .docs-parent-collections-container-folder-name {
   color: var(--lightergray);
 }
 .docs-parent-collections-container {
-  transition: var(--button-off);
+  transition: var(--off);
 }
-.docs-parent-collections-container:hover, 
+.docs-parent-collections-container:hover,
 .docs-parent-collections-container:focus {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
 
-/* DOCUMENT BADGES (star, move, cloud sync) */
-.docs-gm .docs-titlebar-badge {
-  transition: var(--button-off);
+/* DOCUMENT BADGES (docx, star, move, cloud sync) */
+
+/* .DOCX badge */
+.office-editing-file-extension {
+  background-color: var(--paleblue);
+  color: var(--darkestgray);
 }
-.docs-gm .docs-titlebar-badge:hover, 
+
+.docs-gm .docs-titlebar-badge {
+  transition: var(--off);
+}
+.docs-gm .docs-titlebar-badge:hover,
 .docs-gm .goog-control-focused>.docs-titlebar-badge /* The cloud sync button needed this fix */ {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
 .docs-gm .docs-titlebar-badge.docs-titlebar-badge-selected {
-  background-color: var(--blueripple);
+  background-color: var(--blue-ripple);
   color: var(--paleblue);
 }
 
@@ -81,7 +88,7 @@
 /* Popups from badges */
 .document-details-bubble-container {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }
 #document-details-bubble-header {
   color: var(--lightestgray) !important;
@@ -97,23 +104,23 @@
 /* Titles */
 .docs-gm .docs-menubar .goog-control {
   color: var(--lightestgray);
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .docs-gm .docs-menubar .goog-control-disabled {
-  color: var(--darkgray);
+  color: var(--mediumdarkgray);
   background-color: transparent;
 }
 .docs-gm .docs-menubar .goog-control-hover {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
 .docs-gm .docs-menubar .goog-control-active,
 .docs-gm .docs-menubar .goog-control:hover:active {
-  background-color: var(--blueripple);
-  transition: var(--button-on);
+  background-color: var(--blue-ripple);
+  transition: var(--on);
 }
 .docs-gm .docs-menubar .goog-control.docs-menu-button-open-below {
-  background-color: var(--blueripple);
+  background-color: var(--blue-ripple);
   color: var(--lightestgray);
 }
 
@@ -131,7 +138,7 @@
 /* COMMAND SEARCH (search bar in the Help menu) */
 .ia-primary-menu .docs-omnibox-input /* Command search bar */ {
   background-color: transparent;
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
   color: var(--lightestgray);
 }
 .ia-primary-menu .docs-omnibox-input::placeholder {
@@ -140,23 +147,23 @@
 }
 .ia-primary-menu .docs-omnibox-input:focus {
   background-color: transparent;
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }
 .ia-primary-menu .docs-omnibox-input:focus[aria-expanded="true"] {
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
   border-bottom-color: transparent;
 }
 .ia-primary-menu .docs-omnibox-autocomplete .ac-renderer /* Command search results box */ {
   background-color: var(--darkestgray);
-  border: 1px solid var(--darkergray);
+  border: 1px solid var(--darkgray);
 }
 .ia-primary-menu .docs-omnibox-autocomplete .ac-row /* Result entry */ {
   color: var(--lightestgray);
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .ia-primary-menu .docs-omnibox-autocomplete .ac-row.active {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
 .ia-primary-menu .docs-omnibox-autocomplete .ac-row .docs-icon-img:not(.docs-icon-editors-ia-article-document-blue):not(.docs-icon-editors-ia-apps-script):not(.docs-icon-editors-ia-spreadsheet-green):not(.docs-icon-editors-ia-edit-pen-blue700):not(.docs-icon-editors-ia-comment-edit-green700) {
   filter: var(--white-icons);
@@ -211,7 +218,7 @@
 
 /* TABLE */
 
-.goog-dimension-picker-unhighlighted, 
+.goog-dimension-picker-unhighlighted,
 .goog-dimension-picker-highlighted {
   filter: invert(100%) hue-rotate(180deg) contrast(80%) brightness(2);
 }
@@ -228,26 +235,26 @@
 .ita-cp-whole-pad .modal-dialog-title-close:hover {
   transition: opacity 0.1s ease;
 }
-.ita-cp-charpicker .goog-char-picker-grid, 
+.ita-cp-charpicker .goog-char-picker-grid,
 .goog-char-picker-grid .goog-flat-button {
-  border-color: var(--darkergray);
-  transition: var(--button-off);
+  border-color: var(--darkgray);
+  transition: var(--off);
 }
-.goog-char-picker-grid .goog-flat-button-hover, 
+.goog-char-picker-grid .goog-flat-button-hover,
 .goog-char-picker-grid .goog-flat-button-focus {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
 .goog-char-picker-grid .goog-flat-button-active {
-  background-color: var(--blueripple);
-  transition: var(--button-on);
+  background-color: var(--blue-ripple);
+  transition: var(--on);
 }
 .goog-char-picker-hovercard {
   background-color: var(--darkestgray);
-  border: 1px solid var(--darkergray) !important;
+  border: 1px solid var(--darkgray) !important;
   border-radius: 8px;
 }
-.goog-char-picker-char-zoom, 
+.goog-char-picker-char-zoom,
 .goog-char-picker-name {
   color: white;
 }
@@ -255,9 +262,9 @@
   color: var(--lightergray);
 }
 .ita-cp-search {
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }
-.ita-cp-lens, 
+.ita-cp-lens,
 .ita-cp-backspace {
   filter: invert(100%) contrast(20%);
 }
@@ -268,31 +275,31 @@
 }
 .ita-cp-hwt {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }
 .ita-cp-hwt-hint {
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }
 
 /* PAGE NUMBERS & LIST OPTIONS */
 
 .goog-palette-cell .docs-preview-palette-item {
-  border-color: var(--darkergray);
-  transition: var(--button-off);
+  border-color: var(--darkgray);
+  transition: var(--off);
 }
 .goog-palette-cell-hover .docs-preview-palette-item {
   border-color: var(--gray);
-  transition: var(--button-on);
+  transition: var(--on);
 }
 
 .docs-bulletpreset {
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
   color: white;
-  transition: var(--button-on);
+  transition: var(--on);
 }
 .goog-palette-set-hover .docs-bulletpreset {
   border-color: var(--gray);
-  transition: var(--button-on);
+  transition: var(--on);
 }
 .docs-icon-img-container.docs-icon-img.docs-icon-checkbox-hollow {
   filter: invert(100%) !important;
@@ -303,22 +310,22 @@
 
 /* WORD COUNT */
 .docs-gm .kix-documentmetricsdialog-row {
-  border-bottom-color: var(--darkergray);
+  border-bottom-color: var(--darkgray);
 }
 
 /* PERSONAL DICTIONARY */
 
 .docs-userdictionarydialog-list-container {
   background-color: transparent;
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }
 .docs-gm .docs-userdictionarydialog-row-container {
-  border-color: var(--darkergray);
-  transition: var(--button-off);
+  border-color: var(--darkgray);
+  transition: var(--off);
 }
 .docs-gm .docs-userdictionarydialog-row-container-hover {
-  background-color: var(--darkergray);
-  transition: var(--button-on) !important;
+  background-color: var(--darkgray);
+  transition: var(--on) !important;
 }
 .docs-gm .docs-userdictionarydialog-row-content {
   color: white;
@@ -328,17 +335,17 @@
 
 /* Preferences tabs */
 .docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab {
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab-hover {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
-.docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tablabel, 
+.docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tablabel,
 .docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab .docs-tabbar-tablabel:hover {
   color: var(--lightergray);
 }
-.docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab-selected .docs-tabbar-tablabel, 
+.docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab-selected .docs-tabbar-tablabel,
 .docs-preferencesdialog-tabbed-menu-tabbar .docs-tabbar-tab-selected .docs-tabbar-tablabel:hover {
   color: var(--palerblue);
 }
@@ -364,139 +371,409 @@
 }
 
 /* ACTIVITY DASHBOARD */
-.analytics-nc-tabbar, 
-.analytics-ntb-container .goog-tab-bar, 
-.analytics-vhc-tabbarholder, 
-.analytics-vhc-tabbarholder .docs-tabbar {
-  background-color: transparent;
-  border-color: var(--darkergray);
-}
-/* Activity dashboard sidebar */
-.analytics-ntb-container .goog-tab {
-  background-color: transparent !important;
-  color: white;
-  transition: var(--button-off);
-}
-.analytics-ntb-container .goog-tab.goog-tab-hover {
-  background-color: var(--darkergray) !important;
-  color: white;
-  transition: var(--button-on) !important;
-}
-.analytics-ntb-container .goog-tab.goog-tab-selected, 
-.analytics-ntb-container .goog-tab.goog-tab-selected.goog-tab-hover {
-  background-color: var(--blueripple) !important;
-  color: var(--palerblue);
-  transition: var(--button-on) !important;
-}
-.docs-gm .docs-material .docs-analytics-sidebar-tab-selected .docs-icon-img {
-  filter: none !important;
-  filter: var(--paleblue-icons) !important;
-}
-/* Tabs on Viewers page */
-.analytics-vhc-tabbarholder .docs-tabbar-tab .docs-tabbar-tablabel {
-  color: var(--lightergray);
-  transition: var(--button-off);
-}
-.analytics-vhc-tabbarholder .docs-tabbar-mouseactive .docs-tabbar-tab-hover .docs-tabbar-tablabel {
-  color: white;
-  transition: var(--button-on) !important;
-}
-.analytics-vhc-tabbarholder .docs-tabbar-tab-selected .docs-tabbar-tablabel {
-  color: var(--palerblue) !important;
-}
-.analytics-vhc-tabbarholder .docs-tabbar-tab-selected::before {
-  border-color: var(--palerblue) !important; 
-}
-/* Table on Viewers page */
-.analytics-vhc-listsortbutton-name {
-  color: var(--lightergray);
-}
-.analytics-vhc-rowcard-name {
-  color: white;
-}
-.analytics-vhc-rowcard-time {
-  color: var(--lightergray);
-}
-.analytics-vhc-rowcard-row::after, 
-.analytics-vhfc-card {
-  border-color: var(--darkergray);
-}
-.analytics-vhfc-settings-container {
-  color: white;
-}
-/* Viewer Trend line graph */
-.analytics-trend-sparkline-left-bg, 
-.analytics-trend-sparkline-right-bg, 
-.analytics-trend-bg-selected.analytics-trend-sparkline-left-bg, 
-.analytics-trend-bg-selected.analytics-trend-sparkline-right-bg {
-  background-color: transparent;
-  border-color: transparent;
-}
-.analytics-trend-sparkline-chart svg>rect {
-  stroke: transparent;
-}
-.analytics-trend-sparkline-chart svg>g>g>g>path {
-  stroke: var(--paleblue);
-}
-.analytics-trend-sparkline-chart svg>g>g>g>g>path {
-  stroke: var(--darkergray);
-}
-.analytics-trend-sparkline-chart svg>g>g:nth-of-type(2n)>circle {
-  fill: var(--paleblue);
-  stroke: var(--paleblue);
-  stroke-width: 3px;
-}
-/* Viewer Trend bar graph */
-.analytics-tcc-chart svg>rect {
-  fill: transparent;
-}
-.analytics-tcc-chart svg>g>g>g:first-of-type>rect {
-  fill: var(--darkgray);
-}
-.analytics-tcc-chart svg>g>g>g:nth-of-type(2n)>rect {
-  fill: var(--paleblue);
-}
-.analytics-tcc-chart svg>g>g:nth-of-type(3n)>g>text {
-  fill: var(--lightergray);
-  font-family: Roboto, Arial, sans-serif;
-}
-/* Comment Trend */
-.analytics-low-data-treatment-sharebutton .docs-icon-img {
-  filter: invert(100%) !important;
-}
-/* Sharing History */
-.activity-event, 
-.activity-event-section-title, 
-.analytics-ssc {
-  background-color: transparent;
-  border-color: var(--darkergray);
-}
-.activity-event-scope-element-access, 
-.activity-event-section-title, 
-.activity-event-info, 
-.activity-list-no-more-events-text {
-  color: var(--lightergray);
-}
-.activity-event-details-header, 
-.activity-event-file-approval, 
-.activity-event-people-names, 
-.activity-event-scope-element-text {
-  color: white;
-}
-/* Privacy Settings */
-.analytics-sic {
-  background-color: transparent;
-  border-bottom: 1px solid var(--darkergray);
-  box-shadow: none;
-}
-.analytics-sic .docs-icon-img {
-  filter: none !important;
-}
-.analytics-sic-text {
-  color: white;
-}
-.analytics-sc-document-setting {
-  border-color: var(--darkergray);
+
+.analytics-dialog {
+  background-color: var(--darkestgray);
+  border: 1px solid var(--darkergray);
+
+  /* Top bar */
+  & .analytics-nc-navigationbar {
+    background: none;
+    border-bottom-color: var(--darkgray);
+
+    /* “Activity dashboard” */
+    & .analytics-tb-title-text {
+      color: var(--lightestgray);
+    }
+    /* Close button */
+    & .analytics-tb-close {
+      opacity: 100%;
+      transition: var(--off);
+      &.jfk-button-hover, 
+      &.jfk-button-focused {
+        background-color: var(--darkergray);
+        transition: var(--on);
+      }
+      &.jfk-button-active {
+        background-color: var(--blue-ripple);
+      }
+
+      /* Close button icon */
+      & .docs-analytics-close-black-24px {
+        filter: invert(100%) brightness(90%);
+      }
+    }
+  }
+
+  /* Sidebar */ 
+  & .analytics-nc-tabbar {
+    background: none;
+    border-color: var(--darkgray);
+
+    /* The smaller section of the sidebar with the actual “tabs” */
+    &>.analytics-ntb-container>.goog-tab-bar {
+      background: none;
+
+      /* Tabs, unselected */
+      &>.goog-tab {
+        background: none !important /* Important because Docs devs made it so */;
+        transition: var(--off);
+
+        &.goog-tab-hover {
+          background-color: var(--darkergray) !important /* Also important for the same reason… WHY?! */;
+          transition: var(--on);
+        }
+        &.goog-tab-active {
+          background-color: var(--blue-ripple) !important;
+        }
+
+        /* Tab icon */
+        & .docs-analytics-icon .docs-icon-img {
+          filter: var(--white-icons);
+        }
+        /* Tab label */
+        & .analytics-ntb-tab-text {
+          color: var(--lightestgray);
+        }
+      }
+
+      /* Tabs, selected */
+      &>.goog-tab.goog-tab-selected {
+        background-color: var(--blue-ripple) !important;
+
+        /* Tab icon */
+        & .docs-analytics-icon .docs-icon-img {
+          filter: var(--paleblue-icons);
+        }
+        /* Tab label */
+        & .analytics-ntb-tab-text {
+          color: var(--palerblue);
+        }
+      }
+    }
+  }
+
+  /* Viewers tab */
+  & .analytics-vhc {
+
+    /* Tab bar */
+    & .analytics-vhc-tabbarholder {
+      border-bottom-color: var(--darkgray);
+      & .docs-tabbar {
+        background: none;
+
+        /* Tab, unselected */
+        & .docs-tabbar-tab>.docs-tabbar-tablabel {
+          color: var(--lightgray);
+          transition: var(--off);
+        }
+
+        & .docs-tabbar-tab-hover>.docs-tabbar-tablabel {
+          color: var(--lightestgray);
+          transition: var(--on);
+        }
+
+        /* Tab, selected */
+        & .docs-tabbar-tab-selected {
+          &::before {
+            border-top-color: var(--palerblue);
+          }
+          &>.docs-tabbar-tablabel {
+            color: var(--palerblue);
+          }
+        }
+      }
+    }
+
+    /* Table headings */
+    & .analytics-vhc-listsortbutton-name {
+      color: var(--lightgray);
+    }
+    /* Sorting direction arrow */
+    & .analytics-vhc-listsortbutton-arrow .docs-analytics-img {
+      filter: invert(100%) brightness(80%);
+    }
+
+    /* Email recipient selector on Viewers page */
+    & .analytics-ndsd {
+      &.docs-material-menu-button-flat-default {
+        background-color: var(--darkestgray);
+        transition: var(--off);
+      }
+      &.docs-material-menu-button-flat-default-hover,
+      &.docs-material-menu-button-flat-default-focused {
+        background-color: var(--darkergray);
+        border-color: transparent;
+        transition: var(--on);
+      }
+      & .analytics-ndsd-icon-container {
+        opacity: 100%;
+        &>.docs-analytics-email-icon {
+          filter: invert(100%) brightness(80%);
+        }
+      }
+      & svg.docs-material-menu-button-flat-default-dropdown-icon {
+        fill: var(--lightgray);
+      }
+    }
+
+    /* Table contents */
+    & .analytics-vhc-viewcardlist {
+      scrollbar-color: var(--gray) transparent;
+
+      & .analytics-vhc-rowcard-name /* Names */, 
+      & .analytics-vhc-rowcard-time /* Last viewed */ {
+        color: var(--lightestgray);
+      }
+
+      /* ⓘ button */
+      & .analytics-vhc-rowcard-tooltip-icon {
+        filter: invert(100%) brightness(90%);
+        opacity: 100%;
+      }
+
+      /* Borders */
+      & .analytics-vhc-rowcard-row::after {
+        border-bottom-color: var(--darkgray);
+      }
+    }
+
+    /* Bottom bar */
+    & .analytics-vhfc-card {
+      border-top-color: var(--darkgray);
+    }
+    & .analytics-vhfc-nudge-container {
+      background-color: transparent;
+
+      &>.analytics-vhfc-nudge-label {
+        color: var(--lightergray);
+      }
+
+      & .analytics-vhfc-nudge-cancel-button.jfk-button, 
+      & .analytics-vhfc-nudge-continue-button.jfk-button {
+        color: var(--paleblue);
+        transition: var(--off);
+
+        &.jfk-button-hover, 
+        &.jfk-button-focused {
+          background-color: var(--darkergray);
+          transition: var(--on);
+        }
+
+        &.jfk-button-active {
+          background-color: var(--blue-ripple);
+          transition: none;
+        }
+      }
+    }
+  }
+
+  /* Email composer */
+  & .analytics-ndc {
+
+    /* “Send email” */
+    & .analytics-ndc-send-email-title {
+      color: var(--lightergray);
+    }
+
+    /* “Recipients” */
+    & .analytics-ndc-chip-title {
+      color: var(--lightgray);
+    }
+
+    /* People chips */
+    & .analytics-ndch {
+      background: none;
+      border-color: var(--mediumdarkgray);
+
+      & .analytics-ndch-text {
+        color: var(--lightergray);
+      }
+    }
+
+    /* Subject line */
+    & .analytics-ndc-subject-container .docs-material-labeled-text-field {
+      background: none;
+      border-color: var(--darkgray);
+      transition: var(--off);
+      &.docs-material-labeled-text-field-hover {
+        border-color: var(--gray);
+        transition: var(--on);
+      }
+      &.docs-material-labeled-text-field-focused {
+        border-color: var(--paleblue);
+        border-width: 1px;
+        box-shadow: inset 0 0 0 1px var(--paleblue); 
+        margin: 0 /* This, box-shadow, and border-width are to fix the shifting text box */;
+        transition: var(--on);
+      }
+
+      & .docs-material-labeled-text-field-label {
+        background-color: var(--darkestgray);
+        color: var(--lightergray);
+      }
+
+      & .docs-material-labeled-text-field-input {
+        color: var(--lightestgray);
+        caret-color: var(--paleblue);
+      }
+    }
+
+    /* Message body */
+    & .analytics-ndc-message-container {
+      background: none;
+
+      & .docs-material-text-area {
+        border-color: var(--darkgray);
+        color: var(--lightestgray);
+        transition: var(--off);
+        &:hover {
+          border-color: var(--gray);
+          transition: var(--on);
+        }
+        &:focus {
+          border-color: var(--paleblue);
+          border-width: 1px;
+          box-shadow: inset 0 0 0 1px var(--paleblue);
+          caret-color: var(--paleblue);
+          margin: 0;
+          transition: none;
+        }
+      }
+    }
+
+    /* Attachments */
+    & .analytics-ndc-document-info-container {
+      background: none;
+
+      /* Chips */
+      & .analytics-ndc-chip-button {
+        border-color: var(--darkgray);
+
+        & .analytics-ndc-document-title {
+          color: var(--lightergray);
+        }
+      }
+    }
+  }
+
+  /* Viewer trend tab */
+  .analytics-vot-container {
+
+    & .analytics-votc {
+      margin-bottom: 0;
+      padding-bottom: 24px;
+      scrollbar-color: var(--gray) transparent;
+    }
+
+    /* Info button */
+    & .analytics-tuvc-tooltip-icon {
+      filter: invert(100%);
+      opacity: 90%;
+    }
+
+    /* Line graph */
+    .analytics-trend-sparkline-left-bg,
+    .analytics-trend-sparkline-right-bg,
+    .analytics-trend-bg-selected.analytics-trend-sparkline-left-bg,
+    .analytics-trend-bg-selected.analytics-trend-sparkline-right-bg {
+      background-color: transparent;
+      border-color: transparent;
+    }
+    .analytics-trend-sparkline-chart svg>rect {
+      stroke: transparent;
+    }
+    .analytics-trend-sparkline-chart svg>g>g>g>path {
+      stroke: var(--paleblue);
+    }
+    .analytics-trend-sparkline-chart svg>g>g>g>g>path {
+      stroke: var(--darkgray);
+    }
+    .analytics-trend-sparkline-chart svg>g>g:nth-of-type(2n)>circle {
+      fill: var(--paleblue);
+      stroke: var(--paleblue);
+      stroke-width: 3px;
+    }
+
+    /* Bar graph */
+    & .analytics-tcc-chart {
+      & svg>rect {
+        fill: transparent;
+      }
+      & svg>g>g>g:first-of-type>rect {
+        fill: var(--mediumdarkgray);
+      }
+      & svg>g>g>g:nth-of-type(2n)>rect {
+        fill: var(--paleblue);
+      }
+      & svg>g>g:nth-of-type(3n)>g>text {
+        fill: var(--lightergray);
+        font-family: Roboto, Arial, sans-serif;
+      }
+    }
+
+    /* Bottom info bar */
+    & .analytics-vhfc-card {
+      border-top-color: var(--darkgray);
+    }
+  }
+
+  /* Comments tab */
+  .analytics-low-data-treatment-sharebutton .docs-icon-img {
+    filter: invert(100%);
+  }
+
+  /* Sharing history tab */
+  .analytics-shc {
+
+    /* Top bar */
+    .analytics-ssc {
+      border-bottom-color: var(--darkgray);
+
+      & .docs-icon-people-24 {
+        filter: var(--white-icons);
+      }
+    }
+
+    /* Empty state, loving this inline SVG */
+    & .activity-list-no-more-events-icon svg {
+      &>rect {
+        fill: var(--darkergray);
+      }
+      &>path:not(:nth-of-type(4)) {
+        stroke: var(--gray);
+      }
+      &>path:nth-of-type(4) {
+        fill: var(--darkergray);
+      }
+    }
+
+    .activity-event,
+    .activity-event-section-title,
+    .analytics-ssc {
+      background-color: transparent;
+      border-color: var(--darkgray);
+    }
+    .activity-event-scope-element-access,
+    .activity-event-section-title,
+    .activity-event-info,
+    .activity-list-no-more-events-text {
+      color: var(--lightergray);
+    }
+    .activity-event-details-header,
+    .activity-event-file-approval,
+    .activity-event-people-names,
+    .activity-event-scope-element-text {
+      color: white;
+    }
+  }
+
+  /* Privacy settings tab */
+  .analytics-sc {
+    .analytics-sc-document-setting {
+      border-top-color: var(--darkgray);
+    }
+  }
 }
 
 /* Addons dropdown empty state */
@@ -525,46 +802,46 @@
   transition: color 0.25s ease;
 }
 #docs-new-changes {
-  background-color: var(--darkergray) !important;
+  background-color: var(--darkgray) !important;
   color: var(--lightergray) !important;
   transition: color 0.25s ease;
 }
 #docs-new-changes.inactive.goog-flat-button-hover {
-  background-color: var(--darkergray) !important;
+  background-color: var(--darkgray) !important;
   color: white !important;
   transition: color 0.1s ease;
 }
 
 /* “Request access” button */
 .titlebar-request-access-button.docs-material-button {
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
   color: var(--paleblue);
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .titlebar-request-access-button.docs-material-button.docs-material-button-hover {
-  background-color: var(--darkergray);
-  border-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  border-color: var(--darkgray);
+  transition: var(--on);
 }
 
 /* View mode: viewing */
-#titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary, 
+#titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary,
 #titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-focused {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray);
-  transition: var(--button-off);
+  border-color: var(--darkgray);
+  transition: var(--off);
 }
-#titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-hover, 
+#titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-hover,
 #titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-hover.docs-material-menu-button-flat-primary-focused {
-  background-color: var(--darkergray);
-  border-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  border-color: var(--darkgray);
+  transition: var(--on);
 }
 #titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-open,
 #titlebar-mode-indicator-container > .docs-material-menu-button-flat-primary-hover.docs-material-menu-button-flat-primary-open {
-  background-color: var(--blueripple);
-  border-color: var(--blueripple);
-  transition: var(--button-on);
+  background-color: var(--blue-ripple);
+  border-color: var(--blue-ripple);
+  transition: var(--on);
 }
 .kix-titlebar-mode-switcher.docs-material-menu-button-flat-primary .docs-icon-img.docs-icon-acl-view-only {
   filter: none;
@@ -574,23 +851,24 @@
   fill: var(--palerblue);
 }
 
-/* COLLABORATOR ICONS (profile pics of online collaborators in top right) */
+/* CHAT BUTTON (next to collaborators) */
+
 #docs-chat.jfk-button {
   background-color: var(--darkestgray);
-  border: 2px solid var(--darkergray);
+  border: 2px solid var(--darkgray);
   box-shadow: none;
-  transition: var(--button-off);
+  transition: var(--off);
 }
-#docs-chat.jfk-button-hover, 
+#docs-chat.jfk-button-hover,
 #docs-chat.jfk-button-focused {
-  background-color: var(--darkgray);
-  border-color: var(--darkgray);
+  background-color: var(--mediumdarkgray);
+  border-color: var(--mediumdarkgray);
   border-width: 2px;
-  transition: var(--button-on);
+  transition: var(--on);
 }
 #docs-chat.jfk-button-active {
-  background-color: var(--blueripple);
-  border-color: var(--blueripple);
+  background-color: var(--blue-ripple);
+  border-color: var(--blue-ripple);
 }
 .docs-gm .docs-material .docs-chat.jfk-button.jfk-button-focused {
   margin: 0 0 0 -8px /* Prevents the button from shifting */ ;
@@ -599,22 +877,47 @@
   filter: var(--white-icons) brightness(200%);
 }
 
+/* Chat unread messages dialog */
+.docs-chat-message-tooltip-container {
+  background-color: var(--darkestgray);
+  border-color: var(--darkgray);
+  color: var(--lightestgray);
+}
+
+/* Chat unreads dot */
+#docs-chat .docs-chat-badge {
+  border: none;
+}
+
+/* ANALYTICS BUTTON */
+#docs-analytics-appbarbutton .docs-icon-trending-up-24 {
+  filter: var(--white-icons);
+}
+#docs-analytics-appbarbutton.jfk-button-active .docs-icon-trending-up-24 {
+  filter: var(--paleblue-icons);
+}
+
+/* COMMENTS BUTTON */
+#docs-docos-commentsbutton.jfk-button-active .docs-icon-comment-topbar-24 {
+  filter: var(--paleblue-icons);
+}
+
 /* Activity dashboard and comment buttons */
-.docs-material .docs-appbar-circle-button.jfk-button, 
+.docs-material .docs-appbar-circle-button.jfk-button,
 .docs-material #docs-docos-commentsbutton {
-  transition: var(--button-off);
+  transition: var(--off);
 }
-.docs-material .docs-appbar-circle-button.jfk-button.jfk-button-hover, 
+.docs-material .docs-appbar-circle-button.jfk-button.jfk-button-hover,
 .docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-hover {
-  background-color: var(--darkergray);
-  transition: var(--button-on) !important;
+  background-color: var(--darkgray);
+  transition: var(--on) !important;
 }
-.docs-material .docs-appbar-circle-button.jfk-button.jfk-button-hover.jfk-button-active, 
-.docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-hover.jfk-button-active, 
-.docs-gm .docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-active, 
+.docs-material .docs-appbar-circle-button.jfk-button.jfk-button-hover.jfk-button-active,
+.docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-hover.jfk-button-active,
+.docs-gm .docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-active,
 .docs-gm .docs-material #docs-docos-commentsbutton.jfk-button.jfk-button-checked {
-  background-color: var(--blueripple);
-  transition: var(--button-on) !important;
+  background-color: var(--blue-ripple);
+  transition: var(--on) !important;
 }
 #docs-docos-commentsbutton .docs-icon-comment-topbar-24 {
   filter: var(--white-icons);
@@ -628,69 +931,69 @@
 /* COMMENT BOX */
 .docs-docos-activitybox {
   background-color: var(--darkestgray);
-  border: 1px solid var(--darkergray);
+  border: 1px solid var(--darkgray);
 }
 .docs-gm .docos-streampane-header {
   background-color: transparent;
-  border-bottom-color: var(--darkergray);
+  border-bottom-color: var(--darkgray);
 }
 .docos-xeditor .docos-streampane-content .docos-comment-text.docos-comment-header-title {
   color: white;
 }
-.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default, 
+.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default,
 .docs-gm .docos-streampane-container .streampane-dragger {
   background-color: transparent;
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
   color: white;
-  transition: var(--button-off);
+  transition: var(--off);
 }
-.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-hover, 
-.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-focused, 
+.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-hover,
+.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-focused,
 .docs-gm .docos-streampane-container .streampane-dragger:hover {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
-.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-dropdown-icon, 
-.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-hover .docs-material-menu-button-flat-default-dropdown-icon, 
-.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-focused .docs-material-menu-button-flat-default-dropdown-icon, 
+.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-dropdown-icon,
+.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-hover .docs-material-menu-button-flat-default-dropdown-icon,
+.docs-gm .docos-filter-settings .docs-material-menu-button-flat-default-focused .docs-material-menu-button-flat-default-dropdown-icon,
 .docs-gm.docos-xeditor .docos-new-comment-icon-path {
   fill: white;
 }
-.docs-gm.docos-xeditor .docos-notification-settings .goog-flat-menu-button, 
+.docs-gm.docos-xeditor .docos-notification-settings .goog-flat-menu-button,
 .docs-gm.docos-xeditor .docos-new-comment-button {
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .docs-gm.docos-xeditor .docos-notification-settings .goog-flat-menu-button.goog-flat-menu-button-hover,
-.docs-gm.docos-xeditor .docos-notification-settings .goog-flat-menu-button.goog-flat-menu-button-focused, 
-.docs-gm.docos-xeditor .docos-new-comment-button.jfk-button-hover, 
+.docs-gm.docos-xeditor .docos-notification-settings .goog-flat-menu-button.goog-flat-menu-button-focused,
+.docs-gm.docos-xeditor .docos-new-comment-button.jfk-button-hover,
 .docs-gm.docos-xeditor .docos-new-comment-button.jfk-button-focused {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
 .docs-gm.docos-xeditor .docos-notification-settings .goog-flat-menu-button.goog-flat-menu-button-open {
-  background-color: var(--blueripple);
-  transition: var(--button-on);
+  background-color: var(--blue-ripple);
+  transition: var(--on);
 }
 .docs-gm.docos-xeditor .docos-streamdocoview {
-  border: 1px solid var(--darkergray);
-  transition: var(--button-off);
+  border: 1px solid var(--darkgray);
+  transition: var(--off);
 }
-.docs-gm.docos-xeditor .docos-streamdocoview:hover, 
+.docs-gm.docos-xeditor .docos-streamdocoview:hover,
 .docos.docs-gm.docos-xeditor .docos-streamdocoview.docos-docoview-active {
-  border: 1px solid var(--paleyellow);
-  transition: var(--button-on);
+  border: 1px solid var(--gray);
+  transition: var(--on);
 }
 .docos-xeditor .docos-streamdocoview .docos-streamdocoview-header-container {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
   border: 1px solid transparent;
-  transition: var(--button-off);
+  transition: var(--off);
 }
-.docos-xeditor .docos-streamdocoview:hover .docos-streamdocoview-header-container, 
+.docos-xeditor .docos-streamdocoview:hover .docos-streamdocoview-header-container,
 .docos-xeditor .docos-streamdocoview.docos-docoview-active .docos-streamdocoview-header-container {
-  background-color: var(--yellowripple);
-  border: 1px solid var(--paleyellow);
+  background-color: var(--yellow-ripple);
+  border: 1px solid var(--gray);
   border-bottom-color: transparent;
-  transition: var(--button-on);
+  transition: var(--on);
 }
 .docos-xeditor .streamdocoview-header {
   color: white;
@@ -704,49 +1007,49 @@
 /* “Present to a Meeting” button */
 #docs-meet-in-editors-entrypointbutton {
   background-color: transparent;
-  border-color: var(--darkergray);
-  transition: var(--button-off);
+  border-color: var(--darkgray);
+  transition: var(--off);
 }
-#docs-meet-in-editors-entrypointbutton.goog-flat-menu-button-hover, 
+#docs-meet-in-editors-entrypointbutton.goog-flat-menu-button-hover,
 #docs-meet-in-editors-entrypointbutton.goog-flat-menu-button-focused {
-  background-color: var(--darkergray);
-  border-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  border-color: var(--darkgray);
+  transition: var(--on);
 }
 #docs-meet-in-editors-entrypointbutton.goog-flat-menu-button-open {
-  background-color: var(--blueripple);
-  border-color: var(--blueripple);
-  transition: var(--button-on);
+  background-color: var(--blue-ripple);
+  border-color: var(--blue-ripple);
+  transition: var(--on);
 }
-.goog-flat-menu-button-caption, 
-.goog-flat-menu-button-dropdown, 
+.goog-flat-menu-button-caption,
+.goog-flat-menu-button-dropdown,
 #docs-meet-in-editors-entrypointbutton.goog-flat-menu-button .docs-icon-present-to-all-24 {
   filter: brightness(500%) saturate(0%);
 }
 
 /* Google Meet button */
-#docs-meet-in-editors-entrypointbutton>.goog-flat-menu-button-caption.goog-inline-block, 
+#docs-meet-in-editors-entrypointbutton>.goog-flat-menu-button-caption.goog-inline-block,
 .docs-icon-videocam-colored-24 {
   filter: none !important;
 }
 
 /* Viewer */
-.docs-material .docs-presence-plus-collab-widget-color-block, 
+.docs-material .docs-presence-plus-collab-widget-color-block,
 .docs-material.docs-presence-plus-widget-overflow-menu .docs-presence-plus-collab-widget-color-block,
 .docs-material .docs-presence-plus-widget-overflow-button {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
   border-color: transparent;
 }
 
 /* “Turn In” button */
 .docs-material #docs-script-button-bar .jfk-button {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
   color: white;
 }
 
 /* Share button */
-#docs-titlebar-share-client-button .scb-privately-shared-icon-white, 
-#docs-titlebar-share-client-button .scb-domain-unlisted-icon-white, 
+#docs-titlebar-share-client-button .scb-privately-shared-icon-white,
+#docs-titlebar-share-client-button .scb-domain-unlisted-icon-white,
 #docs-titlebar-share-client-button .scb-private-icon-white,
 #docs-titlebar-share-client-button .scb-unlisted-icon-white {
   filter: invert(100%) !important;
@@ -755,69 +1058,66 @@
 /* TOOLBAR */
 
 /* Toolbar wrapper */
-.docs-material #docs-toolbar-wrapper, 
-.docs-material #docs-equationtoolbar, 
-.docs-material .docs-printpreview-toolbar, 
+.docs-material #docs-toolbar-wrapper,
+.docs-material #docs-equationtoolbar,
+.docs-material .docs-printpreview-toolbar,
 .kix-watermark-format-toolbar.goog-toolbar {
   background-color: var(--darkestgray);
 }
-.docs-gm #docs-toolbar-wrapper, 
-.docs-material #docs-equationtoolbar, 
-.docs-printpreview-toolbar, 
+.docs-gm #docs-toolbar-wrapper,
+.docs-material #docs-equationtoolbar,
+.docs-printpreview-toolbar,
 .kix-watermark-format-toolbar.goog-toolbar {
-  border-color: var(--darkergray);
-}
-
-/* Toolbar separators */
-#docs-toolbar-wrapper .goog-toolbar-separator, 
-.docs-toolbar-more-bubble .docs-toolbar-more-toolbar .goog-toolbar-separator {
   border-color: var(--darkgray);
 }
 
+/* Toolbar separators */
+#docs-toolbar-wrapper .goog-toolbar-separator,
+.docs-toolbar-more-bubble .docs-toolbar-more-toolbar .goog-toolbar-separator {
+  border-color: var(--mediumdarkgray);
+}
+
 /* Normal state */
-#docs-toolbar .docs-collapsable-toolbar-control /* Button background */, 
-.docs-toolbar-more-bubble .docs-collapsable-toolbar-control,
+.goog-toolbar .goog-toolbar-button,
+.goog-toolbar .goog-toolbar-menu-button,
+.goog-toolbar .goog-toolbar-combo-button,
+.docs-toolbar-more-bubble .docs-collapsable-toolbar-control /* Button background */,
 #viewModeButton /* The button that hides the menubar */ {
   background-color: transparent;
-  transition: var(--button-off);
+  transition: var(--off);
 }
-#docs-toolbar .docs-collapsable-toolbar-control:not(.goog-toolbar-button-checked):not(.goog-toolbar-menu-button-open) .docs-icon-img, 
-.docs-toolbar-more-bubble .docs-collapsable-toolbar-control:not(.goog-toolbar-button-checked):not(.goog-toolbar-menu-button-open) .docs-icon-img /* Button icon */, 
-#viewModeButton .docs-icon-img, 
-#docs-toolbar #lineColorMenuButton .docs-icon-arrow-dropdown, 
-.docs-toolbar-more-bubble #lineColorMenuButton .docs-icon-arrow-dropdown /* The border color button has a triangle dropdown icon */ {
+
+.goog-toolbar .goog-inline-block:not(.docs-mode-switcher) .docs-icon-img /* Button’s icons */,
+#viewModeButton .docs-icon-img /* The menu hiding switch is not part of .goog-toolbar */ {
   filter: var(--white-icons);
 }
 
-#docs-toolbar .goog-toolbar-button /* Text buttons like “Image options” */, 
-.docs-toolbar-more-bubble .goog-toolbar-button, 
-#docs-toolbar .goog-toolbar-menu-button div /* Dropdowns like Font */,
-.docs-toolbar-more-bubble .goog-toolbar-menu-button div, 
-#docs-toolbar .goog-toolbar-combo-button-input /* Zoom and font size number */, 
-.docs-toolbar-more-bubble .goog-toolbar-combo-button-input{
+.goog-toolbar .docs-toolbar-text-button, /* Text buttons like “Image options” */
+.goog-toolbar .goog-toolbar-menu-button:not(.goog-toolbar-menu-button-open):not(#docs-toolbar-mode-switcher) div /* Dropdowns like Font */,
+.goog-toolbar .goog-toolbar-combo-button-input /* Zoom and font size number */ {
   color: var(--lightestgray);
-  transition: var(--button-off);
+  transition: var(--off);
 }
-#docs-toolbar .docs-font-size-inc-dec-action-button, 
+#docs-toolbar .docs-font-size-inc-dec-action-button,
 #docs-toolbar .docs-font-size-inc-dec-combobox /* Font size selector borders */ {
-  border-color: var(--darkergray) !important /* Important because Google Docs devs used it so now I think I have to */;
+  border-color: var(--darkgray) !important /* Important because Google Docs devs used it so now I think I have to */;
 }
-#docs-toolbar .goog-color-menu-button-indicator /* The color swatch below font color and highlight */, 
-.docs-toolbar-more-bubble .goog-color-menu-button-indicator {
+.goog-toolbar .goog-color-menu-button-indicator /* The color swatch below font color and highlight */ {
   filter: var(--darkfilter);
 }
-#docs-toolbar #textColorButton .docs-icon-img, 
-.docs-toolbar-more-bubble #textColorButton .docs-icon-img, 
-#docs-toolbar #bgColorButton .docs-icon-img, 
-.docs-toolbar-more-bubble #bgColorButton .docs-icon-img, 
-#docs-toolbar #lineColorMenuButton .docs-icon-line-color, 
-.docs-toolbar-more-bubble #lineColorMenuButton .docs-icon-line-color /* Font color, highlight, and border color icons need more brightening because it wasn’t brightened unlike the other icons and --darkfilter alone is not enough */ {
-  filter: brightness(0%);
+.goog-toolbar #textColorButton .docs-icon-text-color,
+.goog-toolbar #bgColorButton .docs-icon-text-bgcolor,
+.goog-toolbar #cellColorMenuButton .docs-icon-fill-color,
+.goog-toolbar #borderColorMenuButton .docs-icon-line-color,
+.goog-toolbar #lineColorMenuButton .docs-icon-line-color /* These need special treatment to appear white since filtering the color swatches also messed with the icons */ {
+  filter: invert(100%) hue-rotate(180deg) brightness(0%);
 }
+
+/* edit/suggest/view switch rules below the active state, input tools, and a few more rules */
 
 #docs-toolbar-wrapper .docs-omnibox-input /* Command search bar */ {
   background-color: transparent;
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
   border-radius: 4px;
   color: var(--lightestgray);
   transition: 0.5s border-radius ease;
@@ -828,28 +1128,24 @@
 }
 
 /* Focus or hover state */
-#docs-toolbar-wrapper .goog-toolbar-button-hover, 
-.docs-material.docs-toolbar-more-bubble .goog-toolbar-button-hover, 
-#docs-toolbar .goog-toolbar-combo-button-hover, 
-.docs-material.docs-toolbar-more-bubble .goog-toolbar-combo-button-hover /* Zoom and font size */, 
-#docs-toolbar .goog-toolbar-menu-button-hover, 
-.docs-material.docs-toolbar-more-bubble .goog-toolbar-menu-button-hover /* Font color, highlight, insert image, &c. */, 
-#docs-toolbar .docs-toolbar-button-split-sympathy-hover, 
-.docs-material.docs-toolbar-more-bubble .docs-toolbar-button-split-sympathy-hover /* List buttons, split because there’s the toggle then the presets dropdown, sympathy because both buttons react when one is hovered on. */{
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+.docs-material .goog-toolbar .goog-toolbar-button-hover,
+.docs-material .goog-toolbar .goog-toolbar-combo-button-hover /* Zoom and font size */,
+.docs-material .goog-toolbar .goog-toolbar-menu-button-hover /* Font color, highlight, insert image, &c. */,
+.docs-material .goog-toolbar .docs-toolbar-button-split-sympathy-hover /* List buttons, split because there’s the toggle then the presets dropdown, sympathy because both buttons react when one is hovered on. */,
+#viewModeButton.goog-toolbar-button-hover {
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
 
 #docs-toolbar #zoomSelect:not(.goog-toolbar-combo-button-open) input {
   border-color: transparent !important;
 }
-#docs-toolbar .goog-toolbar-button-hover.docs-toolbar-button-split-left:not(.goog-toolbar-button-checked), 
-#docs-toolbar .goog-toolbar-menu-button-hover.docs-toolbar-button-split-right:not(.goog-toolbar-menu-button-open) {
-  background-color: var(--darkgray) /* This line makes the hovered section of list buttons slightly brighter to indicate in advance that the two are related but are separate buttons */;
+.goog-toolbar .goog-toolbar-button-hover.docs-toolbar-button-split-left:not(.goog-toolbar-button-checked),
+.goog-toolbar .goog-toolbar-menu-button-hover.docs-toolbar-button-split-right:not(.goog-toolbar-menu-button-open) {
+  background-color: var(--mediumdarkgray) /* This rule makes the hovered section of list buttons slightly brighter to indicate in advance that the two are related but are separate buttons */;
 }
-
-#docs-toolbar .docs-toolbar-button-split-right {
-  border-color: transparent !important /* Important because it’s important in Google Docs */;
+.docs-gm .docs-material .goog-toolbar .docs-toolbar-button-split-right {
+  border-color: transparent !important /* Important because it’s important in Google Docs | This rule hides the line between the list toggle and its dropdown triangle. */;
 }
 
 #docs-toolbar-wrapper .docs-omnibox-input:focus[aria-expanded="true"] {
@@ -859,68 +1155,69 @@
 }
 #docs-toolbar-wrapper .docs-omnibox-autocomplete .ac-renderer /* Command search results box */ {
   background-color: var(--darkestgray);
-  border: 1px solid var(--darkergray);
+  border: 1px solid var(--darkgray);
 }
 #docs-toolbar-wrapper .docs-omnibox-autocomplete .ac-row /* Result entry */ {
   color: var(--lightestgray);
-  transition: var(--button-off);
+  transition: var(--off);
 }
 #docs-toolbar-wrapper .docs-omnibox-autocomplete .ac-row.active {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
 #docs-toolbar-wrapper .docs-omnibox-autocomplete .ac-row .docs-icon-img:not(.docs-icon-editors-ia-article-document-blue):not(.docs-icon-editors-ia-apps-script):not(.docs-icon-editors-ia-spreadsheet-green):not(.docs-icon-editors-ia-edit-pen-blue700):not(.docs-icon-editors-ia-comment-edit-green700) {
   filter: var(--white-icons);
 }
 
 /* Pressed state (the mouse is held down, but the option (like bold) is not enabled yet or the dropdown is not opened) */
-#docs-toolbar-wrapper .goog-toolbar-button-active /* Button background while mouse button is down */ {
-  background-color: var(--blueripple);
+.docs-material .goog-toolbar .goog-toolbar-button-active /* Button background while mouse button is down */ {
+  background-color: var(--blue-ripple);
 }
-#docs-toolbar-wrapper .goog-toolbar-button-active .docs-icon-img {
-  filter: var(--white-icons) brightness(200%) /* Google Docs normally turns the icon and background blue when the button is held down. This line changes the behavior, so only the background turns blue. The icon turns blue when an option is enabled or a dropdown is opened. */ ;
+.docs-material .goog-toolbar .goog-toolbar-button-active .docs-icon-img {
+  filter: var(--paleblue-icons);
+}
+.goog-toolbar .docs-toolbar-text-button.goog-toolbar-button-active {
+  color: var(--lightestgray);
 }
 
 #docs-toolbar .docs-font-size-inc-dec-action-button.goog-toolbar-button-active /* Font size selector borders */ {
-  border-color: var(--blueripple) !important /* Important because Google Docs devs used it so now I think I have to */;
+  border-color: var(--blue-ripple) !important /* Important because Google Docs devs used it so now I think I have to */;
 }
 
 /* Activated state */
-#docs-toolbar .goog-toolbar-button-checked /* Button background when option like Bold is enabled */, 
-.docs-material.docs-toolbar-more-bubble .goog-toolbar-button-checked, 
-#docs-toolbar .goog-toolbar-menu-button-open, 
-.docs-material.docs-toolbar-more-bubble .goog-toolbar-menu-button-open /* Button background when dropdown like Font Color is open */ {
-  background-color: var(--blueripple);
+.docs-material .goog-toolbar .goog-toolbar-button-checked /* Button background when option like Bold is enabled */,
+.docs-material .goog-toolbar .goog-toolbar-menu-button-open /* Button background when dropdown like Font Color is open */,
+.docs-material .goog-toolbar .goog-toolbar-combo-button-open /* Zoom and font size */ {
+  background-color: var(--blue-ripple);
 }
-#docs-toolbar .goog-toolbar-button-checked:not(#textColorButton):not(#bgColorButton):not(#lineColorMenuButton) .docs-icon-img, 
-.docs-material.docs-toolbar-more-bubble .goog-toolbar-button-checked:not(#textColorButton):not(#bgColorButton):not(#lineColorMenuButton) .docs-icon-img, 
-#docs-toolbar .goog-toolbar-menu-button-open:not(#textColorButton):not(#bgColorButton):not(#lineColorMenuButton) .docs-icon-img, 
-.docs-material.docs-toolbar-more-bubble .goog-toolbar-menu-button-open:not(#textColorButton):not(#bgColorButton):not(#lineColorMenuButton) .docs-icon-img, 
-#docs-toolbar #lineColorMenuButton.goog-toolbar-menu-button-open .docs-icon-arrow-dropdown,
-.docs-material.docs-toolbar-more-bubble #lineColorMenuButton.goog-toolbar-menu-button-open .docs-icon-arrow-dropdown /* The border color button has a dropdown arrow beside it */ {
-  filter: var(--paleblue-icons);
+.goog-toolbar .goog-inline-block.goog-toolbar-button-checked .docs-icon-img,
+.goog-toolbar .goog-inline-block.goog-toolbar-menu-button-open .docs-icon-img,
+.goog-toolbar .goog-toolbar-combo-button-open .docs-icon-arrow-dropdown /* The border color button has a dropdown arrow beside it */ {
+  filter: var(--paleblue-icons) /* Important because I have more important things to do */ ;
 }
-#docs-toolbar .goog-toolbar-menu-button-open .goog-toolbar-menu-button-caption, 
-.docs-material.docs-toolbar-more-bubble .goog-toolbar-menu-button-open .goog-toolbar-menu-button-caption {
+.goog-toolbar .goog-toolbar-menu-button-open:not(#docs-toolbar-mode-switcher) .goog-toolbar-menu-button-caption {
   color: var(--palerblue);
   transition: none;
 }
 
 #docs-toolbar .goog-toolbar-combo-button input:focus /* Zoom and font size inputs that are shown when clicked on */ {
-  background-color: transparent;
+  background-color: var(--darkestgray);
   border-color: var(--paleblue) !important /* Important because in Google Docs it’s important */;
 }
 #docs-toolbar .goog-toolbar-combo-button-input::selection {
-  background-color: var(--blueripple);
+  background-color: var(--blue-ripple);
 }
 
-#docs-toolbar #textColorButton.goog-toolbar-menu-button-open .docs-icon-img, 
-.docs-material.docs-toolbar-more-bubble #textColorButton.goog-toolbar-menu-button-open .docs-icon-img, 
-#docs-toolbar #bgColorButton.goog-toolbar-menu-button-open .docs-icon-img, 
-.docs-material.docs-toolbar-more-bubble #bgColorButton.goog-toolbar-menu-button-open .docs-icon-img, 
-#docs-toolbar #lineColorMenuButton.goog-toolbar-menu-button-open .docs-icon-img:not(.docs-icon-arrow-dropdown), 
-.docs-material.docs-toolbar-more-bubble #lineColorMenuButton.goog-toolbar-menu-button-open .docs-icon-img:not(.docs-icon-arrow-dropdown) /* Font color, highlight, and border color button icons */ {
-  filter: var(--paleblue-icons) invert(100%) hue-rotate(180deg) brightness(70%) saturate(200%) /* This needs some color correcting */;
+.goog-toolbar #textColorButton.goog-toolbar-menu-button-open .docs-icon-text-color,
+.goog-toolbar #bgColorButton.goog-toolbar-menu-button-open .docs-icon-text-bgcolor,
+.goog-toolbar #cellColorMenuButton.goog-toolbar-menu-button-open .docs-icon-fill-color,
+.goog-toolbar #borderColorMenuButton.goog-toolbar-menu-button-open .docs-icon-line-color,
+.goog-toolbar #lineColorMenuButton.goog-toolbar-menu-button-open .docs-icon-line-color {
+  filter: var(--paleblue-icons) invert(100%) hue-rotate(190deg) brightness(70%) saturate(500%) /* This needs some color correcting */;
+}
+
+.docs-gm .docs-material .goog-toolbar .docs-toolbar-button-split-right.goog-toolbar-menu-button-open {
+  border-color: transparent !important /* Important because it’s important in Google Docs | This rule hides the line between the list toggle and its dropdown triangle. */;
 }
 
 /* Input tools */
@@ -931,12 +1228,12 @@
 /* Extra toolbar items box */
 .docs-material.docs-toolbar-more-toolbar {
   background-color: var(--darkestgray);
-  border: 1px solid var(--darkergray);
+  border: 1px solid var(--darkgray);
 }
 
 /* Line styles */
 .goog-menu div[aria-label="Line dash: Solid"] .goog-menuitem-content div,
-.goog-menu div[aria-label="Line dash: Dot"] .goog-menuitem-content div, 
+.goog-menu div[aria-label="Line dash: Dot"] .goog-menuitem-content div,
 .goog-menu div[aria-label="Line dash: Dash"] .goog-menuitem-content div {
   border-color: white !important;
 }
@@ -945,41 +1242,41 @@
 
 /* Editing mode */
 #docs-toolbar-mode-switcher.edit-mode {
-  background-color: var(--blueripple);
+  background-color: var(--blue-ripple);
   color: var(--palerblue);
-  transition: var(--button-off);
+  transition: var(--off);
 }
-#docs-toolbar-mode-switcher.edit-mode:not(.goog-toolbar-menu-button-open) .docs-icon /* Pencil icon */, 
+#docs-toolbar-mode-switcher.edit-mode:not(.goog-toolbar-menu-button-open) .docs-icon-editors-ia-edit-pen-blue700 /* Pencil icon */,
 #docs-toolbar-mode-switcher.edit-mode:not(.goog-toolbar-menu-button-open) .goog-toolbar-menu-button-dropdown {
   filter: var(--paleblue-icons) !important;
-  transition: var(--button-off);
+  transition: var(--off);
 }
 
 /* Suggesting mode */
 #docs-toolbar-mode-switcher.suggest-mode {
-  background-color: var(--greenripple);
+  background-color: var(--green-ripple);
   color: var(--palergreen);
-  transition: var(--button-off);
+  transition: var(--off);
 }
-#docs-toolbar-mode-switcher.suggest-mode:not(.goog-toolbar-menu-button-open) .docs-icon /* Speech bubble icon */, 
+#docs-toolbar-mode-switcher.suggest-mode:not(.goog-toolbar-menu-button-open) .docs-icon-editors-ia-comment-edit-green700 /* Speech bubble icon */,
 #docs-toolbar-mode-switcher.suggest-mode:not(.goog-toolbar-menu-button-open) .goog-toolbar-menu-button-dropdown {
   filter: var(--palegreen-icons) !important;
-  transition: var(--button-off);
+  transition: var(--off);
 }
 
 /* Menu open */
 #docs-toolbar-mode-switcher.goog-toolbar-menu-button-open /* This switcher is normally colored to match the selected mode. When clicked, it becomes gray. This is how Google Docs does it, if I get more time later I will make the switcher’s coloring consistent with the other toolbar items. */ {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
   color: var(--lightestgray);
-  transition: var(--button-on);
+  transition: var(--on);
 }
 #docs-toolbar-mode-switcher.goog-toolbar-menu-button-open .docs-icon /* Pencil or speech bubble icon */ {
   filter: var(--white-icons);
-  transition: var(--button-on);
+  transition: var(--on);
 }
 #docs-toolbar-mode-switcher.goog-toolbar-menu-button-open .goog-toolbar-menu-button-dropdown /* The dropdown triangle turns black, not gray like the other icon, when the mode switching menu is open */ {
   filter: invert(100%) brightness(125%);
-  transition: var(--button-on);
+  transition: var(--on);
 }
 
 /* Mode switcher menu contents */
@@ -997,8 +1294,8 @@
 }
 
 /* STYLES MENU (normal text, title, headings) */
-.goog-menu:not(.ia-menu) .goog-menuitem-checkbox+.goog-menuitem-label {
-  filter: var(--darkfilter); /* Yes this is VERY overarching but I had no way to hook into this menu. */
+.goog-menu:not(.ia-menu) .goog-menuitem-checkbox+span.goog-menuitem-label:not([aria-label="50% 1"], [aria-label="75% 2"], [aria-label="90% 3"], [aria-label="100% 4"], [aria-label="125% 5"], [aria-label="150% 6"], [aria-label="200% 7"]) /* Yes this is VERY overarching but I had no way to hook into this menu. The giant list of :not is to remove the menu items in View -> Zoom (visible while in Viewing mode only)*/ {
+  filter: var(--darkfilter); 
 }
 
 /* FONT MENU */
@@ -1020,22 +1317,22 @@
 /* Navigation Sidebar */
 
 /* Open & close buttons */
-.docs-icon-arrow-back-dark, 
+.docs-icon-arrow-back-dark,
 .docs-icon-list-24 {
-  filter: brightness(3); 
+  filter: brightness(3);
 }
 
 /* Sidebar background (in pageless mode) */
 .left-sidebar-container.pageless-format {
   background-color: transparent;
 }
-.right-gutter-resizer-ghost-line, 
+.right-gutter-resizer-ghost-line,
 .left-sidebar-resizer-ghost-line {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
   display: block; /* I could not figure out how to darken the white line so I covered it with this (which normally only shows when hovering over the resize handle). The white line is momentarily visible when it is being dragged */
   width: 1px;
 }
-.right-gutter-resizer-ghost-line:hover, 
+.right-gutter-resizer-ghost-line:hover,
 .left-sidebar-resizer-ghost-line:hover {
   background-color: var(--gray);
   transition: all 0.1s ease;
@@ -1048,7 +1345,13 @@
 
 /* Sidebar section divider */
 .kix-smart-summary-view-separator {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
+}
+
+/* Summary edit button */
+.kix-smart-summary-header-button .docs-icon-plus, 
+.kix-smart-summary-edit-button .docs-icon-edit-outline {
+  filter: var(--white-icons);
 }
 
 /* Summary editing */
@@ -1064,56 +1367,65 @@
   color: var(--lightestgray);
 }
 
-/* Unselected top-level items in outline */
-.outline-refresh.navigation-widget-unified-styling .navigation-item .navigation-item-level-0, 
-.outline-refresh .navigation-item /* Legacy */, 
-.outline-refresh .navigation-widget-empty-content /* Legacy */ {
-  color: var(--lightestgray);
-  transition: var(--text-hover-off);
+/* Document outline empty state */
+.outline-refresh.navigation-widget-unified-styling .navigation-widget-empty-content {
+  color: var(--lightgray);
 }
 
-.outline-refresh.navigation-widget-unified-styling .navigation-item.goog-button-hover .navigation-item-level-0 , 
+/* Unselected top-level items in outline */
+.outline-refresh.navigation-widget-unified-styling .navigation-item .navigation-item-level-0,
+.outline-refresh .navigation-item /* Legacy */,
+.outline-refresh .navigation-widget-empty-content /* Legacy */ {
+  color: var(--lightestgray);
+}
+
+.outline-refresh.navigation-widget-unified-styling .navigation-item.goog-button-hover .navigation-item-level-0 ,
 .outline-refresh .navigation-item.goog-button-hover /* Legacy */ {
   color: var(--lightestgray);
-  text-shadow: 0 0 4px var(--lightestgray);
-  transition: var(--text-hover-on);
 }
 
 /* Other unselected items in outline */
 .outline-refresh.navigation-widget-unified-styling .navigation-item {
+  border-radius: 0 16px 16px 0;
   color: var(--lightergray);
-  transition: var(--text-hover-off);
+  transition: var(--off);
 }
 .outline-refresh.navigation-widget-unified-styling .navigation-item.goog-button-hover {
-  text-shadow: 0 0 4px var(--lightergray);
-  transition: var(--text-hover-on);
+  background-color: var(--darkergray);
+  border-radius: 0 16px 16px 0;
+  transition: var(--on);
 }
 
 /* Selected item in the outline */
-.outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item, 
-.outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item .navigation-item-level-0, 
+.outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item,
+.outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item .navigation-item-level-0,
 .outline-refresh .location-indicator-highlight.navigation-item /* Legacy */ {
   color: var(--palerblue);
-  transition: var(--text-hover-off);
+  transition: var(--off);
 }
 
-.outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item.goog-button-hover, .outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item.goog-button-hover .navigation-item-level-0, 
+.outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item.goog-button-hover, .outline-refresh.navigation-widget-unified-styling .location-indicator-highlight.navigation-item.goog-button-hover .navigation-item-level-0,
 .outline-refresh .location-indicator-highlight.navigation-item.goog-button-hover /* Legacy */ {
+  background-color: var(--blue-ripple);
   color: var(--palerblue);
-  text-shadow: 0 0 4px var(--paleblue);
-  transition: var(--text-hover-on);
+  transition: var(--on);
 }
 
-/*Fade at top and bottom of the TOC*/
-#navigation-widget-bottom-fade, 
+/* Remove from outline button */
+.navigation-widget-navigation-items-container .docs-icon-close-thin {
+  filter: var(--white-icons);
+}
+
+/* Fade at top and bottom of the TOC */
+#navigation-widget-bottom-fade,
 #navigation-widget-top-shadow {
-  display: none;
+  visibility: hidden;
 }
 
 /* Statistics widget (below TOC, displayed while typing) */
 .kix-documentmetrics-widget {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }
 .kix-documentmetrics-widget .docs-material-gm-select-dropdown .docs-icon {
   transform: rotate(180deg);
@@ -1125,10 +1437,10 @@
 .docs-gm .docs-horizontal-ruler,
 .docs-gm #kix-vertical-ruler {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }
 .docs-ruler-background-inner {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
 }
 .docs-gm .docs-ruler-face-number {
   color: white;
@@ -1148,60 +1460,90 @@ body {
   background-color: var(--darkestgray);
 }
 
-.docs-gm #docs-editor, 
-.docs-gm #docs-editor-container, 
+.docs-gm #docs-editor,
+.docs-gm #docs-editor-container,
 .kix-appview-editor {
   background-color: var(--darkestgray) !important;
-  background-image: none !important;
-  scrollbar-color: var(--gray) var(--darkestgray);
+  scrollbar-color: var(--gray) transparent;
 }
 
 /* Pages and cursor */
 .kix-paginateddocumentplugin,
 .kix-canvas-tile-content,
 .kix-cursor-caret {
-  filter: var(--darkfilter);
+  filter: @document-filter;
 }
 
-/* Images */
-.kix-canvas-tile-content image, 
+/* Fix to un-unvert images (From my understanding, Google Docs uses a canvas to render the document on Chrome, so this only works on Firefox where Google Docs uses SVG instead.) */
+.kix-canvas-tile-content image,
 svg.kix-embeddedobject-image,
-.kix-embeddedobject-image image{
-  filter: brightness(80%) invert(100%) hue-rotate(180deg);
+.kix-embeddedobject-image image {
+  filter: if((@document-filter = var(--darkfilter)), brightness(80%) invert(100%) hue-rotate(180deg), none);
 }
 
 /* CHIPS */
 
 .kix-rich-link-view {
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .kix-rich-link-view:hover {
-  transition: var(--button-on);
+  transition: var(--on);
+}
+
+/* @INSERT MENU */
+.kix-appview-editor .docs-smart-canvas-scrollable-inputless-insert-menu {
+  background-color: var(--darkestgray);
+  border: 1px solid var(--darkgray);
+}
+.kix-appview-editor .docs-smart-canvas-scrollable-inputless-insert-menu .docs-modality-header-message-component-title /* Section headings */ {
+  color: var(--lightgray);
+}
+.kix-appview-editor .docs-modality-header-message-component-icon-button /* “Expand” section */ {
+  transition: var(--off);
+}
+.kix-appview-editor .docs-modality-header-message-component-icon-button.goog-flat-button-hover {
+  background-color: var(--darkgray);
+  transition: var(--on);
+}
+.kix-appview-editor .docs-modality-header-message-component-icon-button.goog-flat-button-active {
+  background-color: var(--blue-ripple);
+}
+.kix-appview-editor .docs-modality-header-message-component-icon-button .docs-icon-chevron-right-24 {
+  filter: var(--white-icons);
+}
+.kix-appview-editor .docs-smart-canvas-scrollable-inputless-insert-menu .docs-inline-insert-menu-item:not(.docs-drive-item-button) .docs-inline-insert-menu-item-icon-container .docs-icon-img /* Icons */ {
+  filter: var(--white-icons);
+}
+.kix-appview-editor .docs-smart-canvas-scrollable-inputless-insert-menu .docs-inline-insert-menu-item-title /* Name of items available for insert */ {
+  color: var(--lightestgray);
+}
+.kix-appview-editor .docs-smart-canvas-scrollable-inputless-insert-menu .docs-inline-insert-menu-item-subtext /* Email addresses */ {
+  color: var(--lightgray);
 }
 
 /* POPUPS */
 
 /* Box */
 .kix-embedded-entity-bubble.docs-bubble,
-.docs-gm .kix-spell-bubble, 
+.docs-gm .kix-spell-bubble,
 .docs-autocorrect-bubble,
-.docs-gm .docs-linkbubble-bubble, 
+.docs-gm .docs-linkbubble-bubble,
 .docs-gm .docs-multi-linkbubble-bubble,
 .docs-bubble-material {
   background-color: var(--darkestgray);
-  border: 1px solid var(--darkergray) !important;
+  border: 1px solid var(--darkgray) !important;
 }
 
 /* Popup buttons */
-.docs-bubble .docs-bubble-button.jfk-button:hover, 
+.docs-bubble .docs-bubble-button.jfk-button:hover,
 .docs-bubble .docs-bubble-button.jfk-button:focus,
 .docs-gm .docs-autocorrect-bubble-more-options:hover,
 .docs-gm .docs-autocorrect-bubble-more-options:focus,
 .docs-gm .docs-autocorrect-bubble-undo:hover,
 .docs-gm .kix-spell-bubble-suggestion-text:hover,
 .docs-gm .kix-spell-bubble-option:hover {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
 
 /* Spellcheck mini popup */
@@ -1211,11 +1553,11 @@ svg.kix-embeddedobject-image,
 }
 .docs-gm .kix-spell-bubble-option {
   border-radius: 50%;
-  transition: var(--button-off);
+  transition: var(--off);
 }
-.docs-gm .kix-spell-bubble-suggestion-text:focus, 
+.docs-gm .kix-spell-bubble-suggestion-text:focus,
 .docs-gm .kix-spell-bubble-option:focus {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
 }
 .docs-spell-feedbackmenu-troubleshoot-item-text>span {
   color: var(--lightestgray);
@@ -1236,28 +1578,28 @@ svg.kix-embeddedobject-image,
 }
 .docs-gm .docs-link-searchinput-search-container-focus {
   border-color: var(--paleblue) !important;
-  transition: var(--button-on);
+  transition: var(--on);
 }
-.docs-link-smartlinksuggestion, 
+.docs-link-smartlinksuggestion,
 .docs-insert-link-bubble-internal-links-button {
-  border-color: var(--darkergray); 
-  transition: var(--button-off);
+  border-color: var(--darkgray);
+  transition: var(--off);
 }
-.docs-link-smartlinksuggestion:hover, 
-.docs-link-smartlinksuggestion:focus, 
-.docs-link-smartlinksuggestion-paste-match:hover, 
-.docs-link-smartlinksuggestion-paste-match:focus, 
-.docs-insert-link-bubble-internal-links-button:hover, 
+.docs-link-smartlinksuggestion:hover,
+.docs-link-smartlinksuggestion:focus,
+.docs-link-smartlinksuggestion-paste-match:hover,
+.docs-link-smartlinksuggestion-paste-match:focus,
+.docs-insert-link-bubble-internal-links-button:hover,
 .docs-insert-link-bubble-internal-links-button:focus {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
-.docs-link-smartlinksuggestion:active, 
+.docs-link-smartlinksuggestion:active,
 .docs-insert-link-bubble-internal-links-button.goog-flat-button-active {
-  background-color: var(--blueripple);
+  background-color: var(--blue-ripple);
 }
-.docs-link-smartlinksuggestion-search, 
-.docs-link-smartlinksuggestion-title, 
+.docs-link-smartlinksuggestion-search,
+.docs-link-smartlinksuggestion-title,
 .docs-insert-link-bubble-internal-links-text {
   color: white;
 }
@@ -1276,7 +1618,7 @@ svg.kix-embeddedobject-image,
   color: var(--palerblue) !important;
 }
 /* Link popup footer that prompts to replace the link */
-.docs-linkbubble-link-preview .docs-link-bubble-card-component.docs-link-bubble-action-card-component, 
+.docs-linkbubble-link-preview .docs-link-bubble-card-component.docs-link-bubble-action-card-component,
 .docs-linkbubble-link-preview .docs-link-bubble-action-card-component::before {
   background-color: #1967d24a !important;
 }
@@ -1290,7 +1632,7 @@ svg.kix-embeddedobject-image,
 /* Dropdown popup (in-document custom dropdowns) */
 .kix-dropdown-item-selection-bubble /* Options box */ {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }
 svg.kix-dropdown-item-selection-button-icon /* Checkmark */,
 svg.kix-configure-dropdown-button-add-icon /* + icon beside “Add / Edit Options” */ {
@@ -1298,18 +1640,18 @@ svg.kix-configure-dropdown-button-add-icon /* + icon beside “Add / Edit Option
 }
 .kix-dropdown-item-selection-button /* Option background */,
 .kix-configure-dropdown-button {
-  transition: var(--button-off);
+  transition: var(--off);
 }
-.kix-dropdown-item-selection-button.goog-flat-button-hover, 
+.kix-dropdown-item-selection-button.goog-flat-button-hover,
 .kix-configure-dropdown-button.goog-flat-button-hover {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
-.kix-dropdown-item-selection-button.goog-flat-button-active, 
+.kix-dropdown-item-selection-button.goog-flat-button-active,
 .kix-configure-dropdown-button.goog-flat-button-active {
-  background-color: var(--blueripple);
-  transition: var(--button-on);
-}  
+  background-color: var(--blue-ripple);
+  transition: var(--on);
+}
 .kix-dropdown-item-selection-button-display-value-container /* Option */ {
   filter: var(--darkfilter);
 }
@@ -1319,25 +1661,25 @@ svg.kix-configure-dropdown-button-add-icon /* + icon beside “Add / Edit Option
   color: var(--lightergray);
 }
 .smart-canvas-date-details-bubble-edit-field { /* The way Google Docs just darkens the date field when hovered doesn’t seem right… but that’s how it’s going to look in Dark Docs for now as well. */
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
   color: white;
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .smart-canvas-date-details-bubble-edit-field:hover {
-  background-color: var(--darkgray);
+  background-color: var(--mediumdarkgray);
 }
 .goog-date-picker {
   background-color: var(--darkestgray);
-  border: 1px solid var(--darkergray);
+  border: 1px solid var(--darkgray);
 }
 .smart-canvas-date-picker-bubble .goog-date-picker-monthyear {
   color: var(--lightergray);
 }
 .goog-date-picker-button:hover {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
 }
 .goog-date-picker-button:active {
-  background-color: var(--blueripple);
+  background-color: var(--blue-ripple);
 }
 .smart-canvas-date-picker-bubble .goog-date-picker-wday {
   color: var(--lightergray);
@@ -1346,10 +1688,10 @@ svg.kix-configure-dropdown-button-add-icon /* + icon beside “Add / Edit Option
   color: white;
 }
 .smart-canvas-date-picker-bubble .goog-date-picker-other-month {
-  color: var(--darkgray);
+  color: var(--mediumdarkgray);
 }
 .goog-date-picker-date:hover::before {
-  background-color: var(--darkergray);
+  background-color: var(--darkgray);
 }
 .smart-canvas-date-picker-bubble .goog-date-picker-selected::before {
   background-color: var(--paleblue);
@@ -1364,18 +1706,18 @@ svg.kix-configure-dropdown-button-add-icon /* + icon beside “Add / Edit Option
   border-color: var(--paleblue);
 }
 .smart-canvas-date-details-bubble-action-bar {
-  border-top-color: var(--darkergray);
+  border-top-color: var(--darkgray);
 }
 .smart-canvas-date-details-bubble-pattern-picker-button {
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .smart-canvas-date-details-bubble-pattern-picker-button:hover {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
 .smart-canvas-date-details-bubble-pattern-picker-button:focus {
-  background-color: var(--blueripple);
-  transition: var(--button-on);
+  background-color: var(--blue-ripple);
+  transition: var(--on);
 }
 .docs-material .smart-canvas-date-details-bubble-pattern-picker-button .docs-icon-img {
   filter: none;
@@ -1387,19 +1729,19 @@ svg.kix-configure-dropdown-button-add-icon /* + icon beside “Add / Edit Option
 }
 .smart-canvas-date-details-bubble .smart-canvas-date-details-bubble-hint-button {
   border-radius: 4px;
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .smart-canvas-date-details-bubble .smart-canvas-date-details-bubble-hint-button:hover {
   background-color: var(--palerblue);
-  transition: var(--button-on);
+  transition: var(--on);
 }
 
 /* Calendar event bubble popup */
 .docs-bubble .docs-bubble-button {
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .docs-link-bubble-calendar-event-action-card-component {
-  border-top: 1px solid var(--darkergray);
+  border-top: 1px solid var(--darkgray);
 }
 .link-bubble-header .docs-icon-img {
   filter: none !important;
@@ -1412,7 +1754,7 @@ svg.kix-configure-dropdown-button-add-icon /* + icon beside “Add / Edit Option
 
 /* Contacts bubble */
 .boqSocialpeoplehovercardV2HovercardAnimating {
-  box-shadow: 0 0 1px var(--darkergray) !important;
+  box-shadow: 0 0 1px var(--darkgray) !important;
   filter: invert(100%) hue-rotate(180deg) contrast(80%); /* Unfortunately this will invert the account photo, but it’s better than a white card. */
 }
 
@@ -1421,28 +1763,106 @@ svg.kix-configure-dropdown-button-add-icon /* + icon beside “Add / Edit Option
   filter: invert(100%) hue-rotate(180deg) contrast(80%);
 }
 
-/* Table border editing */
-.docs-border-selection-button-pressed, 
+/* LINKED OBJECT OPTIONS */
+
+.docs-embedded-content-button {
+  background-color: var(--darkgray);
+  border-color: var(--mediumdarkgray);
+  border-radius: 4px;
+  transition: var(--off);
+}
+.docs-embedded-content-button:hover,
+.docs-embedded-content-button:focus {
+  background-color: var(--mediumdarkgray);
+  border-color: var(--mediumdarkgray);
+  border-radius: 4px;
+  transition: var(--on);
+}
+.docs-embedded-content-button .docs-embedded-content-controls-linking-icon,
+.docs-embedded-content-button .docs-embedded-content-controls-dropdown-icon {
+  filter: invert(100%) hue-rotate(180deg);
+  opacity: 100%;
+}
+
+/* Linked object options menu */
+
+.docs-embedded-content-controls-menu-item .docs-icon-img {
+  filter: invert(100%) hue-rotate(180deg);
+}
+
+/* TABLE OPTIONS */
+
+/* Table border selector (the dropdown arrow in the top right of selected cell(s)) */
+.docs-border-selection-button-pressed,
 .docs-border-selection-button-normal {
   filter: invert(100%) brightness(250%) contrast(65%);
+}
+
+/* Border selector */
+.kix-appview-editor .docs-border-selection-palette .goog-palette-cell .docs-icon-img {
+  filter: var(--white-icons);
+}
+.kix-appview-editor .docs-border-selection-palette .goog-palette-cell {
+  transition: var(--off);
+}
+.kix-appview-editor .docs-border-selection-palette .goog-palette-cell-hover {
+  background-color: var(--mediumdarkgray);
+  transition: var(--on);
+}
+.kix-appview-editor .docs-border-selection-palette.goog-palette-active .goog-palette-cell-hover {
+  background-color: var(--blue-ripple);
+}
+
+/* WORD WRAP OPTIONS MINI TOOLBAR */
+
+/* Deselected wrapping options */
+.kix-appview-editor .kix-embedded-entity-bubble .docs-bubble-button:not(.goog-toolbar-button-checked) .docs-icon-img {
+  filter: var(--white-icons);
+}
+.kix-appview-editor .kix-embedded-entity-bubble .docs-bubble-button:not(.goog-toolbar-button-checked):active {
+  background-color: var(--blue-ripple);
+}
+
+/* Selected wrapping option */
+.kix-appview-editor .docs-bubble.kix-embedded-entity-bubble .docs-bubble-button.goog-toolbar-button-checked {
+  background-color: var(--blue-ripple);
+}
+.kix-appview-editor .kix-embedded-entity-bubble .goog-toolbar-button-checked .docs-icon-img {
+  filter: var(--paleblue-icons);
+}
+
+/* Separator(s) */
+.kix-embedded-entity-bubble .goog-toolbar-separator.goog-inline-block {
+  border-color: var(--darkgray);
+}
+
+/* Margins and “Move with text” dropdowns */
+.kix-embedded-entity-options .docs-material-gm-select-open>.docs-material-gm-select-outer-box {
+  background-color: var(--blue-ripple);
+}
+.kix-appview-editor .kix-embedded-entity-options .docs-material-gm-select-caption {
+  color: var(--lightestgray);
+}
+.kix-embedded-entity-options .docs-icon-arrow-dropdown {
+  filter: var(--white-icons);
 }
 
 /* Comment/emoji/suggest “super FAB” along document edge */
 #docs-instant-bubble {
   border-color: transparent;
-  background: var(--darkergray);
-  transition: var(--button-off);
+  background: var(--darkgray);
+  transition: var(--off);
 }
 #docs-instant-bubble:hover {
-  background: var(--darkergray);
-  transition: var(--button-on);
+  background: var(--darkgray);
+  transition: var(--on);
 }
 #docs-instant-bubble .instant-button {
-  transition: var(--button-off);
+  transition: var(--off);
 }
 #docs-instant-bubble .instant-button:hover {
-  background: var(--darkgray);
-  transition: var(--button-on);
+  background: var(--mediumdarkgray);
+  transition: var(--on);
 }
 #docs-instant-bubble .docs-icon-instant-comment-blue600-24 {
   filter: var(--paleblue-icons);
@@ -1457,18 +1877,18 @@ svg.kix-configure-dropdown-button-add-icon /* + icon beside “Add / Edit Option
 /* Emoji reaction selector */
 .docs-emoji-picker /* Emoji picker background */ {
   background-color: var(--darkestgray);
-  border: 1px solid var(--darkergray);
+  border: 1px solid var(--darkgray);
   box-shadow: none;
 }
 .docs-emoji-picker-search-bar-container {
-  border-color: var(--darkergray);
-  transition: var(--button-off);
+  border-color: var(--darkgray);
+  transition: var(--off);
 }
 .docs-emoji-picker-search-bar-container:hover {
   border-color: var(--gray);
-  transition: var(--button-on);
+  transition: var(--on);
 }
-.docs-emoji-picker-search-bar, 
+.docs-emoji-picker-search-bar,
 .docs-emoji-picker-search-input {
   background: none;
 }
@@ -1478,7 +1898,7 @@ svg.kix-configure-dropdown-button-add-icon /* + icon beside “Add / Edit Option
 }
 .docs-emoji-picker-categories /* Row of categories */,
 .docs-emoji-picker-quick-pick-container /* Row of suggested emojis */ {
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }
 .docs-emoji-picker-tabbar .docs-tabbar-tab-selected /* Selected category */ {
   border-bottom-color: var(--paleblue);
@@ -1489,39 +1909,39 @@ svg.kix-configure-dropdown-button-add-icon /* + icon beside “Add / Edit Option
 
 /* Emoji reactions */
 .docos-emoji-reaction-doco-view-emojis .docs-material-button-flat-primary /* Bubbles */ {
-  background-color: var(--darkergray);
-  transition: var(--button-off);
+  background-color: var(--darkgray);
+  transition: var(--off);
 }
 .docos-emoji-reaction-doco-view-emojis .docs-material-button-hover.docs-material-button-flat-primary {
-  background-color: var(--darkgray);
-  transition: var(--button-on);
+  background-color: var(--mediumdarkgray);
+  transition: var(--on);
 }
 .docos-emoji-counter-button-tooltip /* Who reacted? tooltip */ {
-  background-color: var(--darkgray);
-  border-color: var(--darkgray);
+  background-color: var(--mediumdarkgray);
+  border-color: var(--mediumdarkgray);
   box-shadow: none;
   color: var(--lightestgray);
 }
-.docos-emoji-counter-button-tooltip .jfk-tooltip-arrowup .jfk-tooltip-arrowimplbefore, 
+.docos-emoji-counter-button-tooltip .jfk-tooltip-arrowup .jfk-tooltip-arrowimplbefore,
 .docos-emoji-counter-button-tooltip .jfk-tooltip-arrowup .jfk-tooltip-arrowimplafter /* Tooltip arrow */ {
-  border-color: var(--darkgray) transparent;
+  border-color: var(--mediumdarkgray) transparent;
 }
 .docos-emoji-counter-button-user-involved.docs-material-button-flat-primary .docos-emoji-counter-button-container /* Emoji count */ {
   color: var(--paleblue);
 }
 .docos-emoji-reaction-doco-view .docs-material-menu-button-raised-default /* Menu button */ {
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .docos-emoji-reaction-doco-view .docs-material-menu-button-raised-default-hover {
-  background-color: var(--darkergray);
-  transition: var(--button-on);
+  background-color: var(--darkgray);
+  transition: var(--on);
 }
 .docos-emoji-reaction-doco-view .docs-material-menu-button-raised-default-focused {
   border: none;
 }
 .docos-emoji-reaction-doco-view .docs-material-menu-button-raised-default-open {
-  background-color: var(--blueripple);
-  transition: var(--button-on);
+  background-color: var(--blue-ripple);
+  transition: var(--on);
 }
 .goog-menu.docos-emoji-reaction-docos-overflow-menu .goog-menuitem /* Menu item left padding fix, reduced because there’s no icons */ {
   padding-left: 15px;
@@ -1529,8 +1949,8 @@ svg.kix-configure-dropdown-button-add-icon /* + icon beside “Add / Edit Option
 
 /* Header & footer options */
 .docs-gm .kix-header-footer-bubble.docs-bubble {
-  background-color: var(--darkergray);
-  border-color: var(--darkergray);
+  background-color: var(--darkgray);
+  border-color: var(--darkgray);
 }
 .docs-gm .kix-header-footer-bubble-description,
 .docs-gm .kix-header-footer-bubble-checkbox-label {
@@ -1538,16 +1958,16 @@ svg.kix-configure-dropdown-button-add-icon /* + icon beside “Add / Edit Option
 }
 
 .docs-gm .kix-header-footer-bubble .kix-header-footer-bubble-menu-button.goog-flat-menu-button /* “Options” dropdown */ {
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .docs-gm .kix-header-footer-bubble .kix-header-footer-bubble-menu-button.goog-flat-menu-button.goog-flat-menu-button-hover {
-  background-color: var(--darkgray);
-  transition: var(--button-on);
+  background-color: var(--mediumdarkgray);
+  transition: var(--on);
 }
 .docs-gm .kix-header-footer-bubble .kix-header-footer-bubble-menu-button.goog-flat-menu-button.goog-flat-menu-button-open {
-  background-color: var(--darkgray);
+  background-color: var(--mediumdarkgray);
   color: var(--palerblue);
-  transition: var(--button-on);
+  transition: var(--on);
 }
 #kix-header-footer-bubble-menu-0.goog-flat-menu-button-open .goog-flat-menu-button-caption {
   color: var(--palerblue);
@@ -1556,19 +1976,19 @@ svg.kix-configure-dropdown-button-add-icon /* + icon beside “Add / Edit Option
 /* Find bar */
 .docs-slidingdialog {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }
 .docs-gm .docs-findinput-container {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray); 
-  transition: var(--button-off); 
+  border-color: var(--darkgray);
+  transition: var(--off);
   /* These transitions are making the text a bit shifty when going between focused and unfocused*/
 }
 .docs-gm .docs-findinput-container-focus {
   border-color: var(--paleblue);
-  transition: var(--button-on);
+  transition: var(--on);
 }
-.docs-suggestiondialog-title-text, 
+.docs-suggestiondialog-title-text,
 .docs-findinput-input, .docs-findinput-input:focus {
   color: white;
 }
@@ -1576,8 +1996,8 @@ svg.kix-configure-dropdown-button-add-icon /* + icon beside “Add / Edit Option
 /* Spellcheck suggestions */
 .docs-checkupdialog-content-container {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray);
-  border-top: none; 
+  border-color: var(--darkgray);
+  border-top: none;
   border-radius: 0 0 8px 8px; /* Makes it shaped more like the find bar */
   color: white;
 }
@@ -1585,45 +2005,45 @@ svg.kix-configure-dropdown-button-add-icon /* + icon beside “Add / Edit Option
   background-color: transparent;
   border-color: var(--paleblue) !important;
   color: var(--palerblue);
-  transition: var(--button-off);
+  transition: var(--off);
 }
 .docs-checkupdialog-suggestion-button-focused.jfk-button-hover,
 .docs-checkupdialog-suggestion-button-focused.jfk-button-focused,
 .docs-checkupdialog-suggestion-button.jfk-button-hover.jfk-button-focused {
-  background-color: var(--darkergray) !important;
+  background-color: var(--darkgray) !important;
   color: var(--palerblue);
-  transition: var(--button-on);
+  transition: var(--on);
 }
 
 /* COMMENTS */
 
-.docs-gm .docos-anchoreddocoview, 
-.docs-gm .docos-anchoreddocoview.docos-docoview-active, 
-.docs-gm .docos-anchoreddocoview.docos-docoview-active:hover, 
+.docs-gm .docos-anchoreddocoview,
+.docs-gm .docos-anchoreddocoview.docos-docoview-active,
+.docs-gm .docos-anchoreddocoview.docos-docoview-active:hover,
 .docs-gm.docos-xeditor .streamdocoview-no-header.docos-streamdocoview {
   background-color: var(--darkestgray);
-  border: 1px solid var(--darkergray) !important;
+  border: 1px solid var(--darkgray) !important;
 }
 .docos-anchoreddocoview .docos-replyview-first.docos-anchoredreplyview,
-.docs-gm .docos-anchoredreplyview, 
-.docs-gm .docos-showrepliesbutton, 
+.docs-gm .docos-anchoredreplyview,
+.docs-gm .docos-showrepliesbutton,
 .docs-gm .docos-anchoreddocoview-input-pane {
   background-color: var(--darkestgray);
-  border-color: var(--darkergray);
+  border-color: var(--darkgray);
 }
-.docs-gm .docos-anchoredreplyview-header .docos-anchoredreplyview-author, 
-.docs-gm.docos-xeditor .docos-streamdocoview-authorname-timestamp .docos-streamdocoview-author, 
-.docs-gm .docos-anchoredreplyview .docos-anchoredreplyview-body div, 
-.docs-gm .docos-anchoredreplyview .docos-anchoredreplyview-body, 
-.docos-streamreplyview-body, 
-.docos-streamdocoview-body, 
+.docs-gm .docos-anchoredreplyview-header .docos-anchoredreplyview-author,
+.docs-gm.docos-xeditor .docos-streamdocoview-authorname-timestamp .docos-streamdocoview-author,
+.docs-gm .docos-anchoredreplyview .docos-anchoredreplyview-body div,
+.docs-gm .docos-anchoredreplyview .docos-anchoredreplyview-body,
+.docos-streamreplyview-body,
+.docos-streamdocoview-body,
 .docos-streamdocoview-body.docos-replyview-body div {
   color: white !important;
 }
-.docs-gm .docos-anchoredreplyview-header .docos-anchoredreplyview-timestamp, 
-.docs-gm.docos-xeditor .docos-streamdocoview-authorname-timestamp .docos-streamdocoview-timestamp, 
+.docs-gm .docos-anchoredreplyview-header .docos-anchoredreplyview-timestamp,
+.docs-gm.docos-xeditor .docos-streamdocoview-authorname-timestamp .docos-streamdocoview-timestamp,
 .docos-streamdocoview-body.docos-replyview-body div>span:last-of-type,
-.docs-gm .docos-streamrootreplyview .docos-action-text, 
+.docs-gm .docos-streamrootreplyview .docos-action-text,
 .docs-gm .docos-streamreplyview .docos-action-text {
   color: var(--lightergray) !important;
   opacity: 100%;
@@ -1632,8 +2052,8 @@ svg.kix-configure-dropdown-button-add-icon /* + icon beside “Add / Edit Option
   filter: none !important;
   filter: var(--paleblue-icons) !important;
 }
-.docos-anchoredreplyview-buttonholder .docos-icon-overflow-three-dots, 
-.docos-streamdocoview-details .docos-icon-overflow-three-dots, 
+.docos-anchoredreplyview-buttonholder .docos-icon-overflow-three-dots,
+.docos-streamdocoview-details .docos-icon-overflow-three-dots,
 .docos-streamreplyview-text .docos-icon-overflow-three-dots {
   filter: invert(100%) brightness(500%);
 }

@@ -15,7 +15,7 @@ If [Stylus](https://github.com/openstyles/stylus/) is installed on your browser,
 ### Manual 
 
 1. Use a browser extension that applies user CSS themes to webpages, such as [Stylus](https://github.com/openstyles/stylus/).
-2. Use the Less preprocessor on all the stylesheets, or enable it in UserCSS. 
+2. Use the [Less](https://lesscss.org/) preprocessor on all the stylesheets, or enable it in UserCSS. 
 3. Apply the stylesheets: 
     - [Colors and animations](colors-animations.css) to URLs starting with `https://docs.google.com/document/d/`, `https://docs.google.com/document/u/`, `https://docs.google.com/sharing/driveshare`, `https://docs.google.com/sharing/boq/driveshare`, `https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5`, and `https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%2C6%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5B`
     - [Basic elements](basic-elements.css) to `https://docs.google.com/document/d/`, `https://docs.google.com/sharing/driveshare`, and `https://docs.google.com/document/u/`

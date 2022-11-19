@@ -21,9 +21,12 @@ If [Stylus](https://github.com/openstyles/stylus/) is installed on your browser,
     - [Basic elements](basic-elements.css) to `https://docs.google.com/document/d/`, `https://docs.google.com/sharing/driveshare`, and `https://docs.google.com/document/u/`
     - [Homepage](homepage.css) to `https://docs.google.com/document/u/`
     - [Main editor](main-editor.css), [side panels](side-panels.css), and [other screens](other-screens.css) to `https://docs.google.com/document/d/`
-    - [Share sheet](share-sheet.css) to `https://docs.google.com/sharing/boq/driveshare`. This stylesheet is **incomplete**. 
+    - [Share sheet](share-sheet.css) to `https://docs.google.com/sharing/boq/driveshare`. 
     - [Google Images picker](google-images-picker.css) to `https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5`. If this doesn’t work for you, then you will need to look in dev tools and see where the iframe comes from. 
     - [Google Drive sidebar](google-drive-sidebar.css) to `https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%2C6%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5B`. Like the Google Images picker, this side panel is an iframe so your link might be different. 
+4. Assign values to these Less variables:
+    - `@document-filter` should be a CSS filter that changes the appearance of the document. By default it is `var(--darkfilter)` which is equal to `invert(100%) hue-rotate(180deg) contrast(@document-contrast)`. 
+    - `@document-contrast` should be a percentage value. By default it is `80%` which slightly reduces the contrast of the document. Reducing the value reduces contrast. 
 
 Dark Docs only works with Google Docs. There are plans to make themes for Google Sheets and Slides in the far future. If you create such a project (with a similar intent to this project), you may submit a pull request to include a link to it here.
 

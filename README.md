@@ -31,4 +31,4 @@ If [Stylus](https://github.com/openstyles/stylus/) is installed on your browser,
 Dark Docs only works with Google Docs. There are plans to make themes for Google Sheets and Slides in the far future. If you create such a project (with a similar intent to this project), you may submit a pull request to include a link to it here.
 
 ## Contributing
-The intent is simple - to make a dark mode for Google Docs web that shares the same colors and overall look to the Google Docs mobile app in dark mode. Check the [Design Guide wiki](https://github.com/winghongchan/dark-docs/wiki/Design-Guide) for guidance on using the color variables.
+The intent is simple - to make a dark mode for Google Docs web that shares the same colors and overall look to the Google Docs mobile app in dark mode. 

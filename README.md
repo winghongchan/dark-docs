@@ -2,6 +2,8 @@
 A dark theme for Google Docs web, based on the colors used in dark modes in other Google products. Subtle animations added.\
 `next` is my testing ground for using newer CSS and [{less}](https://lesscss.org/) preprocessor features. It is not currently published to userstyles.world. 
 
+You can view the source code or install with Stylus at https://github.com/winghongchan/dark-docs/raw/next/dark-docs-next.user.css
+
 ## Normal version
 
 [Dark Docs at UserStyles.world](https://userstyles.world/style/2597/dark-docs). 

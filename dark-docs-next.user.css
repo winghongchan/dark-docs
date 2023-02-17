@@ -1,9 +1,10 @@
 /* ==UserStyle==
 @name         Dark Docs next
-@version      2023.02.16
-@description  Dark Docs, but more futuristic.
+@version      2023.02.17
+@namespace    userstyles.world/user/winghongchan
+@description  Dark Docs, but more futuristic. 
 @author       winghongchan
-@license      GPL-3.0-or-later
+@license      No License
 @preprocessor less
 @var          select document-filter "Document filter" {"none:None": "none", "dim:Dim": "contrast(80%) brightness(90%)", "invert:Invert*": "var(--darkfilter)"}
 @var          number document-contrast "Document contrast while inverted" [80, 40, 100, 1, "%"]
@@ -597,43 +598,99 @@
   
   // MIXINS
   
-  .checkbox() {
-    &:hover {
-    
-      & span.docs-material-gm-labeled-checkbox-unchecked+span.docs-material-gm-labeled-checkbox-circle {
-        background-color: var(--darkgray);
-        opacity: 100%;
-        transition: var(--on);
-      }
-      & span.docs-material-gm-labeled-checkbox-checked+span.docs-material-gm-labeled-checkbox-circle {
-        background-color: var(--blue-ripple);
-        opacity: 100%;
-        transition: var(--on);
+  .checkbox(@background-color: darkestgray) {
+    &.docs-material-gm-checkbox-unchecked, 
+    &>.docs-material-gm-labeled-checkbox-unchecked {
+      background-color: transparent;
+      border-color: if(@background-color = darkergray, var(--mediumdarkgray), var(--darkgray));
+      transition: var(--off);
+        
+      &+.docs-material-gm-labeled-checkbox-circle {
+        transition: var(--off);
+        z-index: -1;
       }
     }
     
-    &>span.docs-material-gm-labeled-checkbox-checkbox {
-      border-color: var(--mediumdarkgray);
-      &.docs-material-gm-labeled-checkbox-checked {
-        background-color: var(--paleblue);
-        border-color: $background-color;
+    &.docs-material-gm-checkbox-checked, 
+    &>.docs-material-gm-labeled-checkbox-checked {
+      background-color: var(--paleblue);
+      border-color: $background-color;
+      transition: var(--on);
+      
+      &::before {
+        filter: var(--darkfilter);
+      }
         
-        &::before {
-          filter: invert(100%);
+      &+.docs-material-gm-labeled-checkbox-circle {
+        transition: var(--on);
+        z-index: -1;
+      }
+    }
+    
+    &.docs-material-gm-checkbox-hover, 
+    &.docs-material-gm-labeled-checkbox-hover {
+      &.docs-material-gm-checkbox-unchecked, 
+      &>.docs-material-gm-labeled-checkbox-unchecked {
+        background-color: if(@background-color = darkergray, var(--mediumdarkgray), var(--darkgray));
+        border-color: if(@background-color = darkergray, var(--gray), var(--mediumdarkgray));
+        transition: var(--on);
+        
+        &+.docs-material-gm-labeled-checkbox-circle {
+          background-color: if(@background-color = darkergray, var(--darkgray), var(--darkergray));
+          opacity: 100%;
+          transition: var(--on);
+        }
+      }
+      
+      &.docs-material-gm-checkbox-checked, 
+      &>.docs-material-gm-labeled-checkbox-checked {
+        background-color: var(--palerblue);
+        border-color: $background-color;
+        transition: var(--on);
+
+        &+.docs-material-gm-labeled-checkbox-circle {
+          background-color: var(--blue-ripple);
+          opacity: 100%;
+          transition: var(--on);
+          z-index: -1;
         }
       }
     }
     
-    &>span.docs-material-gm-labeled-checkbox-circle {
-      transition: var(--off);
-      z-index: -1;
+    &.docs-material-gm-checkbox-focused, 
+    &.docs-material-gm-labeled-checkbox-focused {
+      &.docs-material-gm-checkbox-unchecked, 
+      &>.docs-material-gm-labeled-checkbox-unchecked {
+        border-color: var(--paleblue);
+        
+        &+.docs-material-gm-labeled-checkbox-circle {
+          background-color: if(@background-color = darkergray, var(--darkgray), var(--darkergray));
+          opacity: 100%;
+          transition: var(--on);
+        }
+      }
+      
+      &.docs-material-gm-checkbox-checked, 
+      &>.docs-material-gm-labeled-checkbox-checked {
+        border-color: var(--lightestgray);
+        transition: var(--on);
+
+        &+.docs-material-gm-labeled-checkbox-circle {
+          background-color: var(--blue-ripple);
+          opacity: 100%;
+          transition: var(--on);
+          z-index: -1;
+        }
+      }
     }
     
-    &>div.docs-material-gm-labeled-checkbox-content>div.docs-material-gm-labeled-checkbox-label-container>label.docs-material-gm-labeled-checkbox-label {
+    
+    &>.docs-material-gm-labeled-checkbox-content .docs-material-gm-labeled-checkbox-label {
       color: var(--lightestgray);
     }
   }
-  .docs-material-gm-labeled-checkbox {
+  .docs-material-gm-labeled-checkbox, 
+  .jfk-checkbox {
     .checkbox();
   }
   
@@ -683,13 +740,15 @@
     color: var(--darkestgray);
     transition: var(--off);
     
-    &:is(:hover, .jfk-button-hover):not(.jfk-button-disabled) {
+    &:is(:hover, .jfk-button-hover):not(.jfk-button-disabled, [disabled]) {
       background-color: var(--palerblue);
       transition: var(--on);
     }
     &:focus,
     &.jfk-button-focused {
       color: var(--darkestgray);
+      outline: 2px solid var(--lightestgray);
+      outline-offset: -1px;
     }
   }
   .docs-gm .jfk-button-action {
@@ -698,6 +757,7 @@
   
   .dialog() /* Dialog boxes */ {
     background-color: var(--darkergray); 
+    box-shadow: 0 4px 8px 3px rgba(0,0,0,.15);
     color: var(--lightestgray);
     
     &>.modal-dialog-title /* More like titlebar */ {
@@ -738,21 +798,46 @@
         color: var(--palerblue);
       }
       
+      & .docs-material-gm-labeled-checkbox, 
+      & .jfk-checkbox {
+        .checkbox(@background-color: darkergray);
+      }
+      
       & .jfk-button-action {
         .contained-button();
       }
 
+      & button, 
       & .jfk-button-standard {
         .outlined-button(@background-color: darkergray);
         border-color: var(--mediumdarkgray) !important; // Couldn’t do this in the mixin because the comments button, which doesn’t have an outline, still has this class. 
       }
       
-      & .jfk-textinput {
-        .outlined-text-field(darkergray);
+      & .goog-flat-menu-button {
+        .outlined-exposed-dropdown-menu(@background-color: darkergray);
+      }
+      
+      & .jfk-radiobutton {
+        .radio-button(@background-color: darkergray);
+      }
+      
+      & .docs-horizontal-button-group .docs-material-button {
+        .toggle-button(@background-color: darkergray);
       }
     }
     
+    & .jfk-textinput { // The “Name current version” dialog prefers to not put its content in a .modal-dialog-content
+      .outlined-text-field(@background-color: darkergray);
+    }
+    
     &>.modal-dialog-buttons {
+      
+      &>button:not(.jfk-button-action, .goog-buttonset-action), 
+      &>.jfk-button-standard {
+        .outlined-button(@background-color: darkergray);
+        border-color: var(--mediumdarkgray) !important;
+      }
+      
       &>.goog-buttonset-action {
         .contained-button();
       }
@@ -833,8 +918,8 @@
       transition: var(--on);
     }
     &:is(:focus, .jfk-button-focused) {
-      border-color: var(--paleblue) !important;
-      outline: 1px solid var(--paleblue);
+      outline: 2px solid var(--paleblue);
+      outline-offset: -1px; // I think this is a good focus effect
     }
     &.jfk-button-active {
       background-color: var(--blue-ripple);
@@ -844,12 +929,55 @@
     .outlined-button();
   }
   
+  .outlined-exposed-dropdown-menu(@background-color: darkestgray) {
+    border-color: if((@background-color = darkergray), var(--mediumdarkgray), var(--darkgray));
+    color: var(--lightestgray);
+    &:hover {
+      border-color: var(--gray);
+      transition: var(--on);
+    }
+    &:focus {
+      border-color: var(--paleblue);
+      outline: 2px solid var(--paleblue);
+      outline-offset: -1px;
+    }
+    
+    &>.goog-flat-menu-button-caption {
+      color: currentColor;
+    }
+  }
+  
   .outlined-text-field(@background-color: darkestgray) {
     background-color: transparent;
     border-color: if((@background-color = darkergray), var(--mediumdarkgray), var(--darkgray));
     color: var(--lightestgray);
+    transition: var(--off);
+    &:hover {
+      border-color: var(--gray);
+      transition: var(--on);
+    }
     &:focus {
       border-color: var(--paleblue);
+    }
+  }
+  
+  .radio-button(@background-color: darkestgray) {
+    &.jfk-radiobutton-hover>.jfk-radiobutton-radio {
+      border-color: var(--gray);
+      transition: var(--on);
+    }
+    &:is(.jfk-radiobutton-focused, .jfk-radiobutton-active)>.jfk-radiobutton-radio {
+      border-color: var(--paleblue);
+      outline: 2px solid var(--paleblue);
+      outline-offset: -1px;
+    }
+    &.jfk-radiobutton-checked>.jfk-radiobutton-radio::after {
+      background-color: currentColor;
+      border-color: $background-color;
+    }
+    
+    &>.jfk-radiobutton-radio {
+      border-color: if((@background-color = darkergray), var(--gray), var(--mediumdarkgray));
     }
   }
   
@@ -868,6 +996,37 @@
         background-color: var(--blue-ripple) !important;
         border-bottom-color: var(--paleblue);
       }
+    }
+  }
+  
+  .toggle-button(@background-color: darkestgray) {
+    &:not(.docs-material-button-selected) {
+      background-color: transparent;
+      border-color: if((@background-color = darkergray), var(--mediumdarkgray), var(--darkgray)) !important;
+      color: var(--lightgray);
+      transition: var(--off);
+      &.docs-material-button-hover {
+        background-color: if((@background-color = darkergray), var(--darkgray), var(--darkgray));
+        border-color: var(--gray) !important; 
+        transition: var(--on);
+      }
+      &.docs-material-button-focused {
+        border-color: var(--paleblue) !important;
+        outline: 2px solid var(--paleblue);
+        outline-offset: -1.5px;
+        &.docs-material-button-collapse-left {
+          border-left-width: 2px !important;
+          padding-right: 24.5px;
+        }
+        &.docs-material-button-collapse-right {
+          border-right-width: 2px !important;
+          padding-left: 24.5px;
+        }
+      }
+    }
+    &.docs-material-button-selected {
+      background-color: var(--blue-ripple);
+      border-color: var(--paleblue) !important;
     }
   }
 
@@ -901,6 +1060,7 @@
     background-color: transparent;
     color: var(--lightestgray);
     transition: var(--off);
+    visibility: visible !important; // This goes away when you are in the print preview. No longer. 
     &:hover {
       background-color: var(--darkgray);
       border: 1px solid transparent;
@@ -912,7 +1072,7 @@
     }
   }
   .docs-title-input-label {
-    color: transparent; // idk why Docs shows the file name twice, overlaid
+    color: transparent; // This is for when you are in the print preview and can’t edit the file name. 
   }
 
   /* Document location (shown while editing file name) */
@@ -1054,7 +1214,7 @@
   
   // DIALOGS (for most of these, .dialog() has already been applied. This section is for fixes to more bespoke elements.)
   
-  // “Publish to the web”
+  // “Publish to the web” dialog
   div.modal-dialog>div.modal-dialog-content.pub-dialog-content>div.pub-dialog-wrap>div {
     
     &>.pub-dialog-info {
@@ -1092,17 +1252,23 @@
     }
   }
 
-  /* DOCUMENT DETAILS */
-
-  .docs-gm .docs-details-field {
-    color: var(--lightergray);
+  // “Document details” dialog
+  .docs-gm .docs-details-dialog {
+    
+    & .docs-details-field {
+      color: var(--lightgray);
+    }
+    
+    & .docs-details-value {
+      color: white;
+    }
+    
+    & .docs-icon-folder {
+      filter: var(--white-icons);
+    }
   }
-  .docs-gm .docs-details-value {
-    color: white;
-  }
 
-  /* PAGE SETUP */
-
+  // “Page setup” dialog
   .kix-pagesetupdialog-units {
     color: var(--lightergray);
     opacity: 1;
@@ -1123,20 +1289,147 @@
   #kix-pagesetupdialog-canvas-unsupported-model-features-warning .kix-pagesetupdialog-canvas-unsupported-model-features-warning-text {
     color: var(--lightestgray);
   }
+  
+  // “Find and replace” dialog
+  .docs-gm .docs-findandreplacedialog {
+    
+    & .docs-findandreplacedialog-findinput>.docs-findinput-container {
+      border-color: var(--mediumdarkgray);
+      &:hover {
+        border-color: var(--gray);
+        transition: var(--on);
+      }
+      &.docs-findinput-container-focus {
+        border-color: var(--paleblue);
+      }
+      
+      & .docs-findinput-input {
+        font-size: 14px;
+      }
+      
+      & .docs-findinput-count {
+        color: var(--lightgray);
+      }
+    }
+  }
+  
+  // “Insert image” dialog
+  .docs-gm .modal-dialog.google-url-picker {
+    .dialog();
+    
+    /* This is a very weird dialog box that calls for many fixes */
+    
+    & .picker-urlview {
+      padding: 0;
+      
+      &>.picker-urlview-header {
+        color: currentColor;
+        font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 28px;
+      }
+      
+      &>.picker-urlview-inner-input {
+        .outlined-text-field(@background-color: darkergray); 
+        border-radius: 4px;
+        border-width: 1px;
+        box-sizing: border-box;
+        font-size: 14px;
+        height: 36px;
+        margin-top: 16px;
+        padding: 1px 8px;
+        transition: var(--off);
+        
+        &:focus {
+          border-width: 2px;
+          transition: var(--on);
+          padding: 1px 7px;
+        }
+      }
+      
+      &>.picker-urlview-error-container {
+        color: pink;
+        margin-top: 16px;
+      }
+      
+      &>.picker-urlview-disclaimer-container {
+        color: var(--lightgray);
+      }
+    }
+    
+    &>.picker-urlview-actionbar {
+      margin-top: 24px;
+      padding: 0;
+      
+      &>.picker-urlview-cancelbutton {
+        .outlined-button(@background-color: darkergray);
+        margin-right: 12px;
+        text-transform: capitalize;
+        
+        border-color: var(--mediumdarkgray) !important;
+        transition: var(--off);
+
+        &:is(:hover, .jfk-button-hover):not(.jfk-button-disabled, .jfk-button-active) {
+          background-color: var(--darkgray);
+          transition: var(--on);
+        }
+        &:is(:focus, .jfk-button-focused) {
+          outline: 2px solid var(--paleblue);
+          outline-offset: -1px; // I think this is a good focus effect
+        }
+        &:active:hover {
+          background-color: var(--blue-ripple);
+        }
+      }
+      
+      &>.picker-urlview-insertbutton {
+        .contained-button();
+        border-color: $background-color !important;
+        text-transform: capitalize;
+      }
+    }
+    
+    & .picker-urlview-close-icon /* The button that removes the image preview from the "By URL" image selector. I don’t know why it’s a close button, so I changed it to a back button. */ {
+      background-color: var(--darkestgray) !important;
+      border-radius: 18px !important;
+      display: grid;
+      left: 0;
+      margin: 24px;
+      padding: 2px 0 0 !important;
+      place-items: center;
+      right: auto;
+      width: 36px;
+      &:hover {
+        background-color: var(--darkgray) !important;
+      }
+      
+      &>svg {
+        display: none;
+        fill: var(--lightestgray);
+        opacity: 100%;
+      }
+      
+      &::after {
+        content: url(https://fonts.gstatic.com/s/i/materialiconsoutlined/arrow_back/v17/24px.svg);
+        filter: invert(100%);
+      }
+    }
+    
+    & .picker-urlview-image {
+      margin: -25px -24.7px 0;
+      
+      &>img {
+        border-radius: 8px 8px 0 0;
+      }
+    }
+  }
 
   /* PARAGRAPH BORDERS AND SHADING */
 
   #kix-bordersshadingdialog-borderdash>div>div>div,
   .goog-menu.goog-menu-vertical.kix-bordersshadingdialog-menu>div>div>div>div {
     border-top-color: white !important;
-  }
-
-  /* INSERT IMAGE */
-  .picker-urlview-close-icon /* The button that removes the image preview from the "By URL" image selector */ {
-    background-color: var(--darkestgray) !important;
-  }
-  .picker-urlview-close-icon svg {
-    fill: white;
   }
 
   /* TABLE */
@@ -3012,7 +3305,7 @@
     border-color: var(--darkgray);
   }
   .docs-gm .docs-findinput-container {
-    background-color: var(--darkestgray);
+    background-color: transparent;
     border-color: var(--darkgray);
     transition: var(--off);
     /* These transitions are making the text a bit shifty when going between focused and unfocused*/
@@ -4622,7 +4915,7 @@
   }
 }
 
-@-moz-document url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%2C6%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5B") {
+@-moz-document regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%2C6%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B.*&parent=https%3A%2F%2Fdocs\\.google\\.com.*") {
 /* Google Drive file picker sidebar */
 
   .yawtRb /* Titlebar */,

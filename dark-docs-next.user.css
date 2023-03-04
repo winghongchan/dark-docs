@@ -1,15 +1,26 @@
 /* ==UserStyle==
 @name         Dark Docs next
-@version      2023.02.17
+@version      2023.03.04
 @namespace    userstyles.world/user/winghongchan
-@description  Dark Docs, but more futuristic. 
+@description  Dark Docs, but more futuristic. With newer CSS and preprocessor features, clearer focus states, and a bit more redesigning of the Google Docs interface beyond changing colours.  
 @author       winghongchan
-@license      No License
+@license      GPL-3.0-or-later
 @preprocessor less
-@var          select document-filter "Document filter" {"none:None": "none", "dim:Dim": "contrast(80%) brightness(90%)", "invert:Invert*": "var(--darkfilter)"}
+@var          select document-filter "Document filter" {"none:None": "none", "dim:Dim": "brightness(75%)", "invert:Invert*": "var(--darkfilter)"}
 @var          number document-contrast "Document contrast while inverted" [80, 40, 100, 1, "%"]
 @var          checkbox respect-pageless-document-color "Respect the page color of pageless documents while a document filter is applied. May be laggy." 0
 ==/UserStyle== */
+
+/*               ┌────────────────────────────────┐
+  ┌──────────────┤ Warning for people on Firefox  ├──────────────┐
+  │              └────────────────────────────────┘              │
+  │ Dark Docs next uses the :has() selector, which is            │
+  │ experimental on Firefox at the moment. To enable it, go to   │
+  │ about:config and set layout.css.has-selector.enabled to      │
+  │ true. Chromium‐based browsers have full support.             │
+  │ Follow along with Mozilla’s development on the :has selector │
+  │ at https://bugzilla.mozilla.org/show_bug.cgi?id=418039       │
+  └──────────────────────────────────────────────────────────────┘*/
 
 @-moz-document url-prefix("https://docs.google.com/document/d/"), url-prefix("https://docs.google.com/document/u/"), url-prefix("https://docs.google.com/sharing/driveshare"), url-prefix("https://docs.google.com/sharing/boq/driveshare"), url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%"), url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%2C6%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5B"), regexp("(https:\\/\\/meet.google.com\\/_\\/frame\\?authUser=\\d+&frameType=2&origin=https%3A%2F%2Fdocs.google.com#cb=pip_frame)") {
 /* Colors and animations */
@@ -53,7 +64,67 @@
 }
 
 @-moz-document url-prefix("https://docs.google.com/document/u/") {
-/* Homepage */
+// Homepage 
+  
+  // MIXINS
+  
+    .menu(@background-color: darkestgray) /* Dropdown menus */ {
+    background: if(@background-color = darkergray, var(--darkgray), var(--darkergray));
+    border: none;
+    box-shadow: 0 2px 6px 2px rgba(0,0,0,.25);
+    scrollbar-color: var(--gray) transparent;
+    
+    // Background colour change for hover and click
+    &>.goog-menuitem {
+      transition: var(--off);
+      
+      &.goog-menuitem-highlight {
+        background-color: rgba(255, 255, 255, 4%);
+        transition: var(--on);
+      }
+      &.goog-menuitem-active:not(.goog-submenu:not(.goog-option)) /* Double negative! In this case it’s because there are some menu items that can be clicked, like the items in the styles menu, which are marked with .goog-option. */ {
+        background-color: rgba(255, 255, 255, 10%);
+      }
+    }
+    
+    // Menu item content
+    &>.goog-menuitem>.goog-menuitem-content {
+      &>.goog-menuitem-icon:has(div:not(.docs-icon-editors-ia-article-document-blue):not(.docs-icon-editors-ia-apps-script):not(.docs-icon-editors-ia-spreadsheet-green):not(.docs-icon-editors-ia-edit-pen-blue700):not(.docs-icon-editors-ia-comment-edit-green700)) {
+        filter: var(--white-icons);
+      }
+      &>.goog-menuitem-label, 
+      &>span /* Needed >span because File→Language submenu is weird */, 
+      & /* The zoom menu (left of the styles menu) and font size menu puts text directly into .goog-menuitem-content */ {
+        color: var(--lightestgray);
+      }
+      &>.goog-menuitem-accel /* Keyboard shortcut */ {
+        color: var(--lightgray);
+        font-weight: lighter;
+      }
+      &>.goog-submenu-arrow /* Arrows indicating nested menus */ {
+        color: var(--lightgray);
+        opacity: 100%;
+      }
+    }
+    &>.goog-menuitem.goog-menuitem-disabled {
+      opacity: 38%;
+      
+      &>.goog-menuitem-content>.goog-menuitem-icon {
+        opacity: 100%; // Didn’t want opacities to compound and make the icons extra transparent
+      }
+    }
+    &>.apps-hoverable-menu-separator-container>.apps-hoverable-menu-separator-bottom, 
+    &>.goog-menuseparator /* Dividers */ {
+      border-top-color: var(--mediumdarkgray);
+    }
+    
+    // A bit of eye candy? Moves the arrow that indicates a submenu to the right when the menu opens.
+    &>.goog-menuitem.goog-submenu-open.goog-submenu:not(.goog-menuitem-disabled) .goog-submenu-arrow {
+      color: var(--lightestgray);
+      transform: translateX(5px);
+      transition: color 0.3s, transform 0.3s;
+    }
+  }
 
   html, body {
     background-color: var(--darkestgray);
@@ -86,29 +157,25 @@
     color: var(--lightergray);
   }
     
-  .gb_pa svg /* Menu button */ {
+  .gb_Hc svg /* Menu button */ {
     fill: var(--lightestgray);
   }
   
-  img+.gb_5d.gb_2c /* “Docs” */ {
+  img+.gb_be.gb_8c /* “Docs” */ {
     color: var(--lightestgray);
   }
 
-  .gb_Te /* New search bar? */ {
+  .gb_Xe /* New search bar? */ {
     background-color: var(--darkergray);
     
-    &.gb_Ue /* Active search bar */ {
+    &.gb_Ze /* Active search bar */ {
       background-color: var(--darkgray);
       box-shadow: none;
     }
     
-    & button.gb_qf.gb_sf svg /* 🗙 icon */, 
-    & button.gb_nf.gb_of svg /* 🔍 icon */ {
+    & button.gb_uf.gb_wf svg /* 🗙 icon */, 
+    & button.gb_rf.gb_sf svg /* 🔍 icon */ {
       fill: var(--lightgray);
-    }
-    &.gb_Ue button.gb_qf.gb_sf svg /* 🗙 icon */, 
-    &.gb_Ue button.gb_nf.gb_of svg /* 🔍 icon */ {
-      fill: var(--lightestgray);
     }
     
     & input.gb_ef::placeholder{
@@ -116,8 +183,10 @@
       opacity: 100%;
     }
     
-    & input.gb_ef, 
-    &.gb_Ue input.gb_ef {
+    & input.gb_if, 
+    &.gb_Ze input.gb_if, 
+    & input.gb_if::placeholder, 
+    &.gb_Ze input.gb_if::placeholder {
       color: var(--lightestgray);
     }
   }
@@ -175,6 +244,9 @@
   .gb_Re /* Account and apps area */ {
     background: none;
   }
+  .gb_Ea svg {
+    color: var(--lightestgray);
+  }
   .gb_ia /* Google Workspace organization logo box */ {
     background-color: var(--darkestgray);
     border-color: var(--darkgray);
@@ -187,14 +259,15 @@
   }
 
   /* Left side menu */
-  .gb_Fc /* Docs Editors menu */ {
-    background-color: var(--darkgray);
-  }
   .goog-menu.docs-homescreen-leftmenu {
-    background-color: transparent;
+    background-color: var(--darkergray);
   }
-  .gb_uc .gb_ge::before /* Google logo */ {
+  .docs-homescreen-nav-google-logo::before /* Google logo */ {
     filter: brightness(500%) saturate(0%);
+  }
+  .docs-homescreen-leftmenu-material-menu-header-text /* “Docs” */ {
+    color: var(--lightestgray);
+    padding-left: 6px;
   }
   .docs-homescreen-leftmenu-menuseparator /* Separators */ {
     border-color: var(--gray);
@@ -401,7 +474,7 @@
   .docs-homescreen-floater-header /* “Recent documents” */ {
     color: var(--lightestgray);
   }
-  .docs-homescreen-owner-filter-button /* Owner filter dropdown */ {
+  .docs-homescreen-owner-filter-button /* “Owned by…” */ {
     background-color: transparent;
     color: var(--lightestgray);
     transition: var(--off);
@@ -419,8 +492,17 @@
     &.goog-menu-button-open {
       background-color: var(--blue-ripple);
     }
-    &+.docsshared-menu-bubble .goog-menuitem-content {
-      color: var(--lightestgray);
+    &+.docsshared-menu-bubble {
+      background: none;
+      box-shadow: none;
+      
+      .goog-menu {
+        .menu();
+        
+        & .goog-option-selected .goog-menuitem-checkbox {
+          filter: invert(100%);
+        }
+      }
     }
   }
 
@@ -445,8 +527,17 @@
       filter: var(--paleblue-icons);
     }
   }
-  .docs-homescreen-editorbar-actionbutton+.docsshared-menu-bubble .goog-menuitem-content {
-    color: var(--lightestgray);
+  .docs-homescreen-editorbar-actionbutton+.docsshared-menu-bubble {
+    background: none;
+    box-shadow: none;
+    
+    & .goog-menu {
+      .menu();
+      
+      & .goog-option-selected .goog-menuitem-checkbox {
+        filter: invert(100%);
+      }
+    }
   }
 
   /* Empty state */
@@ -470,6 +561,11 @@
   .docs-homescreen-grid-item.goog-control-hover {
     background-color: var(--darkgray);
     border-color: var(--gray);
+    transition: var(--on);
+  }
+  .docs-homescreen-grid-item.goog-control-focused {
+    background-color: var(--darkgray);
+    border-color: var(--paleblue);
     transition: var(--on);
   }
   .docs-homescreen-grid-item.goog-control-active {
@@ -504,33 +600,17 @@
     background-color: var(--gray);
     transition: var(--on);
   }
-  .docs-homescreen-item-section .docsshared-menu-bubble /* Menu container */ {
-    background-color: var(--darkgray);
-    border: 1px solid var(--mediumdarkgray);
+  .docs-homescreen-grid-item>.docsshared-menu-bubble {
+    background-color: transparent;
     box-shadow: none;
-  }
-  .docs-homescreen-iconmenu .goog-menuitem /* Menu items */ {
-    transition: var(--off);
-  }
-  .docs-homescreen-iconmenu .goog-menuitem-highlight {
-    background-color: var(--mediumdarkgray);
-    transition: var(--on);
-  }
-  .docs-homescreen-iconmenu .goog-menuitem-active {
-    background-color: var(--gray);
-    transition: var(--on);
-  }
-  .docs-homescreen-overflowmenuitem-icon .docs-homescreen-img /* Menu icon */ {
-    filter: var(--white-icons);
-  }
-  .docs-homescreen-iconmenu .goog-menuitem-highlight .goog-menuitem-content /* Menu text */ {
-    color: var(--lightestgray);
-  }
-  .docs-homescreen-iconmenu .goog-menuitem-disabled {
-    cursor: not-allowed;
-  }
-  .docs-homescreen-iconmenu .goog-menuitem-disabled .docs-homescreen-overflowmenuitem-text-container div {
-    color: var(--gray);
+    
+    & .docs-homescreen-iconmenu {
+      .menu();
+      
+      & .docs-homescreen-icon>.docs-homescreen-img::before {
+        filter: var(--white-icons);
+      }
+    }
   }
 
   /* List view */
@@ -592,7 +672,6 @@
     visibility: hidden;
   }
 }
-
 @-moz-document url-prefix("https://docs.google.com/document/d/") {
 /* Main editor */
   
@@ -602,7 +681,7 @@
     &.docs-material-gm-checkbox-unchecked, 
     &>.docs-material-gm-labeled-checkbox-unchecked {
       background-color: transparent;
-      border-color: if(@background-color = darkergray, var(--mediumdarkgray), var(--darkgray));
+      border-color: var(--lightgray);
       transition: var(--off);
         
       &+.docs-material-gm-labeled-checkbox-circle {
@@ -615,7 +694,7 @@
     &>.docs-material-gm-labeled-checkbox-checked {
       background-color: var(--paleblue);
       border-color: $background-color;
-      transition: var(--on);
+      transition: var(--off);
       
       &::before {
         filter: var(--darkfilter);
@@ -632,7 +711,6 @@
       &.docs-material-gm-checkbox-unchecked, 
       &>.docs-material-gm-labeled-checkbox-unchecked {
         background-color: if(@background-color = darkergray, var(--mediumdarkgray), var(--darkgray));
-        border-color: if(@background-color = darkergray, var(--gray), var(--mediumdarkgray));
         transition: var(--on);
         
         &+.docs-material-gm-labeled-checkbox-circle {
@@ -661,7 +739,11 @@
     &.docs-material-gm-labeled-checkbox-focused {
       &.docs-material-gm-checkbox-unchecked, 
       &>.docs-material-gm-labeled-checkbox-unchecked {
-        border-color: var(--paleblue);
+        background-color: $border-color;
+        border-color: var(--blue-ripple);
+        border-radius: 0.5px;
+        outline: 2px solid var(--paleblue);
+        transition: var(--on);
         
         &+.docs-material-gm-labeled-checkbox-circle {
           background-color: if(@background-color = darkergray, var(--darkgray), var(--darkergray));
@@ -672,8 +754,8 @@
       
       &.docs-material-gm-checkbox-checked, 
       &>.docs-material-gm-labeled-checkbox-checked {
-        border-color: var(--lightestgray);
         transition: var(--on);
+        outline: 2px solid var(--lightestgray);
 
         &+.docs-material-gm-labeled-checkbox-circle {
           background-color: var(--blue-ripple);
@@ -847,8 +929,8 @@
     .dialog();
   }
   
-  .menu() /* Dropdown menus */ {
-    background: var(--darkergray);
+  .menu(@background-color: darkestgray) /* Dropdown menus */ {
+    background: if(@background-color = darkergray, var(--darkgray), var(--darkergray));
     border: none;
     box-shadow: 0 2px 6px 2px rgba(0,0,0,.25);
     scrollbar-color: var(--gray) transparent;
@@ -858,11 +940,12 @@
       transition: var(--off);
       
       &.goog-menuitem-highlight {
-        background-color: var(--darkgray);
+        background-color: rgba(255, 255, 255, 4%);
         transition: var(--on);
       }
       &.goog-menuitem-active:not(.goog-submenu:not(.goog-option)) /* Double negative! In this case it’s because there are some menu items that can be clicked, like the items in the styles menu, which are marked with .goog-option. */ {
-        background-color: var(--blue-ripple);
+        background-color: rgba(255, 255, 255, 10%);
+        transition: var(--on);
       }
     }
     
@@ -899,8 +982,9 @@
     
     // A bit of eye candy? Moves the arrow that indicates a submenu to the right when the menu opens.
     &>.goog-menuitem.goog-submenu-open.goog-submenu:not(.goog-menuitem-disabled) .goog-submenu-arrow {
+      color: var(--lightestgray);
       transform: translateX(5px);
-      transition: transform 0.3s;
+      transition: color 0.3s, transform 0.3s;
     }
   }
   .docs-gm .goog-menu {
@@ -913,7 +997,7 @@
     color: var(--lightestgray);
     transition: var(--off);
     
-    &:is(:hover, .jfk-button-hover):not(.jfk-button-disabled, .jfk-button-active) {
+    &:is(:hover, .jfk-button-hover):not(.jfk-button-disabled, .jfk-button-active, .docs-material-button-disabled) {
       background-color: if((@background-color = darkergray), var(--darkgray), var(--darkgray));
       transition: var(--on);
     }
@@ -923,6 +1007,9 @@
     }
     &.jfk-button-active {
       background-color: var(--blue-ripple);
+    }
+    &.docs-material-button-disabled {
+      opacity: 38%;
     }
   }
   .docs-gm .jfk-button-standard {
@@ -958,6 +1045,7 @@
     }
     &:focus {
       border-color: var(--paleblue);
+      color: var(--lightestgray);
     }
   }
   
@@ -1425,14 +1513,7 @@
     }
   }
 
-  /* PARAGRAPH BORDERS AND SHADING */
-
-  #kix-bordersshadingdialog-borderdash>div>div>div,
-  .goog-menu.goog-menu-vertical.kix-bordersshadingdialog-menu>div>div>div>div {
-    border-top-color: white !important;
-  }
-
-  /* TABLE */
+  // Table submenu
 
   .goog-dimension-picker-unhighlighted,
   .goog-dimension-picker-highlighted {
@@ -1442,7 +1523,7 @@
     color: var(--lightergray);
   }
 
-  /* INSERT SPECIAL CHARACTERS */
+  // “Insert special characters” dialog
 
   .ita-cp-whole-pad .modal-dialog-title-close {
     filter: brightness(200%);
@@ -1466,9 +1547,10 @@
     transition: var(--on);
   }
   .goog-char-picker-hovercard {
-    background-color: var(--darkestgray);
+    background-color: var(--darkgray);
     border: 1px solid var(--darkgray) !important;
     border-radius: 8px;
+    box-shadow: 0 4px 8px 3px rgba(0,0,0,.15);
   }
   .goog-char-picker-char-zoom,
   .goog-char-picker-name {
@@ -1478,7 +1560,27 @@
     color: var(--lightergray);
   }
   .ita-cp-search {
-    border-color: var(--darkgray);
+    border-color: var(--mediumdarkgray);
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 1px;
+    transition: var(--off);
+    
+    & input.ita-cp-input {
+      font-size: 14px;
+    }
+    
+    &:focus-within {
+      border-color: var(--paleblue);
+      border-width: 2px;
+      padding: 0;
+      transition: var(--on);
+
+      & input.ita-cp-input {
+        background-color: transparent;
+        color: var(--lightestgray);
+      }
+    }
   }
   .ita-cp-lens,
   .ita-cp-backspace {
@@ -1490,11 +1592,12 @@
     opacity: 1;
   }
   .ita-cp-hwt {
-    background-color: var(--darkestgray);
-    border-color: var(--darkgray);
+    background-color: var(--darkergray);
+    border-color: var(--mediumdarkgray);
+    border-radius: 4px;
   }
   .ita-cp-hwt-hint {
-    border-color: var(--darkgray);
+    border-color: var(--lightgray);
   }
 
   /* PAGE NUMBERS & LIST OPTIONS */
@@ -2256,6 +2359,11 @@
     background-color: var(--darkgray);
     border-color: transparent;
   }
+  
+  // “Request edit access” button
+  .docs-gm #titlebar-mode-indicator-container>.titlebar-request-access-button {
+    .outlined-button();
+  }
 
   /* “Turn In” button */
   .docs-material #docs-script-button-bar .jfk-button {
@@ -2263,7 +2371,7 @@
     color: white;
   }
 
-  /* Share button */
+  // “Share” button
   .docs-gm .docs-material #docs-titlebar-share-client-button {
     & .jfk-button {
       .contained-button();
@@ -2275,6 +2383,11 @@
     & .scb-unlisted-icon-white {
       filter: invert(100%) !important;
     }
+  }
+  
+  // “Sign in” button
+  .docs-gm .docs-material #docs-titlebar-share-client-button+.onegoogle-material-minibar a[href*="https://accounts.google.com/ServiceLogin?"] /* Yeah. The button is actually an anchor element. Who would’ve thought. The href part limits this rule to the “Sign in” button only, not your account photo while signed in. */ { 
+    .contained-button(); // I’m surprised this works. 
   }
 
   /* TOOLBAR */
@@ -2854,7 +2967,6 @@
   .kix-embedded-entity-bubble.docs-bubble,
   .docs-gm .kix-spell-bubble,
   .docs-autocorrect-bubble,
-  .docs-gm .docs-linkbubble-bubble,
   .docs-gm .docs-multi-linkbubble-bubble,
   .docs-bubble-material {
     background-color: var(--darkestgray);
@@ -2893,53 +3005,13 @@
     color: var(--palerblue) !important;
   }
 
-  /* Making a new link */
-  .docs-gm .docs-link-smartinsertlinkbubble-text-label {
-    background-color: transparent;
-    border-radius: 4px;
-    box-shadow: none;
-    color: var(--lightgray);
+  // Insert link popup (ex. when you press Ctrl + K)
+  body.docs-gm .docs-linkbubble-bubble {
+    .dialog();
+    border-color: transparent;
   }
-  .docs-gm .docs-link-searchinput-search {
-    background-color: transparent;
-  }
-  .docs-gm .docs-link-searchinput-search-container-focus {
-    border-color: var(--paleblue) !important;
-    transition: var(--on);
-  }
-  .docs-link-smartlinksuggestion,
-  .docs-insert-link-bubble-internal-links-button {
-    border-color: var(--darkgray);
-    transition: var(--off);
-  }
-  .docs-link-smartlinksuggestion:hover,
-  .docs-link-smartlinksuggestion:focus,
-  .docs-link-smartlinksuggestion-paste-match:hover,
-  .docs-link-smartlinksuggestion-paste-match:focus,
-  .docs-insert-link-bubble-internal-links-button:hover,
-  .docs-insert-link-bubble-internal-links-button:focus {
-    background-color: var(--darkgray);
-    transition: var(--on);
-  }
-  .docs-link-smartlinksuggestion:active,
-  .docs-insert-link-bubble-internal-links-button.goog-flat-button-active {
-    background-color: var(--blue-ripple);
-  }
-  .docs-link-smartlinksuggestion-search,
-  .docs-link-smartlinksuggestion-title,
-  .docs-insert-link-bubble-internal-links-text {
-    color: white;
-  }
-  .docs-link-smartlinksuggestion-icon .docs-icon-img {
-    filter: none !important;
-  }
-  .docs-insert-link-bubble-back-search-text {
-    color: white;
-  }
-  .docs-gm .docs-linkbubble-bubble, .docs-gm .docs-multi-linkbubble-bubble {
-    color: var(--lightergray);
-  }
-
+  
+  
   /* Link popup */
   #docs-linkbubble-link-text {
     color: var(--palerblue) !important;
@@ -3414,6 +3486,9 @@
   .docs-gm .docs-gm-sidebar-icon-path,
   .docs-gm-sidebar-icon-path {
     fill: var(--paleblue);
+  }
+  .docs-tiled-sidebar-header .docs-gm-sidebar-icon>svg>path {
+    fill: var(--paleblue) !important;
   }
   .kix-watermark-sidebar-header .kix-watermark-icon-container .docs-icon-img {
     filter: var(--paleblue-icons);

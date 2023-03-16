@@ -1,6 +1,8 @@
 # Dark Docs
 A dark theme for Google Docs web, based on the colors used in dark modes in other Google products. Subtle animations added. 
 
+Google has Material U’d Google Docs, so I am in the process of updating Dark Docs to use Material U. For more info, see https://github.com/winghongchan/dark-docs/issues/16
+
 ![](Screenshot_20220723_183923.png)
 
 ## Installation

@@ -1,0 +1,972 @@
+/* ==UserStyle==
+@name           Dark Docs m3
+@namespace      userstyles.world/user/winghongchan
+@version        2023.03.15
+@description    A new version of Dark Docs, made for Google Docs’ Material U redesign. Contains numerous consistency fixes. 
+@author         Walter winghongchan
+@homepageURL    https://github.com/winghongchan/dark-docs
+@supportURL     https://github.com/winghongchan/dark-docs/issues
+@license        GPL-3.0-or-later
+@preprocessor   less
+@var          select document-filter "Document filter" {"none:None": "none", "dim:Dim": "contrast(80%) brightness(90%)", "invert:Invert*": "var(--darkfilter)"}
+@var          number document-contrast "Document contrast while inverted" [80, 40, 100, 1, "%"]
+@var          checkbox respect-pageless-document-color "Respect page color of pageless documents while a document filter is applied. May be laggy." 0
+==/UserStyle== */
+
+@-moz-document url-prefix("https://docs.google.com/document/d/"), url-prefix("https://docs.google.com/document/u/"), url-prefix("https://docs.google.com/sharing/driveshare"), url-prefix("https://docs.google.com/sharing/boq/driveshare"), url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%"), url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%2C6%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5B"), regexp("(https:\\/\\/meet.google.com\\/_\\/frame\\?authUser=\\d+&frameType=2&origin=https%3A%2F%2Fdocs.google.com#cb=pip_frame)") {
+// Variables
+  :root {
+    
+    // Default colours
+    --ddocs-primary: #a8c7fa;
+    --ddocs-primary-icon: invert(100%) hue-rotate(180deg) brightness(75%) saturate(400%);
+    --ddocs-primary-hover: rgba(168, 199, 250, var(--ddocs-hover-state-layer-opacity)); // That’s right, standard (no fill or outline) icon buttons, when enabled (selected) and hovered, use a state layer of colour primary! Not on-primary-container or something. https://m3.material.io/components/icon-buttons/specs
+    --ddocs-primary-focus: rgba(168, 199, 250, var(--ddocs-focus-state-layer-opacity));
+    --ddocs-primary-pressed: rgba(168, 199, 250, var(--ddocs-pressed-state-layer-opacity));
+    --ddocs-on-primary: #062e6f;
+    --ddocs-primary-container: #004a77;
+    --ddocs-on-primary-container: #c2e7ff;
+    --ddocs-on-primary-container-icon: invert(100%) hue-rotate(180deg) brightness(100%) saturate(150%);
+    --ddocs-on-primary-container-hover: #0f5682;
+    --ddocs-on-primary-container-focus: #185d88;
+    --ddocs-on-primary-container-pressed: #185d88;
+    --ddocs-secondary: #7fcfff;
+    --ddocs-on-secondary: #003355;
+    --ddocs-secondary-container: #0842a0;
+    --ddocs-secondary-container-hover: #184fa8; // Determined the colour by overlapping the -on colour at 8% opacity on top of the container. Not a problem until Dark Docs begins support for custom colours. 
+    --ddocs-secondary-container-focus: #2156ac;
+    --ddocs-on-secondary-container: #d3e3fd;
+    --ddocs-tertiary: #6dd58c;
+    --ddocs-on-tertiary: #0a3818;
+    --ddocs-tertiary-container: #0f5223;
+    --ddocs-on-tertiary-container: #c4eed0;
+    --ddocs-error: #f2b8b5;
+    --ddocs-on-error: #601410;
+    // missing error container
+    // missing on error container
+    --ddocs-background: #1f1f1f;
+    --ddocs-on-background: #e3e3e3;
+    --ddocs-on-background-hover: rgba(227, 227, 227, var(--ddocs-hover-state-layer-opacity)); // Just the state layer.
+    --ddocs-on-background-focus: rgba(227, 227, 227, var(--ddocs-focus-state-layer-opacity));
+    --ddocs-on-background-pressed: rgba(227, 227, 227, var(--ddocs-pressed-state-layer-opacity));
+    --ddocs-surface: #1f1f1f;
+    --ddocs-surface1: #28282a; // I’m stealing these from screenshots, so I don’t know the actual surface tint. (I tried to find it.)
+    --ddocs-surface2: #2d2e31;
+    --ddocs-surface3: #313336;
+    --ddocs-on-surface: #e3e3e3;
+    --ddocs-surface-variant: #444746; 
+    --ddocs-on-surface-variant: #c4c7c5; 
+    --ddocs-on-surface-variant-hover: rgba(196, 199, 197, var(--ddocs-hover-state-layer-opacity));
+    --ddocs-on-surface-variant-focus: rgba(196, 199, 197, var(--ddocs-focus-state-layer-opacity));
+    --ddocs-on-surface-variant-pressed: rgba(196, 199, 197, var(--ddocs-pressed-state-layer-opacity));
+    --ddocs-outline: #8e918f;
+    --ddocs-outline-variant: #444746;
+    --ddocs-inverse-surface: #e3e3e3; // inverse colours taken from the “Signed in as” bar. Might be a relic of m2
+    --ddocs-inverse-on-surface: #3c4043;
+    --ddocs-surface-tint: #6750A4; // Definitely not this.
+    
+    // State layers (a translucent overlay is placed over things that are hovered, focused, &c.)
+    --ddocs-hover-state-layer-opacity: 8%;
+    --ddocs-focus-state-layer-opacity: 12%;
+    --ddocs-pressed-state-layer-opacity: 12%;
+    --ddocs-dragged-state-layer-opacity: 16%;
+    
+    --paleblue-icons: hue-rotate(3.6deg) saturate(32.2%) brightness(170%); /* To desaturate blue icons to make them more legible against a dark background. If it is an inline SVG, changing its fill color to palerblue is preferable. */
+    --palegreen-icons: hue-rotate(-2deg) saturate(38%) brightness(182%);
+    --white-icons: brightness(240%) saturate(10%);
+    --whiter-icons: brightness(325%);
+    --darkfilter: invert(100%) hue-rotate(180deg) contrast(@document-contrast);
+    --on: background-color 0.05s ease, border-color 0.06s ease, color 0.05s ease, filter 0.05s ease;
+    --off: background-color 0.25s ease, border-color 0.1s ease, color 0.25s ease, filter 0.25s ease;
+    
+    /* Note to self: https://m3.material.io/foundations/interaction-states The state layer is an overlay with a fixed opacity for each state and uses the same color as the content. … components using the activated or selected states change the container and content color directly. */
+  }
+}
+
+@-moz-document url-prefix("https://docs.google.com/document/d/"), url-prefix("https://docs.google.com/sharing/driveshare"), url-prefix("https://docs.google.com/document/u/") {
+/* Basic elements */
+
+  body {
+    background-color: var(--darkestgray);
+    color: var(--lightestgray);
+  }
+
+  /* Scrollbar */
+  .docs-gm ::-webkit-scrollbar-thumb {
+    background-color: var(--lightgray);
+  }
+}
+
+@-moz-document url-prefix("https://docs.google.com/document/u/") {
+// Homepage 
+  
+    .menu(@background-color: darkestgray) /* Dropdown menus */ {
+    background: if(@background-color = darkergray, var(--darkgray), var(--darkergray));
+    border: none;
+    box-shadow: 0 2px 6px 2px rgba(0,0,0,.25);
+    scrollbar-color: var(--gray) transparent;
+    
+    // Background colour change for hover and click
+    &>.goog-menuitem {
+      transition: var(--off);
+      
+      &.goog-menuitem-highlight {
+        background-color: rgba(255, 255, 255, 4%);
+        transition: var(--on);
+      }
+      &.goog-menuitem-active:not(.goog-submenu:not(.goog-option)) /* Double negative! In this case it’s because there are some menu items that can be clicked, like the items in the styles menu, which are marked with .goog-option. */ {
+        background-color: rgba(255, 255, 255, 10%);
+      }
+    }
+    
+    // Menu item content
+    &>.goog-menuitem>.goog-menuitem-content {
+      &>.goog-menuitem-icon:has(div:not(.docs-icon-editors-ia-article-document-blue):not(.docs-icon-editors-ia-apps-script):not(.docs-icon-editors-ia-spreadsheet-green):not(.docs-icon-editors-ia-edit-pen-blue700):not(.docs-icon-editors-ia-comment-edit-green700)) {
+        filter: var(--white-icons);
+      }
+      &>.goog-menuitem-label, 
+      &>span /* Needed >span because File→Language submenu is weird */, 
+      & /* The zoom menu (left of the styles menu) and font size menu puts text directly into .goog-menuitem-content */ {
+        color: var(--lightestgray);
+      }
+      &>.goog-menuitem-accel /* Keyboard shortcut */ {
+        color: var(--lightgray);
+        font-weight: lighter;
+      }
+      &>.goog-submenu-arrow /* Arrows indicating nested menus */ {
+        color: var(--lightgray);
+        opacity: 100%;
+      }
+    }
+    &>.goog-menuitem.goog-menuitem-disabled {
+      opacity: 38%;
+      
+      &>.goog-menuitem-content>.goog-menuitem-icon {
+        opacity: 100%; // Didn’t want opacities to compound and make the icons extra transparent
+      }
+    }
+    &>.apps-hoverable-menu-separator-container>.apps-hoverable-menu-separator-bottom, 
+    &>.goog-menuseparator /* Dividers */ {
+      border-top-color: var(--mediumdarkgray);
+    }
+    
+    // A bit of eye candy? Moves the arrow that indicates a submenu to the right when the menu opens.
+    &>.goog-menuitem.goog-submenu-open.goog-submenu:not(.goog-menuitem-disabled) .goog-submenu-arrow {
+      color: var(--lightestgray);
+      transform: translateX(5px);
+      transition: color 0.3s, transform 0.3s;
+    }
+  }
+
+  html, body {
+    background-color: var(--darkestgray);
+    scrollbar-color: var(--gray) transparent;
+  }
+
+  body::-webkit-scrollbar-track-piece {
+    background-color: var(--darkestgray);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--gray);
+    box-shadow: none !important;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--lightgray);
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background-color: var(--paleblue);
+  }
+
+  /* Header */
+  header {
+    background-color: var(--darkestgray) !important;
+  }
+
+  .gb_oa svg /* Main menu (hamburger), search icon (magnifying glass), apps icon (waffle) */,
+  .gb_Se.gb_Te button svg /* 🔍 and × when search field is in focus */,
+  .gb_Ec svg /* idk */,
+  .gb_4d.gb_1c /* “Docs” */{
+    color: var(--lightergray);
+  }
+    
+  .gb_Hc svg /* Menu button */ {
+    fill: var(--lightestgray);
+  }
+  
+  img+.gb_be.gb_8c /* “Docs” */ {
+    color: var(--lightestgray);
+  }
+
+  .gb_Xe /* New search bar? */ {
+    background-color: var(--darkergray);
+    
+    &.gb_Ze /* Active search bar */ {
+      background-color: var(--darkgray);
+      box-shadow: none;
+    }
+    
+    & button.gb_uf.gb_wf svg /* 🗙 icon */, 
+    & button.gb_rf.gb_sf svg /* 🔍 icon */ {
+      fill: var(--lightgray);
+    }
+    
+    & input.gb_ef::placeholder{
+      color: var(--lightgray);
+      opacity: 100%;
+    }
+    
+    & input.gb_if, 
+    &.gb_Ze input.gb_if, 
+    & input.gb_if::placeholder, 
+    &.gb_Ze input.gb_if::placeholder {
+      color: var(--lightestgray);
+    }
+  }
+    
+  input.gb_df::placeholder, /* “Search” */
+  .gb_Re.gb_Se input::placeholder /* “Search” in active search bar */ {
+    color: var(--lightgray) !important;
+    opacity: 100%;
+  }
+  .gb_df /* Search term(s) */,
+  .gb_Se.gb_Te .gb_df /* Search terms when search field is in focus */ {
+    color: var(--lightestgray);
+  }
+
+  td.gssb_e /* Search suggestions box */,
+  .docs-homescreen-search-ac-renderer {
+    background-color: var(--darkergray);
+    border-color: var(--gray);
+    box-shadow: none;
+    
+    & .docs-homescreen-search-ac-row {
+      border-left-color: transparent;
+    }
+    & .docs-homescreen-search-ac-active {
+      background-color: var(--darkgray);
+    }
+  }
+  table.gssb_m /* Search suggestions area inside box, which excludes the bottom edge which serves as “padding” */ {
+    background: none;
+    color: var(--lightestgray);
+  }
+  .ASO_SUGGESTIONS_CONTAINER tr /* Search results */ {
+    transition: var(--off);
+  }
+  .asor.asor_i5 /* Recent item icon */ {
+    filter: invert(100%);
+    opacity: 100%;
+  }
+  .ASO_SUGGESTIONS_CONTAINER tr.gssb_i.ASO_SUGGESTION_HIGHLIGHTED /* Highlighted search result */ {
+    background-color: var(--darkgray);
+    transition: var(--on);
+  }
+  tr[role="separator"] .gssb_l /* Line between recent terms and search results */ {
+    background-color: var(--mediumdarkgray);
+  }
+  .gstq_c /* Email address if search term matches it */,
+  .asor_e /* Owner of file in search result */ {
+    color: var(--lightgray);
+    font-family: Roboto, sans-serif;
+  }
+  .gsan_a /* No results message */ {
+    color: var(--lightgray);
+  }
+
+  .gb_Re /* Account and apps area */ {
+    background: none;
+  }
+  .gb_Ea svg {
+    color: var(--lightestgray);
+  }
+  .gb_ia /* Google Workspace organization logo box */ {
+    background-color: var(--darkestgray);
+    border-color: var(--darkgray);
+    transition: var(--off);
+  }
+  .gb_ia:hover {
+    background-color: var(--darkgray);
+    border-color: var(--mediumdarkgray);
+    transition: var(--on);
+  }
+
+  /* Left side menu */
+  .goog-menu.docs-homescreen-leftmenu {
+    background-color: var(--darkergray);
+  }
+  .docs-homescreen-nav-google-logo::before /* Google logo */ {
+    filter: brightness(500%) saturate(0%);
+  }
+  .docs-homescreen-leftmenu-material-menu-header-text /* “Docs” */ {
+    color: var(--lightestgray);
+    padding-left: 6px;
+  }
+  .docs-homescreen-leftmenu-menuseparator /* Separators */ {
+    border-color: var(--gray);
+  }
+  .docs-homescreen-leftmenu-menuitem /* Menu items */ {
+    & .docs-homescreen-leftmenu-menuitem-text {
+      color: var(--lightestgray);
+    }
+    &.goog-menuitem-highlight {
+      background-color: var(--mediumdarkgray);
+      .docs-homescreen-leftmenu-menuitem-text {
+        color: var(--lightestgray);
+      }
+    }
+  }
+  .docs-homescreen-leftmenu {
+    & .docs-homescreen-gear-24, 
+    & .docs-homescreen-help-outline-24 {
+      filter: var(--white-icons);
+    }
+  }
+  .docs-homescreen-leftmenu-tos-links-container {
+    & .ogb-link {
+      color: var(--lightgray) /* Important because the asterisk is weak */ ;
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      transition: var(--off), 0.2s text-decoration-color ease;
+    }
+    & .ogb-link:hover {
+      color: var(--lightestgray);
+      text-decoration: underline;
+      transition: var(--on), 0.15s text-decoration-color ease;
+    }
+    & span {
+      color: var(--lightgray);
+      user-select: none;
+    }
+  }
+
+  /* Template gallery */
+  .docs-homescreen-templates-bar /* “Templates” title bar, shown when template gallery is expanded */ {
+    background-color: var(--darkestgray);
+  }
+  .docs-homescreen-templates-bar-header {
+    color: var(--lightestgray);
+  }
+
+  .docs-hs-tmp-expandedcontentholder-tabbarrow /* Templates gallery tabbar (shown for organizations) */ {
+    background-color: var(--darkestgray);
+  }
+
+  .docs-homescreen-fcc-content /* Template gallery background */ {
+    background-color: var(--darkergray);
+  }
+
+  .docs-hs-tmp-contractedheader-text /* “Start a new document ” */ {
+    color: var(--lightestgray);
+  }
+
+  .docs-hs-tmp-sc-showcase .docs-homescreen-grid-header-title.docs-homescreen-grid-header-title, /* “Recently used” */
+  .docs-hs-tmp-sc-default .docs-homescreen-grid-header-title.docs-homescreen-grid-header-title /* Other template group titles */ {
+    background-color: transparent;
+    color: var(--lightestgray);
+  }
+  .jfk-button.docs-hs-tmp-contractedheader-more /* “Template gallery” button */ {
+    background-color: transparent;
+    color: var(--lightestgray);
+    transition: var(--off);
+    &.jfk-button-hover, 
+    &.jfk-button-focused {
+      background-color: var(--darkgray);
+      transition: var(--on);
+    }
+    &.jfk-button-active {
+      background-color: var(--blue-ripple);
+    }
+    &+.docs-hs-tmp-contractedheader-separator {
+      border-color: var(--gray);
+      transition: 3s border-color ease;
+    }
+    &.jfk-button-hover, 
+    &.jfk-button-focused,
+    &.jfk-button-active {
+      &+.docs-hs-tmp-contractedheader-separator {
+        border-color: transparent;
+        transition: var(--on);
+      }
+    }
+  }
+  .docs-hs-tmp-contractedheader-actions .docs-homescreen-icon /* Template gallery button icons */ {
+    filter: var(--white-icons);
+  }
+  .goog-menu-button.docs-hs-tmp-contractedheader-overflow /* Template gallery overflow menu */ {
+    transition: var(--off);
+  }
+  .goog-menu-button-hover.docs-hs-tmp-contractedheader-overflow,
+  .goog-menu-button-focused.docs-hs-tmp-contractedheader-overflow {
+    background-color: var(--darkgray);
+    transition: var(--on);
+  }
+  .goog-menu-button-open.docs-hs-tmp-contractedheader-overflow {
+    background-color: var(--blue-ripple);
+  }
+  .docs-hs-tmp-contractedheader-actions .goog-menu-button-open .docs-homescreen-icon {
+    filter: var(--paleblue-icons);
+  }
+
+  /* OPENED TEMPLATE GALLERY */
+  
+  .docs-homescreen-templates-bar-back /* Back button */ {
+    transition: var(--off);
+    & .docs-homescreen-back-grey700-24 {
+      filter: var(--white-icons);
+    }
+    &.jfk-button-hover, 
+    &.jfk-button-focused {
+      background-color: var(--darkgray);
+      transition: var(--on);
+    }
+    &.jfk-button-active {
+      background-color: var(--blue-ripple);
+    }
+  }
+  .docs-hs-tmp-emptydomaingallery-image /* No templates empty state */ {
+    display: none; /* sorry I couldn’t darken this empty state photo nicely */
+  }
+  .docs-hs-tmp-emptydomaingallery-header {
+    color: var(--lightestgray);
+  }
+  .docs-hs-tmp-emptydomaingallery-msg {
+    color: var(--lightergray);
+  }
+  .docs-hs-tmp-submitbutton-embossed /* “Submit template” button */ {
+    background-color: transparent;
+    border: 1px solid var(--mediumdarkgray);
+    border-radius: 4px;
+    box-shadow: none;
+    transition: var(--off);
+  }
+  .docs-hs-tmp-submitbutton-embossed.docs-hs-tmp-submitbutton-embossed-hover {
+    background-color: var(--mediumdarkgray);
+    transition: var(--on);
+  }
+  .docs-hs-tmp-submitbutton-embossed.docs-hs-tmp-submitbutton-embossed-active {
+    background-color: var(--blue-ripple);
+    border-color: var(--blue-ripple);
+  }
+  .docs-hs-tmp-submitbutton-icon {
+    filter: var(--paleblue-icons);
+  }
+  .docs-hs-tmp-submitbutton-label {
+    color: var(--palerblue);
+  }
+
+  .docs-homescreen-templates-templateview-preview /* Template thumbnail */ {
+    background-color: var(--mediumdarkgray);
+    border-color: var(--mediumdarkgray);
+    transition: var(--off);
+  }
+  .docs-homescreen-templates-templateview-preview:hover {
+    border-color: var(--gray);
+    transition: var(--on);
+  }
+  .goog-control-active .docs-homescreen-templates-templateview-preview {
+    border-color: var(--paleblue);
+    transition: var(--on);
+  }
+  .docs-homescreen-templates-templateview-preview img /* Template preview image */ {
+    filter: opacity(75%) contrast(80%);
+    transition: filter 0.5s ease;
+  }
+  .docs-homescreen-templates-templateview-preview img:hover {
+    filter: none;
+    transition: filter 0.25s ease;
+  }
+
+  .docs-homescreen-templates-templateview-title /* Template names */ {
+    color: var(--lightestgray);
+  }
+  .docs-homescreen-templates-templateview-brandauthor,
+  .docs-homescreen-templates-templateview-style /* Template info */ {
+    color: var(--lightergray);
+    font-weight: 400;
+  }
+  .docs-homescreen-templates-templateview-addon /* “Add-on” badge */ {
+    background-color: var(--paleblue);
+    color: var(--darkestgray);
+  }
+
+  /* RECENT DOCUMENTS LIST */
+  
+  .docs-homescreen-container /* Homepage background */ {
+    background-color: transparent;
+  }
+  .docs-homescreen-floater-header, /* “Recent documents” and sorting buttons bar */
+  .docs-homescreen-grid-header, .docs-homescreen-list-header {
+    background-color: var(--darkestgray);
+  }
+  .docs-homescreen-floater-header-shadow,
+  .docs-homescreen-floater-header-shadow>.docs-homescreen-floater-header /* Sorting buttons bar, but once the view is scrolled enough */ {
+    background-color: var(--darkergray);
+    box-shadow: none;
+  }
+  .docs-homescreen-floater-header /* “Recent documents” */ {
+    color: var(--lightestgray);
+  }
+  .docs-homescreen-owner-filter-button /* “Owned by…” */ {
+    background-color: transparent;
+    color: var(--lightestgray);
+    transition: var(--off);
+    & .docs-homescreen-dropdown-arrow-24::before {
+      filter: var(--white-icons);
+    }
+    &.goog-menu-button-hover, 
+    &.goog-menu-button-focused {
+      background-color: var(--darkgray);
+      transition: var(--on);
+    }
+    &.goog-menu-button-hover {
+      cursor: pointer /* The whole button is clickable, but the cursor only changes to a pointer when hovering over the text or triangle. This fixes that. */ ;
+    }
+    &.goog-menu-button-open {
+      background-color: var(--blue-ripple);
+    }
+    &+.docsshared-menu-bubble {
+      background: none;
+      box-shadow: none;
+      
+      .goog-menu {
+        .menu();
+        
+        & .goog-option-selected .goog-menuitem-checkbox {
+          filter: invert(100%);
+        }
+      }
+    }
+  }
+
+  .docs-homescreen-floater-header-buttons .docs-homescreen-editorbar-actionbutton /* Grid/list, sort, open */ {
+    & .docs-homescreen-img {
+      filter: var(--white-icons);
+    }
+    &.jfk-button-hover::before,
+    &.jfk-button-focused::before, 
+    &.goog-menu-button-hover::before, 
+    &.goog-menu-button-focused::before {
+      background-color: var(--darkgray); 
+    }
+    &.jfk-button-active::before, 
+    &.goog-menu-button-open::before {
+      background-color: var(--blue-ripple);
+    }
+    &.jfk-button-active .docs-homescreen-img {
+      filter: brightness(500%) saturate(0%);
+    }
+    &.goog-menu-button-open .docs-homescreen-img {
+      filter: var(--paleblue-icons);
+    }
+  }
+  .docs-homescreen-editorbar-actionbutton+.docsshared-menu-bubble {
+    background: none;
+    box-shadow: none;
+    
+    & .goog-menu {
+      .menu();
+      
+      & .goog-option-selected .goog-menuitem-checkbox {
+        filter: invert(100%);
+      }
+    }
+  }
+
+  /* Empty state */
+  .docs-homescreen-empty-section-notice {
+    background-color: transparent;
+    box-shadow: none;
+  }
+  .docs-homescreen-empty-section-new-user-notice-heading {
+    color: var(--lightestgray);
+  }
+  .docs-homescreen-empty-section-notice-message {
+    color: var(--lightgray);
+  }
+
+  /* Thumbnail view */
+  .docs-homescreen-grid-item {
+    background-color: var(--darkestgray);
+    border-color: var(--darkgray);
+    transition: var(--off);
+  }
+  .docs-homescreen-grid-item.goog-control-hover {
+    background-color: var(--darkgray);
+    border-color: var(--gray);
+    transition: var(--on);
+  }
+  .docs-homescreen-grid-item.goog-control-focused {
+    background-color: var(--darkgray);
+    border-color: var(--paleblue);
+    transition: var(--on);
+  }
+  .docs-homescreen-grid-item.goog-control-active {
+    background-color: var(--blue-ripple);
+    border-color: var(--paleblue);
+    transition: var(--on);
+  }
+  .docs-homescreen-grid-item-thumbnail {
+    filter: invert(100%) hue-rotate(180deg) contrast(80%);
+  }
+  .docs-homescreen-grid-item-metadata-container /* Textbox below thumbnails */ {
+    background-color: transparent;
+    border-color: var(--darkgray);
+  }
+  .docs-homescreen-grid-item-title {
+    color: var(--lightestgray);
+  }
+  .docs-homescreen-grid-item .docs-homescreen-grid-item-shared-icon .docs-homescreen-img, /* Icon for shared items */
+  .docs-homescreen-grid-item .docs-homescreen-item-overflow .docs-homescreen-img /* More options (kebab) */ {
+    filter: brightness(165%) saturate(70%);
+  }
+  .docs-homescreen-grid-item-time-container {
+    color: var(--lightgray);
+  }
+
+  /* File options menu */
+  .docs-homescreen-item-overflow /* Menu button */ {
+    transition: var(--off);
+  }
+  .docs-homescreen-item-overflow:hover,
+  .docs-homescreen-item-overflow:focus {
+    background-color: var(--gray);
+    transition: var(--on);
+  }
+  .docs-homescreen-grid-item>.docsshared-menu-bubble {
+    background-color: transparent;
+    box-shadow: none;
+    
+    & .docs-homescreen-iconmenu {
+      .menu();
+      
+      & .docs-homescreen-icon>.docs-homescreen-img::before {
+        filter: var(--white-icons);
+      }
+    }
+  }
+
+  /* List view */
+  .docs-homescreen-list-item /* Each row */ {
+    background-color: transparent;
+    border-color: var(--darkgray);
+    border-radius: 0;
+    color: var(--lightestgray);
+    transition: var(--off);
+  }
+  .docs-homescreen-list-item.goog-control-hover, .docs-homescreen-list-item.goog-control-focus {
+    background-color: var(--darkgray);
+    border-color: transparent;
+    border-radius: 0;
+    outline: none;
+    transition: var(--on);
+  }
+  .docs-homescreen-list-item.goog-control-active {
+    background-color: var(--blue-ripple);
+    transition: var(--on);
+  }
+  .docs-homescreen-list-item-icon /* Filetype icon */ {
+    border-color: transparent;
+  }
+  .docs-homescreen-list-item-owner,
+  .docs-homescreen-list-item-time /* File details */ {
+    color: var(--lightgray);
+  }
+  .docs-homescreen-list-item .docs-homescreen-list-item-shared-icon .docs-homescreen-img, /* Icon for shared items */
+  .docs-homescreen-list-item .docs-homescreen-item-overflow .docs-homescreen-img /* More options (kebab) */ {
+    filter: brightness(165%) saturate(70%);
+  }
+
+  .docs-homescreen-fab /* The round button in the corner that appears when you scroll down */ {
+    background-color: var(--darkgray);
+    transition: var(--off);
+  }
+  .docs-homescreen-fab.jfk-button-hover,
+  .docs-homescreen-fab.jfk-button-focused {
+    background-color: var(--mediumdarkgray);
+    transition: var(--on);
+  }
+  .docs-homescreen-fab.jfk-button-active {
+    background-color: var(--blue-ripple);
+  }
+  .docsHomescreenUiWizfabbuttonMenuItemFab /* Same button, when the template gallery is set to not show */, 
+  .docsHomescreenUiWizfabbuttonMenuButtonFab {
+    background-color: var(--darkgray);
+    transition: var(--off);
+    &:hover, :focus {
+      background-color: var(--gray);
+      transition: var(--on);
+    }
+    & .docs-homescreen-edit-pencil-outline-24, .docs-homescreen-template-24 {
+      filter: var(--paleblue-icons);
+    }
+  }
+  .quantumWizButtonFloatingactionbuttonHoverOverlay /* FAB overlay that makes it brighter on hover than I set it */ {
+    visibility: hidden;
+  }
+}
+
+@-moz-document url-prefix("https://docs.google.com/document/d/") {
+  // Main editor
+  
+  body.docs-gm.docs-grille-gm3 {
+    background-color: var(--ddocs-background);
+  }
+  
+  .ddocs-filled-button() /* Mixins use the same name as m3 component names. */ {
+    background-color: var(--ddocs-secondary-container);
+    color: var(--ddocs-on-secondary-container);
+    transition: var(--off);
+    &.jfk-button-hover {
+      background-color: var(--ddocs-secondary-container-hover);
+      transition: var(--on);
+    }
+    &.jfk-button-focused {
+      background-color: var(--ddocs-secondary-container-focus);
+      transition: var(--on);
+    }
+  }
+  .ddocs-standard-icon-button() {
+    transition: var(--off);
+    &:not(.goog-toolbar-button-checked) /* Also works for buttons that can’t be selected */ {
+      background-color: transparent;
+      &.goog-toolbar-button-hover, 
+      &.goog-toolbar-button-focus /* Not a mistake, https://m3.material.io/components/icon-buttons/specs said so */ {
+        background-color: var(--ddocs-on-surface-variant-hover);
+        transition: var(--on);
+      }
+      &.goog-toolbar-button-active {
+        background-color: var(--ddocs-on-surface-variant-pressed);
+      }
+      
+      & .docs-icon-img {
+        filter: var(--whiter-icons);
+      }
+    }
+    &.goog-toolbar-button-checked /* “selected”, to use m3 terminology */ {
+      &.goog-toolbar-button-hover {
+        background-color: var(--ddocs-primary-hover);
+        transition: var(--on);
+      }
+      &.goog-toolbar-button-focused {
+        background-color: var(--ddocs-primary-focus);
+        transition: var(--on);
+      }
+      &.goog-toolbar-button-active {
+        background-color: var(--ddocs-primary-pressed);
+      }
+
+      & .docs-icon-img {
+        filter: var(--ddocs-primary-icon);
+      }
+    }
+  }
+  
+  .docs-grille-gm3 #docs-chrome:not(.docs-hub-chrome) /* Top bar */ {
+    background: none;
+    border-bottom-color: transparent;
+    
+    & #docs-titlebar #docs-title-widget /* File name */ {
+      & #docs-title-input-label-inner {
+        visibility: hidden;
+      }
+      & input.docs-title-input {
+        border: none;
+        color: var(--ddocs-on-background);
+        visibility: visible !important;
+        &:hover {
+          outline: 1px solid var(--ddocs-outline);
+        }
+        &:focus {
+          border: none !important;
+          caret-color: var(--ddocs-primary);
+          margin: 0;
+          outline: 2px solid var(--ddocs-primary);
+        }
+      }
+    }
+    
+    & #docs-titlebar+div.docs-titlebar-buttons /* Changelog, comments, share, &c. */ {
+      background-color: transparent;
+      
+      &>#docs-titlebar-share-client-button>.jfk-button-action /* “Share” button */ {
+        .ddocs-filled-button();
+        &>.scb-button-icon {
+          filter: hue-rotate(180deg) invert(100%) brightness(90%);
+        }
+      }
+    }
+    
+    & .docs-titlebar-badges /* Star, Move, Status icons */ {
+      & .docs-titlebar-badge .docs-icon-img {
+        filter: var(--whiter-icons);
+      }
+      & .docs-save-indicator-caption /* “Saved to Drive, etc” */ {
+        color: var(--ddocs-on-background);
+      }
+    }
+    
+    & #docs-menubar>.goog-control /* Menubar: “File”, “Edit”, &c. */ {
+      color: var(--ddocs-on-background);
+      transition: var(--off);
+      &.goog-control-hover {
+        background-color: var(--ddocs-on-background-hover);
+        transition: var(--on);
+      }
+      &:focus, 
+      &.goog-control-open {
+        background-color: var(--ddocs-on-background-focus);
+        transition: var(--on);
+      }
+    }
+    
+    & #docs-toolbar-wrapper /* Toolbar: undo, bold, &c. */ {
+      background-color: var(--ddocs-surface2);
+      
+      & .goog-toolbar-separator {
+        border-color: var(--ddocs-outline-variant);
+      }
+      & .goog-toolbar-button { // Yep. Custom implementation of buttons because these are not standard icon buttons.
+        transition: var(--off);
+        &:not(.goog-toolbar-button-checked) /* Also works for buttons that can’t be selected */ {
+          background-color: transparent;
+          &.goog-toolbar-button-hover, 
+          &.goog-toolbar-button-focus /* Not a mistake, https://m3.material.io/components/icon-buttons/specs said so */ {
+            background-color: var(--ddocs-on-surface-variant-hover);
+            transition: var(--on);
+          }
+          &.goog-toolbar-button-active {
+            background-color: var(--ddocs-on-surface-variant-pressed);
+          }
+
+          & .docs-icon-img {
+            filter: var(--whiter-icons);
+          }
+        }
+        &.goog-toolbar-button-checked /* “selected”, to use m3 terminology */ {
+          background-color: var(--ddocs-primary-container);
+          transition: var(--on);
+          &.goog-toolbar-button-hover {
+            background-color: var(--ddocs-on-primary-container-hover);
+            transition: var(--on);
+          }
+          &.goog-toolbar-button-focused {
+            background-color: var(--ddocs-on-primary-container-focus);
+            transition: var(--on);
+          }
+          &.goog-toolbar-button-active {
+            background-color: var(--ddocs-on-primary-container-pressed);
+          }
+
+          & .docs-icon-img {
+            filter: var(--ddocs-on-primary-container-icon);
+          }
+        }
+      }
+      & .goog-toolbar-combo-button /* Combo buttons are the menu buttons you can type in (zoom and font size) */ { 
+        background-color: transparent;
+        color: var(--ddocs-on-surface);
+        transition: var(--off);
+        &#fontSizeSelect {
+          border-color: var(--ddocs-outline-variant) !important;
+        }
+        &.goog-toolbar-combo-button-hover, 
+        &.goog-toolbar-combo-button-focus {
+          background-color: var(--ddocs-on-surface-variant-hover);
+          transition: var(--on);
+        }
+        &.goog-toolbar-combo-button-open {
+          background-color: var(--ddocs-on-surface-variant-pressed);
+          border: 1px solid transparent !important;
+          &#zoomSelect {
+            margin: 5px 1px;
+          }
+          &#fontSizeSelect {
+            margin: 0 3px;
+          }
+          &:focus-within {
+            outline: 2px solid var(--ddocs-primary);
+          }
+          & input.goog-toolbar-combo-button-input::selection {
+            background-color: var(--ddocs-primary-container);
+          }
+        }
+        & .goog-toolbar-combo-button-input {
+          color: currentColor;
+        }
+        & .docs-icon-img {
+          filter: var(--whiter-icons);
+        }
+      }
+      & .goog-toolbar-menu-button { 
+        background-color: transparent;
+        color: var(--ddocs-on-surface);
+        transition: var(--off);
+        &:is(#textColorButton, #bgColorButton) .goog-color-menu-button-indicator { // Inverts the colour swatches below the font colour and highlight colour buttons
+          filter: @document-filter;
+          & .docs-icon-img {
+            filter: if(@document-filter = var(--darkfilter), invert(100%) hue-rotate(180deg) brightness(0%), brightness(600%));
+            filter: if(@document-filter = none, brightness(310%), );
+          }
+        }
+        &.goog-toolbar-menu-button-hover, 
+        &.goog-toolbar-menu-button-focus,  {
+          background-color: var(--ddocs-on-surface-variant-hover);
+          transition: var(--on);
+        }
+        &.goog-toolbar-menu-button-active, 
+        &.goog-toolbar-menu-button-open {
+          background-color: var(--ddocs-on-surface-variant-pressed);
+        }
+
+        & .docs-icon-img {
+          filter: var(--whiter-icons);
+        }
+      }
+    }
+  }
+  
+  body.docs-gm.docs-grille-gm3 :is(#docs-editor-container, #docs-editor) /* Summary, outline, and of course your document */, 
+  body.docs-gm:not(.docs-body-pageless) .kix-appview-editor {
+    background: none !important;
+  }
+  body.docs-gm.docs-body-pageless .kix-appview-editor { // A whole load of pageless mode tweaks
+    & when not (@document-filter = none) and not (@document-filter = var(--darkfilter)) /* Seems like Less is incapable of detecting (@document-filter = contrast(80%) brightness(90%)) correctly so I’m just detecting that it’s not the other two options instead */ and (@respect-pageless-document-color = 0) {
+      background-color: #cecece !important; // Pageless, dim, don’t respect page background colour. Important because this is set in Google Docs with the style attribute.
+      scrollbar-color: var(--ddocs-outline) transparent;
+    }
+    & when (@document-filter = var(--darkfilter)) and (@respect-pageless-document-color = 0) {
+      background-color: var(--ddocs-background) !important; 
+    }
+    &::before when not (@document-filter = none) and (@respect-pageless-document-color = 1) { // Puts a child element immediately in front of the .kix-appview-editor, which is colored by the page color. It’s laggy (at least on Firefox) but it does respect the page color. We don’t have the luxury of directly changing the backgroud-color of .kix-appview-editor according to the original colour like Dark Reader does. 
+      backdrop-filter: @document-filter; // Pageless, respect page background colour. 
+      content: "";
+      display: block;
+      height: 100%;
+      width: 100%;
+      pointer-events: none; // Allows the user to click through this filter to access the document’s scrollbar. 
+      position: fixed; 
+    }
+  }
+  
+  body.docs-gm.docs-grille-gm3 .kix-appview-editor {
+    scrollbar-color: var(--ddocs-outline) transparent;
+    
+    & .kix-page-paginated /* Pages got an outline since m3 */ {
+      outline-color: var(--ddocs-outline-variant);
+    }
+    
+    & .kix-paginateddocumentplugin /* Might be obsolete */,
+    & .kix-canvas-tile-content /* Actual document itself */,
+    & .kix-cursor .kix-cursor-caret {
+      filter: @document-filter;
+    }
+    
+    /* Fix to un-unvert images (From my understanding, Google Docs uses a canvas to render the document on Chrome, so this only works on Firefox where Google Docs uses SVG instead.) */
+    .kix-canvas-tile-content image,
+    svg.kix-embeddedobject-image,
+    .kix-embeddedobject-image image {
+      filter: if((@document-filter = var(--darkfilter)), brightness(80%) invert(100%) hue-rotate(180deg), none);
+    }
+  }
+
+}

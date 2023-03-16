@@ -11,6 +11,9 @@
 @var          checkbox respect-pageless-document-color "Respect the page color of pageless documents while a document filter is applied. May be laggy." 0
 ==/UserStyle== */
 
+// This is an archive of the last version of Dark Docs with Material 2 theming. Google has since Material U’d Google Docs, so the next version of Dark Docs will use Material U (m3) theming. Most of the changes from Dark Docs next will make it into the m3 version of Dark Docs, so Dark Docs next will not exist for m3 unless I find the need for a new testing ground. 
+// Feel free to use this Material 2 version of Dark Docs as a starting point if you want to make a new userstyle that returns Google Docs back to Material 2. Dark Docs is licensed under the GNU GPLv3. 
+
 /*               ┌────────────────────────────────┐
   ┌──────────────┤ Warning for people on Firefox  ├──────────────┐
   │              └────────────────────────────────┘              │

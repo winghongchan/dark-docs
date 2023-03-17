@@ -1,16 +1,16 @@
 /* ==UserStyle==
-@name           Dark Docs m3
+@name           Dark Docs
 @namespace      userstyles.world/user/winghongchan
-@version        2023.03.15
-@description    A new version of Dark Docs, made for Google Docs’ Material U redesign. Contains numerous consistency fixes. 
+@version        2023.03.16
+@description    A new version of Dark Docs, made for Google Docs’ Material U redesign. 
 @author         Walter winghongchan
 @homepageURL    https://github.com/winghongchan/dark-docs
 @supportURL     https://github.com/winghongchan/dark-docs/issues
 @license        GPL-3.0-or-later
 @preprocessor   less
-@var          select document-filter "Document filter" {"none:None": "none", "dim:Dim": "contrast(80%) brightness(90%)", "invert:Invert*": "var(--darkfilter)"}
-@var          number document-contrast "Document contrast while inverted" [80, 40, 100, 1, "%"]
-@var          checkbox respect-pageless-document-color "Respect page color of pageless documents while a document filter is applied. May be laggy." 0
+@var            select document-filter "Document filter" {"none:None": "none", "dim:Dim": "contrast(80%) brightness(90%)", "invert:Invert*": "var(--darkfilter)"}
+@var            number document-contrast "Document contrast while inverted" [80, 40, 100, 1, "%"]
+@var            checkbox respect-pageless-document-color "Respect page color of pageless documents while a document filter is applied. May be laggy." 0
 ==/UserStyle== */
 
 @-moz-document url-prefix("https://docs.google.com/document/d/"), url-prefix("https://docs.google.com/document/u/"), url-prefix("https://docs.google.com/sharing/driveshare"), url-prefix("https://docs.google.com/sharing/boq/driveshare"), url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%"), url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%2C6%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5B"), regexp("(https:\\/\\/meet.google.com\\/_\\/frame\\?authUser=\\d+&frameType=2&origin=https%3A%2F%2Fdocs.google.com#cb=pip_frame)") {
@@ -54,6 +54,9 @@
     --ddocs-surface2: #2d2e31;
     --ddocs-surface3: #313336;
     --ddocs-on-surface: #e3e3e3;
+    --ddocs-on-surface-hover: rgba(227, 227, 227, var(--ddocs-hover-state-layer-opacity)); 
+    --ddocs-on-surface-focus: rgba(227, 227, 227, var(--ddocs-focus-state-layer-opacity)); 
+    --ddocs-on-surface-pressed: rgba(227, 227, 227, var(--ddocs-pressed-state-layer-opacity)); 
     --ddocs-surface-variant: #444746; 
     --ddocs-on-surface-variant: #c4c7c5; 
     --ddocs-on-surface-variant-hover: rgba(196, 199, 197, var(--ddocs-hover-state-layer-opacity));
@@ -78,6 +81,23 @@
     --darkfilter: invert(100%) hue-rotate(180deg) contrast(@document-contrast);
     --on: background-color 0.05s ease, border-color 0.06s ease, color 0.05s ease, filter 0.05s ease;
     --off: background-color 0.25s ease, border-color 0.1s ease, color 0.25s ease, filter 0.25s ease;
+    
+    // Dark Docs m2 variables (will be removed once side panels and the homepage get Material U’d)
+    --palerblue: #8AB4F8; /* For blue text, icons, nearby items that need to be paleblue, and paleblue buttons on hover. */
+    --paleblue: #669DF7; /* For blue buttons and other wider areas of paleblue. */
+    --blue-ripple: #394457; /* Background color to indicate that something is active (toggled on or being clicked, for example). */
+    --palergreen: #81C995; /* Mostly for suggesting mode. */
+    --green-ripple: #37493F;
+    --paleyellow: #FDD663; /* Mostly for comments. */
+    --yellow-ripple: #454134;
+    --lightestgray: #F8F9FA; /* For most text. */
+    --lightergray: #DADCE0; 
+    --lightgray: #BDC1C6; /* For subtext that gives more info, like a placeholder, an email below a name, or a description under an option. */
+    --gray: #5F6368;
+    --mediumdarkgray: #4A4E51; /* Hover state on menus. */
+    --darkgray: #3C4043; /* Multiple purposes, like outlining dialog boxes to make them separate from what's behind them, or menus. */
+    --darkergray: #303235; /* A hover state. */
+    --darkestgray: #202124; /* For backgrounds. */
     
     /* Note to self: https://m3.material.io/foundations/interaction-states The state layer is an overlay with a fixed opacity for each state and uses the same color as the content. … components using the activated or selected states change the container and content color directly. */
   }
@@ -712,7 +732,37 @@
     background-color: var(--ddocs-background);
   }
   
-  .ddocs-filled-button() /* Mixins use the same name as m3 component names. */ {
+  /* #docs-butterbar-container::before when (@warning-message = 1) {
+    background-color: var(--ddocs-inverse-surface);
+    border-radius: 4px;
+    box-shadow: 0 0 16px var(--darkestgray);
+    color: var(--ddocs-inverse-on-surface);
+    content: "Test message";
+    display: inline-block;
+    font-size: var(--docs-material-font-size-normal,13px);
+    line-height: 1.5em;
+    margin: 0 16px;
+    max-width: 50vw;
+    padding: 16px 24px;
+    position: relative;
+    text-align: left;
+  } */
+  
+  .checkmark-fix() /* This is for the menus that use the older grayish non-90° checkmark */ { 
+    background: none;
+    &.goog-menuitem-highlight {
+      background-color: var(--ddocs-on-surface-hover);
+    }
+    & .goog-menuitem-checkbox {
+      background: no-repeat url(//ssl.gstatic.com/docs/common/material_common_sprite477.svg) 0 -1056px;
+      filter: invert(100%);
+      height: 21px;
+      margin-top: -9px;
+      top: 50%;
+    }
+  }
+  
+  .filled-button() /* Mixins use the same name as m3 component names. */ {
     background-color: var(--ddocs-secondary-container);
     color: var(--ddocs-on-secondary-container);
     transition: var(--off);
@@ -725,38 +775,144 @@
       transition: var(--on);
     }
   }
-  .ddocs-standard-icon-button() {
+  
+  .menu() /* Dropdown menus */ {
+    background: var(--ddocs-surface2);
+    border: none;
+    box-shadow: 0 2px 6px 2px rgba(0,0,0,.25);
+    scrollbar-color: var(--ddocs-outline) transparent;
+    
+    // Background colour change for hover and click
+    &>.goog-menuitem {
+      transition: var(--off);
+      
+      &.goog-menuitem-highlight {
+        background-color: var(--ddocs-on-surface-hover);
+        transition: var(--on);
+      }
+      &.goog-menuitem-active:not(.goog-submenu:not(.goog-option)) /* Double negative! In this case it’s because there are some menu items that can be clicked, like the items in the styles menu, which are marked with .goog-option. */ {
+        background-color: var(--ddocs-on-surface-pressed);
+        transition: var(--on);
+      }
+    }
+    
+    // Menu item content
+    &>.goog-menuitem>.goog-menuitem-content {
+      &>.goog-menuitem-icon:has(div:not(.docs-icon-editors-ia-article-document-blue):not(.docs-icon-editors-ia-apps-script):not(.docs-icon-editors-ia-spreadsheet-green)) {
+        filter: var(--whiter-icons);
+      }
+      &>.goog-menuitem-label, 
+      &>span /* Needed >span because File→Language submenu is weird */, 
+      & /* The zoom menu (left of the styles menu) and font size menu puts text directly into .goog-menuitem-content */ {
+        color: var(--ddocs-on-surface);
+      }
+      &>.goog-menuitem-accel /* Keyboard shortcut */ {
+        color: var(--ddocs-on-surface-variant);
+        font-weight: lighter;
+      }
+      &>.goog-submenu-arrow /* Arrows indicating nested menus */ {
+        color: var(--ddocs-on-surface-variant);
+        opacity: 100%;
+      }
+    }
+    &>.goog-menuitem.goog-menuitem-disabled {
+      opacity: 38%;
+      
+      &>.goog-menuitem-content>.goog-menuitem-icon {
+        opacity: 100%; // Didn’t want opacities to compound and make the icons extra transparent
+      }
+    }
+    &>.apps-hoverable-menu-separator-container>.apps-hoverable-menu-separator-bottom, 
+    &>.goog-menuseparator /* Dividers */ {
+      border-top-color: var(--ddocs-outline-variant);
+    }
+    
+    // A bit of eye candy? Moves the arrow that indicates a submenu to the right when the menu opens.
+    &>.goog-menuitem.goog-submenu-open.goog-submenu:not(.goog-menuitem-disabled) .goog-submenu-arrow {
+      color: var(--ddocs-on-surface);
+      transform: translateX(5px);
+      transition: color 0.3s, transform 0.3s;
+    }
+  }
+  .docs-gm .goog-menu {
+    .menu();
+  }
+  body.docs-gm .docs-material.goog-menu .apps-menuitem.goog-option-selected .goog-menuitem-checkbox {
+    filter: invert(100%) brightness(95%); // Modern checkmark fix
+  }
+  .goog-menu:not(.ia-primary-menu):has(span[lang="en_CA"]) .goog-menuitem.goog-option-selected:not(.apps-menuitem) /* Document language menu fix */ {
+    .checkmark-fix();
+  }
+  .goog-menu>.goog-dimension-picker {
+    .goog-dimension-picker-unhighlighted,
+    .goog-dimension-picker-highlighted {
+      filter: invert(100%) hue-rotate(180deg) contrast(80%) brightness(200%); // Table size menu fix
+    }
+    .goog-dimension-picker-status {
+      color: var(--ddocs-on-surface-variant);
+    } 
+  }
+  body.docs-gm .docs-toolbar-mode-switcher-menu .goog-menuitem {
+    & .current-mode :is(.docs-toolbar-mode-switcher-editing-menu-item, .docs-toolbar-mode-switcher-commenting-menu-item) .docs-toolbar-mode-switcher-menu-label {
+      color: var(--ddocs-on-surface);
+    }
+    & .docs-toolbar-mode-switcher-menu-description {
+      color: var(--ddocs-on-surface-variant); // Mode switcher fix
+    }
+    & .docs-toolbar-mode-switcher-menu-selected-icon .docs-icon-img {
+      filter: var(--white-icons);
+    }
+  }
+  .goog-menu:not(.ia-menu):has(.goog-menuitem-label[style*="color: rgb("]) {
+    &>.goog-menuitem.docs-submenuitem {
+      border-bottom-color: var(--ddocs-outline-variant); // They decided to implement menu dividers a little differently in the styles menu
+    }
+    &>.goog-menuitem.goog-option-selected {
+      .checkmark-fix();
+      &.goog-menuitem-active {
+        background-color: var(--ddocs-on-surface-pressed);
+      }
+    }
+    & .goog-menuitem-label[style*="color: rgb("] {
+      filter: @document-filter; // Styles menu fix
+    }
+  }
+  .docs-fontmenu /* Font picker fix */ {
+    &>.goog-menuitem.goog-menuitem-disabled:has(.docs-fonts-section-header) /* Why is the section header “RECENT” considered a disabled menu item? */ {
+      opacity: 100%;
+      &>.goog-menuitem-content>.docs-fonts-section-header {
+        color: var(--ddocs-on-surface-variant);
+      }
+    }
+    & .goog-option-selected, 
+    &~.goog-menu:has([style*="font-family: \"docs-"]) .goog-option-selected /* The font submenus need this too */ {
+      .checkmark-fix();
+    }
+    &>.docs-fontmenu-fonts /* The rest of the fonts are in a menu within the font menu?? */ {
+      .menu();
+      box-shadow: none;
+    }
+  }
+  
+  .standard-icon-button() {
     transition: var(--off);
     &:not(.goog-toolbar-button-checked) /* Also works for buttons that can’t be selected */ {
       background-color: transparent;
-      &.goog-toolbar-button-hover, 
-      &.goog-toolbar-button-focus /* Not a mistake, https://m3.material.io/components/icon-buttons/specs said so */ {
+      &.jfk-button-hover, 
+      &:hover, 
+      &.jfk-button-focus, 
+      &:focus /* Not a mistake, https://m3.material.io/components/icon-buttons/specs said so */ {
         background-color: var(--ddocs-on-surface-variant-hover);
         transition: var(--on);
       }
-      &.goog-toolbar-button-active {
+      &.jfk-button-active, 
+      &:active, 
+      &.jfk-button-checked /* “Selected”, to use m3 terms */ {
         background-color: var(--ddocs-on-surface-variant-pressed);
       }
       
       & .docs-icon-img {
         filter: var(--whiter-icons);
-      }
-    }
-    &.goog-toolbar-button-checked /* “selected”, to use m3 terminology */ {
-      &.goog-toolbar-button-hover {
-        background-color: var(--ddocs-primary-hover);
-        transition: var(--on);
-      }
-      &.goog-toolbar-button-focused {
-        background-color: var(--ddocs-primary-focus);
-        transition: var(--on);
-      }
-      &.goog-toolbar-button-active {
-        background-color: var(--ddocs-primary-pressed);
-      }
-
-      & .docs-icon-img {
-        filter: var(--ddocs-primary-icon);
       }
     }
   }
@@ -788,8 +944,11 @@
     & #docs-titlebar+div.docs-titlebar-buttons /* Changelog, comments, share, &c. */ {
       background-color: transparent;
       
-      &>#docs-titlebar-share-client-button>.jfk-button-action /* “Share” button */ {
-        .ddocs-filled-button();
+      & .jfk-button-standard /* Changelog and comments buttons */ {
+        .standard-icon-button();
+      }
+      &>#docs-titlebar-share-client-button>.jfk-button-action /* Share button */ {
+        .filled-button();
         &>.scb-button-icon {
           filter: hue-rotate(180deg) invert(100%) brightness(90%);
         }
@@ -797,8 +956,11 @@
     }
     
     & .docs-titlebar-badges /* Star, Move, Status icons */ {
+      & .docs-titlebar-badge {
+        .standard-icon-button();
+      }
       & .docs-titlebar-badge .docs-icon-img {
-        filter: var(--whiter-icons);
+        //filter: var(--whiter-icons);
       }
       & .docs-save-indicator-caption /* “Saved to Drive, etc” */ {
         color: var(--ddocs-on-background);
@@ -844,7 +1006,7 @@
         }
         &.goog-toolbar-button-checked /* “selected”, to use m3 terminology */ {
           background-color: var(--ddocs-primary-container);
-          transition: var(--on);
+          transition: var(--off);
           &.goog-toolbar-button-hover {
             background-color: var(--ddocs-on-primary-container-hover);
             transition: var(--on);
@@ -867,7 +1029,7 @@
         color: var(--ddocs-on-surface);
         transition: var(--off);
         &#fontSizeSelect {
-          border-color: var(--ddocs-outline-variant) !important;
+          border-color: var(--ddocs-outline) !important;
         }
         &.goog-toolbar-combo-button-hover, 
         &.goog-toolbar-combo-button-focus {
@@ -917,7 +1079,41 @@
         &.goog-toolbar-menu-button-open {
           background-color: var(--ddocs-on-surface-variant-pressed);
         }
-
+        
+        &#docs-toolbar-mode-switcher /* Editing, suggesting, viewing */ {
+          & .goog-toolbar-menu-button-caption {
+            color: var(--ddocs-on-surface);
+          }
+          & .goog-toolbar-menu-button-dropdown {
+            border-top-color: var(--ddocs-on-surface);
+          }
+          
+          &.suggest-mode {
+            background-color: var(--ddocs-primary-container);
+            transition: var(--off);
+            &.goog-toolbar-menu-button-hover {
+              background-color: var(--ddocs-on-primary-container-hover);
+              transition: var(--on);
+            }
+            &.goog-toolbar-menu-button-focused {
+              background-color: var(--ddocs-on-primary-container-focus);
+              transition: var(--on);
+            }
+            &.goog-toolbar-menu-button-active {
+              background-color: var(--ddocs-on-primary-container-pressed);
+            }
+            
+            & .goog-toolbar-menu-button-caption {
+              color: var(--ddocs-on-primary-container);
+            }
+            & .goog-toolbar-menu-button-dropdown {
+              border-top-color: var(--ddocs-on-primary-container);
+            }
+            & .docs-icon-img {
+              filter: var(--ddocs-on-primary-container-icon);
+            }
+          }
+        }
         & .docs-icon-img {
           filter: var(--whiter-icons);
         }
@@ -968,5 +1164,101 @@
       filter: if((@document-filter = var(--darkfilter)), brightness(80%) invert(100%) hue-rotate(180deg), none);
     }
   }
+  
+  body.docs-gm.docs-grille-gm3 #docs-editor .left-sidebar-container /* Summary and TOC */ {
+    & .navigation-widget-hat>.navigation-widget-hat-close /* ← button */ {
+      & .navigation-widget-hat-close-button-outer-box {
+        transition: var(--off);
+      }
+      &:is(.goog-flat-button-hover, .goog-flat-button-focused) .navigation-widget-hat-close-button-outer-box {
+        background-color: var(--ddocs-on-surface-variant-hover);
+        transition: var(--on);
+      }
+      &.goog-flat-button-active .navigation-widget-hat-close-button-outer-box {
+        background-color: var(--ddocs-on-surface-variant-pressed);
+        transition: var(--on);
+      }
+      
+      & .docs-icon-img {
+        filter: var(--whiter-icons);
+      }
+    }
+    & #navigation-widget-top-shadow /* Shadow between fixed ← button and summary/TOC */ {
+      &::before {
+        background-image: linear-gradient(to bottom, var(--ddocs-background),transparent);
+      }
+      &::after {
+        display: none;
+      }
+    }
+    & .navigation-widget-content {
+      scrollbar-color: var(--ddocs-outline) transparent;
+      
+      & .navigation-widget-smart-summary-container /* Summary */ {
+        & #kix-smart-summary-view-header {
+          color: var(--ddocs-on-surface);
+        }
+        & .kix-smart-summary-edit-button {
+          .standard-icon-button();
+          transition: opacity 0.1s ease;
+        }
+        & .kix-smart-summary-display-summary-text {
+          color: var(--ddocs-on-surface-variant);
+        }
+        & .kix-smart-summary-edit-summary-container textarea {
+          border: 2px solid var(--ddocs-primary);
+          color: var(--ddocs-on-surface);
+          margin: 0 0 0 -10px;
+          padding: 8px;
+        }
+        & .kix-smart-summary-view-separator {
+          background-color: var(--ddocs-outline-variant);
+          height: 0.5px;
+        }
+      }
+      & .navigation-widget-outline-header {
+        color: var(--ddocs-on-surface);
+      }
+      & .navigation-widget-outline-header+.updating-navigation-item-list {
+        & .navigation-widget-row-controls .goog-flat-button {
+          .standard-icon-button();
+          border-radius: 50%;
+        }
+        & .navigation-item /* TOC items */ {
+          &>.navigation-item-level-0 {
+            color: var(--ddocs-on-background);
+          }
+          &>.navigation-item-content:not(.navigation-item-level-0) {
+            color: var(--ddocs-on-surface);
+          }
+          &.location-indicator-highlight div.navigation-item-content {
+            color: var(--ddocs-primary);
+          }
+        }
+      }
+    }
+    & .navigation-widget+.docs-navigation-tab-button {
+      & .docs-navigation-tab-button-outer-box {
+        transition: var(--off);
+      }
+      &:is(.docs-navigation-tab-button-hover, .docs-navigation-tab-button-focused) .docs-navigation-tab-button-outer-box {
+        background-color: var(--ddocs-on-surface-variant-hover);
+        transition: var(--on);
+      }
+      &.docs-navigation-tab-button-active .docs-navigation-tab-button-outer-box {
+        background-color: var(--ddocs-on-surface-variant-pressed);
+        transition: var(--on);
+      }
+      
+      & .docs-icon-img {
+        filter: var(--white-icons);
+      }
+    }
+  }
+}
+
+@-moz-document url-prefix("https://docs.google.com/document/d/") {
+// Side panels 
+
 
 }

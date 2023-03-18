@@ -1,42 +1,31 @@
 # Dark Docs
-A dark theme for Google Docs web, based on the colors used in dark modes in other Google products. Subtle animations added. 
-
-**Google has Material U’d Google Docs, so I am in the process of updating Dark Docs to use Material U.** For more info, see issue https://github.com/winghongchan/dark-docs/issues/16.
-
-![](Screenshot_20220723_183923.png)
-
-## Installation
-
-### Automatic
-
-Install the theme at [Dark Docs on UserStyles.world](https://userstyles.world/style/2597/dark-docs). Doing this will make it easy to receive updates. 
+A dark theme for the Google Docs web app, based on the appearance of dark modes in other Google products. Subtle animations added and major [Material Design](https://m3.material.io/) consistency fixes added. 
 
 If [Stylus](https://github.com/openstyles/stylus/) is installed on your browser,\
 [![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-238b8b.svg)](https://userstyles.world/api/style/2597.user.css)
 
-<details>
-<summary>
-<h3>Manual</h3>
-<p>Manual installation is not recommended, since you receive updates slower and you’ll need to run the Less preprocessor every time you update. 
-</summary>
+**Google has Material U’d Google Docs, so I am in the process of updating Dark Docs to use Material U.** For more info and to follow along, see issue https://github.com/winghongchan/dark-docs/issues/16.
 
-1. Use a browser extension that applies user CSS themes to webpages, such as [Stylus](https://github.com/openstyles/stylus/).
-2. Use the [Less](https://lesscss.org/) preprocessor on all the stylesheets, or enable it in UserCSS. 
-3. Apply the stylesheets: 
-    - [Colors and animations](colors-animations.css) to URLs starting with `https://docs.google.com/document/d/`, `https://docs.google.com/document/u/`, `https://docs.google.com/sharing/driveshare`, `https://docs.google.com/sharing/boq/driveshare`, `https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5`, and `https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%2C6%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5B`
-    - [Basic elements](basic-elements.css) to `https://docs.google.com/document/d/`, `https://docs.google.com/sharing/driveshare`, and `https://docs.google.com/document/u/`
-    - [Homepage](homepage.css) to `https://docs.google.com/document/u/`
-    - [Main editor](main-editor.css), [side panels](side-panels.css), and [other screens](other-screens.css) to `https://docs.google.com/document/d/`
-    - [Share sheet](share-sheet.css) to `https://docs.google.com/sharing/boq/driveshare`. 
-    - [Google Images picker](google-images-picker.css) to `https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5`. If this doesn’t work for you, then you will need to look in dev tools and see where the iframe comes from. 
-    - [Google Drive sidebar](google-drive-sidebar.css) to `https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%2C6%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5B`. Like the Google Images picker, this side panel is an iframe so your link might be different. 
-4. Assign values to these Less variables:
-    - `@document-filter` should be a CSS filter that changes the appearance of the document. By default it is `var(--darkfilter)` which is equal to `invert(100%) hue-rotate(180deg) contrast(@document-contrast)`. 
-    - `@document-contrast` should be a percentage value. By default it is `80%` which slightly reduces the contrast of the document. Reducing the value reduces contrast. 
-    
-</details>
+![](https://github.com/winghongchan/dark-docs/blob/main/Screenshot%202023-03-17%20at%2023-01-28%20Dark%20Docs.png?raw=true)
 
-Dark Docs only works with Google Docs. There are plans to make themes for Google Sheets and Slides in the far, far future. If you create such a project (with a similar intent to this project), you may submit a pull request to include a link to it here.
+## Installation
+
+Install the theme at [Dark Docs on UserStyles.world](https://userstyles.world/style/2597/dark-docs). Doing this will make it easy to receive updates. 
+
+You may choose to give Dark Docs a rating on UserStyles.world. 
+
+### Firefox (and LibreWolf, Pale Moon, &c.) users
+Dark Docs uses the newer `:has()` selector for hard-to-fix things. Support for it in Firefox is currently in development, but you can enable support for it by setting the layout.css.has-selector.enabled preference to true. Follow along with Mozilla’s work on this at [Bugzilla](https://bugzilla.mozilla.org/show_bug.cgi?id=418039). 
+
+Chromium-based browsers have full support of the `:has()` selector. 
+
+### Chrome (and Edge, Vivaldi, Ungoogled Chromium, &c.) users
+By default, Dark Docs uses the Invert document filter so your document appears with an inverted colour scheme (approximately white on black). Since Google Docs renders each page as a single <canvas> element, there doesn’t seem to be a way to un-invert images so that they look normal. If you must view images un-inverted, you may change the document filter to “Dim” or “None” in the [configuration dialog](https://github.com/openstyles/stylus/wiki/UserCSS#how-do-i-customize-usercss). 
 
 ## Contributing
-The intent is simple - to make a dark mode for Google Docs web that shares the same colors and overall look to the Google Docs mobile app in dark mode. 
+
+Dark Docs is written as a [UserCSS](https://github.com/openstyles/stylus/wiki/Writing-UserCSS) file and uses the [{less}](https://lesscss.org/) preprocessor. 
+
+The intent is simple—to make a dark mode for Google Docs web that shares the same colors and overall look to the Google Docs mobile app in dark mode. 
+
+Dark Docs only works with Google Docs. There are plans to make themes for Google Sheets and Slides in the future. If you create such a project (with a similar intent to this project), you may submit a pull request to include a link to it here.

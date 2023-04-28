@@ -4,9 +4,7 @@ A dark theme for the Google Docs web app, based on the appearance of dark modes 
 If [Stylus](https://github.com/openstyles/stylus/) is installed on your browser,\
 [![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-238b8b.svg)](https://userstyles.world/api/style/2597.user.css)
 
-**Google has Material U’d Google Docs, so I am in the process of updating Dark Docs to use Material U.** For more info and to follow along, see issue https://github.com/winghongchan/dark-docs/issues/16.
-
-![](https://github.com/winghongchan/dark-docs/blob/main/Screenshot%202023-03-17%20at%2023-01-28%20Dark%20Docs.png?raw=true)
+![](https://raw.githubusercontent.com/winghongchan/dark-docs/main/Screenshot%202023-04-28%20at%2016-40-22%20Dark%20Docs.png)
 
 ## Installation
 

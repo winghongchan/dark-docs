@@ -1,5 +1,5 @@
 # Dark Docs
-A dark theme for the Google Docs web app, based on the appearance of dark modes in other Google products. Subtle animations added and major [Material Design](https://m3.material.io/) consistency fixes added. 
+A dark theme for the Google Docs web app, based on the appearance of dark modes in other Google products. Subtle animations added and major [Material Design](https://m3.material.io/) consistency fixes added.
 
 If [Stylus](https://github.com/openstyles/stylus/) is installed on your browser,\
 [![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-238b8b.svg)](https://userstyles.world/api/style/2597.user.css)
@@ -26,4 +26,4 @@ Dark Docs is written as a [UserCSS](https://github.com/openstyles/stylus/wiki/Wr
 
 The intent is simple—to make a dark mode for Google Docs web that shares the same colors and overall look to the Google Docs mobile app in dark mode. 
 
-Dark Docs only works with Google Docs. There are plans to make themes for Google Sheets and Slides in the future. If you create such a project (with a similar intent to this project), you may submit a pull request to include a link to it here.
+Dark Docs only works with Google Docs. There are plans to make themes for Google Sheets and Slides in the future. If you create such a project (with a similar intent to this project), you may submit a pull request to include a link to it here. 

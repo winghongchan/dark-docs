@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark Docs
 @namespace      userstyles.world/user/winghongchan
-@version        2023.05.06
+@version        2023.06.17
 @description    A new version of Dark Docs, made for Google Docs’ Material U redesign. 
 @author         Walter winghongchan
 @homepageURL    https://github.com/winghongchan/dark-docs
@@ -29,6 +29,8 @@ Read a copy of this license at https://www.gnu.org/licenses/gpl-3.0.html
 /* Notice for Firefox (or LibreWolf, &c.) users
 Dark Docs next uses the :has() selector, which is experimental on Firefox at the moment. To enable it, go to about:config and set layout.css.has-selector.enabled to true. Chromium‐based browsers have full support. 
 Follow along with Mozilla’s development on the :has selector at https://bugzilla.mozilla.org/show_bug.cgi?id=418039 
+
+If you are using an older version of Firefox (prior to version 113), you may not see some hover and focus effects because they rely on the color-mix() function to reduce the size of Dark Docs. To enable support for it, go to about:config and set layout.css.color-mix.enabled to true. Firefox 113 and newer has this enabled by default. 
 */
 
 /* Notice for Chrome (or Vivaldi, Edge, &c.) users
@@ -72,8 +74,8 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     --ddocs-on-tertiary-container: #c4eed0;
     --ddocs-error: #f2b8b5;
     --ddocs-on-error: #601410;
-    // missing error container
-    // missing on error container
+    --ddocs-error-container: #8C1D18;
+    --ddocs-on-error-container: #F9DEDC;
     --ddocs-background: #1f1f1f;
     --ddocs-on-background: #e3e3e3;
     --ddocs-on-background-hover: rgba(227, 227, 227, var(--ddocs-hover-state-layer-opacity)); // Just the state layer.
@@ -116,9 +118,12 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     --ddocs-corner-l: 1rem;
     --ddocs-corner-xl: 1.75rem;
     
+    // Shadow
+    --ddocs-level2: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+    
     --paleblue-icons: hue-rotate(3.6deg) saturate(32.2%) brightness(170%); /* To desaturate blue icons to make them more legible against a dark background. If it is an inline SVG, changing its fill color to palerblue is preferable. */
     --palegreen-icons: hue-rotate(-2deg) saturate(38%) brightness(182%);
-    --white-icons: brightness(240%) saturate(10%);
+    --white-icons: brightness(280%) saturate(10%);
     --whiter-icons: brightness(325%);
     --darkfilter: invert(100%) hue-rotate(180deg) contrast(@document-contrast);
     --on: background-color 0.02s ease-in, border-color 0.06s ease, color 0.05s ease, filter 0.01s ease;
@@ -146,6 +151,20 @@ Google Docs renders each page as a single <canvas> element, which may have made 
   }
 }
 
+.states() {
+  transition: var(--off);
+  &:is(.jfk-button-hover) {
+    background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-hover-state-layer-opacity)));
+    transition: var(--on);
+  }
+  &:is(.jfk-button-focused) {
+    background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-focus-state-layer-opacity)));
+  }
+  &:is(.jfk-button-active) {
+    background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-pressed-state-layer-opacity)));
+  }
+}
+
 @-moz-document url-prefix("https://docs.google.com/document/d/"), url-prefix("https://docs.google.com/sharing/driveshare"), url-prefix("https://docs.google.com/document/u/") {
 /* Basic elements */
 
@@ -157,6 +176,86 @@ Google Docs renders each page as a single <canvas> element, which may have made 
   /* Scrollbar */
   .docs-gm ::-webkit-scrollbar-thumb {
     background-color: var(--lightgray);
+  }
+}
+
+.emoji-picker() {
+  & .docsEmojisWizEmojiPickerTab {
+    background-color: var(--ddocs-surface-container);
+  }
+
+  & .appsElementsEmojipickerSearchBar {
+    background-color: var(--ddocs-surface-container-highest);
+    border-color: $background-color;
+    transition: var(--off);
+    &:hover {
+      border-color: var(--ddocs-outline);
+      transition: var(--on);
+    }
+    &:focus-within {
+      border-color: var(--ddocs-primary);
+      box-shadow: inset 0 0 0 1px var(--ddocs-primary);
+    }
+    
+    & .appsElementsEmojipickerSearchIcon {
+      --icon-color: var(--ddocs-on-surface);
+    }
+    
+    & .appsElementsEmojipickerSearchInput {
+      background: none;
+      color: var(--ddocs-on-surface);
+      &::placeholder {
+        color: var(--ddocs-on-surface-variant);
+        opacity: 1;
+      }
+    }
+  }
+
+  & ul.appsElementsEmojipickerCategoryBar {
+    border-bottom: 1px solid var(--ddocs-outline-variant);
+    margin: 0;
+
+    &>li {
+      color: var(--ddocs-on-surface-variant);
+      &.isSelected {
+        color: var(--ddocs-primary);
+      }
+      
+      & button {
+        --mdc-ripple-color: currentColor;
+        & svg {
+          fill: currentColor;
+        }
+      }
+      
+      & .appsElementsEmojipickerCategorySelectedUnderline {
+        background-color: currentColor;
+      }
+    }
+  }
+
+  & .appsElementsEmojipickerListNoContentMessage, 
+  & .appsElementsEmojipickerListLabelRow {
+    color: var(--ddocs-on-surface-variant);
+  }
+
+  & .appsElementsEmojipickerListEmojibuttonButton {
+    --mdc-ripple-color: var(--ddocs-on-surface-variant);
+    transition: var(--off);
+    &:hover {
+      background-color: var(--ddocs-on-surface-variant-hover);
+      transition: var(--on);
+    }
+  }
+  & .appsElementsEmojipickerListUnicodeAlternateTriggerButton::after {
+    border-bottom-color: var(--ddocs-on-surface-variant);
+  }
+
+  & .appsElementsEmojipickerListAlternatepickerAlternateContainer {
+    background-color: var(--ddocs-surface-container-highest);
+  }
+  & .appsElementsEmojipickerQuickEmojisSection .appsElementsEmojipickerQuickEmojisContainer {
+    border-top: 1px solid var(--ddocs-outline-variant);
   }
 }
 
@@ -249,9 +348,21 @@ Google Docs renders each page as a single <canvas> element, which may have made 
   /* Header */
   header {
     background-color: var(--darkestgray) !important;
+    
+    div[role="button"]:has(path[d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"]) svg /* Main menu button */, 
+    form#aso_search_form_anchor svg:has(path[d="M20.49,19l-5.73-5.73C15.53,12.2,16,10.91,16,9.5C16,5.91,13.09,3,9.5,3S3,5.91,3,9.5C3,13.09,5.91,16,9.5,16 c1.41,0,2.7-0.47,3.77-1.24L19,20.49L20.49,19z M5,9.5C5,7.01,7.01,5,9.5,5S14,7.01,14,9.5S11.99,14,9.5,14S5,11.99,5,9.5z"], path[d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"]) /* Search and × icon */ {
+      color: var(--lightergray);
+    }
+    
+    & a[href^="https://docs.google.com/document/"]>img[srcset="https://www.gstatic.com/images/branding/product/1x/docs_2020q4_48dp.png 1x, https://www.gstatic.com/images/branding/product/2x/docs_2020q4_48dp.png 2x "]+span /* “Docs” */ {
+      color: var(--lightestgray);
+    }
+    
+    form#aso_search_form_anchor svg[fill="#808080"]:has(path[d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"]) /* Search result magnifying glass icon */ {
+      fill: var(--lightergray);
+    }
   }
 
-  .gb_Fa svg, .gb_oa svg, .gb_Ia svg /* Main menu (hamburger), search icon (magnifying glass), apps icon (waffle) */,
   .gb_Se.gb_Te button svg /* 🔍 and × when search field is in focus */,
   .gb_4d.gb_1c, .gb_cd .gb_Md, .gb_cd .gb_Nd /* “Docs” */{
     color: var(--lightergray);
@@ -260,17 +371,15 @@ Google Docs renders each page as a single <canvas> element, which may have made 
   .gb_Hc svg /* Menu button */ {
     fill: var(--lightestgray);
   }
-  
-  img+.gb_be.gb_8c /* “Docs” */ {
-    color: var(--lightestgray);
-  }
 
   header form[role="search"] /* Search bar */ {
     background-color: var(--darkergray);
+    transition: var(--off);
     
-    &:is(.gb_Ae, .gb_Ze, .gb_Ce, .gb_Fe) /* Active search bar */ {
+    &:focus-within /* Active search bar */ {
       background-color: var(--darkgray);
       box-shadow: none;
+      transition: var(--on);
       
       & button svg {
         color: var(--lightergray);
@@ -337,17 +446,21 @@ Google Docs renders each page as a single <canvas> element, which may have made 
   .gb_Re /* Account and apps area */ {
     background: none;
   }
-  .gb_Ea svg {
-    color: var(--lightestgray);
+  a[href="https://www.google.ca/intl/en/about/products"] svg path /* Apps waffle */ {
+    fill: var(--lightergray);
   }
   :is(.gb_ia, .gb_Ba) /* Google Workspace organization logo box */ {
     background-color: var(--darkestgray);
     border-color: var(--darkgray);
     transition: var(--off);
     &:hover {
-      background-color: var(--darkgray);
-      border-color: $background-color;
+      background-color: var(--darkergray);
+      border-color: var(--darkgray);
       transition: var(--on);
+    }
+    &:focus, 
+    &[aria-expanded="true"] {
+      background-color: var(--darkgray);
     }
   }
 
@@ -384,7 +497,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
   }
   .docs-homescreen-leftmenu-tos-links-container {
     & .ogb-link {
-      color: var(--lightgray) /* Important because the asterisk is weak */ ;
+      color: var(--lightgray);
       text-decoration: underline;
       text-decoration-color: transparent;
       transition: var(--off), 0.2s text-decoration-color ease;
@@ -410,6 +523,20 @@ Google Docs renders each page as a single <canvas> element, which may have made 
 
   .docs-hs-tmp-expandedcontentholder-tabbarrow /* Templates gallery tabbar (shown for organizations) */ {
     background-color: var(--darkestgray);
+    
+    & .docs-tabbar-tab {
+      color: var(--lightgray);
+      &-selected {
+        color: var(--palerblue) !important;
+      }
+      
+      & .docs-tabbar-tablabel {
+        color: currentColor !important;
+      }
+      &::before {
+        border-top-color: currentColor;
+      }
+    }
   }
 
   .docs-homescreen-fcc-content /* Template gallery background */ {
@@ -466,6 +593,26 @@ Google Docs renders each page as a single <canvas> element, which may have made 
   }
   .docs-hs-tmp-contractedheader-actions .goog-menu-button-open .docs-homescreen-icon {
     filter: var(--paleblue-icons);
+  }
+  
+  .docs-hs-tmp-contractedheader-actions>.docs-hs-tmp-contractedheader-overflow+.jfk-bubble /* Template gallery overflow menu */ {
+    background-color: var(--darkgray);
+    box-shadow: rgba(0,0,0,.2) 0px 1px 3px;
+    
+    & .goog-menuitem {
+      color: var(--lightestgray);
+      transition: var(--off);
+      &.goog-menuitem-highlight {
+        background-color: var(--ddocs-on-surface-hover);
+        transition: var(--on);
+        &>.goog-menuitem-content {
+          color: var(--lightestgray);
+        }
+      }
+      &.goog-menuitem-active {
+        background-color: var(--ddocs-on-surface-pressed);
+      }
+    }
   }
 
   /* OPENED TEMPLATE GALLERY */
@@ -764,6 +911,73 @@ Google Docs renders each page as a single <canvas> element, which may have made 
   .quantumWizButtonFloatingactionbuttonHoverOverlay /* FAB overlay that makes it brighter on hover than I set it */ {
     visibility: hidden;
   }
+  
+  .docs-homescreen-settings-dialog.docs-homescreen-modaldialog {
+    background-color: var(--darkergray);
+    
+    &>.modal-dialog-title {
+      background: none;
+      color: var(--lightestgray);
+    }
+    
+    &>.modal-dialog-content {
+      background: none;
+      
+      & a {
+        color: var(--palerblue) !important;
+      }
+      & .docs-homescreen-settings-itemlabel {
+        color: var(--lightestgray);
+      }
+      & .docs-homescreen-settings-bidi-checkbox-wrapper, .docs-homescreen-settings-show-templates-checkbox-wrapper, 
+      & .docs-homescreen-settings-itemvalue {
+        color: var(--lightergray);
+      }
+      & .docs-homescreen-settings-analytics-status-description {
+        color: var(--lightgray);
+      }
+      & .docs-material-gm-checkbox {
+        border-color: var(--lightergray);
+        &.docs-material-gm-checkbox-checked {
+          background-color: var(--paleblue);
+          border-color: $background-color;
+          &::before {
+            filter: invert();
+          }
+        }
+      }
+      & .docs-homescreen-ui-slide-switch {
+        &>.docs-homescreen-ui-slide-switch-rail {
+          background-color: var(--mediumdarkgray);
+          border-color: $background-color;
+        }
+        &>.docs-homescreen-ui-slide-switch-knob {
+          background-color: var(--lightergray);
+          border-color: $background-color;
+        }
+        
+        &.docs-homescreen-ui-slide-switch-checked {
+          &>.docs-homescreen-ui-slide-switch-rail {
+            background-color: var(--blue-ripple);
+            border-color: $background-color;
+          }
+          &>.docs-homescreen-ui-slide-switch-knob {
+            background-color: var(--paleblue);
+            border-color: $background-color;
+          }
+        }
+      }
+      & .docs-homescreen-settings-ok-button {
+        background-color: var(--paleblue);
+        color: var(--darkestgray);
+        transition: var(--off);
+        &.jfk-button-hover {
+          background-color: var(--palerblue);
+          transition: var(--on);
+        }
+      }
+    }
+  }
 }
 
 @-moz-document url-prefix("https://docs.google.com/document/d/") {
@@ -779,12 +993,26 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     & .scb-tooltip-title /* Share button tooltip */ {
       color: var(--ddocs-on-surface);
     }
+    &.docos-emoji-counter-button-tooltip /* Who reacted with which emoji */ {
+      box-shadow: none;
+    }
   }
   
   body.docs-grille-gm3 .docs-bubble-material {
     background-color: var(--ddocs-surface-container-high);
     border-radius: var(--ddocs-corner-m); /* I’m treating these like cards */ 
     box-shadow: 0 1px 2px rgba(0,0,0,.3),0 2px 6px 2px rgba(0,0,0,.15);
+  }
+  
+  .docs-grille-gm3 .docs-gm-promo.jfk-bubble.docs-promo-bubble /* New feature promotions, like the watermark promo */ {
+    background-color: var(--ddocs-primary-container);
+    
+    & * {
+      color: var(--ddocs-on-primary-container);
+    }
+    & .jfk-bubble-arrowup .jfk-bubble-arrowimplafter {
+      border-color: var(--ddocs-primary-container) transparent;
+    }
   }
   
   @supports not selector(:has(div)) {
@@ -985,7 +1213,8 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     & .goog-date-picker {
       background: none;
     }
-    & .goog-date-picker-head /* Month and year */ {
+    & .goog-date-picker-head, 
+    & .goog-date-picker-monthyear /* Month and year */ {
       color: var(--ddocs-on-surface-variant);
     }
     & button.goog-date-picker-previousMonth, button.goog-date-picker-nextMonth {
@@ -1185,7 +1414,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
       & #pub-dialog-settings-header.pub-dialog-zippy-header {
         color: var(--ddocs-on-surface);
         &>.pub-dialog-settings-zippy-icon {
-          filter: var(--whiter-icons);
+          filter: invert(80%);
           transition: transform 0.2s;
         }
       }
@@ -1237,6 +1466,15 @@ Google Docs renders each page as a single <canvas> element, which may have made 
       }
       & .kix-pagesetupdialog-canvas-description-text {
         color: var(--ddocs-on-surface);
+      }
+      & #kix-pagesetupdialog-canvas-unsupported-model-features-warning /* Headers, &c. won’t be visible in pageless mode */ {
+        background-color: var(--ddocs-error-container);
+        & .docs-icon-warning-filled-red700 {
+          filter: invert() hue-rotate(180deg) brightness(140%);
+        }
+        &>.kix-pagesetupdialog-canvas-unsupported-model-features-warning-text {
+          color: var(--ddocs-on-error-container);
+        }
       }
     }
     
@@ -1943,6 +2181,26 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     .filled-button();
   }
   
+  .filled-text-field() {
+    background-color: var(--ddocs-surface-container-highest);
+    border-bottom-color: var(--ddocs-on-surface-variant);
+    color: var(--ddocs-on-surface);
+    transition: background-color 0.25s ease, border-color 0.1s ease;
+    &:hover {
+      background-color: color-mix(in srgb, var(--ddocs-surface-container-highest), var(--ddocs-on-surface) var(--ddocs-hover-state-layer-opacity));
+      border-bottom-color: var(--ddocs-on-surface);
+      transition: background-color 0.02s ease-in, border-color 0.06s ease;
+    }
+    &:focus-within {
+      border-bottom-color: var(--ddocs-primary);
+    }
+    &:disabled {
+      background-color: color-mix(in srgb, var(--ddocs-on-surface), transparent 96%);
+      border-bottom-color: $color;
+      color: color-mix(in srgb, var(--ddocs-on-surface), transparent 62%);
+    }
+  }
+  
   .filled-tonal-button() {
     background-color: var(--ddocs-secondary-container);
     border-radius: 20px;
@@ -2111,7 +2369,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     .menu();
   }
   body.docs-gm .docs-material.goog-menu .apps-menuitem.goog-option-selected .goog-menuitem-checkbox {
-    filter: invert(100%) brightness(95%); // Modern checkmark fix
+    filter: invert() brightness(140%); // Modern checkmark fix
   }
   .goog-menu:not(.ia-primary-menu):has(span[lang="en_CA"]) .goog-menuitem.goog-option-selected:not(.apps-menuitem) /* Document language menu fix */ {
     .checkmark-fix();
@@ -2793,6 +3051,9 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     }
     
     &:is(.docs-material-button-text-default) /* Fancy buttons with ripple effect */ {
+      &>.docs-material-button-content {
+        color: inherit;
+      }
       &>.docs-material-button-ripple-element {
         background-color: var(--ddocs-primary-pressed);
       }
@@ -2962,7 +3223,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     }
   }
   
-  .docs-grille-gm3 .docs-revisions-chromecover-content-color-default /* Version history top bar showing the edit time */ {
+  .docs-grille-gm3 #docs-chrome-cover-container .docs-revisions-chromecover-content-color-default /* Version history top bar showing the edit time */ {
     background: none;
     color: var(--ddocs-on-surface);
     
@@ -3090,7 +3351,11 @@ Google Docs renders each page as a single <canvas> element, which may have made 
           background-color: var(--ddocs-surface-container);
         }
         
-        & .docos-streamdocoview-author, .docos-streamdocoview-body {
+        & :is(.streamdocoview-header-quote-expand-button, .streamdocoview-header-quote-collapse-button) .docs-material-button /* Button to expand/collapse comment with many replies */ {
+          .standard-icon-button();
+        }
+        
+        & .docos-streamdocoview-author, .docos-streamdocoview-body, .docos-streamreplyview-body {
           color: var(--ddocs-on-surface);
         }
         & .docos-streamdocoview-timestamp, .docos-action-text {
@@ -3160,29 +3425,70 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     background-color: var(--ddocs-surface-container-high);
   }
   
-  .docs-grille-gm3 #docs-chrome #docs-toolbar-wrapper /* Toolbar: undo, bold, &c. */, 
-  .docs-grille-gm3 .docs-toolbar-more-bubble .docs-toolbar-more-toolbar /* Toolbar extension */,
-  .docs-grille-gm3 #docs-align-palette {
+  .docs-grille-gm3 #docs-chrome #docs-toolbar-wrapper #docs-omnibox-toolbar:not(.assisted-actions) .docs-omnibox-autocomplete /* “Search the menus (Alt+/) */ {
+    // Google’s trying something out with the .assisted-actions for some users which will make a command search button persistent on the toolbar.
+    margin: 4px 0 4px -6px;
+    padding-left: 0;
+    & input.docs-omnibox-input {
+      background-color: var(--ddocs-surface-container-highest);
+      color: var(--ddocs-on-surface-variant);
+      &[aria-expanded="true"] {
+        border-radius: 14px 14px 0 0;
+      }
 
-    & #docs-omnibox-toolbar .docs-omnibox-autocomplete /* “Search the menus (Alt+/) */ {
-      margin: 4px 0 4px -6px;
-      padding-left: 0;
-      & input.docs-omnibox-input {
-        background-color: var(--ddocs-surface-container-highest);
+      &::placeholder {
         color: var(--ddocs-on-surface-variant);
-        &[aria-expanded="true"] {
-          border-radius: 14px 14px 0 0;
+      }
+      &::selection {
+        background-color: var(--ddocs-primary);
+        color: var(--ddocs-on-primary);
+      }
+    }
+  }
+  .docs-gm #docs-omnibox-toolbar.assisted-actions {
+    height: 40px;
+    
+    &>.docs-omnibox-autocomplete {
+      margin: 4px 0 4px -1.5px;
+      position: static;
+    }
+    
+    & .docs-icon-img {
+      filter: var(--whiter-icons);
+    }
+    
+    & .docs-omnibox-input {
+      background-color: var(--ddocs-surface-container-highest);
+      color: var(--ddocs-on-surface);
+      transition: var(--off);
+      &:hover {
+        transition: var(--on);
+      }
+      &:focus {
+        border-radius: 14px 14px 0 0;
+      }
+      &::placeholder {
+        color: var(--ddocs-on-surface-variant);
+      }
+      @media screen and (max-width: 1600px) {
+        background-color: transparent;
+        padding-right: 0;
+        &:hover {
+          background-color: var(--ddocs-on-surface-variant-hover);
         }
-        
-        &::placeholder {
-          color: var(--ddocs-on-surface-variant);
+        &:not(:focus) {
+          height: 30px;
         }
-        &::selection {
-          background-color: var(--ddocs-primary);
-          color: var(--ddocs-on-primary);
+        &:focus {
+          background-color: var(--ddocs-surface-container-highest);
         }
       }
     }
+  }
+  
+  .docs-grille-gm3 #docs-chrome #docs-toolbar-wrapper /* Toolbar: undo, bold, &c. */, 
+  .docs-grille-gm3 .docs-toolbar-more-bubble .docs-toolbar-more-toolbar /* Toolbar extension */,
+  .docs-grille-gm3 #docs-align-palette {
 
     & .goog-toolbar-separator {
       border-color: var(--ddocs-outline-variant);
@@ -3578,7 +3884,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     }
   }
   
-  body.docs-gm.docs-grille-gm3 #docs-editor .left-sidebar-container /* Summary and TOC */ {
+  body.docs-gm.docs-grille-gm3 #docs-editor .left-sidebar-container {
     &.pageless-format {
       background: var(--ddocs-background);
       box-shadow: none; // Google used a 1px-wide box-shadow as a line between the TOC and pageless document. It didn’t appear in the right colour because it got @document-filtered.
@@ -3610,7 +3916,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
         display: none;
       }
     }
-    & .navigation-widget-content {
+    & .navigation-widget-content /* Summary and TOC */ {
       scrollbar-color: var(--ddocs-outline) transparent;
       
       & .navigation-widget-smart-summary-container /* Summary */ {
@@ -3676,6 +3982,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
         filter: var(--white-icons);
       }
     }
+    
     &~.kix-documentmetrics-widget /* Word count in the corner */ {
       background-color: var(--ddocs-surface-container);
       border-color: var(--ddocs-background);
@@ -3700,6 +4007,12 @@ Google Docs renders each page as a single <canvas> element, which may have made 
       }
       &.docs-menu-button-open-above .docs-material-gm-select-dropdown {
         transform: rotate(0deg);
+      }
+    }
+    
+    & .docs-revisions-authorwidget /* “Changes by” in version history view */ {
+      & .docs-revisions-authorwidget-hat {
+        border-bottom-color: var(--ddocs-outline-variant);
       }
     }
   }
@@ -3736,7 +4049,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
         }
         
         & .docs-icon-arrow-dropdown {
-          filter: var(--paleblue-icons);
+          filter: sepia() saturate(127%) hue-rotate(178deg) brightness(229%);
         }
       }
     }
@@ -3761,8 +4074,8 @@ Google Docs renders each page as a single <canvas> element, which may have made 
       box-shadow: none;
       color: var(--ddocs-on-surface);
       
-      & .docs-icon-heading, .docs-icon-web {
-        filter: var(--whiter-icons);
+      & .docs-icon-heading, .docs-icon-email, .docs-icon-web {
+        filter: var(--white-icons);
       }
       
       & #docs-linkbubble-link-text /* Blue text, the link */ {
@@ -3834,33 +4147,16 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     
     & .smart-canvas-date-details-bubble /* When you hover on a date chip */ {
       background-color: var(--ddocs-surface-container);
+      color: var(--ddocs-on-surface);
       
-      & .smart-canvas-date-details-bubble-details {
-        margin-bottom: 0.25rem;
-        
-        & .smart-canvas-date-details-bubble-icon .docs-icon-calendar {
-          filter: var(--whiter-icons);
+      &>.smart-canvas-date-details-bubble-body /* Date and time entry */ {
+        & .smart-canvas-date-details-bubble-icon {
+          filter: var(--white-icons);
         }
-        & .smart-canvas-date-details-bubble-edit-field {
-          .outlined-text-field();
-          &:not(:has(.smart-canvas-date-picker-bubble[style*="display: none;"])) /* If calendar view is open, use :focus() effect */ {
-            border-color: var(--ddocs-primary);
-            box-shadow: inset 0 0 0 1px var(--ddocs-primary);
-          }
-
-          &>#date-picker-selection-text {
-            padding-left: 0;
-          }
-
-          &>.smart-canvas-date-picker-bubble {
-            .date-picker();
-            cursor: default;
-          }
+        & .smart-canvas-date-details-bubble-edit-field-gm3, 
+        & .smart-canvas-time-selection-combo-box-container .goog-combo-button-input {
+          .filled-text-field();
         }
-      }
-      & .smart-canvas-date-details-bubble-relative-text {
-        color: var(--ddocs-on-surface-variant);
-        margin-left: calc(34px + 1rem);
       }
       
       & .smart-canvas-date-details-bubble-action-bar {
@@ -4079,6 +4375,26 @@ Google Docs renders each page as a single <canvas> element, which may have made 
           background-color: var(--ddocs-on-surface-variant-pressed);
         }
       }
+      & .kix-drawing-bubble-edit-button:not(.docs-material-button-disabled) /* Edit button for drawings */ {
+        color: var(--ddocs-on-surface) !important;
+        transition: var(--off);
+        &.docs-material-button-hover {
+          background-color: var(--ddocs-on-surface-hover) !important;
+          transition: var(--on);
+        }
+        &.docs-material-button-focused {
+          background-color: var(--ddocs-on-surface-focus) !important;
+          border-color: transparent;
+        }
+        
+        & .docs-material-button-ripple-element {
+          background-color: var(--ddocs-on-surface-pressed);
+        }
+        
+        & .kix-drawing-bubble-edit-button-icon>.docs-icon-img {
+          filter: var(--white-icons);
+        }
+      }
 
       & .goog-toolbar-separator {
         border-left-color: var(--ddocs-outline-variant);
@@ -4229,89 +4545,8 @@ Google Docs renders each page as a single <canvas> element, which may have made 
       .date-picker();
     }
     
-    .docs-emoji-picker-bubble>.docs-emoji-picker /* Full emoji picker */ {
-      background-color: var(--ddocs-surface-container);
-      
-      &>.docs-emoji-picker-search-bar-container {
-        background-color: var(--ddocs-surface-container-highest);
-        border-color: $background-color;
-        
-        &>.docs-search-bar {
-          background: none;
-          
-          & .docs-icon-img {
-            filter: var(--whiter-icons);
-          }
-          & .docs-search-bar-input {
-            background: none;
-            color: var(--ddocs-on-surface);
-          }
-        }
-      }
-      
-      &>.docs-emoji-picker-categories {
-        border-color: var(--ddocs-outline-variant);
-        
-        & .docs-tabbar-tab {
-          transition: var(--off);
-          &.docs-tabbar-tab-hover {
-            background-color: var(--ddocs-on-surface-hover);
-            transition: var(--on);
-          }
-          &.docs-tabbar-tab-active {
-            background-color: var(--ddocs-on-surface-pressed);
-          }
-          &.docs-tabbar-tab-selected {
-            border-bottom-color: var(--ddocs-primary);
-            &.docs-tabbar-tab-hover {
-              background-color: var(--ddocs-primary-hover);
-            }
-            &.docs-tabbar-tab-active {
-              background-color: var(--ddocs-primary-pressed);
-            }
-          }
-          & .docs-icon-img {
-            filter: var(--whiter-icons);
-          }
-        }
-      }
-      
-      & .docs-emoji-picker-no-search-results, 
-      & .docs-emoji-picker-category-title {
-        color: var(--ddocs-on-surface-variant);
-      }
-      
-      &>.docs-emoji-picker-emoji-container, 
-      &>.docs-emoji-picker-variants-popup, 
-      &>.docs-emoji-picker-quick-pick-container {
-        & .docs-material-button {
-          transition: var(--off);
-          &.docs-material-button-hover {
-            background-color: var(--ddocs-on-surface-variant-hover);
-            transition: var(--on);
-          }
-          &.docs-material-button-focused {
-            background-color: var(--ddocs-on-surface-variant-focus);
-            border: none;
-          }
-          
-          &>.docs-material-button-ripple-element {
-            background-color: var(--ddocs-on-surface-variant-pressed);
-          }
-        }
-        & .emoji-variants-control-indicator-container>.emoji-variants-control-indicator {
-          border-bottom-color: var(--ddocs-on-surface);
-          border-right-color: $border-bottom-color;
-        }
-      }
-      
-      &>.docs-emoji-picker-variants-popup {
-        background-color: var(--ddocs-surface-container-highest);
-        border-color: $background-color;
-      }
-      &>.docs-emoji-picker-quick-pick-container {
-        border-top-color: var(--ddocs-outline-variant);
-      }
+    .docs-emoji-picker-bubble /* Full emoji picker */ {
+      .emoji-picker();
     }
     
     .kix-dropdown-item-selection-bubble /* Dropdown popup (in-document custom dropdowns) */ {
@@ -4616,8 +4851,32 @@ Google Docs renders each page as a single <canvas> element, which may have made 
           }
         }
         &>.docos-collapsible-replyview {
+          &>.docos-replyview-emoji-controls .docs-material-button-raised-default /* Button to add emoji reaction */ {
+            background-color: var(--ddocs-surface-container-highest);
+            &.docs-material-button-hover .docs-material-button-content {
+              background-color: var(--ddocs-on-surface-variant-hover);
+            }
+            &.docs-material-button-focused {
+              border: none;
+              &>.docs-material-button-content {
+                background-color: var(--ddocs-on-surface-variant-focus);
+              }
+            }
+            
+            & .docs-material-button-ripple-element {
+              background-color: var(--ddocs-on-surface-variant-pressed);
+            }
+            
+            & .docs-icon-insert-emoticon {
+              filter: var(--white-icons);
+            }
+          }
+          
           & .docos-anchoredreplyview-body /* Comment text */{
             color: var(--ddocs-on-surface);
+            &.docos-replyview-body-emoji-reactable-background /* Hovering over a reactable comment */ {
+              background-color: var(--ddocs-on-surface-hover);
+            }
           }
           & .docos-action-text /* “Marked as resolved” / “Re-opened” */ {
             color: var(--ddocs-on-surface-variant);
@@ -4630,19 +4889,90 @@ Google Docs renders each page as a single <canvas> element, which may have made 
           border-color: var(--ddocs-outline-variant);
           color: var(--ddocs-on-surface-variant);
         }
+        
+        &>.docos-replyview-emojis-wrapper .docs-material-button-flat-primary /* Emoji reactions */ {
+          border-color: var(--ddocs-outline);
+          color: var(--ddocs-on-surface-variant);
+          transition: var(--off);
+          &.docs-material-button-disabled {
+            background: none;
+          }
+          &.docs-material-button-hover {
+            background-color: var(--ddocs-on-surface-hover);
+            box-shadow: none;
+            transition: var(--on);
+          }
+          &.docs-material-button-focused {
+            background-color: var(--ddocs-on-surface-focus);
+            border: 1px solid var(--ddocs-outline);
+            box-shadow: none;
+            padding: 0 5px;
+          }
+          &>.docs-material-button-ripple-element {
+            background-color: var(--ddocs-on-surface-pressed);
+          }
+          &.docos-emoji-counter-button-user-involved {
+            color: var(--ddocs-on-secondary-container);
+            &.docs-material-button-hover {
+              background-color: var(--ddocs-primary-hover);
+            }
+            &.docs-material-button-focused {
+              background-color: var(--ddocs-primary-focus);
+            }
+            &>.docs-material-button-ripple-element {
+              background-color: var(--ddocs-primary-pressed);
+            }
+          }
+          
+          & .docos-emoji-counter-button-container, .docos-emoji-counter-button-count {
+            color: currentColor;
+          }
+        }
       }
       
       & :is(.docos-anchoreddocoview-input-pane, .docos-anchoredreplyview-edit-pane) {
         background: none !important;
         
         &>.docos-input-textarea {
-          .outlined-text-field();
-          outline: none;
+          background-color: var(--ddocs-surface-container-highest);
+          border-color: $background-color;
+          color: var(--ddocs-on-surface);
+          transition: var(--off);
+          &:hover {
+            border-color: var(--ddocs-outline);
+            transition: var(--on);
+          }
+          &:focus {
+            border-color: var(--ddocs-primary);
+            box-shadow: inset 0 0 0 1px var(--ddocs-primary);
+          }
+          &:focus-visible {
+            outline: none;
+          }
           
           &::before {
             color: var(--ddocs-on-surface-variant);
           }
         }
+        
+        &>.docos-smart-reply {
+          gap: 0.5rem;
+          justify-content: flex-start;
+          
+          & .jfk-button.docos-smart-reply-button /* These act like sugggestion chips */ {
+            background: transparent;
+            border-color: var(--ddocs-outline) !important;
+            border-radius: 8px;
+            color: var(--ddocs-on-surface-variant);
+            height: 2rem;
+            margin: 0;
+            min-height: unset;
+            padding: 3px 1rem;
+            width: unset;
+            .states();
+          }
+        }
+        
         & .docos-input-buttons-post {
           .filled-button();
           display: inline-grid;
@@ -4700,7 +5030,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
         & .docos-calltoactionview-header {
           color: var(--ddocs-on-surface);
         }
-        & .docos-calltoactionview-body {
+        & :is(.docos-calltoactionview-body, .docos-calltoactionview-dont-show-again-label) {
           color: var(--ddocs-on-surface);
           & a {
             color: var(--ddocs-primary);
@@ -4708,6 +5038,22 @@ Google Docs renders each page as a single <canvas> element, which may have made 
         }
         & .docos-calltoactionview-text-default-buttons-container div.docs-material-button {
           .text-button();
+        }
+        & .docos-calltoactionview-checkbox-container {
+          border-bottom-color: var(--ddocs-outline-variant);
+          &>.docos-calltoactionview-dont-show-again-checkbox {
+            .checkbox();
+          }
+        }
+        
+        & .docos-calltoactionview-accept {
+          .filled-button();
+        }
+        & .docos-calltoactionview-reject {
+          .outlined-button();
+          &:is(.jfk-button-hover.jfk-button-focused, .jfk-button-focused) {
+            border-color: var(--ddocs-primary) !important;
+          }
         }
       }
     }
@@ -4731,7 +5077,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
 }
 
 @-moz-document url-prefix("https://docs.google.com/document/d/") {
-// Side panels 
+// Right sidebars
   
   .filled-button() {
     background-color: var(--ddocs-primary);
@@ -4822,13 +5168,18 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     transition: var(--off);
     &:not(.goog-toolbar-button-checked) /* Also works for buttons that can’t be selected */ {
       background-color: transparent;
-      &:is(.goog-flat-button-hover, .jfk-button-hover, :hover), 
-      &:is(.goog-flat-button-focused, .jfk-button-focused, :focus) {
+      &:is(.goog-flat-button-hover, .jfk-button-hover, :hover) {
         background-color: var(--ddocs-on-surface-variant-hover);
         transition: var(--on);
       }
+      &:is(.goog-flat-button-focused, .jfk-button-focused, :focus) {
+        background-color: var(--ddocs-on-surface-variant-focus);
+      }
       &:is(.goog-flat-button-active, .jfk-button-active, :active) {
         background-color: var(--ddocs-on-surface-variant-pressed);
+      }
+      &:is(.jfk-button-disabled) {
+        background: none;
       }
       
       & .docs-icon-img {
@@ -4959,7 +5310,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     }
   }
   
-  body.docs-grille-gm3.docs-body-pageless :is(.docs-tiled-sidebar, .docs-chat-pane-container, .docs-dictionary-sidebar) {
+  body.docs-grille-gm3.docs-body-pageless :is(.collaborator-activity-sidebar, .docs-tiled-sidebar, .docs-chat-pane-container, .docs-dictionary-sidebar, .emoji-detail-sidebar) {
     border-color: transparent;
   }
   
@@ -5075,7 +5426,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
       color: var(--ddocs-on-surface);
       transition: background-color 0.2s;
       &.docs-chat-shadow {
-        background-color: var(--ddocs-surface-container);
+        background-color: var(--ddocs-surface-container-high);
         box-shadow: none;
         transition: background-color 0.1s;
       }
@@ -5097,6 +5448,8 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     }
     
     & .docs-chat-messages {
+      scrollbar-color: var(--ddocs-outline) transparent;
+      
       & .docs-presence-plus-collab-widget-color-block {
         border-color: transparent;
         &>.docs-presence-plus-collab-widget-image-container {
@@ -5123,11 +5476,18 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     
     & .docs-chat-edit-box {
       background-color: var(--ddocs-surface-container-highest);
-      border: none;
+      border-color: $background-color;
       border-radius: 1rem;
       color: var(--ddocs-on-surface);
       padding: 0.75rem;
+      transition: var(--off);
+      &:hover {
+        border-color: var(--ddocs-outline);
+        transition: var(--on);
+      }
       &:focus {
+        border: 1px solid var(--ddocs-primary);
+        box-shadow: inset 0 0 0 1px var(--ddocs-primary);
         outline: none;
       }
       &::placeholder {
@@ -5783,6 +6143,86 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     }
   }
   
+  .docs-grille-gm3 .collaborator-activity-sidebar /* Live edits sidebar */ {
+    background-color: var(--ddocs-surface-container);
+    
+    &>.collaborator-activity-titlebar-container {
+      background-color: var(--ddocs-surface-container);
+      border-bottom: none;
+      color: var(--ddocs-on-surface);
+      
+      &>.jfk-button {
+        .standard-icon-button();
+      }
+    }
+    
+    & .collaborator-activity-status-container {
+      background: none;
+      
+      &>.collaborator-activity-status-message {
+        color: var(--ddocs-on-surface);
+      }
+    }
+    
+    &>.collaborator-activity-tilelist {
+      scrollbar-color: var(--ddocs-outline) transparent;
+    }
+    
+    & .collaborator-activity-tile {
+      border-color: var(--ddocs-outline-variant);
+      color: var(--ddocs-on-surface);
+      transition: var(--off);
+      &.goog-control-hover {
+        background-color: var(--ddocs-on-surface-hover);
+        border-color: transparent;
+        transition: var(--on);
+      }
+      &.goog-control-active {
+        background-color: var(--ddocs-on-surface-pressed);
+      }
+      
+      & .collaborator-activity-collaborator-name,
+      &>.collaborator-activity-diffsummary div /* What someone did */, 
+      &>.collaborator-activity-context /* Where they did it */ {
+        color: var(--ddocs-on-surface) !important;
+      }
+      
+      & :is(.collaborator-activity-context-after, .collaborator-activity-context-before, .collaborator-activity-context-content) {
+        color: var(--ddocs-on-surface-variant);
+      }
+    }
+    
+    &>.collaborator-activity-zero-state.collaborator-activity-zero-state-collaborator-seen {
+      border-top-color: var(--ddocs-outline-variant);
+      
+      & svg {
+        & use[fill="#E8F0FE"] /* Circle */ {
+          fill: var(--ddocs-surface-container-low);
+        }
+        & :is(g, rect)[fill="#D2E3FC"] /* Rectangles */ {
+          fill: color-mix(in srgb, var(--ddocs-on-surface), transparent 92%);
+        }
+        & g[transform="translate(96 86)"] /* Sign */ {
+          &>[fill="#1967D2"] {
+            fill: var(--ddocs-primary);
+          }
+          & [fill="#FFF"] {
+            fill: var(--ddocs-on-primary);
+          }
+        }
+      }
+      
+      & .collaborator-activity-zero-state-text {
+        color: var(--ddocs-on-surface);
+      }
+      
+      & .collaborator-activity-zero-state-earlier-edits {
+        .outlined-button();
+        line-height: 40px;
+      }
+    }
+  }
+  
   body.docs-grille-gm3 :is(.docs-format-options-sidebar, .kix-toc-sidebar) /* Image options, TOC */, 
   body.docs-grille-gm3 :has(.kix-tablesidebar-table-tile) /* Table properties */ {
     background-color: var(--ddocs-surface-container-low);
@@ -6089,6 +6529,44 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     
     & .docs-revisions-sidebar-actions {
       border-top-color: var(--ddocs-outline-variant);
+    }
+  }
+  
+  .docs-gm.docs-grille-gm3 .emoji-detail-sidebar /* Appears when you click “See emoji reaction details” from the overflow menu of a comment */ {
+    background-color: var(--ddocs-surface-container);
+    
+    &>.emoji-detail-sidebar-header {
+      background: transparent;
+      border-bottom: none;
+      color: var(--ddocs-on-surface);
+      
+      &>.emoji-detail-sidebar-close-button-container {
+        right: -8px;
+        position: relative;
+        
+        &>.docs-material-button {
+          .standard-icon-button();
+          border-radius: 50%;
+          height: 2.5rem;
+          margin-right: 0;
+          width: $height;
+          &.docs-material-button-focused {
+            border: none;
+          }
+          
+          & .docs-material-button-content {
+            line-height: 2.5rem;
+          }
+          & .docs-icon {
+            margin-left: 2px;
+            transform: scale(133%);
+          }
+        }
+      }
+    }
+    
+    & .emoji-detail-sidebar-user-timestamp {
+      color: var(--ddocs-on-surface-variant);
     }
   }
   
@@ -6415,8 +6893,9 @@ Google Docs renders each page as a single <canvas> element, which may have made 
   }
 }
 
-@-moz-document url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%2C6%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5B"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=.*%22Google%20Drive%22.*%22Replace%22.*%22replace-image%22.*&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=[0-9]+"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=.*%22explore-drive.*&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=[0-9]+") { /* Insert, replace, and explore */ 
+@-moz-document url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%2C6%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5B"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=.*%22Google%20Drive%22.*%22Replace%22.*%22replace-image%22.*&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=[0-9]+"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=.*%22explore-drive.*&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=[0-9]+") { 
   // Google Drive file picker
+  // Insert, replace, explore
   :root {
     --dt-on-background: var(--ddocs-on-background);
     --dt-on-surface: var(--ddocs-on-surface);
@@ -7182,6 +7661,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     --dt-on-primary: var(--ddocs-on-primary);
     --dt-primary-action-stateful: var(--ddocs-on-primary-hover);
     --dt-primary-action-state-layer: var(--ddocs-primary);
+    --gm3-sys-color-primary: var(--ddocs-primary);
     
     --dt-tertiary-container: var(--ddocs-tertiary-container);
     --dt-tertiary-container-icon: var(--ddocs-on-tertiary-container);
@@ -7194,9 +7674,12 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     --dt-surface3: var(--ddocs-surface-container-high);
     --dt-neutral-container: var(--ddocs-surface-container-highest);
     --dt-on-surface: var(--ddocs-on-surface);
+    --gm3-sys-color-on-surface: var(--ddocs-on-surface);
     --dt-neutral-container-icon: var(--ddocs-on-surface);
     --mdc-theme-on-surface: var(--ddocs-on-surface);
     --dt-on-surface-variant: var(--ddocs-on-surface-variant);
+    --gm3-sys-color-on-surface-variant: var(--ddocs-on-surface-variant);
+    --gm-outlinedtextfield-placeholder-color: var(--ddocs-on-surface-variant);
     
     --dt-outline: var(--ddocs-outline);
     
@@ -7236,7 +7719,8 @@ Google Docs renders each page as a single <canvas> element, which may have made 
   .SbpzSe .VfPpkd-StrnGf-rymPhb-f7MjDc /* Checkmark in general access menu */ {
     color: var(--ddocs-primary);
   }
-  .CeSLIf /* Message box label */ {
-    background: var(--ddocs-surface);
+  
+  .iH5TDd /* Tooltips */ {
+    background-color: var(--ddocs-inverse-surface);
   }
 }

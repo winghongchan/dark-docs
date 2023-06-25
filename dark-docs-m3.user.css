@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark Docs
 @namespace      userstyles.world/user/winghongchan
-@version        2023.06.19
+@version        2023.06.24
 @description    A new version of Dark Docs, made for Google Docs’ Material U redesign. 
 @author         Walter winghongchan
 @homepageURL    https://github.com/winghongchan/dark-docs
@@ -2582,11 +2582,22 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     }
   }
   .goog-menu>.docs-border-selection-palette .goog-palette-cell {
+    transition: var(--off);
     &.goog-palette-cell-hover {
       background-color: var(--ddocs-on-surface-hover);
+      transition: var(--on);
     }
+    
     & .docs-icon-img {
       filter: var(--whiter-icons);
+    }
+    
+    &.goog-palette-cell-selected {
+      background-color: var(--ddocs-primary-container);
+      
+      & .docs-icon-img {
+        filter: brightness(290%) saturate(255%) hue-rotate(20deg);
+      }
     }
   }
   .colour-menu-fix() /* Colour picker with a bunch of presets and your custom colours at the bottom. It’s called a fix because it’s applied on top of .menu(). */ {
@@ -3467,40 +3478,26 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     }
   }
   .docs-gm #docs-omnibox-toolbar.assisted-actions {
-    height: 40px;
-    
-    &>.docs-omnibox-autocomplete {
-      margin: 4px 0 4px -1.5px;
-      position: static;
-    }
-    
-    & .docs-icon-img {
+    .docs-icon-search-20 {
       filter: var(--whiter-icons);
     }
-    
-    & .docs-omnibox-input {
+    .docs-omnibox-input {
       background-color: var(--ddocs-surface-container-highest);
       color: var(--ddocs-on-surface);
-      transition: var(--off);
-      &:hover {
-        transition: var(--on);
-      }
-      &:focus {
-        border-radius: 14px 14px 0 0;
-      }
       &::placeholder {
         color: var(--ddocs-on-surface-variant);
+        opacity: 1;
       }
-      @media screen and (max-width: 1600px) {
-        background-color: transparent;
-        padding-right: 0;
+    }
+    
+    @media screen and (max-width: 1600px) {
+      .docs-omnibox-input {
+        background: transparent;
+        color: var(--ddocs-on-surface);
         &:hover {
           background-color: var(--ddocs-on-surface-variant-hover);
         }
-        &:not(:focus) {
-          height: 30px;
-        }
-        &:focus {
+        &:focus-within {
           background-color: var(--ddocs-surface-container-highest);
         }
       }
@@ -4095,7 +4092,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
       box-shadow: none;
       color: var(--ddocs-on-surface);
       
-      & .docs-icon-heading, .docs-icon-email, .docs-icon-web {
+      & .docs-icon-calendar, .docs-icon-email, .docs-icon-heading, .docs-icon-web {
         filter: var(--white-icons);
       }
       
@@ -4115,6 +4112,20 @@ Google Docs renders each page as a single <canvas> element, which may have made 
           border-color: var(--ddocs-outline-variant);
         }
       }
+      & .docs-link-bubble-third-party-privacy-promo-card-component /* Third party chip promo (if you click on a link from a service like Figma and you have the Figma add-on installed */ {
+        & img {
+          filter: var(--darkfilter);
+        }
+        & p {
+          color: var(--ddocs-on-surface-variant);
+          & a {
+            color: var(--ddocs-primary) !important;
+          }
+        }
+        & #docs-link-bubble-third-party-privacy-promo-card-component-preview-button {
+          .outlined-button();
+        }
+      }
       & .docs-link-bubble-card-component /* Description and other metadata */ {
         & .docs-icon-img:not(.docs-icon-directions-24) {
           filter: var(--white-icons);
@@ -4122,7 +4133,8 @@ Google Docs renders each page as a single <canvas> element, which may have made 
             filter: var(--whiter-icons);
           }
         }
-        & span.docs-link-bubble-text-with-icon {
+        & span.docs-link-bubble-text-with-icon, 
+        & span.text-card-component-text {
           color: var(--ddocs-on-surface-variant) !important;
         }
         & span.docs-link-bubble-maps-place-card-category, .docs-link-bubble-maps-place-card-address {
@@ -4130,10 +4142,19 @@ Google Docs renders each page as a single <canvas> element, which may have made 
         }
       }
       
+      & .docs-link-bubble-calendar-event-action-card-component, 
       & .docs-link-bubble-maps-place-action-card-component {
         border-top-color: var(--ddocs-outline-variant);
+        & .docs-link-bubble-calendar-attach-document, 
         & .docs-link-bubble-maps-directions-button {
-          .standard-icon-button(@colour: "primary");
+          transition: var(--off);
+          &:hover {
+            background-color: color-mix(in srgb, var(--ddocs-primary), transparent calc(100% - var(--ddocs-hover-state-layer-opacity)));
+            transition: var(--on);
+          }
+          & .docs-icon-img {
+            filter: var(--paleblue-icons);
+          }
           &:active {
             filter: none;
             filter: var(--whiter-icons);
@@ -4502,6 +4523,23 @@ Google Docs renders each page as a single <canvas> element, which may have made 
       
       & .kix-bookmark-bubble-button {
         .standard-icon-button();
+      }
+    }
+    
+    & .kix-tab-to-convert-bubble /* [tab] to… suggestion after you insert an Event chip */ {
+      background-color: var(--ddocs-surface-container-high);
+      
+      & .kix-tab-to-convert-bubble-tab-icon {
+        & rect {
+          fill: none;
+          stroke: var(--ddocs-outline);
+        }
+        & text {
+          fill: var(--ddocs-on-surface);
+        }
+      }
+      &>.kix-tab-to-convert-bubble-message-prefix {
+        color: var(--ddocs-on-surface);
       }
     }
     

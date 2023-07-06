@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark Docs
 @namespace      userstyles.world/user/winghongchan
-@version        2023.06.24
+@version        2023.07.06
 @description    A new version of Dark Docs, made for Google Docs’ Material U redesign. 
 @author         Walter winghongchan
 @homepageURL    https://github.com/winghongchan/dark-docs
@@ -7721,6 +7721,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     --dt-primary-action-stateful: var(--ddocs-on-primary-hover);
     --dt-primary-action-state-layer: var(--ddocs-primary);
     --gm3-sys-color-primary: var(--ddocs-primary);
+    --gm3-sys-color-on-primary: var(--ddocs-on-primary);
     
     --dt-tertiary-container: var(--ddocs-tertiary-container);
     --dt-tertiary-container-icon: var(--ddocs-on-tertiary-container);
@@ -7781,5 +7782,48 @@ Google Docs renders each page as a single <canvas> element, which may have made 
   
   .iH5TDd /* Tooltips */ {
     background-color: var(--ddocs-inverse-surface);
+  }
+  
+  .VfPpkd-xl07Ob-XxIAqe /* Menus */ {
+    background-color: var(--ddocs-surface-container);
+    --mdc-ripple-color: var(--ddocs-on-surface);
+  }
+  
+  .I7OXgf /* Discard unsaved changes? */ {
+    background-color: var(--ddocs-surface-container-high);
+    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+    min-width: 17.5rem;
+    
+    .Shk6y /* Headline */ {
+      color: var(--ddocs-on-surface-variant);
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 1.25rem;
+      margin: 1.5rem;
+    }
+    
+    .OE6hId /* Button area */ {
+      margin: 0 1.5rem 1.5rem;
+      padding: 0;
+      
+      .UQuaGc /* Buttons */ {
+        border-radius: 50cqh;
+        color: var(--ddocs-primary);
+        line-height: 2.5rem;
+        
+        span.l4V7wb {
+          padding: 0 0.75rem;
+        }
+        
+        &:hover .e19J0b {
+          background-color: var(--ddocs-primary);
+          opacity: var(--ddocs-hover-state-layer-opacity);
+        }
+        
+        .Fvio9d {
+          background-image: radial-gradient(circle farthest-side, color-mix(in srgb, var(--ddocs-primary), transparent 84%), color-mix(in srgb, var(--ddocs-primary), transparent 84%) 80%, transparent 100%);
+        }
+      }
+    }
   }
 }

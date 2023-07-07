@@ -1,13 +1,14 @@
 /* ==UserStyle==
 @name           Shades and Slides
 @namespace      userstyles.world/user/winghongchan
-@version        2023.05.23
+@version        2023.07.07
 @description    A Material 3 themed dark mode for Google Slides
 @author         Walter winghongchan
 @homepageURL    https://github.com/winghongchan/dark-docs
 @supportURL     https://github.com/winghongchan/dark-docs/issues
 @license        GPL-3.0-or-later
 @preprocessor   less
+@var            checkbox ripples "Ripple animations" 1
 ==/UserStyle== */
 
 @-moz-document url-prefix("https://docs.google.com/presentation/d/") {
@@ -17,12 +18,12 @@
     
     // Colour
     --ddocs-primary: #a8c7fa;
-    --ddocs-primary-icon: invert(100%) hue-rotate(180deg) brightness(75%) saturate(400%);
-    --ddocs-primary-hover: rgba(168, 199, 250, var(--ddocs-hover-state-layer-opacity)); // That’s right, standard (no fill or outline) icon buttons, when enabled (selected) and hovered, use a state layer of colour primary! Not on-primary-container or something. https://m3.material.io/components/icon-buttons/specs
+    --ddocs-primary-icon: invert(100%) hue-rotate(190deg) brightness(125%) saturate(95%);
+    --ddocs-primary-hover: rgba(168, 199, 250, var(--ddocs-hover-state-layer-opacity)); // Not “on-” state layers are the role colour at a reduced opacity. 
     --ddocs-primary-focus: rgba(168, 199, 250, var(--ddocs-focus-state-layer-opacity));
     --ddocs-primary-pressed: rgba(168, 199, 250, var(--ddocs-pressed-state-layer-opacity));
     --ddocs-on-primary: #062e6f;
-    --ddocs-on-primary-hover: #9bbaef;
+    --ddocs-on-primary-hover: #9bbaef; // “on-” state layers are the “on-” colour at a reduced opacity overlaid on the corresponding not “on-” colour.
     --ddocs-on-primary-focus: #94b4e9;
     --ddocs-on-primary-pressed: #94b4e9;
     --ddocs-primary-container: #004a77;
@@ -49,8 +50,8 @@
     --ddocs-on-tertiary-container: #c4eed0;
     --ddocs-error: #f2b8b5;
     --ddocs-on-error: #601410;
-    // missing error container
-    // missing on error container
+    --ddocs-error-container: #8C1D18;
+    --ddocs-on-error-container: #F9DEDC;
     --ddocs-background: #1f1f1f;
     --ddocs-on-background: #e3e3e3;
     --ddocs-on-background-hover: rgba(227, 227, 227, var(--ddocs-hover-state-layer-opacity)); // Just the state layer.
@@ -61,7 +62,7 @@
     --ddocs-surface-container: #2d2e31;
     --ddocs-surface-container-high: #313336;
     --ddocs-on-surface: #e3e3e3;
-    --ddocs-on-surface-disabled: rgba(227, 227, 227, 12%); 
+    --ddocs-on-surface-disabled: color-mix(in srgb, var(--ddocs-on-surface), transparent 88%);
     --ddocs-on-surface-hover: rgba(227, 227, 227, var(--ddocs-hover-state-layer-opacity)); 
     --ddocs-on-surface-focus: rgba(227, 227, 227, var(--ddocs-focus-state-layer-opacity)); 
     --ddocs-on-surface-pressed: rgba(227, 227, 227, var(--ddocs-pressed-state-layer-opacity)); 
@@ -93,7 +94,11 @@
     --ddocs-corner-xl: 1.75rem;
     
     // Shadow
-    --ddocs-level2: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
+    --ddocs-level1: 0px 3px 1px -2px rgb(0 0 0 / .2), 0px 2px 2px 0px rgb(0 0 0 / .14), 0px 1px 5px 0px rgb(0 0 0 / .12);
+    --ddocs-level2: 0px 2px 4px -1px rgb(0 0 0 / .2), 0px 4px 5px 0px rgb(0 0 0 / .14), 0px 1px 10px 0px rgb(0 0 0 / .12);
+    --ddocs-level3: 0px 5px 5px -3px rgb(0 0 0 / .2), 0px 8px 10px 1px rgb(0 0 0 / .14), 0px 3px 14px 2px rgb(0 0 0 / .12);
+    --ddocs-level4: 0px 5px 5px -3px rgb(0 0 0 / .2), 0px 8px 10px 1px rgb(0 0 0 / .14), 0px 3px 14px 2px rgb(0 0 0 / .12);
+    --ddocs-level5: 0px 8px 10px -6px rgb(0 0 0 / .2), 0px 16px 24px 2px rgb(0 0 0 / .14), 0px 6px 30px 5px rgb(0 0 0 / .12);
     
     --paleblue-icons: hue-rotate(3.6deg) saturate(32.2%) brightness(170%); /* To desaturate blue icons to make them more legible against a dark background. If it is an inline SVG, changing its fill color to palerblue is preferable. */
     --palegreen-icons: hue-rotate(-2deg) saturate(38%) brightness(182%);
@@ -146,9 +151,9 @@
   }
 }
 
-.animate-ripple() {
+.animate-ripple() when (@ripples = 1) {
   animation: ripple 0.12s ease-in forwards;
-  background-image: radial-gradient(circle, color-mix(in srgb, currentColor, transparent calc(100% + 6% - var(--ddocs-pressed-state-layer-opacity))) 50%, transparent 60%);
+  background-image: radial-gradient(circle, color-mix(in srgb, currentColor, transparent calc(100% + 7% - var(--ddocs-pressed-state-layer-opacity))) 50%, transparent 60%);
   background-origin: border-box;
   background-position: center;
   background-repeat: no-repeat;
@@ -163,14 +168,19 @@
   & when (@role = "primary") or (@role = "primary-container") or (@role = "secondary") or (@role = "secondary-container") or (@role = "tertiary") or (@role = "tertiary-container") {
     background: var(e(%("--ddocs-%s", @role)));
     color: var(e(%("--ddocs-on-%s", @role)));
+    &:is(:disabled, .jfk-button-disabled) {
+      background-color: color-mix(in srgb, var(--ddocs-on-surface), transparent 88%) !important;
+      color: color-mix(in srgb, var(--ddocs-on-surface), transparent 62%) !important;
+    }
     &:hover {
       background-color: color-mix(in srgb, $background, $color var(--ddocs-hover-state-layer-opacity));
+      color: var(e(%("--ddocs-on-%s", @role)));
     }
-    &:focus {
+    &:is(:focus, .jfk-button-focused, .jfk-button-hover.jfk-button-focused) {
       background-color: color-mix(in srgb, $background, $color var(--ddocs-focus-state-layer-opacity));
       color: var(e(%("--ddocs-on-%s", @role)));
     }
-    &:is(.goog-toolbar-button-active, .goog-toolbar-menu-button-open, .jfk-button-active) {
+    &:is(.goog-toolbar-button-active, .goog-toolbar-menu-button-open, .jfk-button-active, .jfk-button-focused.jfk-button-active) {
       .animate-ripple();
       background-color: color-mix(in srgb, $background, $color var(--ddocs-pressed-state-layer-opacity));
       color: var(e(%("--ddocs-on-%s", @role)));
@@ -191,10 +201,18 @@
     &:focus {
       background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-focus-state-layer-opacity)));
     }
-    &:is(.goog-control-open, .goog-menuitem-active, .goog-toolbar-button-active, .goog-toolbar-menu-button-open, .jfk-button-active):not(.goog-submenu) {
+    &:is(:active, .goog-control-open, .goog-custom-button-active, .goog-menuitem-active, .goog-toolbar-button-active, .goog-toolbar-menu-button-open, .jfk-button-active):not(.goog-submenu) {
       .animate-ripple();
       background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-pressed-state-layer-opacity)));
       color: var(e(%("--ddocs-on-%s", @role)));
+    }
+  }
+  
+  & when (@role = "surface-container") {
+    background: var(e(%("--ddocs-%s", @role)));
+    color: var(--ddocs-on-surface);
+    &:hover {
+      background-color: color-mix(in srgb, $background, $color var(--ddocs-hover-state-layer-opacity));
     }
   }
 }
@@ -217,6 +235,156 @@
       & .docs-icon {
         filter: var(--ddocs-on-primary-container-icon);
       }
+    }
+  }
+  
+  // Buttons, common, filled
+  .docs-grille-gm3 .docos.docs-gm .jfk-button.jfk-button-action, 
+  .docs-gm .modal-dialog .goog-buttonset-action, 
+  .docs-gm .modal-dialog .jfk-button-action {
+    .states(@role: "primary");
+    border: 1px solid transparent !important;
+    border-radius: 50cqh;
+    &.jfk-button-disabled {
+      background-color: var(--ddocs-on-surface-disabled);
+      color: color-mix(in srgb, var(--ddocs-on-surface), transparent 62%);
+    }
+    &:hover {
+      border: 1px solid transparent !important;
+      box-shadow: none;
+    }
+    &:is(:focus, :hover:focus, .jfk-button-focused) { 
+      border: 1px solid transparent !important;
+      box-shadow: none;
+    }
+  }
+  
+  // Buttons, common, outlined
+  .docs-material-button-hairline-default.docs-material-button, 
+  .docs-material-button-hairline-primary.docs-material-button, 
+  .docs-grille-gm3 .docos.docs-gm .jfk-button.jfk-button-standard, 
+  .docs-gm .modal-dialog button:not(.goog-buttonset-action), 
+  .docs-gm .modal-dialog .jfk-button-standard {
+    background: transparent;
+    border-color: var(--ddocs-outline) !important;
+    border-radius: 50cqh;
+    color: var(--ddocs-primary);
+    transition: var(--off);
+    &:is(:hover, .jfk-button-hover) {
+      background-color: var(--ddocs-primary-hover);
+      border-color: var(--ddocs-outline) !important;
+      color: var(--ddocs-primary);
+      transition: var(--on);
+    }
+    &:is(:focus, .jfk-button-focused, .jfk-button-hover.jfk-button-focused) {
+      background-color: var(--ddocs-primary-focus);
+      border-color: var(--ddocs-primary) !important;
+      border-radius: 50cqh;
+      color: var(--ddocs-primary);
+    }
+    &.jfk-button-disabled {
+      background: transparent;
+      border-color: color-mix(in srgb, var(--ddocs-on-surface), transparent 88%) !important;
+      color: color-mix(in srgb, var(--ddocs-on-surface), transparent 62%);
+      opacity: 1;
+    }
+    &:is(:active, .jfk-button-active) {
+      .animate-ripple();
+    }
+  }
+  
+  // Buttons, common, text
+  .docs-material-button-flat-primary {
+    color: var(--ddocs-primary);
+    &>.docs-material-button-ripple-element {
+      background-color: var(--ddocs-primary-pressed);
+    }
+  }
+  .docs-material-menu-button-flat-primary {
+    border-radius: 50cqh;
+    color: var(--ddocs-primary);
+    font: 500 0.875rem Google Sans,Roboto,sans-serif;
+    text-transform: capitalize;
+    transition: var(--off);
+    &.docs-material-menu-button-flat-primary-hover {
+      background-color: var(--ddocs-primary-hover);
+      transition: var(--on);
+    }
+    &.docs-material-menu-button-flat-primary-focused {
+      background-color: var(--ddocs-primary-focus);
+      border-color: transparent;
+    }
+    &.docs-material-menu-button-flat-primary-open {
+      .animate-ripple();
+      
+      .docs-material-menu-button-flat-primary-dropdown {
+        transform: rotate(-180deg) translateY(-2px);
+      }
+    }
+    
+    .docs-material-menu-button-flat-primary-dropdown {
+      transition: transform 0.2s;
+    }
+    .docs-material-menu-button-flat-primary-dropdown-icon {
+      opacity: 1;
+      position: relative;
+      top: 2px;
+      
+      path {
+        fill: currentColor;
+      }
+    }
+  }
+  .docs-material-button /* Fancy */ {
+    border-radius: 50cqh;
+    font: 500 0.875rem Google Sans,Roboto,sans-serif;
+    text-transform: capitalize;
+    transition: var(--off);
+    &.docs-material-button-hover {
+      background-color: var(--ddocs-primary-hover);
+    }
+    &.docs-material-button-focused {
+      background-color: var(--ddocs-primary-focus);
+      border-color: transparent;
+    }
+    &.docs-material-button-active {
+      color: var(--ddocs-primary);
+    }
+  }
+  
+  // Checkboxes
+  .docs-material-gm-labeled-checkbox {
+    position: relative; 
+    
+    .docs-material-gm-labeled-checkbox-checkbox {
+      border-color: var(--ddocs-on-surface);
+      color: var(--ddocs-on-surface);
+      &.docs-material-gm-labeled-checkbox-checked {
+        background-color: var(--ddocs-primary);
+        border-color: $background-color;
+        color: var(--ddocs-primary);
+        &::before {
+          filter: invert();
+        }
+      }
+    }
+    .docs-material-gm-labeled-checkbox-circle {
+      left: -10px;
+      margin: unset;
+      transition: var(--off);
+      top: -2px;
+    }
+    &.docs-material-gm-labeled-checkbox-hover .docs-material-gm-labeled-checkbox-circle {
+      background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-hover-state-layer-opacity)));
+      opacity: 1;
+      transition: var(--on);
+    }
+    &.docs-material-gm-labeled-checkbox-focused .docs-material-gm-labeled-checkbox-circle {
+      background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-focus-state-layer-opacity)));
+      opacity: 1;
+    }
+    .docs-material-gm-labeled-checkbox-label {
+      color: var(--ddocs-on-surface);
     }
   }
   
@@ -254,7 +422,7 @@
       }
       
       &.apps-menuitem.goog-option-selected .goog-menuitem-checkbox /* Modern checkmark */ {
-        filter: invert() brightness(85%);
+        filter: invert() brightness(145%);
       }
       
       & .goog-menuitem-accel /* Keyboard shortcut */, 
@@ -287,6 +455,88 @@
     scrollbar-color: var(--ddocs-outline) transparent;
   }
   
+  // Sliders
+  // Buttons beneath slider
+  .punch-toggle-slider-button-container {
+    .punch-toggle-slider-button {
+      color: var(--ddocs-on-surface-variant);
+    }
+    .punch-toggle-slider-button-selected {
+      color: var(--ddocs-on-surface);
+    }
+  }
+  
+  // Text fields, message
+  .docs-grille-gm3 .docos-input .docos-input-textarea {
+    background-color: var(--ddocs-surface-container-highest);
+    border-color: $background-color;
+    color: var(--ddocs-on-surface);
+    transition: var(--off);
+    &:hover {
+      border-color: var(--ddocs-on-surface-variant);
+      transition: var(--on);
+    }
+    &:focus {
+      background-color: var(--ddocs-surface-container-highest);
+      color: var(--ddocs-on-surface);
+    }
+    &:focus-visible {
+      border-color: var(--ddocs-primary);
+      box-shadow: inset 0 0 0 1px $border-color;
+      outline: none;
+    }
+    
+    &.docos-input-contenteditable:empty::before /* Placeholder */ {
+      color: var(--ddocs-on-surface-variant);
+    }
+  }
+  
+  // Text fields, outlined, menu
+  .docs-gm .modal-dialog .goog-flat-menu-button {
+    border-color: var(--ddocs-outline);
+    border-radius: var(--ddocs-corner-xs);
+    &.docs-flatcolormenubutton .goog-flat-menu-button-caption {
+      border-color: var(--ddocs-outline);
+    }
+    
+    & .goog-flat-menu-button-dropdown {
+      .on-surface-variant-icon();
+      transition: 0.2s transform;
+    }
+  }
+  .docs-material-gm-select {
+    color: var(--ddocs-on-surface);
+    
+    .docs-material-gm-select-outer-box {
+      border-color: var(--ddocs-outline);
+      padding: 0.5rem 0.5rem 0.5rem 0.75rem;
+      transition: var(--off);
+      
+      .docs-material-gm-select-caption {
+        color: inherit;
+      }
+    }
+    &.docs-material-gm-select-hover>.docs-material-gm-select-outer-box {
+      border-color: var(--ddocs-on-surface);
+      transition: var(--on);
+    }
+    &.docs-material-gm-select-focused>.docs-material-gm-select-outer-box {
+      border-color: var(--ddocs-primary);
+      box-shadow: inset 0 0 0 1px var(--ddocs-primary);
+    }
+    
+    .docs-material-gm-select-dropdown {
+      transition: 0.2s transform;
+      
+      .docs-icon-arrow-dropdown {
+        .on-surface-variant-icon();
+      }
+    }
+    &.docs-material-gm-select-open .docs-material-gm-select-dropdown {
+      transform: rotate(180deg);
+    }
+  }
+  
   // Tooltips, basic
   .docs-grille-gm3 .jfk-tooltip {
     background-color: var(--ddocs-inverse-surface);
@@ -298,14 +548,14 @@
   }
 }
 
+// Mixins
+
 // Buttons, common
 .common-button(@type: "filled", @role: "primary") {
   border-radius: 50cqh;
-  box-sizing: border-box;
-  height: 2.5rem;
+  box-shadow: none;
   &:focus {
     border-radius: 50cqh;
-    height: 2.5rem;
   }
   &.goog-inline-block:has(.jfk-button-label) {
     display: inline-grid;
@@ -321,31 +571,107 @@
   & when (@type = "filled") and (@role = "primary") {
     .states(@role);
   }
-  & when (@type = "filled tonal") and (@role = "secondary") {
+  & when (@type = "filled tonal") and (@role = "primary") or (@role = "secondary") {
     .states(%("%s-container", @role));
   }
   & when (@type = "outlined") {
     background: transparent;
-    border-color: var(--ddocs-outline);
+    border-color: var(--ddocs-outline) !important;
     color: var(e(%("--ddocs-%s", @role)));
     transition: var(--off);
+    &.goog-flat-button-disabled {
+      background: transparent !important;
+      border-color: color-mix(in srgb, var(--ddocs-on-surface), transparent 88%) !important;
+      color: color-mix(in srgb, var(--ddocs-on-surface), transparent 62%);
+      opacity: 1;
+    }
     &:hover {
       background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-hover-state-layer-opacity)));
       transition: var(--on);
     }
     &:is(:focus, .goog-flat-menu-button-open) {
       background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-focus-state-layer-opacity)));
+      border-color: currentColor !important;
+    }
+    &.goog-flat-button-active {
+      .animate-ripple();
+    }
+  }
+  & when (@type = "text") {
+    color: var(e(%("--ddocs-%s", @role)));
+    transition: var(--off);
+    &:hover {
+      background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-hover-state-layer-opacity)));
+      transition: var(--on);
+    }
+    &:focus {
+      background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-focus-state-layer-opacity)));
+    }
+    &:active {
+      background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-pressed-state-layer-opacity)));
+      .animate-ripple();
     }
   }
 }
 
 // Buttons, icon
-.icon-button(@type: "standard") {
+.icon-button(@type: "standard"; @role: "surface-variant") {
   & when (@type = "standard") {
-    color: var(--ddocs-on-surface-variant);
-    .states();
-    & .docs-icon-img {
-      .on-surface-variant-icon();
+    & when (@role = "surface-variant") {
+      color: var(--ddocs-on-surface-variant);
+      .states(@role: @role);
+      
+      .docs-icon-img when (@role = "surface-variant") {
+        .on-surface-variant-icon();
+      }
+    }
+    
+    & when (@role = "primary") {
+      color: var(--ddocs-primary);
+      transition: var(--off);
+      &:hover {
+        background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-hover-state-layer-opacity)));
+        transition: var(--on);
+      }
+      &:focus {
+        background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-focus-state-layer-opacity)));
+        transition: var(--on);
+      }
+      &.jfk-button-active {
+        .animate-ripple();
+      }
+      
+      .docs-icon-img {
+        filter: var(--ddocs-primary-icon);
+      }
+    }
+  }
+}
+
+// Sliders
+.slider(@orientation: "horizontal") {
+  .docs-material-slider-track-on {
+    background-color: var(--ddocs-primary);
+    border-color: $background-color;
+    border-radius: 50cqh;
+    height: if(@orientation = "horizontal", 0.25rem);
+  }
+  .docs-material-slider-track-off {
+    background-color: var(--ddocs-surface-container-highest);
+    border-color: $background-color;
+    border-radius: 50cqh;
+    height: if(@orientation = "horizontal", 0.25rem);
+  }
+  .docs-material-slider-thumb {
+    .docs-material-slider-focus-ring {
+      background-color: var(--ddocs-primary-focus);
+      top: -14px;
+    }
+    .docs-material-slider-thumb-grabber {
+      background-color: var(--ddocs-primary);
+      border-color: $background-color;
+      bottom: -11px;
+      box-shadow: var(--ddocs-level1);
     }
   }
 }
@@ -356,7 +682,7 @@
   // File name
   #docs-title-widget {
     div.docs-title-input-label {
-      visibility: hidden !important;
+      color: var(--ddocs-on-surface);
     }
     input.docs-title-input {
       height: 22px;
@@ -397,6 +723,9 @@
         border-color: var(--ddocs-outline) !important;
         transition: var(--on);
       }
+      &:focus {
+        border-color: var(--ddocs-outline) !important;
+      }
       &:focus+#punch-start-presentation-right {
         background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-focus-state-layer-opacity)));
         border-color: var(--ddocs-outline) !important;
@@ -410,6 +739,7 @@
       
       &:focus {
         background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-focus-state-layer-opacity))) !important;
+        border-color: var(--ddocs-outline) !important;
       }
       
       &>.goog-flat-menu-button-dropdown {
@@ -428,6 +758,15 @@
   #docs-menubar .goog-control {
     color: var(--ddocs-on-surface);
     .states();
+  }
+  
+  // Snackbar
+  .docs-grille-gm3 .jfk-butterBar, 
+  .docs-grille-gm3 .jfk-butterBar-error, 
+  .docs-grille-gm3 .jfk-butterBar-info, 
+  .docs-grille-gm3 .jfk-butterBar-warning {
+    background-color: var(--ddocs-inverse-surface);
+    color: var(--ddocs-inverse-on-surface);
   }
   
   // Toolbar
@@ -458,6 +797,9 @@
         }
       }
     }
+  }
+  #lineButton .sketchy-icon-line /* Line icon is weird */ {
+    opacity: 70%;
   }
   .docs-grille-gm3 #docs-align-palette /* Text align menu */ {
     background-color: var(--ddocs-surface-container);
@@ -490,6 +832,14 @@
     
     & .goog-palette-cell:not(.goog-palette-cell-selected) .docs-icon-img {
       .on-surface-variant-icon();
+    }
+  }
+  .docs-grille-gm3 .docs-toolbar-more-bubble /* Truncated toolbar items */ {
+    background-color: var(--ddocs-surface-container);
+    box-shadow: var(--ddocs-level1);
+    
+    .docs-toolbar-more-toolbar {
+      background: none;
     }
   }
 }
@@ -543,10 +893,391 @@
       opacity: 1;
     }
   }
+  
+  #filmstrip-controls /* Grid view, hide filmstrip buttons */ {
+    #grid-view-toggle {
+      .icon-button();
+      
+      #grid-view-icon>path {
+        fill: var(--ddocs-on-surface-variant);
+      }
+    }
+    .punch-filmstrip-controls-visibility-toggle-button {
+      .icon-button();
+      border-radius: 50%;
+      
+      .punch-filmstrip-visibility-toggle-icon-container {
+        background: transparent;
+        
+        path[fill="#444746"] {
+          fill: var(--ddocs-on-surface-variant);
+        }
+      }
+    }
+  }
+  
+  // Rulers
+  .docs-ruler-face-number {
+    color: var(--ddocs-on-surface-variant);
+  }
+  .docs-ruler :is(.docs-ruler-indent-first-line, .docs-ruler-indent-start, .docs-ruler-indent-end) {
+    filter: var(--ddocs-primary-icon);
+  }
+  #sketchy-horizontal-ruler {
+    background: none !important;
+    border-bottom-color: var(--ddocs-outline-variant);
+    
+    .docs-ruler-background-inner {
+      background: none;
+      border-bottom-color: var(--ddocs-outline);
+    }
+    
+    .docs-ruler-face-minor-division {
+      border-left-color: var(--ddocs-outline);
+    }
+  }
+  #sketchy-vertical-ruler {
+    background: none !important;
+    border-right-color: var(--ddocs-outline-variant);
+    
+    .docs-ruler-background-inner {
+      background: none;
+      border-right-color: var(--ddocs-outline);
+    }
+  }
+  
+  // Slide
+  #canvas:is(.canvas-horiz-border, .canvas-vert-border) {
+    background: $border-color;
+    border-color: transparent;
+  }
+  .punch-animation-preview-pane /* When playing animations */ {
+    background: transparent !important;
+  }
+  
+  // Comments
+  .docs-grille-gm3 .docos-anchoreddocoview /* Comments */ {
+    // Card
+    &:not(.docos-docoview-active) {
+      .states(@role: "surface-container");
+    }
+    &.docos-docoview-active {
+      background-color: var(--ddocs-surface-container) !important;
+    }
+    
+    // Icon buttons
+    .docos-replyview-resolve-button {
+      .icon-button(@role: "primary");
+      border-radius: 50cqh;
+    }
+    .docos-docomenu-dropdown {
+      .icon-button();
+      
+      .docos-icon-img {
+        filter: invert() brightness(80%);
+      }
+    }
+    
+    // Text
+    .docos-anchoredreplyview-author {
+      color: var(--ddocs-on-surface);
+    }
+    .docos-anchoredreplyview-timestamp, 
+    .docos-action-text, 
+    .docos-streamdocoview-timestamp, 
+    .docos-anchoredreplyview-body {
+      color: var(--ddocs-on-surface-variant);
+    }
+    
+    // Divider between comment and its replies
+    .docos-anchoredreplyview {
+      border-top-color: var(--ddocs-outline-variant); 
+    }
+    
+    // Show more replies button
+    .docos-showrepliesbutton-line {
+      border-top-color: var(--ddocs-outline-variant);
+    }
+    .docos-showrepliesbutton-collapsed-internal-container {
+      background-color: var(--ddocs-surface-container);
+      transition: var(--off);
+      
+      .docos-showrepliesbutton-collapsed-internal {
+        .common-button(@type: "text");
+      }
+    }
+    &:hover .docos-showrepliesbutton-collapsed-internal-container {
+      background-color: color-mix(in srgb, var(--ddocs-surface-container), var(--ddocs-on-surface) var(--ddocs-hover-state-layer-opacity));
+      transition: var(--on);
+    }
+  }
+  .docs-grille-gm3 .docos-anchoreddocoview .docos-anchoredreplyview /* Replies */, 
+  .docs-grille-gm3 .docos-anchoreddocoview-input-pane /* Text box section */ {
+    background: none !important;
+  }
+  
+  // Speaker notes
+  #speakernotes-container {
+    #speakernotes-dragger {
+      --speakernotes-dragger: var(--ddocs-outline);
+      &:hover, &.speakernotes-dragger-dragging {
+        background: none !important;
+        --speakernotes-dragger: var(--ddocs-on-surface-variant);
+      }
+      & .speakernotes-dragger-thumb {
+        background-color: var(--speakernotes-dragger);
+      }
+    }
+    #speakernotes {
+      background-color: var(--ddocs-surface-container-low);
+      
+      #speakernotes-workspace {
+        background: none;
+        filter: invert() hue-rotate(180deg) contrast(80%);
+      }
+    }
+  }
+}
+
+@-moz-document url-prefix("https://docs.google.com/presentation/d/") {
+  // Menus
+  
+  .goog-palette.punch-layouts-palette {
+    overflow-y: unset !important;
+    padding: 0 !important;
+    
+    .goog-palette-cell {
+      .docs-preview-palette-item {
+        border-color: transparent;
+        border-radius: var(--ddocs-corner-m);
+        overflow: hidden;
+        padding: 0;
+        transition: var(--off);
+      }
+      &.goog-palette-cell-hover:not(.goog-palette-cell-selected) {
+        .docs-preview-palette-item {
+          border-color: var(--ddocs-on-surface-variant);
+          transition: var(--on);
+        }
+      }
+    }
+    .goog-palette-cell-selected {
+      .docs-preview-palette-item {
+        border: 1px solid var(--ddocs-primary);
+        margin: 1px;
+        outline: 1px solid var(--ddocs-primary);
+        outline-offset: -2px;
+      }
+      .punch-layouts-palette-label {
+        background-color: transparent;
+      }
+    }
+    &.goog-palette-active .goog-palette-cell-hover:not(.goog-palette-cell-selected) .docs-preview-palette-item {
+      outline: 1px solid var(--ddocs-on-surface-variant);
+      outline-offset: -2px;
+    }
+  }
+}
+
+@-moz-document url-prefix("https://docs.google.com/presentation/d/") {
+  // Dialogs
+  .docs-gm .modal-dialog {
+    background: var(--ddocs-surface-container);
+    box-shadow: var(--ddocs-level3);
+    border: none;
+    border-radius: var(--ddocs-corner-xl);
+    color: var(--ddocs-on-surface);
+    
+    // Titlebar
+    .modal-dialog-title {
+      background: transparent;
+      color: inherit;
+    }
+    .modal-dialog-title-text {
+      color: inherit;
+    }
+    .modal-dialog-title-close {
+      .states();
+      opacity: 1;
+      
+      &::after {
+        filter: invert(90%);
+      }
+    }
+    
+    // Content
+    .modal-dialog-content {
+      background: transparent;
+      color: inherit;
+      
+      .punch-bg-options-content {
+        color: inherit;
+      }
+    }
+  }
 }
 @-moz-document url-prefix("https://docs.google.com/presentation/d/") {
-  // Side panels
+  // Sidebars
   
+  // Basic components
+  
+  // Buttons, icon, titlebar
+  .docs-sidebar-gm-titlebar-icon-button {
+    .icon-button();
+  }
+  
+  // Collapsible sections
+  .punch-sidebar-tile-header-text, 
+  .punch-sidebar-tile-header-subtext {
+    color: var(--ddocs-on-surface);
+  }
+  
+  // Text fields
+  .punch-sidebar-tile-type-select {
+    background: transparent;
+  }
+  
+  // Extension sidebar
+  .docs-grille-gm3 :is(.addon-sidebar, .script-application-sidebar) {
+    background-color: var(--ddocs-surface-container);
+    border-left: none;
+    border-radius: 16px;
+    height: calc(100vh - 65px - 16px) !important;
+    overflow: hidden;
+    top: 65px !important;
+    
+    .addon-sidebar-header,
+    .script-application-sidebar-header {
+      align-items: center;
+      background-color: var(--ddocs-surface-container);
+      border: none;
+      color: var(--ddocs-on-surface);
+      display: flex;
+      font: 500 16px Google Sans,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+      height: 56px;
+      justify-content: space-between;
+      padding: 0 16px;
+      
+      .addon-sidebar-close,
+      .script-application-sidebar-close {
+        .icon-button();
+        border-radius: 50%;
+        height: 32px;
+        position: relative;
+        right: -7px;
+        top: unset;
+        width: $height;
+        
+        .docs-icon {
+          margin: 7px;
+          user-select: none;
+        }
+      }
+    }
+    
+    .addon-sidebar-content {
+      background-color: var(--ddocs-surface-container-low);
+      color: var(--ddocs-on-surface);
+      
+      .addon-sidebar-card {
+        border-bottom-color: var(--ddocs-outline-variant);
+        &:last-of-type {
+          border-bottom: none;
+        }
+      }
+      .addon-sidebar-card-title-caption {
+        color: inherit;
+        max-width: 200px;
+        white-space: unset;
+      }
+      .addon-sidebar-card-category, 
+      .addon-sidebar-card-summary {
+        color: var(--ddocs-on-surface-variant);
+      }
+      .addon-sidebar-card-check svg {
+        fill: var(--ddocs-tertiary);
+      }
+    }    
+    .script-application-sidebar-content {
+      top: 56px;
+    }
+  }
+  
+  // Motion sidebar
+  .docs-gm .motion-ui.punch-animation-sidebar {
+    background-color: var(--ddocs-surface-container);
+    color: var(--ddocs-on-surface);
+    
+    .punch-animation-sidebar-header {
+      background-color: var(--ddocs-surface-container);
+      border-bottom-color: var(--ddocs-outline-variant);
+      color: var(--ddocs-on-surface);
+      
+      .docs-gm-sidebar-icon {
+        g[fill="#f9ab00"] {
+          fill: var(--ddocs-primary);
+        }
+        circle[fill="#FFF"] {
+          fill: var(--ddocs-surface-container);
+        }
+      }
+    }
+    
+    .punch-animation-sidebar-transition-header,
+    .punch-animation-sidebar-animation-header, 
+    .punch-sidebar-tile-options {
+      background: transparent;
+    }
+    
+    .punch-transition-tile .punch-sidebar-tile-thumbnail path[fill="#80868b"] {
+      fill: var(--ddocs-on-surface-variant);
+    }
+    
+    .punch-sidebar-tile-duration {
+      .docs-material-slider {
+        .slider();
+      }
+      &.punch-toggle-slider-disabled {
+        filter: saturate(0) opacity(38%);
+      }
+    }
+    
+    .punch-animation-sidebar-tile-container, 
+    .punch-animation-sidebar-controls, 
+    .punch-sidebar-tile-header {
+      background: var(--ddocs-surface-container);
+      border-top-color: var(--ddocs-outline-variant);
+    }
+    
+    .punch-sidebar-tile-delete .docs-icon-delete-grey600-24 /* Delete animation garbage can */ {
+      filter: var(--white-icons);
+    }
+    
+    .punch-animation-sidebar-add-section {
+      border-bottom-color: var(--ddocs-outline-variant);
+      
+      .punch-animation-sidebar-add /* + Add animation */ {
+        .common-button(@type: "outlined");
+        border-radius: var(--ddocs-corner-s) !important;
+        
+        .punch-animation-sidebar-add-icon path[fill="#f29900"] {
+          fill: currentColor;
+        }
+      }
+    }
+    
+    // Playhead
+    .punch-animation-sidebar-playhead {
+      filter: hue-rotate(106deg) saturate(49%) brightness(87.5%);
+    }
+    
+    // Play/Stop button
+    .punch-animation-sidebar-play, .punch-animation-sidebar-stop {
+      .common-button();
+    }
+  }
+  
+  // Themes sidebar
   .docs-gm .punch-theme-sidebar {
     background-color: var(--ddocs-surface-container);
     
@@ -557,10 +1288,6 @@
       
       & g[fill="#F9AB00"] {
         fill: var(--ddocs-primary);
-      }
-      
-      & .docs-sidebar-gm-titlebar-icon-button {
-        .icon-button();
       }
     }
     
@@ -630,7 +1357,7 @@
       border-top-color: var(--ddocs-outline-variant);
       
       & .jfk-button {
-        .common-button();
+        .common-button(@type: "filled tonal"; @role: "primary");
       }
     }
   }

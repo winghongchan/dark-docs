@@ -3827,7 +3827,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
       position: fixed; 
     }
   }
-  :is(.kix-appview-editor.kix-format-painter-mode, .kix-format-painter-mode .kix-page) when (@document-filter = var(--darkfilter)) {
+  :is(.kix-appview-editor.kix-format-painter-mode, .kix-format-painter-mode .kix-page, .kix-format-painter-mode .kix-cursor) when (@document-filter = var(--darkfilter)) {
     cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAWCAMAAACWh252AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAABCUExURbiPs/////////////////////////////////////////////////////////////////////////////////////2kLc4AAAAVdFJOUwD10VxLCDncoOVFtDcRhOpl8MEvsISBmF8AAAABYktHRAH/Ai3eAAAAB3RJTUUH5wcHDCMz4AGKIAAAAGJJREFUKM/FjtkOgCAMBMulUkRF7f//qjFexQC+yTx1m8lmAf5CSAVairxgmrazaPbT0YmLlZ7wOOjmVXJl4pSF5xcJfENSyP54SG2IEn3VVRKQVEnw2g7j5PNCmBGWNUAVNqxUCJX1DW8MAAAAAElFTkSuQmCC) 5 10,text;
   }
   body.docs-gm.docs-grille-gm3 .kix-appview-editor {

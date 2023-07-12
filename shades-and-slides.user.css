@@ -198,7 +198,7 @@
   & when (@role = "surface") or (@role = "surface-variant") {
     background-color: transparent;
     color: var(e(%("--ddocs-on-%s", @role)));
-    &:is(.goog-menuitem-disabled, .goog-toolbar-button-disabled) {
+    &:is(.goog-flat-button-disabled, .goog-menuitem-disabled, .goog-toolbar-button-disabled) {
       background: none !important;
     }
     &:hover, 
@@ -209,7 +209,7 @@
     &:focus {
       background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-focus-state-layer-opacity)));
     }
-    &:is(:active, .docs-titlebar-badge-selected, .goog-control-active, .goog-control-open, .goog-custom-button-active, .goog-menuitem-active, .goog-toolbar-button-active, .goog-toolbar-menu-button-open, .jfk-button-active):not(.goog-submenu:not(:has(span[style*="font-family"]))):not(.goog-toolbar-button-checked) {
+    &:is(:active, .docs-titlebar-badge-selected, .goog-control-active, .goog-control-open, .goog-custom-button-active, .goog-flat-button-active, .goog-menuitem-active, .goog-toolbar-button-active, .goog-toolbar-menu-button-open, .jfk-button-active):not(.goog-submenu:not(:has(span[style*="font-family"]))):not(.goog-toolbar-button-checked) {
       .animate-ripple();
       background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-pressed-state-layer-opacity)));
       color: var(e(%("--ddocs-on-%s", @role)));
@@ -1117,7 +1117,7 @@
     #grid-view-toggle {
       .icon-button();
       
-      #grid-view-icon>path {
+      path {
         fill: var(--ddocs-on-surface-variant);
       }
     }
@@ -1132,6 +1132,17 @@
           fill: var(--ddocs-on-surface-variant);
         }
       }
+    }
+  }
+  .filmstrip-collapsed #filmstrip-controls :is(#filmstrip-grid-view-controls-container, #filmstrip-visibility-controls-container) {
+    background-color: var(--ddocs-surface-container);
+    border-radius: 50cqmin;
+    
+    &#filmstrip-grid-view-controls-container {
+      margin-left: 1rem;
+    }
+    .punch-filmstrip-controls-grid-view-toggle {
+      margin-left: unset;
     }
   }
   
@@ -1172,6 +1183,19 @@
   }
   .punch-animation-preview-pane /* When playing animations */ {
     background: transparent !important;
+  }
+  
+  // Grid view
+  .punch-filmstrip-controls-size-buttons /* Zoom buttons container */ {
+    background-color: var(--ddocs-surface-container);
+    
+    .goog-flat-button {
+      border-radius: 50cqmin;
+      .states(@role: "surface-variant");
+      path {
+        fill: var(--ddocs-on-surface-variant);
+      }
+    }
   }
   
   // Comments
@@ -1493,9 +1517,71 @@
       }
     }
     
-    // Page setup
-    &.sketchy-pagesetup {
+    // Find & replace
+    &.docs-findandreplacedialog .docs-findinput-container /* Find field */ {
+      background: none;
+      border-color: var(--ddocs-outline);
+      transition: var(--off);
+      &:hover {
+        border-color: var(--ddocs-on-surface);
+        transition: var(--on);
+      }
+      &.docs-findinput-container-focus {
+        border-color: var(--ddocs-primary);
+      }
       
+      .docs-findinput-input {
+        caret-color: var(--ddocs-primary);
+        color: var(--ddocs-on-surface);
+      }
+      .docs-findinput-count {
+        color: var(--ddocs-on-surface-variant);
+      }
+    }
+    
+    // Edit guides (layout)
+    .sketchy-editguidesdialog {
+      .sketchy-editguidesdialog-tab-bar /* I wish Google Docs had just one standard tab bar so I wouldn’t need to make bespoke CSS for each tab bar */ {
+        .sketchy-editguidesdialog-tab {
+          border-bottom-color: transparent;
+          color: var(--ddocs-on-surface-variant);
+          transition: var(--off);
+          &.goog-tab-hover {
+            background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-hover-state-layer-opacity)));
+            color: var(--ddocs-on-surface);
+            transition: var(--on);
+          }
+          &.goog-tab-active {
+            background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-pressed-state-layer-opacity)));
+            color: var(--ddocs-on-surface);
+            .animate-ripple();
+          }
+          &.goog-tab-selected {
+            border-bottom-color: currentColor;
+            color: var(--ddocs-primary);
+          }
+        }
+      }
+      .sketchy-guideslist {
+        background: none;
+        border-color: var(--ddocs-outline-variant);
+        
+        .sketchy-guiderow-unit {
+          color: var(--ddocs-on-surface-variant);
+        }
+        .sketchy-guiderow-deletebutton {
+          .icon-button();
+          border-radius: 50cqmin;
+          display: inline-grid;
+          height: 2rem;
+          place-items: center;
+          width: $height;
+          
+          .goog-flat-button-outer-box {
+            padding-left: 1px;
+          }
+        }
+      }
     }
     
     &.docs-preferencesdialog-modal {

@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Shades and Slides
 @namespace      userstyles.world/user/winghongchan
-@version        2023.07.07
+@version        2023.07.12
 @description    A Material 3 themed dark mode for Google Slides
 @author         Walter winghongchan
 @homepageURL    https://github.com/winghongchan/dark-docs
@@ -23,6 +23,7 @@
     --ddocs-primary-focus: rgba(168, 199, 250, var(--ddocs-focus-state-layer-opacity));
     --ddocs-primary-pressed: rgba(168, 199, 250, var(--ddocs-pressed-state-layer-opacity));
     --ddocs-on-primary: #062e6f;
+    --ddocs-on-primary-checkmark: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWluIG1lZXQiPjxwYXRoIGQ9Ik0uMDQuNjI3LjE0Ni41Mi40My44MDQuMzIzLjkxem0uMTc3LjE3N0wuODU0LjE2Ny45Ni4yNzMuMzIzLjkxeiIgZmlsbD0iIzA2MmU2ZiIvPjwvc3ZnPgo=");
     --ddocs-on-primary-hover: #9bbaef; // “on-” state layers are the “on-” colour at a reduced opacity overlaid on the corresponding not “on-” colour.
     --ddocs-on-primary-focus: #94b4e9;
     --ddocs-on-primary-pressed: #94b4e9;
@@ -48,25 +49,32 @@
     --ddocs-on-tertiary-pressed: #61c27e;
     --ddocs-tertiary-container: #0f5223;
     --ddocs-on-tertiary-container: #c4eed0;
+    --ddocs-warning: #E1C380;
+    --ddocs-on-warning: #3F2E00;
+    --ddocs-warning-container: #58440C;
+    --ddocs-on-warning-container: #FFDF99;
     --ddocs-error: #f2b8b5;
     --ddocs-on-error: #601410;
     --ddocs-error-container: #8C1D18;
     --ddocs-on-error-container: #F9DEDC;
-    --ddocs-background: #1f1f1f;
+    --ddocs-background: #101417;
     --ddocs-on-background: #e3e3e3;
     --ddocs-on-background-hover: rgba(227, 227, 227, var(--ddocs-hover-state-layer-opacity)); // Just the state layer.
     --ddocs-on-background-focus: rgba(227, 227, 227, var(--ddocs-focus-state-layer-opacity));
     --ddocs-on-background-pressed: rgba(227, 227, 227, var(--ddocs-pressed-state-layer-opacity));
+    --ddocs-surface-dim: #101417;
     --ddocs-surface: #1f1f1f;
-    --ddocs-surface-container-low: #28282a; // I’m stealing these from screenshots, so I don’t know the actual surface tint. (I tried to find it.)
-    --ddocs-surface-container: #2d2e31;
-    --ddocs-surface-container-high: #313336;
+    --ddocs-surface-bright: #353A3D;
+    --ddocs-surface-container-lowest: #0A0F12;
+    --ddocs-surface-container-low: #28282a; // or #181C20 with tone-based surfaces https://material.io/blog/tone-based-surface-color-m3
+    --ddocs-surface-container: #2d2e31; // or #1C2024
+    --ddocs-surface-container-high: #313336; // or #262A2E
+    --ddocs-surface-container-highest: #444746; // or #313539
     --ddocs-on-surface: #e3e3e3;
     --ddocs-on-surface-disabled: color-mix(in srgb, var(--ddocs-on-surface), transparent 88%);
     --ddocs-on-surface-hover: rgba(227, 227, 227, var(--ddocs-hover-state-layer-opacity)); 
     --ddocs-on-surface-focus: rgba(227, 227, 227, var(--ddocs-focus-state-layer-opacity)); 
     --ddocs-on-surface-pressed: rgba(227, 227, 227, var(--ddocs-pressed-state-layer-opacity)); 
-    --ddocs-surface-container-highest: #444746; 
     --ddocs-on-surface-variant: #c4c7c5; 
     --ddocs-on-surface-variant-hover: rgba(196, 199, 197, var(--ddocs-hover-state-layer-opacity));
     --ddocs-on-surface-variant-focus: rgba(196, 199, 197, var(--ddocs-focus-state-layer-opacity));
@@ -106,7 +114,7 @@
     --whiter-icons: brightness(325%);
     --darkfilter: invert(100%) hue-rotate(180deg) contrast(76%);
     --on: background-color 0.02s ease-in, border-color 0.06s ease, color 0.05s ease, filter 0.01s ease;
-    --off: background-color 0.25s ease, border-color 0.1s ease, color 0.25s ease, filter 0.25s ease;
+    --off: background-color 0.25s ease, border-color 0.15s ease, color 0.25s ease, filter 0.25s ease;
     
     // Dark Docs m2 variables (will be removed once side panels and the homepage get Material U’d)
     --palerblue: #8AB4F8; /* For blue text, icons, nearby items that need to be paleblue, and paleblue buttons on hover. */
@@ -140,13 +148,13 @@
 }
 
 .on-surface-icon() {
-  &:not(.docs-icon-editors-ia-apps-script, .docs-icon-editors-ia-presentation-yellow, .docs-icon-editors-ia-spreadsheet-green) {
+  &:not(.docs-icon-editors-ia-apps-script, .docs-icon-editors-ia-presentation-yellow, .docs-icon-editors-ia-spreadsheet-green, .docs-icon-star-filled-20-blue600) {
     filter: var(--whiter-icons);
   }
 }
 
 .on-surface-variant-icon() {
-  &:not(.docs-icon-editors-ia-apps-script, .docs-icon-editors-ia-presentation-yellow, .docs-icon-editors-ia-spreadsheet-green) {
+  &:not(.docs-icon-editors-ia-apps-script, .docs-icon-editors-ia-presentation-yellow, .docs-icon-editors-ia-spreadsheet-green, .docs-icon-star-filled-20-blue600) {
     filter: var(--white-icons);
   }
 }
@@ -180,7 +188,7 @@
       background-color: color-mix(in srgb, $background, $color var(--ddocs-focus-state-layer-opacity));
       color: var(e(%("--ddocs-on-%s", @role)));
     }
-    &:is(.goog-toolbar-button-active, .goog-toolbar-menu-button-open, .jfk-button-active, .jfk-button-focused.jfk-button-active) {
+    &:is(:active, .goog-toolbar-button-active, .goog-toolbar-menu-button-open, .jfk-button-active, .jfk-button-focused.jfk-button-active) {
       .animate-ripple();
       background-color: color-mix(in srgb, $background, $color var(--ddocs-pressed-state-layer-opacity));
       color: var(e(%("--ddocs-on-%s", @role)));
@@ -201,7 +209,7 @@
     &:focus {
       background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-focus-state-layer-opacity)));
     }
-    &:is(:active, .goog-control-open, .goog-custom-button-active, .goog-menuitem-active, .goog-toolbar-button-active, .goog-toolbar-menu-button-open, .jfk-button-active):not(.goog-submenu) {
+    &:is(:active, .docs-titlebar-badge-selected, .goog-control-active, .goog-control-open, .goog-custom-button-active, .goog-menuitem-active, .goog-toolbar-button-active, .goog-toolbar-menu-button-open, .jfk-button-active):not(.goog-submenu:not(:has(span[style*="font-family"]))):not(.goog-toolbar-button-checked) {
       .animate-ripple();
       background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-pressed-state-layer-opacity)));
       color: var(e(%("--ddocs-on-%s", @role)));
@@ -241,10 +249,11 @@
   // Buttons, common, filled
   .docs-grille-gm3 .docos.docs-gm .jfk-button.jfk-button-action, 
   .docs-gm .modal-dialog .goog-buttonset-action, 
-  .docs-gm .modal-dialog .jfk-button-action {
+  .docs-gm .modal-dialog .jfk-button-action, 
+  .docs-material-button-fill-primary.docs-material-button {
     .states(@role: "primary");
     border: 1px solid transparent !important;
-    border-radius: 50cqh;
+    border-radius: 50cqmin;
     &.jfk-button-disabled {
       background-color: var(--ddocs-on-surface-disabled);
       color: color-mix(in srgb, var(--ddocs-on-surface), transparent 62%);
@@ -255,8 +264,15 @@
     }
     &:is(:focus, :hover:focus, .jfk-button-focused) { 
       border: 1px solid transparent !important;
+      border-radius: 50cqmin;
       box-shadow: none;
     }
+    &:active {
+      box-shadow: none;
+    }
+  }
+  .docs-material-button-fill-primary.docs-material-button /* Fancy */ .docs-material-button-ripple-element {
+    background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-pressed-state-layer-opacity)));
   }
   
   // Buttons, common, outlined
@@ -288,8 +304,11 @@
       color: color-mix(in srgb, var(--ddocs-on-surface), transparent 62%);
       opacity: 1;
     }
-    &:is(:active, .jfk-button-active) {
+    &:not(:has(.docs-material-button-ripple-element)):is(:active, .jfk-button-active) {
       .animate-ripple();
+    }
+    & .docs-material-button-ripple-element {
+      background-color: var(--ddocs-primary-pressed);
     }
   }
   
@@ -353,7 +372,80 @@
   }
   
   // Checkboxes
-  .docs-material-gm-labeled-checkbox {
+  .checkbox-state-layer() {
+    &::after /* I’m adding a state layer */ {
+      background-color: currentColor;
+      border-radius: 50%;
+      content: "";
+      display: block;
+      height: 40px;
+      left: -13px;
+      opacity: 0;
+      position: absolute;
+      top: -13px;
+      transition: opacity 0.25s ease;
+      width: $height;
+    }
+    &-hover::after {
+      opacity: var(--ddocs-hover-state-layer-opacity);
+      transition: opacity 0.02s ease-in;
+    }
+    &-focused::after {
+      opacity: var(--ddocs-focus-state-layer-opacity);
+    }
+    &-active::after {
+      opacity: var(--ddocs-pressed-state-layer-opacity);
+    }
+  }
+  div.docs-material-gm-checkbox, 
+  span.docs-material-gm-checkbox {
+    border-color: currentColor !important;
+    color: var(--ddocs-on-surface);
+    &:not(.goog-inline-block) {
+      position: relative;
+      top: unset;
+    }
+    &.docs-material-gm-checkbox-checked, 
+    &.docs-material-gm-checkbox-undetermined {
+      background-color: currentColor;
+      color: var(--ddocs-primary);
+      
+      &::before /* Checkmark */ {
+        content: var(--ddocs-on-primary-checkmark);
+      }
+    }
+    
+    .checkbox-state-layer();
+  }
+  .jfk-checkbox {
+    background: transparent;
+    border: 2px solid currentColor;
+    border-radius: 2px;
+    box-sizing: border-box;
+    color: var(--ddocs-on-surface);
+    height: 1.125rem;
+    width: $height;
+    &-clearOutline&-focused {
+      border: 2px solid currentColor;
+    }
+    &.jfk-checkbox-checked {
+      background-color: currentColor;
+      color: var(--ddocs-primary);
+      
+      .jfk-checkbox-checkmark {
+        background-image: var(--ddocs-on-primary-checkmark);
+        background-position: center;
+        background-size: 15px;
+        height: inherit;
+        left: -2px;
+        top: -2px;
+        width: inherit;
+      }
+    }
+    
+    .checkbox-state-layer();
+  }
+  .docs-material-gm-labeled-checkbox /* Fancy */ {
     position: relative; 
     
     .docs-material-gm-labeled-checkbox-checkbox {
@@ -396,7 +488,7 @@
   
   // Menus
   .docs-grille-gm3 .goog-menu {
-    background-color: var(--ddocs-surface-container);
+    background-color: var(--ddocs-surface-container-high);
     border: none;
     box-shadow: var(--ddocs-level2);
     color: var(--ddocs-on-surface);
@@ -421,8 +513,8 @@
         opacity: 38%;
       }
       
-      &.apps-menuitem.goog-option-selected .goog-menuitem-checkbox /* Modern checkmark */ {
-        filter: invert() brightness(145%);
+      &.apps-menuitem.goog-option-selected:not(:has(span[style*="font-weight"])) .goog-menuitem-checkbox /* Modern checkmark */ {
+        filter: invert() brightness(152%);
       }
       
       & .goog-menuitem-accel /* Keyboard shortcut */, 
@@ -470,6 +562,7 @@
   .docs-grille-gm3 .docos-input .docos-input-textarea {
     background-color: var(--ddocs-surface-container-highest);
     border-color: $background-color;
+    caret-color: var(--ddocs-primary);
     color: var(--ddocs-on-surface);
     transition: var(--off);
     &:hover {
@@ -491,50 +584,98 @@
     }
   }
   
-  // Text fields, outlined, menu
-  .docs-gm .modal-dialog .goog-flat-menu-button {
+  // Text fields, outlined
+  .docs-gm :is(.docs-material-bubble, .docs-material-gm-dialog, .modal-dialog) .jfk-textinput {
+    background: transparent;
     border-color: var(--ddocs-outline);
-    border-radius: var(--ddocs-corner-xs);
-    &.docs-flatcolormenubutton .goog-flat-menu-button-caption {
-      border-color: var(--ddocs-outline);
-    }
-    
-    & .goog-flat-menu-button-dropdown {
-      .on-surface-variant-icon();
-      transition: 0.2s transform;
-    }
-  }
-  .docs-material-gm-select {
+    caret-color: var(--ddocs-primary);
     color: var(--ddocs-on-surface);
-    
-    .docs-material-gm-select-outer-box {
-      border-color: var(--ddocs-outline);
-      padding: 0.5rem 0.5rem 0.5rem 0.75rem;
-      transition: var(--off);
-      
-      .docs-material-gm-select-caption {
-        color: inherit;
-      }
-    }
-    &.docs-material-gm-select-hover>.docs-material-gm-select-outer-box {
+    transition: var(--off);
+    &:hover {
       border-color: var(--ddocs-on-surface);
       transition: var(--on);
     }
-    &.docs-material-gm-select-focused>.docs-material-gm-select-outer-box {
+    &:focus {
+      border-color: var(--ddocs-primary);
+    }
+  }
+  
+  // Text fields, outlined, menu
+  .docs-gm .modal-dialog .goog-flat-menu-button, 
+  .docs-gm .docs-material-gm-dialog .goog-flat-menu-button {
+    border-color: var(--ddocs-outline);
+    border-radius: var(--ddocs-corner-xs);
+    transition: var(--off);
+    &.goog-flat-menu-button-hover {
+      border: 1px solid var(--ddocs-on-surface);
+      transition: var(--on);
+    }
+    &.goog-flat-menu-button-focused {
+      border: 1px solid var(--ddocs-primary);
+      box-shadow: inset 0 0 0 1px var(--ddocs-primary);
+    }
+    
+    .goog-flat-menu-button-caption {
+      color: var(--ddocs-on-surface);
+    }
+    .goog-flat-menu-button-dropdown {
+      .on-surface-variant-icon();
+      flex-shrink: 0;
+      transition: 0.2s transform;
+    }
+    &.goog-flat-menu-button-open .goog-flat-menu-button-dropdown {
+      transform: rotate(180deg);
+    }
+    &.docs-flatcolormenubutton .goog-flat-menu-button-caption {
+      border-color: var(--ddocs-outline);
+    }
+  }
+  .docs-material-gm-select, .docs-material-gm-labeled-select, .docs-gm-labeled-color-picker {
+    color: var(--ddocs-on-surface);
+    
+    .docs-material-gm-select-outer-box, .docs-material-gm-labeled-select-outer-box, .docs-gm-labeled-color-picker-outer-box {
+      border-color: var(--ddocs-outline);
+      transition: var(--off);
+      
+      .docs-material-gm-select-caption, .docs-material-gm-labeled-select-caption {
+        color: inherit;
+      }
+      .docs-color-picker-caption {
+        border-color: var(--ddocs-outline);
+      }
+    }
+    &.docs-material-gm-select-hover>.docs-material-gm-select-outer-box, 
+    &.docs-material-gm-labeled-select-hover>.docs-material-gm-labeled-select-outer-box, 
+    &.docs-gm-labeled-color-picker-hover .docs-gm-labeled-color-picker-outer-box {
+      border-color: var(--ddocs-on-surface);
+      transition: var(--on);
+    }
+    &.docs-material-gm-select-focused>.docs-material-gm-select-outer-box,
+    &.docs-material-gm-labeled-select-focused>.docs-material-gm-labeled-select-outer-box, 
+    &.docs-gm-labeled-color-picker-focused .docs-gm-labeled-color-picker-outer-box {
       border-color: var(--ddocs-primary);
       box-shadow: inset 0 0 0 1px var(--ddocs-primary);
     }
     
-    .docs-material-gm-select-dropdown {
+    .docs-material-gm-select-dropdown, .docs-color-picker-dropdown {
       transition: 0.2s transform;
       
-      .docs-icon-arrow-dropdown {
+      .docs-icon-arrow-dropdown, .docs-color-picker-dropdown-icon {
         .on-surface-variant-icon();
       }
     }
-    &.docs-material-gm-select-open .docs-material-gm-select-dropdown {
+    &.docs-material-gm-select-open .docs-material-gm-select-dropdown, 
+    &.docs-gm-labeled-color-picker-open .docs-color-picker-dropdown {
       transform: rotate(180deg);
     }
+    .docs-material-gm-labeled-select-dropdown-icon {
+      .on-surface-variant-icon();
+      opacity: 80%;
+      transition: 0.2s transform;
+    }
+  }
+  .docs-material-gm-labeled-select-label, .docs-gm-labeled-color-picker-label {
+    color: var(--ddocs-on-surface-variant);
   }
   
   // Tooltips, basic
@@ -648,6 +789,24 @@
   }
 }
 
+// Checkmark fix
+.checkmark-fix() /* This is for the menus that use the older grayish non-90° checkmark */ { 
+  background: none;
+  &.goog-menuitem-highlight {
+    background-color: var(--ddocs-on-surface-hover);
+  }
+  .goog-menuitem-checkbox {
+    background: no-repeat url(//ssl.gstatic.com/docs/common/material_common_sprite477.svg) 0 -1056px;
+    filter: invert(100%) opacity(80%);
+    height: 21px;
+    margin-top: -9px;
+    top: 50%;
+  }
+  &.apps-menuitem .goog-menuitem-checkbox {
+    left: -1px;
+  }
+}
+
 // Sliders
 .slider(@orientation: "horizontal") {
   .docs-material-slider-track-on {
@@ -676,6 +835,34 @@
   }
 }
 
+// Tabs
+.tabs() {
+  .docs-tabbar-tab {
+    color: var(--ddocs-on-surface-variant);
+    transition: var(--off);
+  }
+  .docs-tabbar-tab-selected {
+    color: var(--ddocs-primary) !important;
+  }
+  .docs-tabbar-tab-hover {
+    background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-hover-state-layer-opacity)));
+    color: var(--ddocs-on-surface);
+    transition: var(--on);
+  }
+  .docs-tabbar-tab-active {
+    .animate-ripple();
+    background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-pressed-state-layer-opacity)));
+    color: var(--ddocs-on-surface);
+  }
+  
+  .docs-tabbar-tablabel {
+    color: inherit;
+  }
+  .docs-tabbar-tab-selected::before /* Selected tab’s underline */ {
+    border-top-color: currentColor;
+  }
+}
+
 @-moz-document url-prefix("https://docs.google.com/presentation/d/") {
   // Top area
   
@@ -685,6 +872,7 @@
       color: var(--ddocs-on-surface);
     }
     input.docs-title-input {
+      caret-color: var(--ddocs-primary);
       height: 22px;
       transition: var(--off);
       &:hover {
@@ -702,8 +890,23 @@
   
   // Star, move, status
   #docs-titlebar .docs-titlebar-badges {
-    & #docs-star, #docs-folder {
-      .states();
+    #docs-star, #docs-folder, #docs-save-indicator-badge {
+      .icon-button();
+      border-radius: 50cqmin;
+      &:has(.docs-icon-star-filled-20-blue600) {
+        .icon-button(@role: "primary");
+      }
+      &:has(.docs-titlebar-badge-selected) {
+        background-color: var(--ddocs-on-surface-variant-pressed);
+        .animate-ripple();
+      }
+      
+      .docs-save-indicator-icon {
+        background: none;
+      }
+    }
+    .docs-save-indicator-caption /* “Saved to Drive, etc” */ {
+      color: var(--ddocs-on-surface-variant);
     }
   }
   
@@ -798,11 +1001,11 @@
       }
     }
   }
-  #lineButton .sketchy-icon-line /* Line icon is weird */ {
-    opacity: 70%;
+  :is(#lineButton, #arrowButton, #bentConnectorButton, #curvedConnectorButton, #curveButton, #polygonButton, #scribbleButton) .docs-icon-img-container /* Line icon is weird */ {
+    opacity: 76%;
   }
   .docs-grille-gm3 #docs-align-palette /* Text align menu */ {
-    background-color: var(--ddocs-surface-container);
+    background-color: var(--ddocs-surface-container-high);
     
     & .goog-palette-table {
       border-collapse: unset;
@@ -811,6 +1014,7 @@
     
     & .goog-palette-cell {
       border-radius: var(--ddocs-corner-xs);
+      color: var(--ddocs-on-surface);
       transition: var(--off);
       &.goog-palette-cell-hover {
         background-color: var(--ddocs-on-surface-hover);
@@ -818,6 +1022,7 @@
       }
       &.goog-palette-cell-selected {
         background-color: var(--ddocs-primary-container);
+        color: var(--ddocs-on-primary-container);
         &.goog-palette-cell-hover {
           background-color: var(--ddocs-on-primary-container-hover);
         }
@@ -825,13 +1030,20 @@
     }
     & .goog-palette-active .goog-palette-cell-hover {
       background-color: var(--ddocs-on-surface-pressed);
+      .animate-ripple();
     }
     & .goog-palette-active .goog-palette-cell-hover.goog-palette-cell-selected {
       background-color: var(--ddocs-on-primary-container-pressed);
     }
     
-    & .goog-palette-cell:not(.goog-palette-cell-selected) .docs-icon-img {
+    .docs-icon {
+      padding: 0 2px 1px 0;
+    }
+    .goog-palette-cell:not(.goog-palette-cell-selected) .docs-icon-img {
       .on-surface-variant-icon();
+    }
+    .goog-palette-cell.goog-palette-cell-selected .docs-icon-img {
+      filter: var(--ddocs-on-primary-container-icon);
     }
   }
   .docs-grille-gm3 .docs-toolbar-more-bubble /* Truncated toolbar items */ {
@@ -869,8 +1081,15 @@
     }
     
     & .punch-filmstrip-thumbnail {
-      & .punch-filmstrip-thumbnail-pagenumber {
+      .punch-filmstrip-thumbnail-pagenumber {
         fill: var(--ddocs-on-surface);
+      }
+      .sketchy-page-comment-indicator-icon path, 
+      .punch-filmstrip-indicator path {
+        fill: var(--ddocs-on-surface-variant);
+      }
+      .sketchy-comment-indicator-text {
+        fill: var(--ddocs-background);
       }
       & .punch-filmstrip-thumbnail-border {
         stroke: var(--ddocs-outline-variant);
@@ -1042,6 +1261,7 @@
 @-moz-document url-prefix("https://docs.google.com/presentation/d/") {
   // Menus
   
+  // Layouts
   .goog-palette.punch-layouts-palette {
     overflow-y: unset !important;
     padding: 0 !important;
@@ -1077,11 +1297,52 @@
       outline-offset: -2px;
     }
   }
+  
+  // Shape menu
+  .goog-menu:has(.rectangle-icon):has(.callout-icon) .docs-icon-img-container {
+    filter: brightness(2.1) saturate(0);
+  }
+  .goog-menu.ia-tight-menu .shape-palette {
+    .goog-palette-cell {
+      border-radius: 50cqmin;
+      outline: 6px solid transparent;
+      transition: var(--off), outline 0.25s ease;
+    }
+    .goog-palette-cell-hover {
+      background: var(--ddocs-on-surface-hover);
+      outline: 6px solid $background;
+      transition: var(--on), outline 0.02s ease-in;
+    }
+    &.goog-palette-active .goog-palette-cell-hover {
+      background: var(--ddocs-on-surface-pressed);
+      outline: 6px solid $background;
+    }
+    .shape-icon {
+      filter: contrast(50%) sepia() invert() hue-rotate(-23deg) saturate(9%) brightness(1.5);
+    }
+  }
+  
+  // Line menu
+  .goog-menu:has(.sketchy-icon-line):has(.sketchy-icon-scribble) .docs-icon-img-container {
+    filter: brightness(1.75) saturate(.5);
+  }
+  
+  // Apply checkmark fix
+  body.docs-grille-gm3 {
+    .goog-menu {
+      & .goog-option-selected {
+        .checkmark-fix();
+        & .goog-menuitem-checkbox {
+          left: 9px;
+        }
+      }
+    }
+  }
 }
 
 @-moz-document url-prefix("https://docs.google.com/presentation/d/") {
   // Dialogs
-  .docs-gm .modal-dialog {
+  .docs-gm .modal-dialog, .docs-material-gm-dialog {
     background: var(--ddocs-surface-container);
     box-shadow: var(--ddocs-level3);
     border: none;
@@ -1089,7 +1350,7 @@
     color: var(--ddocs-on-surface);
     
     // Titlebar
-    .modal-dialog-title {
+    .modal-dialog-title, .docs-material-gm-dialog-title-text {
       background: transparent;
       color: inherit;
     }
@@ -1104,14 +1365,183 @@
         filter: invert(90%);
       }
     }
+    .docs-material-gm-dialog-title-close {
+      .icon-button();
+      box-sizing: border-box;
+      height: 2rem;
+      padding: 0.25rem;
+      top: 22px;
+      width: 2rem;
+    }
     
     // Content
-    .modal-dialog-content {
+    .modal-dialog-content, .docs-material-gm-dialog-content {
       background: transparent;
       color: inherit;
       
-      .punch-bg-options-content {
+      a {
+        color: var(--ddocs-primary);
+      }
+    }
+  }
+  
+  // Custom dialog things
+  .docs-grille-gm3 .modal-dialog {
+    .punch-bg-options-content {
+      color: inherit;
+    }
+
+    .docs-copydocdialog-appsscript-button, 
+    .docs-copydocdialog-destination-button /* Copy document file location fields */ {
+      border-color: var(--ddocs-outline);
+      border-radius: var(--ddocs-corner-xs);
+      transition: var(--off);
+      &.jfk-button-hover {
+        border-color: var(--ddocs-on-surface);
+        box-shadow: none;
+        transition: var(--on);
+      }
+      &.jfk-button-clear-outline /* Corresponds to when the file picker is open */ {
+        border-color: var(--ddocs-primary);
+        box-shadow: inset 0 0 0 1px var(--ddocs-primary);
+      }
+      
+      :is(.docs-copydocdialog-appsscript-icon, .docs-copydocdialog-openinnew-icon) path {
+        fill: var(--ddocs-on-surface-variant);
+      }
+      span {
+        font: 400 0.875rem Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+      }
+    }
+    .docs-copydocdialog-appsscript-warning /* Copy document appscript file will also be copied */ {
+      background-color: var(--ddocs-warning-container);
+      color: var(--ddocs-on-warning-container);
+      
+      path {
+        fill: currentColor;
+      }
+      .docs-copydocdialog-appsscript-warning-msg {
         color: inherit;
+      }
+    }
+    
+    // Publish to the web
+    .pub-dialog-content {
+      .pub-dialog-info {
+        color: var(--ddocs-on-surface-variant);
+        
+        &.pub-dialog-state-published {
+          color: var(--ddocs-primary);
+        }
+      }
+      .pub-dialog-tab-bar {
+        border-bottom-color: var(--ddocs-outline-variant) !important;
+        
+        .goog-tab.pub-dialog-tab {
+          border: none !important;
+          color: var(--ddocs-on-surface-variant);
+          height: 100%;
+          transition: var(--off);
+          &.goog-tab-selected {
+            color: var(--ddocs-primary) !important;
+          }
+          &.goog-tab-hover {
+            background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-hover-state-layer-opacity))) !important;
+            color: var(--ddocs-on-surface);
+            transition: var(--on);
+          }
+          &.goog-tab-active {
+            background-color: color-mix(in srgb, currentColor, transparent calc(100% - var(--ddocs-pressed-state-layer-opacity))) !important;
+            .animate-ripple();
+          }
+          &.goog-tab-selected::after {
+            border-radius: 3px 3px 0 0;
+            border-top: 3px solid var(--ddocs-primary);
+            bottom: 0;
+            content: "";
+            display: block;
+            position: absolute;
+            width: inherit;
+          }
+        }
+      }
+      .pub-dialog-sep {
+        border-top-color: var(--ddocs-outline-variant);
+      }
+      .pub-dialog-zippy-header {
+        color: var(--ddocs-on-surface);
+        
+        .pub-dialog-settings-zippy-icon {
+          filter: invert() opacity(.8);
+        }
+      }
+      #pub-dialog-publish-button:not(.jfk-button-disabled) {
+        color: var(--ddocs-primary);
+      }
+    }
+    
+    // Document details
+    &.docs-details-dialog {
+      .docs-details-field {
+        color: var(--ddocs-on-surface-variant);
+      }
+      .docs-details-value {
+        color: var(--ddocs-on-surface);
+      }
+      .docs-icon-folder {
+        filter: var(--white-icons);
+      }
+    }
+    
+    // Page setup
+    &.sketchy-pagesetup {
+      
+    }
+    
+    &.docs-preferencesdialog-modal {
+      .docs-preferencesdialog-tabbed-menu-tabbar {
+        .tabs();
+      }
+      .docs-preferencesdialog-control .docs-material-gm-checkbox-focused::after /* Preferences dialog implements checkbox state layers in a way that conflicts with how I do it */ {
+        background-color: currentColor;
+        left: -13px;
+        top: -13px;
+      }
+      .docs-preferencesdialog-subtext, 
+      .sketchy-preferencesdialog-auto-fit-label {
+        color: var(--ddocs-on-surface);
+      }
+      .docs-icon-info {
+        .on-surface-variant-icon();
+      }
+      .docs-preferencesdialog-list-title {
+        color: var(--ddocs-on-surface-variant);
+      }
+      .docs-preferencesdialog-list-body {
+        background: none;
+        border-color: var(--ddocs-outline-variant);
+      }
+      .docs-preferencesdialog-row .goog-flat-button {
+        .icon-button();
+        border-radius: 50cqmin;
+        height: 32px;
+        width: $height;
+        &[style*="display: inline;"] {
+          display: inline-block !important;
+        }
+        
+        .docs-icon {
+          background-image: url("https://www.gstatic.com/images/icons/material/system_gm/2x/clear_white_18dp.png");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: 18px;
+          height: 32px;
+          margin: 0;
+          width: $height;
+        }
+        .docs-icon-img-container {
+          display: none;
+        }
       }
     }
   }
@@ -1127,6 +1557,9 @@
   }
   
   // Collapsible sections
+  .punch-sidebar-tile-chevron .docs-icon-img {
+    .on-surface-variant-icon();
+  }
   .punch-sidebar-tile-header-text, 
   .punch-sidebar-tile-header-subtext {
     color: var(--ddocs-on-surface);
@@ -1135,6 +1568,142 @@
   // Text fields
   .punch-sidebar-tile-type-select {
     background: transparent;
+  }
+  
+  // Diagrams sidebar
+  .docs-grille-gm3 .sketchy-diagrams-sidebar {
+    background: var(--ddocs-surface-container);
+    
+    .sketchy-diagrams-sidebar-title {
+      background: var(--ddocs-surface-container);
+      border: none;
+      color: var(--ddocs-on-surface);
+      transition: 0.1s background;
+      &.sketchy-diagrams-sidebar-title-shadow, 
+      &:has(+.sketchy-diagrams-sidebar-content .sketchy-diagrams-thumbnail-select:not([style="display: none;"])>.sketchy-diagrams-thumbnail-select-shadow) {
+        background: var(--ddocs-surface-container-high);
+        box-shadow: none;
+      }
+      
+      .sketchy-diagrams-sidebar-title-icon g[fill="#F9AB00"] {
+        fill: var(--ddocs-primary);
+      }
+      .sketchy-diagrams-sidebar-title-back-icon {
+        .icon-button();
+        border-radius: 50cqmin;
+        display: grid;
+        height: 2rem;
+        left: -5px;
+        margin-right: 12px;
+        place-items: center;
+        position: relative;
+        width: $height;
+        
+        .docs-icon {
+          margin: 0;
+          padding: 0 3px 3px 0;
+        }
+      }
+    }
+    
+    .sketchy-diagrams-sidebar-content {
+      background: none;
+      
+      // Select category
+      .sketchy-diagrams-sidebar-categories {
+        scrollbar-gutter: stable both-edges;
+        
+        .sketchy-diagrams-category-button {
+          border-color: var(--ddocs-outline);
+          border-radius: var(--ddocs-corner-m);
+          color: var(--ddocs-on-surface);
+          margin: 0 auto 1rem;
+          transition: var(--off);
+          
+          .sketchy-diagrams-category-button-thumbnail {
+            border-color: transparent;
+          }
+          .sketchy-diagrams-category-button-heading {
+            background-color: color-mix(in srgb, var(--ddocs-surface-container), transparent 12%);
+            backdrop-filter: blur(4px);
+            border-radius: 0 0 var(--ddocs-corner-m) var(--ddocs-corner-m);
+            transition: var(--off);
+            
+            .sketchy-diagrams-category-button-next-icon {
+              opacity: 1;
+              
+              .docs-icon-next {
+                .on-surface-variant-icon();
+              }
+            }
+          }
+          &:hover {
+            background-color: var(--ddocs-on-surface-hover);
+            box-shadow: none;
+            transition: var(--on);
+            
+            .sketchy-diagrams-category-button-heading {
+              background-color: color-mix(in srgb, #2c2f33, transparent 12%);
+              transition: var(--on);
+            }
+          }
+          &:focus {
+            background-color: var(--ddocs-on-surface-focus);
+            
+            .sketchy-diagrams-category-button-heading {
+              background-color: color-mix(in srgb, #35383c, transparent 12%);
+            }
+          }
+        }
+      }
+      
+      // Select chart design
+      .sketchy-diagrams-thumbnail-select-toolbar {
+        background-color: var(--ddocs-surface-container);
+        border: none;
+        transition: 0.1s background-color;
+        
+        &.sketchy-diagrams-thumbnail-select-shadow {
+          background-color: var(--ddocs-surface-container-high);
+          box-shadow: none;
+        }
+      }
+      .sketchy-diagrams-thumbnail-select-scroll {
+        scrollbar-gutter: stable both-edges;
+        top: 146px;
+        
+        .docs-thumbnailcontainer-horizontal {
+          margin: 0 auto;
+          padding-top: unset;
+          width: min-content;
+          
+          .docs-gm-thumbnailcontrol {
+            margin: .5rem 0;
+            padding: 0;
+          }
+          
+          .docs-thumbnailcontrol-thumbnailcontainer {
+            border: 1px solid var(--ddocs-outline);
+            border-radius: var(--ddocs-corner-m);
+            color: var(--ddocs-on-surface-variant);
+            overflow: hidden;
+            transition: var(--off);
+          }
+          .docs-gm-thumbnailcontrol-hover .docs-thumbnailcontrol-thumbnailcontainer {
+            background-color: var(--ddocs-on-surface-hover);
+            box-shadow: none;
+            transition: var(--on);
+          }
+          .docs-gm-thumbnailcontrol-focused .docs-thumbnailcontrol-thumbnailcontainer {
+            background-color: var(--ddocs-on-surface-focus);
+          }
+          .docs-gm-thumbnailcontrol-active .docs-thumbnailcontrol-thumbnailcontainer {
+            background-color: var(--ddocs-on-surface-pressed);
+            .animate-ripple();
+          }
+        }
+      }
+    }
   }
   
   // Extension sidebar
@@ -1201,6 +1770,10 @@
     .script-application-sidebar-content {
       top: 56px;
     }
+  }
+  body.docs-grille-gm3:has(#viewModeButton .docs-icon-expand-more-20) :is(.addon-sidebar, .script-application-sidebar) {
+    height: calc(100vh - 6px - 16px) !important;
+    top: 6px !important;
   }
   
   // Motion sidebar
@@ -1357,7 +1930,7 @@
       border-top-color: var(--ddocs-outline-variant);
       
       & .jfk-button {
-        .common-button(@type: "filled tonal"; @role: "primary");
+        .common-button(@type: "filled tonal"; @role: "secondary");
       }
     }
   }

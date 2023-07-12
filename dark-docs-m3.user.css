@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark Docs
 @namespace      userstyles.world/user/winghongchan
-@version        2023.07.07
+@version        2023.07.12
 @description    A new version of Dark Docs, made for Google Docs’ Material U redesign. 
 @author         Walter winghongchan
 @homepageURL    https://github.com/winghongchan/dark-docs
@@ -7712,7 +7712,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
 @-moz-document regexp("https:\\/\\/docs\\.google\\.com\\/sharing\\/boq\\/driveshare\\?[\\s\\S]+origin=https%3A%2F%2Fdocs\\.google\\.com") {
   // Share dialog
   
-  body.vhoiae.KkxPLb {
+  .vhoiae.KkxPLb {
     scrollbar-color: var(--ddocs-outline) transparent;
     
     // Hijack the original variables
@@ -7728,8 +7728,13 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     --dt-tertiary-container: var(--ddocs-tertiary-container);
     --dt-tertiary-container-icon: var(--ddocs-on-tertiary-container);
     
+    --gm3-button-filled-disabled-container-color: color-mix(in srgb, var(--ddocs-on-surface), transparent 88%);
+    --gm3-button-filled-disabled-label-text-color: color-mix(in srgb, var(--ddocs-on-surface), transparent 62%);
+    
     --dt-background: var(--ddocs-background);
     --dt-on-background: var(--ddocs-on-background);
+    --dt-surface: var(--ddocs-surface);
+    --dt-on-surface: var(--ddocs-on-surface);
     
     --dt-surface1: var(--ddocs-surface-container-low);
     --mdc-theme-surface: var(--ddocs-surface);
@@ -7739,6 +7744,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     --gm3-sys-color-on-surface: var(--ddocs-on-surface);
     --dt-neutral-container-icon: var(--ddocs-on-surface);
     --mdc-theme-on-surface: var(--ddocs-on-surface);
+    --gm3-button-text-disabled-label-text-color: color-mix(in srgb, var(--ddocs-on-surface), transparent 62%);
     --dt-on-surface-variant: var(--ddocs-on-surface-variant);
     --gm3-sys-color-on-surface-variant: var(--ddocs-on-surface-variant);
     --gm-outlinedtextfield-placeholder-color: var(--ddocs-on-surface-variant);
@@ -7771,6 +7777,10 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     }
   }
   
+  .aUQx::before, .aUQx::after /* List of people with access - the dividers above and below the list */ {
+    border-color: var(--ddocs-outline-variant);
+  }
+  
   .vhoiae .ZelW3e:hover .FYhd9e, .vhoiae .ZelW3e:focus-within .FYhd9e, .X9XeLb .ZelW3e:hover .FYhd9e, .X9XeLb .ZelW3e:focus-within .FYhd9e, .cWKK1c .ZelW3e:hover .FYhd9e, .cWKK1c .ZelW3e:focus-within .FYhd9e, .aJfoSc .ZelW3e:hover .FYhd9e, .aJfoSc .ZelW3e:focus-within .FYhd9e, .TOb6Ze .ZelW3e:hover .FYhd9e, .TOb6Ze .ZelW3e:focus-within .FYhd9e /* Hovering over people with access */, 
   .vhoiae .lfDNBb:hover, .vhoiae .lfDNBb:focus-within, .X9XeLb .lfDNBb:hover, .X9XeLb .lfDNBb:focus-within, .cWKK1c .lfDNBb:hover, .cWKK1c .lfDNBb:focus-within, .aJfoSc .lfDNBb:hover, .aJfoSc .lfDNBb:focus-within, .TOb6Ze .lfDNBb:hover, .TOb6Ze .lfDNBb:focus-within /* Hovering over general access */ {
     background-color: var(--ddocs-on-surface-hover);
@@ -7780,6 +7790,13 @@ Google Docs renders each page as a single <canvas> element, which may have made 
   }
   .SbpzSe .VfPpkd-StrnGf-rymPhb-f7MjDc /* Checkmark in general access menu */ {
     color: var(--ddocs-primary);
+  }
+  
+  .YzY9Wb /* People with access permission level dropdown */ {
+    --gm3-button-text-hover-state-layer-color: var(--ddocs-on-surface);
+  }
+  .uFAPIe.qoCZef /* General access permission level dropdown */ {
+    --gm-colortextbutton-state-color: var(--ddocs-on-surface);
   }
   
   .iH5TDd /* Tooltips */ {

@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark Docs
 @namespace      userstyles.world/user/winghongchan
-@version        2023.07.12
+@version        2023.07.19
 @description    A new version of Dark Docs, made for Google Docs’ Material U redesign. 
 @author         Walter winghongchan
 @homepageURL    https://github.com/winghongchan/dark-docs
@@ -350,7 +350,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     background-color: var(--darkestgray) !important;
     
     div[role="button"]:has(path[d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"]) svg /* Main menu button */, 
-    form#aso_search_form_anchor svg:has(path[d="M20.49,19l-5.73-5.73C15.53,12.2,16,10.91,16,9.5C16,5.91,13.09,3,9.5,3S3,5.91,3,9.5C3,13.09,5.91,16,9.5,16 c1.41,0,2.7-0.47,3.77-1.24L19,20.49L20.49,19z M5,9.5C5,7.01,7.01,5,9.5,5S14,7.01,14,9.5S11.99,14,9.5,14S5,11.99,5,9.5z"], path[d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"]) /* Search and × icon */ {
+    form svg:has(path[d*="M20.49,19l-5.73-5.73C15.53,12.2,16,10.91,16,9.5"], path[d*="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.5"]) /* Search and × icon */ {
       color: var(--lightergray);
     }
     
@@ -449,7 +449,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
   a[href="https://www.google.ca/intl/en/about/products"] svg path /* Apps waffle */ {
     fill: var(--lightergray);
   }
-  :is(.gb_ia, .gb_Ba) /* Google Workspace organization logo box */ {
+  div[role="button"]:has(img[src*="images/logo.gif?uid="]) /* Google Workspace organization logo box */ {
     background-color: var(--darkestgray);
     border-color: var(--darkgray);
     transition: var(--off);
@@ -1544,7 +1544,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
 
         &>.picker-urlview-inner-input {
           .outlined-text-field(@height: 56px); 
-          padding-right: 52px; ;
+          padding-right: 52px;
           &:has(+.picker-urlview-loading-icon[style="display: none;"]) {
             padding-right: 16px; 
           }
@@ -6958,6 +6958,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
   // Google Drive file picker
   // Insert, replace, explore
   :root, .XV0XSd.KkxPLb {
+    --dt-background: var(--ddocs-background);
     --dt-on-background: var(--ddocs-on-background);
     --dt-on-surface: var(--ddocs-on-surface);
     --dt-on-surface-variant: var(--ddocs-on-surface-variant);
@@ -6967,8 +6968,9 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     --mdc-ripple-hover-opacity: var(--ddocs-hover-state-layer-opacity);
   }
 
-  body.yYWAMb {
-    background-color: var(--ddocs-surface-container-low);
+  body.yYWAMb, 
+  .ZcpFRb {
+    background-color: var(--ddocs-surface-container);
   }
   
   .Q6HCU.kRP9Nb.DgpDtf.uGAPab /* Container of everything */ {
@@ -7297,6 +7299,14 @@ Google Docs renders each page as a single <canvas> element, which may have made 
 
 @-moz-document url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%") {
   // Google Images picker; also used in the Explore panel 
+  :root, .XV0XSd.KkxPLb {
+    --dt-background: var(--ddocs-background);
+    --dt-surface3: var(--ddocs-surface-container-high);
+  }
+  
+  .ZcpFRb {
+    background: none;
+  }
 
   .DgpDtf .yawtRb, .fjSJOb /* Search bar background */ {
     background-color: var(--ddocs-surface-container-high);
@@ -7523,6 +7533,9 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     background-color: var(--ddocs-surface-container-low);
   }
   
+  .ZcpFRb {
+    background: none;
+  }
   .Q6HCU.kRP9Nb.DgpDtf.uGAPab.yxmr8b /* Container of everything */ {
     &.Cj5uFb /* When scrolled */ {
       &>.pw1uU+div /* Top */ {

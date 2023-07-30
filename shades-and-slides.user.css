@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Shades and Slides
 @namespace      userstyles.world/user/winghongchan
-@version        2023.07.23
+@version        2023.07.29
 @description    A Material 3 themed dark mode for Google Slides
 @author         Walter winghongchan
 @homepageURL    https://github.com/winghongchan/dark-docs
@@ -108,11 +108,14 @@
     --ddocs-level4: 0px 5px 5px -3px rgb(0 0 0 / .2), 0px 8px 10px 1px rgb(0 0 0 / .14), 0px 3px 14px 2px rgb(0 0 0 / .12);
     --ddocs-level5: 0px 8px 10px -6px rgb(0 0 0 / .2), 0px 16px 24px 2px rgb(0 0 0 / .14), 0px 6px 30px 5px rgb(0 0 0 / .12);
     
+    // Type
+    --ddocs-type-brand: Google Sans,Roboto,sans-serif;
+    
     --paleblue-icons: hue-rotate(3.6deg) saturate(32.2%) brightness(170%); /* To desaturate blue icons to make them more legible against a dark background. If it is an inline SVG, changing its fill color to palerblue is preferable. */
     --palegreen-icons: hue-rotate(-2deg) saturate(38%) brightness(182%);
     --white-icons: brightness(300%) saturate(10%);
     --whiter-icons: brightness(325%);
-    --darkfilter: invert(100%) hue-rotate(180deg) contrast(76%);
+    --darkfilter: invert() hue-rotate(180deg) contrast(80%);
     --on: background-color 0.02s ease-in, border-color 0.06s ease, color 0.05s ease, filter 0.01s ease;
     --off: background-color 0.25s ease, border-color 0.15s ease, color 0.25s ease, filter 0.25s ease;
     
@@ -212,7 +215,7 @@
     &:focus {
       background-color: color-mix(in srgb, var(e(%("--ddocs-on-%s", @role))), transparent calc(100% - var(--ddocs-focus-state-layer-opacity)));
     }
-    &:is(:active, .docs-material-button-active, .docs-material-button-open, .docs-titlebar-badge-selected, .goog-control-active, .goog-control-open, .goog-custom-button-active, .goog-flat-button-active, .goog-flat-menu-button-open, .goog-menu-button-open, .goog-menuitem-active, .goog-toolbar-button-active, .goog-toolbar-menu-button-active, .goog-toolbar-menu-button-open, .jfk-button-active, .jfk-freestanding-menu-button-open):not(.goog-submenu:not(:has(span[style*="font-family"]))):not(.goog-toolbar-button-checked) {
+    &:is(:active, .docs-material-button-active, .docs-material-button-open, .docs-titlebar-badge-selected, .goog-control-active, .goog-control-open, .goog-custom-button-active, .goog-flat-button-active, .goog-flat-button-open, .goog-flat-menu-button-open, .goog-menu-button-open, .goog-menuitem-active, .goog-toolbar-button-active, .goog-toolbar-menu-button-active, .goog-toolbar-menu-button-open, .jfk-button-active, .jfk-freestanding-menu-button-open):not(.goog-submenu:not(:has(span[style*="font-family"]))):not(.goog-toolbar-button-checked) {
       .animate-ripple();
       background-color: color-mix(in srgb, var(e(%("--ddocs-on-%s", @role))), transparent calc(100% - var(--ddocs-pressed-state-layer-opacity)));
       color: var(e(%("--ddocs-on-%s", @role)));
@@ -850,18 +853,19 @@
     &.goog-flat-button-disabled {
       background: transparent !important;
       border-color: color-mix(in srgb, var(--ddocs-on-surface), transparent 88%) !important;
-      color: color-mix(in srgb, var(--ddocs-on-surface), transparent 62%);
+      color: color-mix(in srgb, var(--ddocs-on-surface), transparent 62%) !important;
       opacity: 1;
     }
     &:hover {
       background-color: color-mix(in srgb, $color, transparent calc(100% - var(--ddocs-hover-state-layer-opacity)));
+      color: var(e(%("--ddocs-%s", @role)));
       transition: var(--on);
     }
     &:is(:focus) {
       background-color: color-mix(in srgb, $color, transparent calc(100% - var(--ddocs-focus-state-layer-opacity)));
       border-color: currentColor !important;
     }
-    &:is(:active, .goog-flat-button-active, .goog-flat-menu-button-open) {
+    &:is(:active, .goog-flat-button-active, .goog-flat-menu-button-open, .jfk-button-active) {
       .animate-ripple();
     }
   }
@@ -1010,6 +1014,29 @@
     & svg {
       height: 100%;
       width: $height;
+    }
+  }
+}
+
+.menu() {
+  background-color: var(--ddocs-surface-container);
+  color: var(--ddocs-on-surface);
+  
+  .goog-menuitem, .goog-menuitem-content {
+    color: inherit;
+  }
+  .goog-option-selected .goog-menuitem-checkbox {
+    filter: invert() opacity(.8);
+  }
+  .goog-menuitem {
+    transition: var(--off);
+    &.goog-menuitem-highlight {
+      background-color: var(--ddocs-on-surface-hover);
+      transition: var(--on);
+    }
+    &.goog-menuitem-active {
+      background-color: var(--ddocs-on-surface-pressed);
+      .animate-ripple();
     }
   }
 }
@@ -1174,7 +1201,60 @@
       background-color: transparent;
     }
   }
-  .jfk-tooltip, .gb_2e /* Header tooltips :( */ {
+  .modal-dialog /* Dialogs */ {
+    background-color: var(--ddocs-surface-container-high);
+    border: none;
+    border-radius: var(--ddocs-corner-xl);
+    padding: 24px;
+    
+    .modal-dialog-title, .modal-dialog-content {
+      background: none;
+      color: var(--ddocs-on-surface);
+    }
+  }
+  .docs-homescreen-modaldialog {
+    .modal-dialog-userInput {
+      background: none;
+      border-color: var(--ddocs-outline);
+      caret-color: var(--ddocs-primary);
+      color: var(--ddocs-on-surface);
+      font-size: 16px;
+      height: 32px;
+      transition: var(--off);
+      &:hover {
+        border-color: var(--ddocs-on-surface);
+        transition: var(--on);
+      }
+      &:focus {
+        border-color: var(--ddocs-primary);
+        box-shadow: inset 0 0 0 1px var(--ddocs-primary);
+      }
+    }
+    .docs-homescreen-modaldialog-cancel-button {
+      .common-button(@type: "outlined");
+      &:hover {
+        border-color: var(--ddocs-outline) !important;
+      }
+      &:hover:focus {
+        background-color: var(--ddocs-primary-focus);
+        border-color: var(--ddocs-primary) !important;
+      }
+      &:active {
+        background-color: var(--ddocs-primary-pressed);
+        border-color: var(--ddocs-primary) !important;
+        color: var(--ddocs-primary);
+        .animate-ripple() !important;
+      }
+    }
+    .goog-buttonset-action.docs-homescreen-modaldialog-default-button {
+      .common-button();
+    }
+  }
+  .docs-grille-gm3 .docs-ui-toast /* Snackbars */ {
+    background-color: var(--ddocs-inverse-surface);
+    color: var(--ddocs-inverse-on-surface);
+  }
+  .jfk-tooltip, .docs-homescreen-drawer~.gb_6e /* Header tooltips :( */ {
     background: var(--ddocs-inverse-surface);
     border: none;
     border-radius: var(--ddocs-corner-xs);
@@ -1190,7 +1270,7 @@
     *, div:first-child {
       color: var(--ddocs-inverse-on-surface);
     }
-  }
+  }  
   
   header {
     background: var(--ddocs-surface) !important;
@@ -1219,7 +1299,7 @@
         margin-left: 57px;
         
         &>input[type="text"] /* Workspace accounts */ {
-          padding-top: 13px;
+          padding-top: 14px;
         }
         
         &~button svg {
@@ -1287,6 +1367,21 @@
       border-radius: 24px;
     }
   }
+  .docs-homescreen-search-ac-renderer /* Search suggestions (Workspace accounts) */ {
+    background-color: var(--ddocs-surface-container-high);
+    border-radius: 24px;
+    box-shadow: var(--ddocs-level3);
+    overflow: hidden;
+    
+    .docs-homescreen-search-ac-row {
+      border: none;
+      transition: var(--off);
+      &.docs-homescreen-search-ac-active {
+        background-color: var(--ddocs-on-surface-hover);
+        transition: var(--on);
+      }
+    }
+  }
   
   // Navigation drawer
   .docs-homescreen-drawer {
@@ -1352,9 +1447,6 @@
   }
   
   // Template gallery
-  body {
-    margin-right: 0 !important; // Removes the gap on the right while template gallery is open
-  }
   .docs-homescreen-templates-bar {
     background-color: var(--ddocs-surface-container);
     color: var(--ddocs-on-surface);
@@ -1406,6 +1498,10 @@
           content: url(https://ssl.gstatic.com/docs/common/h_sprite58_grey_medium.svg);
           filter: var(--white-icons);
         }
+      }
+      .docsshared-menu-bubble {
+        .menu();
+        box-shadow: var(--ddocs-level2);
       }
     }
     
@@ -1533,8 +1629,11 @@
     background: none;
     color: var(--ddocs-on-surface);
   }
+  .docs-homescreen-floater-header-cell .docsshared-menu-bubble /* Sorting menu */ {
+    .menu();
+  }
   
-  // Recent documents, grid
+  // Recent documents, grid 
   .docs-homescreen-grid-item {
     background: none;
     border-color: var(--ddocs-outline-variant) !important;
@@ -1568,11 +1667,182 @@
       }
     }
   }
+  // Recent documents, list
+  .docs-homescreen-list-item {
+    .states();
+    background: var(--ddocs-surface);
+    border: none !important;
+    border-radius: 25px;
+    color: var(--ddocs-on-surface);
+    position: relative; // Necessary to make my implementation of dividers work
+    &.goog-control-hover, &.goog-control-focused {
+      outline: none;
+      &::before {
+        border-top: 2px solid var(--ddocs-surface); // Used to block out the border from the above list item.
+        content: "";
+        display: block;
+        height: 1px;
+        position: absolute;
+        top: -1.5px;
+        width: 100%;
+      }
+      &::after {
+        display: none !important;
+      }
+    }
+    &:not(:last-of-type)::after {
+      border-bottom: 1px solid var(--ddocs-outline-variant);
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 1px;
+      left: 55px;
+      position: absolute;
+      width: calc(100% - 55px);
+    }
+    
+    .docs-homescreen-list-item-icon {
+      border-bottom-color: transparent;
+    }
+    .docs-homescreen-people-20 {
+      filter: var(--white-icons) opacity(.75);
+    }
+    .docs-homescreen-list-item-owner, .docs-homescreen-list-item-time {
+      color: var(--ddocs-on-surface-variant);
+    }
+    .docs-homescreen-item-overflow {
+      .icon-button();
+      &[aria-expanded="true"] {
+        background-color: var(--ddocs-on-surface-variant-pressed);
+      }
+      
+      .docs-homescreen-item-overflow-24::before {
+        content: url(https://ssl.gstatic.com/docs/common/h_sprite58_grey_medium.svg) !important;
+        filter: var(--white-icons) opacity(.8);
+      }
+    }
+  }
+  .docs-homescreen-item-section .docsshared-menu-bubble {
+    .menu();
+    box-shadow: var(--ddocs-level2);
+    
+    .docs-homescreen-img {
+      .on-surface-variant-icon();
+    }
+  }
   
   // New presentation FAB
-  #docs-homescreen-add {
+  #docs-homescreen-add.jfk-button {
     background-color: var(--ddocs-surface-container-high);
     border-radius: var(--ddocs-corner-l);
+    
+    &::before {
+      background-image: conic-gradient(#ea4335, #4285f4, #34a853, #fbbc05, #ea4335);
+      border-radius: var(--ddocs-corner-l);
+      content: "";
+      height: 56px;
+      left: 0;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      transition: opacity 0.25s;
+      width: 56px;
+    }
+    &.jfk-button-hover::before {
+      opacity: var(--ddocs-hover-state-layer-opacity);
+      transition: opacity 0.02s;
+    }
+    &.jfk-button-focused::before {
+      opacity: var(--ddocs-focus-state-layer-opacity);
+    }
+  }
+  
+  // Settings dialog
+  .docs-homescreen-settings-dialog.docs-homescreen-modaldialog {
+    background: var(--ddocs-surface-container-high);
+    border: none;
+    border-radius: var(--ddocs-corner-xl);
+    
+    &>*, .docs-homescreen-settings-itemlabel {
+      background: none;
+      color: var(--ddocs-on-surface) !important;
+    }
+    a {
+      color: var(--ddocs-primary) !important;
+    }
+    .docs-homescreen-settings-bidi-checkbox-wrapper, .docs-homescreen-settings-show-templates-checkbox-wrapper, 
+    .docs-homescreen-settings-itemvalue {
+      color: var(--ddocs-on-surface);
+    }
+    
+    .docs-material-gm-checkbox {
+      border-color: var(--ddocs-on-surface-variant);
+      
+      &.docs-material-gm-checkbox-checked {
+        background-color: var(--ddocs-primary);
+        border-color: var(--ddocs-primary);
+        &::before {
+          content: var(--ddocs-on-primary-checkmark);
+        }
+      }
+    }
+    .docs-homescreen-ui-slide-switch {
+      .docs-homescreen-ui-slide-switch-rail {
+        background-color: var(--ddocs-surface-container-highest);
+        border-color: var(--ddocs-outline);
+        border-radius: 16px;
+        border-width: 2px;
+        box-sizing: border-box;
+        height: 32px;
+        width: 52px;
+      }
+      .docs-homescreen-ui-slide-switch-knob {
+        background-color: var(--ddocs-outline);
+        border: none;
+        box-shadow: none !important;
+        height: 16px;
+        left: 8px;
+        top: 8px;
+        width: 16px;
+      }
+      &.docs-homescreen-ui-slide-switch-hover {
+        .docs-homescreen-ui-slide-switch-knob {
+          background-color: var(--ddocs-on-surface-variant);
+        }
+      }
+      &.docs-homescreen-ui-slide-switch-checked {
+        .docs-homescreen-ui-slide-switch-rail {
+          background-color: var(--ddocs-primary);
+          border-color: var(--ddocs-primary);
+        }
+        .docs-homescreen-ui-slide-switch-knob {
+          background-color: var(--ddocs-on-primary);
+          height: 24px;
+          left: 24px;
+          top: 4px;
+          width: 24px;
+        }
+      }
+      &.docs-homescreen-ui-slide-switch-disabled {
+        .docs-homescreen-ui-slide-switch-rail {
+          background-color: var(--ddocs-surface-container-highest);
+          border-color: var(--ddocs-on-surface);
+          opacity: 12%
+        }
+        .docs-homescreen-ui-slide-switch-knob {
+          background-color: var(--ddocs-on-surface);
+          opacity: 38%;
+        }
+      }
+    }
+    
+    .docs-homescreen-settings-offline-description, .docs-homescreen-settings-analytics-status-description {
+      color: var(--ddocs-on-surface-variant);
+    }
+    
+    .docs-homescreen-settings-ok-button {
+      .common-button();
+    }
   }
 }
 
@@ -1665,8 +1935,26 @@
   
   // Revision history, comment history, slideshow, share
   #docs-titlebar-container .docs-titlebar-buttons {
-    & #docs-revisions-appbarbutton, #docs-docos-commentsbutton {
+    #docs-revisions-appbarbutton {
       .icon-button();
+    }
+    #docs-docos-commentsbutton.jfk-button {
+      color: var(--ddocs-on-surface-variant);
+      transition: var(--off);
+      &.jfk-button-hover {
+        background-color: var(--ddocs-on-surface-variant-hover);
+        transition: var(--on);
+      }
+      &:focus, &.jfk-button-focused {
+        background-color: var(--ddocs-on-surface-variant-focus);
+      }
+      &.jfk-button-checked {
+        background-color: var(--ddocs-on-surface-variant-pressed);
+        .animate-ripple();
+      }
+      .docs-icon-comment-topbar-24 {
+        filter: var(--white-icons);
+      }
     }
     & #punch-start-presentation-left {
       background-color: transparent;
@@ -1720,6 +2008,172 @@
     
     .goog-flat-menu-button-dropdown {
       border-color: var(--ddocs-on-surface-variant) transparent;
+    }
+  }
+  
+  // Comment box
+  .docs-grille-gm3 .docs-docos-activitybox {
+    background: var(--ddocs-surface-container-low);
+    border: none;
+    border-radius: var(--ddocs-corner-m);
+    box-shadow: var(--ddocs-level2);
+    
+    .docos-streampane-header {
+      background: var(--ddocs-surface-container-high);
+      border-bottom: none;
+      border-radius: var(--ddocs-corner-m) var(--ddocs-corner-m) 0 0;
+      box-sizing: border-box;
+      height: 4rem;
+      max-height: unset;
+      padding: 0 0.5rem 0 1.25rem;
+      .docos-comment-text.docos-comment-header-title {
+        color: var(--ddocs-on-surface);
+        font-size: 1.375rem;
+        font-weight: 400;
+      }
+      .docs-material-button-flat-default {
+        color: var(--ddocs-on-surface-variant);
+        &.docs-material-button-hover {
+          background-color: var(--ddocs-on-surface-variant-hover);
+          transition: var(--on);
+        }
+        &.docs-material-button-focused {
+          background-color: var(--ddocs-on-surface-variant-focus);
+        }
+        
+        .docs-material-button-ripple-element {
+          background-color: if(@ripples = 1, var(--ddocs-on-surface-variant-pressed), transparent);
+        }
+        .docos-search-comments-icon-path {
+          fill: var(--ddocs-on-surface-variant);
+        }
+        .docos-streampane-subscription-settings-icon-size {
+          margin: 4px;
+        }
+        .docs-icon-notifications-24 {
+          filter: var(--white-icons) opacity(.92);
+        }
+      }
+      .docos-subscription-settings-button .docs-material-button-flat-default {
+        line-height: unset; // To stop the icon from shifting when focused
+      }
+      .docos-new-comment-button {
+        .icon-button();
+        background-clip: content-box;
+        height: 40px;
+        width: 40px;
+        .docos-ns-caption {
+          position: relative;
+          top: 1.5px;
+        }
+        .docos-new-comment-icon-path {
+          fill: var(--ddocs-on-surface-variant);
+        }
+      }
+    }
+    .docos-streampane-searchbar-container /* Search bar container */ {
+      background-color: var(--ddocs-surface-container-high);
+      border: none;
+      padding: 0 1rem 10px;
+      
+      .docos-streampane-search-input {
+        background-color: var(--ddocs-surface-container-highest);
+        border-color: transparent;
+        border-radius: 18px;
+        caret-color: var(--ddocs-primary);
+        color: var(--ddocs-on-surface);
+        height: 32px;
+        transition: var(--off);
+        &:hover {
+          border-color: var(--ddocs-on-surface);
+          transition: var(--on);
+        }
+        &:focus {
+          border-color: var(--ddocs-primary);
+          box-shadow: inset 0 0 0 1px var(--ddocs-primary);
+        }
+        &::placeholder {
+          color: var(--ddocs-on-surface-variant);
+        }
+      }
+      .docos-streampane-searchbar-close-button {
+        margin: 0;
+      }
+      .docos-streampane-searchbar-close-button .docs-material-button {
+        .icon-button();
+        border: none;
+        height: 32px;
+        line-height: 32px;
+        margin: 0;
+        padding: 0;
+        width: 32px;
+        
+        .docs-material-button-ripple-element {
+          background-color: var(--ddocs-on-surface-variant-pressed);
+          display: if(@ripples = 1, block, none);
+        }
+      }
+    }
+    #docos-stream-view .docos-streamdocoview /* Each comment */ {
+      color: var(--ddocs-on-surface);
+      outline-color: var(--ddocs-outline-variant);
+      .docos-streamdocoview-header-container {
+        background-color: var(--ddocs-surface-container);
+      }
+      &.docos-docoview-active .docos-streamdocoview-header-container {
+        background-color: var(--yellow-ripple);
+      }
+      &.docos-docoview-resolved {
+        background-color: var(--ddocs-surface-container);
+      }
+      .docos-streamdocoview-authorname-timestamp .docos-streamdocoview-author, 
+      .docos-streamdocoview-body {
+        color: var(--ddocs-on-surface);
+      }
+      .docos-streamdocoview-authorname-timestamp .docos-streamdocoview-timestamp, 
+      .docos-action-text{
+        color: var(--ddocs-on-surface-variant);
+        opacity: 1;
+      }
+      .docos-replyview-resolve-button {
+        .icon-button(@role: "primary");
+        .docs-icon-check-p40-24x24 {
+          filter: var(--ddocs-primary-icon) !important;
+        }
+      }
+      .docos-docomenu-dropdown {
+        .icon-button();
+        .docos-icon-overflow-three-dots-size {
+          filter: invert();
+        }
+      }
+      .docos-input-textarea {
+        background-color: var(--ddocs-surface-container-highest);
+        color: var(--ddocs-on-surface);
+        &::selection {
+          background-color: var(--ddocs-primary);
+          color: var(--ddocs-on-primary);
+        }
+      }
+    }
+  }
+  #docos-shadow /* Delete comment? (This also applies to comments beside the slide so that’s why it’s outside of the comments box) */ {
+    backdrop-filter: blur(2px);
+    background-color: color-mix(in srgb, var(--ddocs-surface-container-low), transparent 8%);
+    border-radius: var(--ddocs-corner-m);
+    display: grid;
+    place-items: center;
+    .docos-shadow-contents .jfk-button {
+      backdrop-filter: blur(8px);
+      &.jfk-button-hover {
+        background-color: var(--ddocs-primary-hover);
+      }
+      &.jfk-button-focused {
+        background-color: var(--ddocs-primary-focus);
+      }
+      &#docos-shadow-confirm {
+        .common-button(@role: "error"; @type: "outlined");
+      }
     }
   }
   
@@ -1829,7 +2283,7 @@
             padding: 0;
             width: 30px;
             &::placeholder {
-              visibility: hidden;
+              opacity: 0;
             }
           }
           &:hover {
@@ -1890,16 +2344,36 @@
     & .goog-toolbar-combo-button {
       background: none;
       color: var(--ddocs-on-surface);
-      border-color: var(--ddocs-outline) !important;
       transition: var(--off);
       &:hover {
-        border-color: var(--ddocs-on-surface-variant) !important;
         transition: var(--on);
       }
       &:focus-within {
         border: 1px solid var(--ddocs-primary) !important;
         box-shadow: inset 0 0 0 1px var(--ddocs-primary);
         margin: 0 3px;
+      }
+      &#zoomSelect {
+        margin: 5px 1px !important;
+        &.goog-toolbar-combo-button-hover {
+          background-color: var(--ddocs-on-surface-hover);
+        }
+        &.goog-toolbar-combo-button-open {
+          background-color: var(--ddocs-on-surface-pressed);
+          border-color: var(--ddocs-primary) !important;
+        }
+        .docs-icon-img {
+          filter: var(--white-icons);
+        }
+      }
+      &#fontSizeSelect {
+        border-color: var(--ddocs-outline) !important;
+        &:hover {
+          border-color: var(--ddocs-on-surface) !important;
+        }
+        &:focus-within {
+          border-color: 1px solid var(--ddocs-primary) !important;
+        }
       }
       
       & .goog-toolbar-combo-button-input {
@@ -1913,7 +2387,7 @@
     }
   }
   :is(#lineButton, #arrowButton, #bentConnectorButton, #curvedConnectorButton, #curveButton, #polygonButton, #scribbleButton) .docs-icon-img-container /* Line icon is weird */ {
-    opacity: 76%;
+    opacity: 95%;
   }
   .docs-grille-gm3 #docs-align-palette /* Text align menu */ {
     background-color: var(--ddocs-surface-container-high);
@@ -2108,7 +2582,7 @@
   // Slide
   #canvas:is(.canvas-horiz-border, .canvas-vert-border) {
     background: $border-color;
-    border-color: transparent;
+    border-color: var(--ddocs-outline-variant);
   }
   .punch-animation-preview-pane /* When playing animations */ {
     background: transparent !important;
@@ -2258,7 +2732,43 @@
       
       #speakernotes-workspace {
         background: none;
-        filter: invert() hue-rotate(180deg) contrast(80%) brightness(1.7);
+        
+        .sketchy-text-content .sketchy-text-content-text text[text-rendering="geometricPrecision"] {
+          &[style*="fill:#000000;"]:not(:has(*)) /* Black text (special case because it’s the default so I want it to look better */ {
+            fill: var(--ddocs-on-surface) !important;
+          }
+          &[style*="fill:#2200CC;"]:not(:has(*)) /* Default link text */ {
+            fill: var(--palerblue) !important;
+          }
+          &:not(:has(*)):not([style*="fill:#000000;"], [style*="fill:#2200CC;"]) /* Other colours of text (no special case because there’s 256³ colours) */ {
+            filter: var(--darkfilter) brightness(1.5);
+          }
+        }
+        .sketchy-text-content .sketchy-text-content-decoration rect /* Underlines */ {
+          &[fill="#000000"] {
+            fill: var(--ddocs-on-surface);
+          }
+          &[fill="#2200CC"] /* Link */ {
+            fill: var(--palerblue); // Not using M3 tokens because blue links should stay blue no matter what
+          }
+          &:not([fill="#000000"], [fill="#2200CC"]) {
+            filter: var(--darkfilter) brightness(1.5);
+          }
+        }
+        .sketchy-text-background .sketchy-text-background-inner rect[fill] /* Text highlight */ {
+          filter: var(--darkfilter) brightness(1.5);
+        }
+        rect[width="2"][height="17.599999999999998"][shape-rendering="crispEdges"] /* Caret */ {
+          &[fill="#000000"] /* Black is default */ {
+            fill: var(--ddocs-on-surface);
+          }
+          &[fill="#2200CC"] {
+            fill: var(--palerblue);
+          }
+          &:not([fill="#000000"], [fill="#2200CC"]) {
+            filter: var(--darkfilter) brightness(1.2);
+          }
+        }
       }
     }
   }  
@@ -2448,7 +2958,7 @@
     &:has(.sketchy-icon-line):has(.sketchy-icon-scribble) /* Insert line */, 
     &:has(.sketchy-icon-join-round) /* Border decoration */ {
       .docs-icon-img-container {
-        filter: brightness(1.95) saturate(.5);
+        filter: brightness(2.8) saturate(.5);
       }
     }
   }
@@ -3377,6 +3887,7 @@
       color: var(--ddocs-on-surface);
     }
     .docs-checkupdialog-header {
+      border: none;
       font-size: 1.375rem;
       font-weight: 400;
       height: 4rem;
@@ -3437,14 +3948,14 @@
           outline: none;
         }
         .docs-icon {
+          background-image: url("https://fonts.gstatic.com/s/i/materialiconsoutlined/close/v17/24px.svg");
+          filter: invert() opacity(.8) !important;
           height: 24px;
           margin: 8px;
           width: 24px;
         }
         .docs-icon-close {
-          content: url(https://ssl.gstatic.com/docs/common/material_common_sprite542_gm3_grey_medium.svg);
-          left: -56px;
-          top: -7482px;
+          display: none;
         }
       }
     }
@@ -4725,6 +5236,406 @@
       border-radius: var(--ddocs-corner-xs);
       box-shadow: var(--ddocs-level2);
       transform: scale(125%);
+    }
+  }
+}
+
+@-moz-document regexp("https:\\/\\/docs\\.google\\.com\\/presentation\\/d\\/.*\\/present.*") {
+  // Slideshow
+  
+  body.punch-viewer-body:not(.punch-viewer-speakernotes-body) {
+    .punch-viewer-navbar {
+      background-color: var(--ddocs-surface-container);
+      box-shadow: var(--ddocs-level2);
+      
+      .punch-viewer-navbar-prev, .punch-viewer-navbar-next, .punch-viewer-navbar-more {
+        .icon-button();
+        .docs-icon-img {
+          content: url(https://ssl.gstatic.com/docs/presentations/images/punchviewer_material_sprite30_grey_dark.svg);
+        }
+        &.goog-flat-button-disabled .docs-icon-img {
+          opacity: 38%;
+        }
+      }
+      .punch-viewer-navbar-page /* Slide picker */ {
+        background-color: var(--ddocs-surface-container-highest);
+        color: var(--ddocs-on-surface);
+        transition: var(--off);
+        &.docs-material-menu-button-flat-default-hover {
+          background: color-mix(in srgb, $background-color, var(--ddocs-on-surface) var(--ddocs-hover-state-layer-opacity));
+          transition: var(--on);
+        }
+        &.docs-material-menu-button-flat-default-hover {
+          background: color-mix(in srgb, $background-color, var(--ddocs-on-surface) var(--ddocs-focus-state-layer-opacity));
+        }
+        &.docs-material-menu-button-flat-default-open {
+          background: color-mix(in srgb, $background-color, var(--ddocs-on-surface) var(--ddocs-pressed-state-layer-opacity));
+          .animate-ripple();
+        }
+      }
+    }
+    .punch-viewer-navbar-menu {
+      background-color: var(--ddocs-surface-container);
+      box-shadow: var(--ddocs-level2);
+      
+      .goog-menuitem {
+        color: var(--ddocs-on-surface);
+        transition: var(--off);
+        &.goog-menuitem-highlight {
+          background-color: var(--ddocs-on-surface-hover);
+          transition: var(--on);
+        }
+        &.goog-menuitem-active:not(.goog-submenu) {
+          background-color: var(--ddocs-on-surface-hover);
+          .animate-ripple();
+        }
+        .goog-submenu-arrow {
+          color: var(--ddocs-on-surface-variant);
+          transition: color 0.3s, transform 0.3s;
+        }
+        &.goog-submenu-open .goog-submenu-arrow {
+          color: var(--ddocs-on-surface);
+          transform: translateX(5px);
+        }
+      }
+      .goog-menuitem-icon .docs-icon-img, .goog-menuitem-checkbox {
+        .on-surface-variant-icon();
+      }
+      .punch-viewer-navbar-menu-content .goog-menuitem-content {
+        color: var(--ddocs-on-surface);
+      }
+      .goog-menuitem .goog-menuitem-accel {
+        color: var(--ddocs-on-surface-variant);
+      }
+      .goog-menuseparator {
+        border-top-color: var(--ddocs-outline-variant);
+      }
+    }
+  }
+}
+
+@-moz-document regexp("https:\\/\\/docs\\.google\\.com\\/presentation\\/d\\/.*\\/present.*") {
+  // Presenter view 
+
+  /* body.punch-viewer-body would select in the actual slideshow and we don’t want that */
+  body.punch-viewer-speakernotes-body:not(.punch-viewer-body) #punch-viewer-speakernotes .punch-viewer-speakernotes-side-panel /* Left side */ {
+    background-color: var(--ddocs-surface);
+    
+    .punch-viewer-speakernotes-timer-panel {
+      background: none;
+      border-bottom-color: var(--ddocs-outline-variant);
+      
+      .punch-viewer-speakernotes-timer-time {
+        color: var(--ddocs-on-surface);
+        font-family: var(--ddocs-type-brand);
+        font-feature-settings: "tnum";
+      }
+      .punch-viewer-speakernotes-timer-button-container .jfk-button {
+        .common-button(@type: "outlined");
+        font-family: var(--ddocs-type-brand);
+        font-size: 14px;
+        font-weight: 500;
+        height: 38px;
+        line-height: 38px;
+        .jfk-button-label {
+          margin-left: 0;
+        }
+      }
+    }
+    
+    .punch-viewer-speakernotes-page-control {
+      .goog-flat-menu-button {
+        background: none;
+        border-color: var(--ddocs-outline);
+        border-radius: var(--ddocs-corner-xs);
+        color: var(--ddocs-on-surface);
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 54px;
+        padding: 0 52px 0 16px;
+        transition: var(--off);
+        &.goog-flat-menu-button-hover {
+          border-color: var(--ddocs-on-surface) !important;
+          transition: var(--on);
+        }
+        &.goog-flat-menu-button-focused {
+          border-color: var(--ddocs-primary) !important;
+          box-shadow: inset 0 0 0 1px var(--ddocs-primary);
+        }
+        .goog-flat-menu-button-caption {
+          padding: unset;
+        }
+        .goog-flat-menu-button-dropdown {
+          filter: var(--white-icons) opacity(.8);
+          margin: unset;
+          right: 20.5px;
+          top: 20.5px;
+        }
+      }
+      .punch-viewer-speakernotes-page-container {
+        background: none;
+        border-color: var(--ddocs-outline-variant);
+      }
+      .punch-viewer-speakernotes-page-previous, .punch-viewer-speakernotes-page-next {
+        border-color: var(--ddocs-outline);
+        .punch-viewer-speakernotes-page-iframe {
+          border-color: transparent;
+        }
+        .punch-viewer-speakernotes-page-caption {
+          background: none;
+          border-color: transparent;
+          color: var(--ddocs-primary);
+        }
+      }
+    }
+  }
+  
+  body.punch-viewer-speakernotes-body:not(.punch-viewer-body) #punch-viewer-speakernotes .punch-viewer-speakernotes-dragger /* L|R Divider */ {
+    background-color: var(--ddocs-surface-container-low);
+    border-color: var(--ddocs-outline-variant);
+  }
+  
+  body.punch-viewer-speakernotes-body:not(.punch-viewer-body) #punch-viewer-speakernotes .punch-viewer-speakernotes-main-panel /* Right side */ {
+    .goog-tab-bar {
+      background: none;
+      border-bottom-color: var(--ddocs-outline-variant) !important;
+      
+      .goog-tab {
+        color: var(--ddocs-on-surface);
+        //text-transform: none;
+        &.goog-tab-hover {
+          background: var(--ddocs-on-surface-hover);
+        }
+        &.goog-tab-selected {
+          background: none;
+          border-color: transparent transparent var(--ddocs-primary);
+          color: var(--ddocs-primary);
+        }
+      }
+    }
+    
+    .punch-viewer-speaker-series-intro-onboard-step0 {
+      background: #334186;
+    }
+    .punch-viewer-speaker-series-intro-onboard-step1 {
+      background: #124685;
+    }
+    .punch-viewer-speaker-series-intro-onboard-step2 {
+      background: #005229;
+    }
+    .punch-viewer-speaker-series-intro-buttons .jfk-button {
+      .common-button(@type: "filled");
+      border: none !important;
+      font: 500 14px var(--ddocs-type-brand);
+      height: 40px;
+      line-height: 40px;
+    }
+    .punch-viewer-speaker-qanda-content /* Q&A */ {
+      .punch-viewer-speaker-series-status-closed .punch-viewer-speaker-series {
+        background-color: var(--ddocs-surface-container);
+        color: var(--ddocs-on-surface);
+      }
+      .punch-viewer-speaker-series-status-open .punch-viewer-speaker-series {
+        background-color: var(--ddocs-primary-container);
+        color: var(--ddocs-on-primary-container);
+      }
+      .punch-viewer-speaker-series-checkbox .jfk-slideToggle {
+        background-color: var(--ddocs-surface-container-highest);
+        border: 2px solid var(--ddocs-outline);
+        border-radius: 50cqh;
+        box-shadow: none;
+        box-sizing: border-box;
+        height: 32px;
+        overflow: visible;
+        width: 52px;
+        
+        .jfk-slideToggle-on, .jfk-slideToggle-off {
+          display: none;
+        }
+        .jfk-slideToggle-thumb {
+          background-color: var(--ddocs-outline);
+          border: none;
+          border-radius: 50%;
+          height: 16px;
+          left: 6.5px;
+          outline: 12px solid transparent;
+          top: 6.5px;
+          width: 16px;
+        }
+        &.jfk-slideToggle-hover .jfk-slideToggle-thumb {
+          background-color: var(--ddocs-on-surface-variant);
+          outline-color: var(--ddocs-on-surface-hover);
+        }
+        &.jfk-slideToggle-focused .jfk-slideToggle-thumb {
+          outline-color: var(--ddocs-on-surface-focus);
+        }
+        &.jfk-slideToggle-active .jfk-slideToggle-thumb {
+          height: 28px;
+          left: 0.5px;
+          outline-width: 6px;
+          top: 0.5px;
+          width: 28px;
+        }
+        &.jfk-slideToggle-checked {
+          background-color: var(--ddocs-primary);
+          border-color: $background-color;
+          
+          .jfk-slideToggle-thumb {
+            background-color: var(--ddocs-on-primary);
+            height: 24px;
+            left: 22.5px;
+            outline: 8px solid transparent;
+            top: 2.5px;
+            width: 24px;
+          }
+          &.jfk-slideToggle-hover .jfk-slideToggle-thumb {
+            background-color: var(--ddocs-primary-container);
+            outline-color: var(--ddocs-primary-hover);
+          }
+          &.jfk-slideToggle-focused .jfk-slideToggle-thumb {
+            background-color: var(--ddocs-primary-container);
+            outline-color: var(--ddocs-primary-focus);
+          }
+          &.jfk-slideToggle-checked.jfk-slideToggle-active .jfk-slideToggle-thumb {
+            height: 28px;
+            left: 20.5px;
+            outline-width: 6px;
+            top: 0.5px;
+            width: 28px;
+          }
+        }
+      }
+      .punch-viewer-speaker-series .punch-viewer-speaker-series-url a {
+        color: inherit;
+      }
+      
+      .punch-viewer-speaker-empty-questions {
+        color: var(--ddocs-on-surface-variant);
+        
+        .punch-viewer-speaker-empty-questions-image img {
+          filter: brightness(.5) contrast(2);
+        }
+      }
+      .punch-qanda-question {
+        border-bottom-color: var(--ddocs-outline-variant);
+        &.punch-qanda-question-presented {
+          background-color: var(--ddocs-surface-container-low);
+        }
+        .punch-qanda-question-user-icon-cover {
+          background-color: var(--ddocs-transparent);
+        }
+        img[src="https://ssl.gstatic.com/docs/presentations/images/qanda_anonymous.png"] {
+          filter: invert() brightness(200%);
+        }
+        .punch-qanda-question-user-name, 
+        .punch-qanda-question-currently-presented .punch-qanda-question-text, .punch-qanda-question-text, 
+        .punch-qanda-question-votes-container {
+          color: var(--ddocs-on-surface);
+        }
+        .punch-qanda-question-time {
+          color: var(--ddocs-on-surface-variant);
+        }
+        .punch-qanda-question-votes-down-icon, .punch-qanda-question-votes-up-icon {
+          filter: var(--white-icons) opacity(.8);
+        }
+        .punch-qanda-question-present .jfk-button {
+          border-radius: 20px;
+          box-sizing: border-box;
+          font: 500 14px var(--ddocs-type-brand);
+          height: 40px;
+          line-height: 38px;
+          min-width: 110px;
+          padding: 0 24px;
+          text-transform: none;
+          &:not(.jfk-button-checked) {
+            .common-button(@type: "outlined");
+          }
+          &.jfk-button-checked {
+            .common-button(@type: "filled");
+          }
+        }
+      }
+    }
+    
+    .punch-viewer-speakernotes-text-header-container {
+      border-bottom: 1px solid var(--ddocs-outline-variant);
+      
+      .punch-viewer-speakernotes-zoom-container {
+        padding-right: 4px;
+        top: 1px;
+        .jfk-button-standard {
+          .icon-button();
+          background-clip: content-box;
+          border: none !important;
+          border-radius: 50%;
+          height: 40px;
+          margin: 0;
+          padding: 4px;
+          width: 40px;
+          
+          .jfk-button-img {
+            filter: var(--white-icons) opacity(.8);
+            margin: 10px;
+          }
+        }
+      }
+    }
+    
+    .punch-viewer-speakernotes-text-body {
+      span[style*="color:#000000;background-color:transparent;"] {
+        color: var(--ddocs-on-surface) !important;
+      }
+      span[style*="color:#2200CC;background-color:transparent;"] {
+        color: var(--palerblue) !important;
+      }
+      span:not([style*="color:#000000;background-color:transparent;"], [style*="color:#2200CC;background-color:transparent;"]) {
+        filter: var(--darkfilter) brightness(1.5);
+      }
+    }
+  }
+  
+  body.punch-viewer-speakernotes-body:not(.punch-viewer-body) .goog-menu {
+    background-color: var(--ddocs-surface-container);
+    border: none;
+    border-radius: var(--ddocs-corner-xs);
+    box-shadow: var(--ddocs-level2);
+    
+    .goog-menuitem {
+      border: none;
+      color: var(--ddocs-on-surface);
+      padding: 0 .75rem;
+      &:has(.goog-menuitem-checkbox) {
+        padding: 0 .75rem 0 3rem;
+      }
+      
+      .states() !important;
+      &.goog-menuitem-highlight {
+        background-color: var(--ddocs-on-surface-hover);
+      }
+      &.punch-viewer-presenter-menuitem-skippedslide:not(.goog-option-selected) {
+        background: none;
+        
+        .goog-menuitem-checkbox {
+          background-image: url("//ssl.gstatic.com/docs/presentations/images/hide_slide.png");
+          background-size: contain;
+          filter: invert();
+          left: 13.5px;
+          top: 5.5px;
+        }
+      }
+      &.goog-option-selected {
+        .checkmark-fix();
+        
+        .goog-menuitem-checkbox {
+          left: 13.5px;
+        }
+      }
+      
+      .goog-menuitem-content {
+        color: inherit;
+        font-size: 0.875rem;
+        line-height: 2rem;
+      }
     }
   }
 }

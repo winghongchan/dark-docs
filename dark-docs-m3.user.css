@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark Docs
 @namespace      userstyles.world/user/winghongchan
-@version        2023.07.19
+@version        2023.08.03
 @description    A new version of Dark Docs, made for Google Docs’ Material U redesign. 
 @author         Walter winghongchan
 @homepageURL    https://github.com/winghongchan/dark-docs
@@ -36,7 +36,7 @@ If you are using an older version of Firefox (prior to version 113), you may not
 /* Notice for Chrome (or Vivaldi, Edge, &c.) users
 Google Docs renders each page as a single <canvas> element, which may have made it impossible to un-invert images while using the Invert document filter in Dark Docs. If you need to view images un-inverted, open the Stylus extension, click on the cog beside “Dark Docs”, and change the Document filter to “Dim” or “None”.
 */
-@-moz-document url-prefix("https://docs.google.com/document/d/"), url-prefix("https://docs.google.com/document/u/"), regexp("https:\\/\\/docs\\.google\\.com\\/sharing\\/boq\\/driveshare\\?[\\s\\S]+origin=https%3A%2F%2Fdocs\\.google\\.com"), url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%"), url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%2C6%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5B"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=.*%22Google%20Drive%22.*%22Replace%22.*%22replace-image%22.*&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=[0-9]+"), regexp("(https:\\/\\/meet.google.com\\/_\\/frame\\?authUser=\\d+&frameType=2&origin=https%3A%2F%2Fdocs.google.com#cb=pip_frame)"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=.*%22explore-drive.*&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=[0-9]+"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=.*%22Google%20Photos%22.*&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=[0-9]+") {
+@-moz-document url-prefix("https://docs.google.com/document/d/"), url-prefix("https://docs.google.com/document/u/"), regexp("https:\\/\\/docs\\.google\\.com\\/sharing\\/boq\\/driveshare\\?[\\s\\S]+origin=https%3A%2F%2Fdocs\\.google\\.com"), url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%"), url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%2C6%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5B"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=.*%22Google%20Drive%22.*%22Replace%22.*%22replace-image%22.*&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=[0-9]+"), regexp("(https:\\/\\/meet.google.com\\/_\\/frame\\?authUser=\\d+&frameType=2&origin=https%3A%2F%2Fdocs.google.com#cb=pip_frame)"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=.*%22explore-drive.*&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=[0-9]+"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=.*%22Google%20Photos%22.*&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=[0-9]+"), url-prefix("https://docs.google.com/viewer?a=v&pid=kix-pp&srcid=id%3D1lsgKVqNTqLPVvc5ZTz22EXHH4dOpGnHnZMykE-5ZKk0%2Cprint%3D1%2Cmp%3Df&chrome=false&pp=true&authuser=0"), regexp("https:\\/\\/docs\\.google\\.com\\/viewer\\?a=v&pid=(kix-pp|pch)&srcid=.*&chrome=false&pp=true&authuser=[0-9]+") {
 // Variables
   :root {
     
@@ -3252,6 +3252,9 @@ Google Docs renders each page as a single <canvas> element, which may have made 
         background-color: var(--ddocs-on-background-focus);
         transition: var(--on);
       }
+      &.goog-control-disabled {
+        color: color-mix(in srgb, var(--ddocs-on-background), transparent 62%);
+      }
     }
   }
   
@@ -5133,6 +5136,56 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     }
     &.docos-docoview-active .docs-icon-img {
       filter: var(--paleblue-icons);
+    }
+  }
+  
+  #docs-printpreview {
+    #docs-printpreview-toolbar {
+      background-color: var(--ddocs-surface-container);
+      border: none;
+      border-radius: 24px;
+      margin: 6px 16px 0;
+      min-height: 40px;
+      padding-left: 0;
+      
+      #docs-printpreview-close, #docs-printpreview-print {
+        background: none;
+        border: none;
+        border-radius: 16px;
+        box-sizing: border-box;
+        color: var(--ddocs-on-surface-variant);
+        font: 500 14px Google Sans, Roboto, sans-serif;
+        height: 32px;
+        line-height: 32px;
+        margin: 4px;
+        padding: 0 12px;
+        transition: var(--off);
+        &.goog-toolbar-button-hover {
+          background: var(--ddocs-on-surface-variant-hover);
+          transition: var(--on);
+        }
+        &.goog-toolbar-button-active {
+          background: var(--ddocs-on-surface-variant-pressed);
+        }
+      }
+      .goog-toolbar-separator {
+        border-color: var(--ddocs-outline-variant);
+        margin: 10px 0;
+      }
+      #docs-printpreview-print {
+        .docs-icon {
+          top: -1px;
+        } 
+        .docs-icon-print {
+          filter: var(--white-icons);
+        }
+        .goog-toolbar-menu-button-caption {
+          margin-left: 4px;
+        }
+      }
+    }
+    .docs-printpreview-frame-backing {
+      background: none;
     }
   }
 }
@@ -7857,5 +7910,16 @@ Google Docs renders each page as a single <canvas> element, which may have made 
         }
       }
     }
+  }
+}
+
+@-moz-document regexp("https:\\/\\/docs\\.google\\.com\\/viewer\\?a=v&pid=(kix-pp|pch)&srcid=.*&chrome=false&pp=true&authuser=[0-9]+") {
+  // Print preview
+  
+  html {
+    scrollbar-color: var(--ddocs-outline) transparent;
+  }
+  .ndfHFb-c4YZDc.ndfHFb-c4YZDc-e1YmVc .ndfHFb-c4YZDc-bnBfGc {
+    background-color: var(--ddocs-surface);
   }
 }

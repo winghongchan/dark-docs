@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark Docs
 @namespace      userstyles.world/user/winghongchan
-@version        2023.08.03
+@version        2023.08.07
 @description    A new version of Dark Docs, made for Google Docs’ Material U redesign. 
 @author         Walter winghongchan
 @homepageURL    https://github.com/winghongchan/dark-docs
@@ -2093,7 +2093,99 @@ Google Docs renders each page as a single <canvas> element, which may have made 
         scrollbar-color: var(--ddocs-outline) transparent;
       }
     }
+    
+    &.office-editing-onboarding-dialog /* Welcome to Office Editing */ {
+      .office-editing-onboarding-dialog-logo {
+        border-top-left-radius: var(--ddocs-corner-xl);
+        border-top-right-radius: var(--ddocs-corner-xl);
+      }
+      .docs-material-gm-dialog-title-close {
+        background-color: var(--ddocs-secondary-container) !important;
+        color: var(--ddocs-on-secondary-container);
+        height: 40px;
+        width: 40px;
+        &:hover {
+          background-color: var(--ddocs-secondary-container-hover) !important;
+        }
+        &:focus {
+          background-color: var(--ddocs-secondary-container-focus) !important;
+        }
+        svg {
+          margin: 8px;
+        }
+      }
+      .office-editing-onboarding-dialog-heading {
+        color: var(--ddocs-on-surface);
+      }
+      .office-editing-onboarding-dialog-description {
+        color: var(--ddocs-on-surface-variant);
+      }
+    }
   }
+  .office-editing-onboarding-promo-bubble /* “Rich tooltips” from .DOCX indicator introducing Office editing */ {
+    background-color: var(--ddocs-surface-container);
+    border-radius: var(--ddocs-corner-m);
+    box-shadow: var(--ddocs-level2);
+    .jfk-bubble-arrowup .jfk-bubble-arrowimplafter {
+      border-color: var(--ddocs-surface-container) transparent;
+    }
+    .office-editing-onboarding-promo-bubble-title {
+      color: var(--ddocs-on-surface);
+    }
+    .docs-material-promo-walkthrough-bubble-close-button {
+      transition: var(--off);
+      &.goog-flat-button-hover {
+        background-color: var(--ddocs-on-surface-variant-hover);
+        transition: var(--on);
+      }
+      &.goog-flat-button-focused {
+        background-color: var(--ddocs-on-surface-variant-focus);
+      }
+      &.goog-flat-button-active {
+        background-color: var(--ddocs-on-surface-variant-pressed);
+      }
+      .docs-icon-close-thin {
+        filter: var(--white-icons);
+      }
+    }
+    .office-editing-onboarding-promo-bubble-description {
+      color: var(--ddocs-on-surface-variant);
+    }
+    .office-editing-onboarding-promo-bubble-dotted-progressbar-dot {
+      background-color: var(--ddocs-surface-container-highest);
+      &.office-editing-onboarding-promo-bubble-dotted-progressbar-dot-highlighted {
+        background-color: var(--ddocs-primary);
+      }
+    }
+    .docs-material-button-content {
+      line-height: 40px;
+    }
+  }
+  .docs-grille-gm3 .office-document-state-bubble.docs-gm-promo.jfk-bubble.jfk-bubble-promo /* .DOCX indicator bubble */ {
+    background-color: var(--ddocs-surface-container);
+    box-shadow: var(--ddocs-level2);
+    color: var(--ddocs-on-surface);
+    .jfk-bubble-arrowup {
+      .jfk-bubble-arrowimplbefore {
+        background-color: var(--ddocs-surface-container);
+      } 
+      .jfk-bubble-arrowimplafter {
+        border-color: var(--ddocs-surface-container) transparent;
+      }
+    }
+    .office-document-state-bubble-info-20 {
+      filter: var(--white-icons);
+    }
+    * {
+      color: inherit;
+    }
+    .office-document-state-bubble-no-warning-container {
+      background: var(--ddocs-surface-container-high);
+      .office-document-state-bubble-check-circle-outline-dark-grey-20 {
+        filter: var(--white-icons);
+      }
+    }
+  }  
   #document-details-bubble-container /* Available while in viewing mode */ {
     background-color: var(--ddocs-surface-container-high);
     &>#document-details-bubble-header {
@@ -3107,6 +3199,10 @@ Google Docs renders each page as a single <canvas> element, which may have made 
           margin: 0;
         }
       }
+    }
+    #office-editing-file-extension {
+      background-color: var(--ddocs-primary-container);
+      color: var(--ddocs-on-primary-container);
     }
     & #docs-parent-collections-container-outer /* “in My Drive,” etc. */ {
       & .docs-parent-collections-container-prefix, 

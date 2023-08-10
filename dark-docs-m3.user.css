@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark Docs
 @namespace      userstyles.world/user/winghongchan
-@version        2023.08.07
+@version        2023.08.10
 @description    A new version of Dark Docs, made for Google Docs’ Material U redesign. 
 @author         Walter winghongchan
 @homepageURL    https://github.com/winghongchan/dark-docs
@@ -1464,15 +1464,18 @@ Google Docs renders each page as a single <canvas> element, which may have made 
       & .kix-pagesetupdialog-pageless-image {
         filter: var(--darkfilter);
       }
-      & .kix-pagesetupdialog-canvas-description-text {
+      .kix-pagesetupdialog-canvas-description-text, 
+      .kix-pagesetupdialog-pageless-description-text {
         color: var(--ddocs-on-surface);
       }
-      & #kix-pagesetupdialog-canvas-unsupported-model-features-warning /* Headers, &c. won’t be visible in pageless mode */ {
+      #kix-pagesetupdialog-canvas-unsupported-model-features-warning, 
+      #kix-pagesetupdialog-pageless-unsupported-model-features-warning /* Headers, &c. won’t be visible in pageless mode */ {
         background-color: var(--ddocs-error-container);
         & .docs-icon-warning-filled-red700 {
           filter: invert() hue-rotate(180deg) brightness(140%);
         }
-        &>.kix-pagesetupdialog-canvas-unsupported-model-features-warning-text {
+        &>.kix-pagesetupdialog-canvas-unsupported-model-features-warning-text, 
+        &>.kix-pagesetupdialog-pageless-unsupported-model-features-warning-text {
           color: var(--ddocs-on-error-container);
         }
       }
@@ -3576,30 +3579,73 @@ Google Docs renders each page as a single <canvas> element, which may have made 
       }
     }
   }
-  .docs-gm #docs-omnibox-toolbar.assisted-actions {
+  .docs-gm #docs-bars #docs-toolbar-wrapper.docs-main-toolbars #docs-omnibox-toolbar.assisted-actions {
+    .docs-omnibox-autocomplete {
+      margin: 4px 1px;
+      padding: 0;
+      @media screen and (max-width: 1600px) {
+        &:not(:focus-within) {
+          width: 30px;
+          .docs-icon {
+            margin: 5px;
+          }
+        }
+        &:focus-within {
+          margin-left: -2px;
+          .docs-icon {
+            margin-top: 5px;
+          }
+        }
+      }
+      @media screen and (min-width: 1600px) {
+        margin-left: -2px;
+        .docs-icon {
+          margin-top: 5px;
+        }
+      }
+    }
     .docs-icon-search-20 {
-      filter: var(--whiter-icons);
+      filter: var(--white-icons);
     }
     .docs-omnibox-input {
       background-color: var(--ddocs-surface-container-highest);
+      border: none;
+      caret-color: var(--ddocs-primary);
       color: var(--ddocs-on-surface);
-      &::placeholder {
-        color: var(--ddocs-on-surface-variant);
-        opacity: 1;
-      }
-    }
-    
-    @media screen and (max-width: 1600px) {
-      .docs-omnibox-input {
-        background: transparent;
-        color: var(--ddocs-on-surface);
+      height: 30px;
+      transition: var(--off);
+      @media screen and (max-width: 1600px) {
+        background: none;
+        min-width: unset;
+        &:not(:focus) {
+          padding: 0;
+          width: 30px;
+          &::placeholder {
+            opacity: 0;
+          }
+        }
         &:hover {
           background-color: var(--ddocs-on-surface-variant-hover);
-        }
-        &:focus-within {
-          background-color: var(--ddocs-surface-container-highest);
+          transition: var(--on);
         }
       }
+      &:focus {
+        background-color: var(--ddocs-surface-container-highest);
+        border-radius: 15px 15px 0 0;
+        box-shadow: none;
+      }
+
+      &::placeholder {
+        color: var(--ddocs-on-surface-variant);
+      }
+    }
+    .ac-renderer {
+      border: none;
+      border-top: 1px solid var(--ddocs-outline);
+      overflow: auto;
+    }
+    .ac-renderer .docs-icon {
+      top: 6px;
     }
   }
   

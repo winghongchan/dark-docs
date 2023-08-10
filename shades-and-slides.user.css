@@ -2789,7 +2789,7 @@
       }
     }
     
-    & .goog-toolbar-combo-button {
+    .goog-toolbar-combo-button {
       background: none;
       color: var(--ddocs-on-surface);
       transition: var(--off);
@@ -2834,6 +2834,21 @@
           background-color: var(--ddocs-primary);
           color: var(--ddocs-on-primary);
         }
+      }
+    }
+    
+    #docs-access-level-indicator.goog-flat-menu-button /* “View only” button */ {
+      .states(@role: "primary-container");
+      box-shadow: none;
+      &.goog-flat-menu-button-open {
+        background-color: var(--ddocs-on-primary-container-hover);
+        .animate-ripple();
+      }
+      .docs-icon-img {
+        filter: var(--ddocs-on-primary-container-icon);
+      }
+      .goog-flat-menu-button-caption {
+        color: inherit;
       }
     }
   }
@@ -4482,6 +4497,31 @@
           outline: none;
           width: 36px;
         }
+      }
+    }
+  }
+  
+  // “View only” popup
+  .docs-grille-gm3 .docs-access-level-indicator-menu {
+    padding: .75rem 1rem .5rem;
+    
+    .docs-access-level-indicator-menu-header:empty {
+      display: none;
+    }
+    .docs-access-level-indicator-menu-text {
+      color: var(--ddocs-on-surface-variant);
+    }
+    .docs-access-level-indicator-request-access-button {
+      align-items: center;
+      background: none;
+      border: none;
+      color: var(--ddocs-primary);
+      display: inline-flex;
+      height: 2.5rem;
+      margin-top: .75rem;
+      padding: 0 .75rem;
+      &.docs-material-button-hover {
+        background: var(--ddocs-primary-hover);
       }
     }
   }

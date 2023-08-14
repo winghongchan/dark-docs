@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Shades and Slides
 @namespace      userstyles.world/user/winghongchan
-@version        2023.08.10
+@version        2023.08.14
 @description    A Material 3 themed dark mode for Google Slides
 @author         Walter winghongchan
 @homepageURL    https://github.com/winghongchan/dark-docs
@@ -260,8 +260,9 @@
     .states(@role: "primary");
     border: 1px solid transparent !important;
     border-radius: 50cqmin;
-    &.jfk-button-disabled {
+    &:is([disabled], .jfk-button-disabled) {
       background-color: var(--ddocs-on-surface-disabled);
+      border-color: transparent !important;
       color: color-mix(in srgb, var(--ddocs-on-surface), transparent 62%);
     }
     &:hover {
@@ -322,7 +323,7 @@
       color: color-mix(in srgb, var(--ddocs-on-surface), transparent 62%);
       opacity: 1;
     }
-    &:not(:has(.docs-material-button-ripple-element)):is(:active, .jfk-button-active) {
+    &:not(:has(.docs-material-button-ripple-element)):not(.jfk-button-disabled):is(:active, .jfk-button-active) {
       .animate-ripple();
     }
     & .docs-material-button-ripple-element when (@ripples = 1) {
@@ -813,8 +814,8 @@
     background-color: var(--ddocs-inverse-surface);
     color: var(--ddocs-inverse-on-surface);
     
-    & .scb-tooltip-contents, .scb-tooltip-title /* Share button tooltip */ {
-      color: currentColor;
+    .scb-tooltip-contents, .scb-tooltip-contents * /* Share button tooltip */ {
+      color: inherit;
     }
   }
 }
@@ -1057,7 +1058,7 @@
       padding: 8px;
       position: static;
       width: 20px;
-      &::before {
+      &::before /* State layer */ {
         background-color: var(--ddocs-on-surface);
         border-radius: 50cqmin;
         content: "";
@@ -1097,7 +1098,7 @@
       background-clip: content-box;
       color: var(--ddocs-primary);
       padding: 3px;
-      transition: padding 0.15s ease-out;
+      transition: padding 0.15s ease-out, background-color 0.1s;
       &::before {
         background-color: var(--ddocs-primary);
       }
@@ -1304,7 +1305,7 @@
     background-color: var(--ddocs-inverse-surface);
     color: var(--ddocs-inverse-on-surface);
   }
-  .jfk-tooltip, .docs-homescreen-drawer~.gb_6e /* Header tooltips :( */ {
+  .jfk-tooltip, .docs-homescreen-drawer~.gb_Se /* Header tooltips :( */ {
     background: var(--ddocs-inverse-surface);
     border: none;
     border-radius: var(--ddocs-corner-xs);
@@ -2058,7 +2059,9 @@
   .docs-homescreen-item-section .docsshared-menu-bubble {
     .menu();
     box-shadow: var(--ddocs-level2);
-    
+    .goog-menuitem-disabled .docs-homescreen-overflowmenuitem-text-container {
+      opacity: 38%;
+    }
     .docs-homescreen-img {
       .on-surface-variant-icon();
     }
@@ -2445,9 +2448,16 @@
   }
   .docs-grille-gm3 #docs-meet-in-editors-entrypointbutton.goog-flat-menu-button {
     .icon-button();
-    
     .goog-flat-menu-button-dropdown {
       border-color: var(--ddocs-on-surface-variant) transparent;
+    }
+    &.docs-meet-in-editors-active-video-call {
+      .docs-icon-meet-p40-24x24 {
+        filter: var(--ddocs-primary-icon);
+      }
+      .goog-flat-menu-button-dropdown {
+        border-color: var(--ddocs-primary) transparent;
+      }
     }
   }
   
@@ -2787,6 +2797,10 @@
           color: var(--ddocs-on-surface-variant);
         }
       }
+    }
+    
+    #docs-toolbar.goog-toolbar {
+      padding-left: 0; // Because my M3 theming of the command search shifted the search icon
     }
     
     .goog-toolbar-combo-button {
@@ -3681,6 +3695,36 @@
     }
   }
   
+  // List styles menu 
+  .goog-menu .docs-listpreset-palette /* Presets for three levels of list */ .goog-palette-cell {
+    .docs-preview-palette-item {
+      border-color: var(--ddocs-outline);
+      border-radius: var(--ddocs-corner-xs);
+      transition: var(--off);
+    }
+    &.goog-palette-cell-hover .docs-preview-palette-item {
+      border-color: var(--ddocs-on-surface);
+      transition: var(--on);
+    }
+    &.goog-palette-cell-selected .docs-preview-palette-item {
+      border-color: var(--ddocs-primary);
+    }
+    .docs-listpreset-img {
+      filter: contrast(50%) sepia() invert() hue-rotate(-23deg) saturate(7%) brightness(1.9);
+    }
+  }
+  .goog-menu .docs-bulletpreset-palette /* Presets for one level of list */ {
+    .docs-bulletpreset {
+      border-color: var(--ddocs-outline);
+      border-radius: var(--ddocs-corner-xs);
+      transition: var(--off);
+    }
+    .goog-palette-cell-hover .docs-bulletpreset {
+      border-color: var(--ddocs-on-surface);
+      transition: var(--on);
+    }
+  }
+  
   // Table insert size menu
   .goog-menu>.goog-dimension-picker {
     .goog-dimension-picker-unhighlighted,
@@ -4515,6 +4559,7 @@
       align-items: center;
       background: none;
       border: none;
+      box-shadow: none;
       color: var(--ddocs-primary);
       display: inline-flex;
       height: 2.5rem;
@@ -4522,6 +4567,14 @@
       padding: 0 .75rem;
       &.docs-material-button-hover {
         background: var(--ddocs-primary-hover);
+      }
+      &:focus {
+        background: var(--ddocs-primary-focus);
+        color: var(--ddocs-primary);
+      }
+      &:active {
+        background: var(--ddocs-primary-pressed) !important;
+        color: var(--ddocs-primary) !important;
       }
     }
   }
@@ -5446,6 +5499,13 @@
       .addon-sidebar-card-check svg {
         fill: var(--ddocs-tertiary);
       }
+      .addon-sidebar-card-button.docs-material-button-raised-primary /* Filled button, if the document has only one addon */ {
+        .common-button();
+        box-shadow: none !important;
+        .docs-material-button-ripple-element {
+          background-color: if(@ripples = 1, var(--ddocs-on-primary-pressed), transparent);
+        }
+      }
     }    
     .script-application-sidebar-content {
       top: 56px;
@@ -5707,6 +5767,14 @@
   // Google Drive/Images/Photos sidebar container
   .docs-grille-gm3 .docs-onepick-integrated-sidebar {
     background-color: var(--ddocs-surface-container);
+  }
+  
+  // Google Meet sidebar container
+  .docs-meet-in-editors-sidebar {
+    background: var(--ddocs-surface);
+    border-left-color: var(--ddocs-outline);
+    border-top-color: var(--ddocs-surface);
+    box-shadow: none;
   }
   
   // Linked objects

@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark Docs
 @namespace      userstyles.world/user/winghongchan
-@version        2024.02.16
+@version        2024.02.20
 @description    A new version of Dark Docs, made for Google Docs’ Material U redesign. 
 @author         Walter winghongchan
 @homepageURL    https://github.com/winghongchan/dark-docs
@@ -16,8 +16,8 @@
 
 /* Dark Docs is licensed under the GNU GPL v3
 
-Dark Docs: a Material You dark mode for Google Docs. 
-Copyright (C) 2023 Walter <winghongchan> 
+Dark Docs: a googley dark mode for Google Docs. 
+Copyright © 2024 Dark Docs contributors
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. 
 
@@ -26,15 +26,14 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 Read a copy of this license at https://www.gnu.org/licenses/gpl-3.0.html 
 */
 
-/* Notice for Firefox (or LibreWolf, &c.) users
-Dark Docs next uses the :has() selector, which is experimental on Firefox at the moment. To enable it, go to about:config and set layout.css.has-selector.enabled to true. Chromium‐based browsers have full support. 
-Follow along with Mozilla’s development on the :has selector at https://bugzilla.mozilla.org/show_bug.cgi?id=418039 
+/* Notice for Firefox ESR 115 users
+Dark Docs uses the :has() selector, which was in an experimental state and wasn’t enabled by default until Firefox 121 was released. To enable it, go to about:config and set layout.css.has-selector.enabled to true. 
 
-If you are using an older version of Firefox (prior to version 113), you may not see some hover and focus effects because they rely on the color-mix() function to reduce the size of Dark Docs. To enable support for it, go to about:config and set layout.css.color-mix.enabled to true. Firefox 113 and newer has this enabled by default. 
+To see how to check your Firefox version, visit http://mzl.la/182bDYq
 */
 
 /* Notice for Chrome (or Vivaldi, Edge, &c.) users
-Google Docs renders each page as a single <canvas> element, which may have made it impossible to un-invert images while using the Invert document filter in Dark Docs. If you need to view images un-inverted, open the Stylus extension, click on the cog beside “Dark Docs”, and change the Document filter to “Dim” or “None”.
+Google Docs renders each page as a single <canvas> element, which may have made it impossible to un-invert images while using the Invert document filter in Dark Docs. If you need to view images un-inverted, you can switch to the Dim filter or turn off document filters: open the Stylus extension, click on the cog beside “Dark Docs”, and change the Document filter to “Dim” or “None”.
 */
 @-moz-document url-prefix("https://docs.google.com/document/d/"), url-prefix("https://docs.google.com/document/u/"), regexp("https:\\/\\/docs\\.google\\.com\\/sharing\\/boq\\/driveshare\\?[\\s\\S]+origin=https%3A%2F%2Fdocs\\.google\\.com"), regexp("https:\\/\\/docs\\.google\\.com\\/drivesharing\\/driveshare\\?[\\S]+origin=https%3A%2F%2Fdocs\\.google\\.com"), url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%"), url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%2C6%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5B"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=.*%22Google%20Drive%22.*%22Replace%22.*%22replace-image%22.*&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=[0-9]+"), regexp("(https:\\/\\/meet.google.com\\/_\\/frame\\?authUser=\\d+&frameType=2&origin=https%3A%2F%2Fdocs.google.com#cb=pip_frame)"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=.*%22explore-drive.*&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=[0-9]+"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=.*%22Google%20Photos%22.*&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=[0-9]+"), url-prefix("https://docs.google.com/viewer?a=v&pid=kix-pp&srcid=id%3D1lsgKVqNTqLPVvc5ZTz22EXHH4dOpGnHnZMykE-5ZKk0%2Cprint%3D1%2Cmp%3Df&chrome=false&pp=true&authuser=0"), regexp("https:\\/\\/docs\\.google\\.com\\/viewer\\?a=v&pid=(kix-pp|pch)&srcid=.*&chrome=false&pp=true&authuser=[0-9]+"), regexp("https:\\/\\/meet\\.google\\.com\\/_\\/frame\\?authuser=[0-9]+&frameType=2&origin=https%3A%2F%2Fdocs.google.com#cb=pip_frame"), regexp("https:\\/\\/meet\\.google\\.com\\/_\\/frame\\?authuser=[0-9]+&frameType=6&origin=https%3A%2F%2Fdocs\\.google\\.com#cb=pip_frame") {
 // Variables
@@ -5063,9 +5062,9 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     .docos-anchoredreplyview, .docos-anchoreddocoview-input-pane {
       background: none; // don’t duplicate backgrounds in child elements
     }
-    .docos-anchoreddocoview-internal /* Using the 2nd grandest parent as a state layer */{
+    .docos-anchoreddocoview-internal /* Using the 2nd grandest parent as a state layer */ {
       background: transparent;
-      transition: var(--off);
+      // transition: var(--off); // was causing white flashes on reload
     }
     &:hover .docos-anchoreddocoview-internal {
       background-color: var(--ddocs-on-surface-variant-hover);
@@ -5130,7 +5129,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
       }
     }
     
-    .docos-replyview-emoji-controls .docs-material-button {
+    .docos-replyview-emoji-controls .docs-material-button /* Add emoji reaction floating button */ {
       background-color: var(--ddocs-surface-container-highest);
       border-color: transparent;
       .docs-material-button-content {
@@ -5157,7 +5156,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
         overflow: hidden;
       }
       .docos-show-more, .docos-show-less {
-        background: none;
+        background: none !important;
         color: var(--ddocs-primary);
       }
     }
@@ -5231,7 +5230,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
       transition: var(--on);
     }
     
-    .docos-docoview-input-pane /* Type a comment or reply */ {
+    .docos-input /* Type a comment, reply, or edit */ {
       .docos-input-textarea {
         background: none;
         border-color: var(--ddocs-outline);

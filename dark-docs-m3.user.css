@@ -1,23 +1,22 @@
 /* ==UserStyle==
 @name           Dark Docs
 @namespace      userstyles.world/user/winghongchan
-@version        2026.04.17
+@version        2026.04.25
 @description    A googley dark mode for Google Docs
 @author         Walter winghongchan
 @homepageURL    https://github.com/winghongchan/dark-docs
 @supportURL     https://github.com/winghongchan/dark-docs/issues
 @license        GPL-3.0-or-later
 @preprocessor   less
-@var            select document-filter "Document filter" {"none:None": "none", "dim:Dim": "contrast(80%) brightness(90%)", "invert:Invert*": "var(--darkfilter)"}
+@var            select document-filter "Document filter" {"none:None": "none", "dim:Dim": "contrast(80%) brightness(90%)", "sepia:Sepia (experimental)": "brightness(0.8) sepia(0.4)", "invert:Invert*": "var(--darkfilter)", "thickening:Thickening (experimental)": "var(--thickfilter)"}
 @var            number document-contrast "Document contrast while inverted" [76, 40, 100, 1, "%"]
-@var            checkbox respect-pageless-document-color "[CURRENTLY BROKEN - PLEASE TURN OFF] Respect page color of pageless documents while a document filter is applied. May be laggy." 0
-@var            checkbox has-selector-missing-warning "Warn me if the :has() selector is not available in my browser." 1
+@var            checkbox respect-pageless-document-color "Respect page color of pageless documents while a document filter is applied. May be laggy." 0
 ==/UserStyle== */
 
 /* Dark Docs is licensed under the GNU GPL v3
 
 Dark Docs: a googley dark mode for Google Docs. 
-Copyright © 2024 Dark Docs contributors
+Copyright © 2026 Dark Docs contributors
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. 
 
@@ -27,7 +26,7 @@ Read a copy of this license at https://www.gnu.org/licenses/gpl-3.0.html
 */
 
 /* Notice for Chrome (or Vivaldi, Edge, &c.) users
-Google Docs renders each page as a single <canvas> element, which may have made it impossible to un-invert images while using the Invert document filter in Dark Docs. If you need to view images un-inverted, you can switch to the Dim filter or turn off document filters: open the Stylus extension, click on the cog beside “Dark Docs”, and change the Document filter to “Dim” or “None”.
+Google Docs renders each page as a single <canvas> element, which may have made it impossible to un-invert images while using the Invert document filter in Dark Docs. If you need to view images un-inverted, you can switch to the Dim filter or turn off document filters: open the Stylus extension, click on the cog beside “Dark Docs”, and change the Document filter to “Dim”, “Sepia”, or “None”.
 */
 @-moz-document url-prefix("https://docs.google.com/document/d/"), url-prefix("https://docs.google.com/document/u/"), regexp("https:\\/\\/docs\\.google\\.com\\/sharing\\/boq\\/driveshare\\?[\\s\\S]+origin=https%3A%2F%2Fdocs\\.google\\.com"), regexp("https:\\/\\/(docs|drive)\\.google\\.com\\/drivesharing\\/driveshare\\?[\\S]+origin=https%3A%2F%2Fdocs\\.google\\.com[\\S]+"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?[\\s\\S]+&parent=https%3A%2F%2Fdocs\\.google\\.com[\\s\\S]+"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=.*%22Google%20Drive%22.*%22Replace%22.*%22replace-image%22.*&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=[0-9]+"), regexp("(https:\\/\\/meet.google.com\\/_\\/frame\\?authUser=\\d+&frameType=2&origin=https%3A%2F%2Fdocs.google.com#cb=pip_frame)"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=.*%22explore-drive.*&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=[0-9]+"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=.*%22Google%20Photos%22.*&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=[0-9]+"), url-prefix("https://docs.google.com/viewer?a=v&pid=kix-pp&srcid=id%3D1lsgKVqNTqLPVvc5ZTz22EXHH4dOpGnHnZMykE-5ZKk0%2Cprint%3D1%2Cmp%3Df&chrome=false&pp=true&authuser=0"), regexp("https:\\/\\/docs\\.google\\.com\\/viewer\\?a=v&pid=(kix-pp|pch)&srcid=.*&chrome=false&pp=true&authuser=[0-9]+"), regexp("https:\\/\\/meet\\.google\\.com\\/_\\/frame\\?authuser=[0-9]+&frameType=2&origin=https%3A%2F%2Fdocs.google.com#cb=pip_frame"), regexp("https:\\/\\/meet\\.google\\.com\\/_\\/frame\\?authuser=[0-9]+&frameType=6&origin=https%3A%2F%2Fdocs\\.google\\.com#cb=pip_frame"), regexp("https:\\/\\/drive\\.google\\.com\\/picker\\/minpick\\/main\\?parent=https%3A%2F%2Fdocs\\.google\\.com&mreq=[\\S]+%22application%2Fvnd\\.google-apps\\.document%22[\\S]+"), regexp("https:\\/\\/drive\\.google\\.com\\/picker\\/minpick\\/main\\?parent=https%3A%2F%2Fdocs\\.google\\.com&mreq=%5B%22mireq%22%2C%5B\\d+%2C\\d+%2C%22kix-copy%22%2C%5B%22https%3A%2F%2Fdocs\\.google\\.com[\\s\\S]+&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=\\d+"), regexp("https:\\/\\/contacts\\.google\\.com\\/widget\\/hovercard\\/v\\/2\\?origin=https%3A%2F%2Fdocs\\.google\\.com[\\S]+parent=https%3A%2F%2Fdocs\\.google\\.com[\\S]+"), regexp("https:\\/\\/(docs|drive)\\.google\\.com\\/drivesharing\\/requestaccess\\?[\\S]+&initialCommandHint=current_user_request_access&origin=https%3A%2F%2Fdocs\\.google\\.com[\\S]+") /* Copy file dialog folder picker */ {
 /* Variables */
@@ -121,6 +120,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     --white-icons: brightness(280%) saturate(10%);
     --whiter-icons: brightness(325%);
     --darkfilter: invert(100%) hue-rotate(180deg) contrast(@document-contrast);
+    --thickfilter: invert() hue-rotate(180deg) brightness(1.4) contrast(0.74) brightness(0.95);
     --on: background-color 0.02s ease-in, border-color 0.06s ease, color 0.05s ease, filter 0.01s ease;
     --off: background-color 0.25s ease, border-color 0.1s ease, color 0.25s ease, filter 0.25s ease;
     
@@ -1099,6 +1099,9 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     }
   }
   
+  /*
+  @var            checkbox has-selector-missing-warning "Warn me if the :has() selector is not available in my browser." 1
+  
   @supports not selector(:has(div)) {
     #docs-butterbar-container::before when (@has-selector-missing-warning=1) {
       background-color: var(--ddocs-inverse-surface);
@@ -1116,6 +1119,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
       text-align: left;
     }
   }
+  */
   
   .checkbox() {
     /* Labeled checkboxes */
@@ -2615,6 +2619,10 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     }
   }
   
+  .goog-menu>.kix-toc-palette .kix-toc-img-container .kix-toc-img /* Insert > Page elements > Table of contents */ {
+    filter: invert(.79) hue-rotate(180deg);
+  }
+  
   .goog-menu>.docs-bulletpreset-palette /* Format → Bullets & numbering → List options */ {
     & .docs-bulletpreset {
       border-color: var(--ddocs-outline);
@@ -3339,7 +3347,8 @@ Google Docs renders each page as a single <canvas> element, which may have made 
           border-bottom-right-radius: 0;
           border-top-right-radius: 0;
         }
-        &>.scb-button-icon {
+        &>.scb-button-icon, 
+        & .scb-person-add-s900 {
           filter: hue-rotate(180deg) invert(100%) brightness(90%);
         }
       }
@@ -5709,11 +5718,44 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     .commonNoticeComponentContent {
       color: var(--ddocs-on-error-container);
     }
+    .pageSetupDialogGif {
+      border-color: var(--ddocs-outline);
+      filter: var(--darkfilter);
+    }
   }
 }
 
 @-moz-document url-prefix("https://docs.google.com/document/d/") {
 /* Right sidebars */
+  
+  // Apps (the bar with calendar, notes, maps, &c.)
+  .docs-companion-app-switcher-container {
+    .app-switcher-button {
+      &.app-switcher-button-hover .app-switcher-button-icon-background {
+        background-color: var(--ddocs-on-surface-variant-hover);
+      }
+      &.app-switcher-button-active .app-switcher-button-icon-background {
+        background-color: var(--ddocs-on-surface-variant-pressed);
+      }
+    }
+    .app-switcher-button-icon-container[style*="gm_add_black_24dp.png"] {
+      filter: invert() brightness(.8);
+    }
+    .companion-app-switcher-separator {
+      border-color: var(--ddocs-outline-variant);
+    }
+    .companion-collapser-button {
+      &.companion-collapser-button.app-switcher-button-checked .app-switcher-button-icon-background {
+        background-color: var(--ddocs-surface-container);
+      }
+      &.app-switcher-button-focused .app-switcher-button-icon-background {
+        background-color: var(--ddocs-surface-container-high);
+      }
+      svg {
+        fill: var(--ddocs-on-surface-variant);
+      }
+    }
+  }
   
   // Building blocks
   .building-blocks-sidebar .docs-tiled-sidebar-header {

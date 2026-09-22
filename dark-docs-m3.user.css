@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark Docs
 @namespace      userstyles.world/user/winghongchan
-@version        2026.04.26
+@version        2026.09.21
 @description    A googley dark mode for Google Docs
 @author         Walter winghongchan
 @homepageURL    https://github.com/winghongchan/dark-docs
@@ -280,7 +280,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     
     // Menu item content
     &>.goog-menuitem>.goog-menuitem-content {
-      &>.goog-menuitem-icon:has(div:not(.docs-icon-editors-ia-article-document-blue):not(.docs-icon-editors-ia-apps-script):not(.docs-icon-editors-ia-spreadsheet-green):not(.docs-icon-editors-ia-edit-pen-blue700):not(.docs-icon-editors-ia-comment-edit-green700)) {
+      &>.goog-menuitem-icon:has(div:not(.docs-icon-docs-type-monochrome-18x18):not(.docs-icon-editors-ia-apps-script):not(.docs-icon-editors-ia-spreadsheet-green):not(.docs-icon-editors-ia-edit-pen-blue700):not(.docs-icon-editors-ia-comment-edit-green700)) {
         filter: var(--white-icons);
       }
       &>.goog-menuitem-label, 
@@ -2520,8 +2520,11 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     
     // Menu item content
     &>.goog-menuitem>.goog-menuitem-content {
-      &>.goog-menuitem-icon:has(div:not(.docs-icon-editors-ia-article-document-blue):not(.docs-icon-editors-ia-apps-script):not(.docs-icon-editors-ia-spreadsheet-green)) {
+      &>.goog-menuitem-icon:has(div:not(.docs-icon-doc-type-18x18):not(.docs-icon-editors-ia-apps-script):not(.docs-icon-editors-ia-spreadsheet-green)) {
         filter: var(--whiter-icons);
+      }
+      &>.goog-menuitem-icon:has(.docs-icon-docs-type-monochrome-18x18) {
+        filter: invert() brightness(1.3) !important;
       }
       &>.goog-menuitem-label, 
       &>span /* Needed >span because File→Language submenu is weird */, 
@@ -2574,9 +2577,6 @@ Google Docs renders each page as a single <canvas> element, which may have made 
   
   .docs-gm .goog-menu:not(:has(.goog-menuitem-label[style*="color: rgb("])) /* Don’t do the menu stuff for the styles menu if in light mode, basically */ {
     .menu();
-  }
-  body.docs-gm .docs-material.goog-menu .apps-menuitem.goog-option-selected .goog-menuitem-checkbox {
-    filter: invert() brightness(140%); // Modern checkmark fix
   }
   .goog-menu:not(.ia-primary-menu):has(span[lang="en_CA"]) .goog-menuitem.goog-option-selected:not(.apps-menuitem) /* Document language menu fix */ {
     .checkmark-fix();
@@ -2644,21 +2644,6 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     } */
   }
   
-  .goog-menu.scb-sqa-menu /* Share button dropdown */ {
-    .scb-sqa-copy-link-icon {
-      filter: invert(.9);
-    }
-    .scb-sqa-menuseparator {
-      border-top-color: var(--ddocs-outline-variant);
-    }
-    .goog-menuitem-disabled.scb-sqa-iconless-menuitem {
-      opacity: 1 !important;
-      .scb-sqa-visibility-summary, .scb-sqa-visibility-details {
-        color: var(--ddocs-on-surface-variant);
-      }
-    }
-  }
-  
   body.docs-gm .goog-menu .docs-omnibox-input {
     background-color: var(--ddocs-surface-container-highest); // Help menu search bar fix
     box-shadow: none;
@@ -2689,9 +2674,22 @@ Google Docs renders each page as a single <canvas> element, which may have made 
   }
   .goog-menu:not(.ia-menu):has(.goog-menuitem-label[style*="color: rgb("]) /* Styles menu */ {
     & when not (@document-filter = var(--darkfilter)) {
+      background-color: var(--ddocs-inverse-surface);
       &>.goog-menuitem.goog-submenu-open.goog-submenu:not(.goog-menuitem-disabled) .goog-submenu-arrow {
         transform: translateX(5px); // Still gonna give you that eye candy for nested menus
         transition: color 0.3s, transform 0.3s;
+      }
+      .goog-menuitem-label {
+        color: var(--ddocs-inverse-on-surface)
+      }
+      .goog-menuitem.docs-submenuitem {
+        border-bottom-color: var(--ddocs-outline);
+      }
+      .goog-menuitem-checkbox {
+        filter: none !important;
+      }
+      .goog-submenu-arrow {
+        color: var(--ddocs-inverse-on-surface);
       }
     }
     & when (@document-filter = var(--darkfilter)) {
@@ -3341,18 +3339,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
         height: 40px !important;
         text-transform: unset;
       }
-      &>#docs-titlebar-share-client-button>.jfk-button-action /* Share button */ {
-        .filled-tonal-button();
-        &.scb-split-button {
-          border-bottom-right-radius: 0;
-          border-top-right-radius: 0;
-        }
-        &>.scb-button-icon, 
-        & .scb-person-add-s900 {
-          filter: hue-rotate(180deg) invert(100%) brightness(90%);
-        }
-      }
-      #scb-quick-actions-menu-button {
+      #scb-quick-actions-menu-button /* Share button */ {
         background-color: var(--ddocs-secondary-container);
         border-bottom-left-radius: 0;
         border-left: 1px solid var(--ddocs-background);
@@ -3477,6 +3464,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     background-color: transparent;
     & .docs-toolbar-more-toolbar {
       background-color: var(--ddocs-surface-container-high);
+      border: none;
     }
   }
   :is(.docs-grille-gm3, .docs-grille-gm3.docs-body-pageless) #docs-align-palette {
@@ -3733,7 +3721,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
         background: no-repeat url(//ssl.gstatic.com/docs/common/material_common_sprite477.svg) -3px -3484px;
         filter: var(--ddocs-primary-icon);
       }
-      & .docs-icon-img:not(.docs-icon-editors-ia-article-document-blue, .docs-icon-editors-ia-spreadsheet-green, .docs-icon-editors-ia-apps-script) {
+      & .docs-icon-img:not(.docs-icon-docs-type-monochrome-18x18, .docs-icon-editors-ia-spreadsheet-green, .docs-icon-editors-ia-apps-script) {
         filter: var(--whiter-icons);
       }
       & .goog-menuitem {
@@ -3774,7 +3762,6 @@ Google Docs renders each page as a single <canvas> element, which may have made 
       }
     }
     & .goog-toolbar-menu-button {
-      width: 7ch;
       & .goog-toolbar-menu-button-caption {
         padding-top: 0;
       }
@@ -3835,8 +3822,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     // Using the + selector means it’s incompatible with Firefox for now. This is deliberate. This code block visually merges the main toolbar with the equation toolbar and requires that the :has() selector responds immediately to changes in the webpage, which Firefox does not do. I didn’t have to use the + selector but then the main toolbar would look weird and not respond immediately to the equation toolbar appearing and disappearing. 
     #docs-bars:has(#docs-equationtoolbar:not([style*="display: none;"]))>#docs-toolbar-wrapper {
       border-bottom: 1px solid var(--ddocs-outline-variant);
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
+      border-radius: 20px 20px 0 0;
       margin-bottom: 0;
     }
     body.docs-grille-gm3 .docs-material #docs-equationtoolbar {
@@ -3846,7 +3832,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
       
       &::before {
         background-color: var(--ddocs-surface-container);
-        border-radius: 0 0 24px 24px;
+        border-radius: 0 0 20px 20px;
         content: "";
         height: 100%;
         left: 16px;
@@ -3978,6 +3964,10 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     }
   }
   
+  .appsKixClientUiWizMiniChapterSwitcherSurfaceBreadcrumbIconContainerMultiChapter /* Collapsed document outline circle in pill */ {
+    background-color: var(--ddocs-surface-container-low);
+  }
+  
   body.docs-gm.docs-grille-gm3 #docs-editor .left-sidebar-container {
     &.pageless-format {
       background: var(--ddocs-background);
@@ -4067,7 +4057,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
           }
           
           .chapter-item-icon .docs-icon-editors-ia-article-document /* Icon when there’s no emoji for the tab */ {
-            filter: sepia(1) saturate(3) invert() brightness(1.3); // I’m losing brain cells over the fact that I had to do this
+            filter: none; // I’m losing brain cells over the fact that I had to do this
           }
         }
         
@@ -4168,37 +4158,6 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     }
     .outlines-widget-chaptered .location-indicator-highlight .navigation-item-vertical-line-middle {
       background-color: var(--ddocs-primary);
-    }
-    
-    &~.miniChapterSwitcherContainerView /* Circle/pill when document outline is hidden */ {
-      .docs-material-gm-select .docs-material-gm-select-outer-box /* Pill (or circle iff there is no pill) */ {
-        background-color: var(--ddocs-surface-container);
-        .miniChapterSwitcherNavigationEntryPointMask {
-          background-color: var(--ddocs-surface-container);
-        }
-      }
-      .docs-material-gm-select .docs-material-gm-select-outer-box {
-        background-color: var(--ddocs-surface-container-high);
-        .miniChapterSwitcherNavigationEntryPointMask {
-          background-color: var(--ddocs-surface-container-high);
-        }
-      }
-      .miniChapterSwitcherChapterCountInfoText /* Tab count (if multiple) */ {
-        color: var(--ddocs-on-surface-variant);
-      }
-      .miniChapterSwitcherSelectedChapterInfoText /* Tab name (on hover) */ {
-        color: var(--ddocs-on-surface);
-      }
-      .miniChapterSwitcherNavigationEntryPointIcon /* Outline icon circle */ {
-        background-color: transparent;
-        
-        .docs-icon-list-20x20 {
-          filter: var(--whiter-icons);
-        }
-      }
-      .miniChapterSwitcherMultipleChapters .miniChapterSwitcherNavigationEntryPointIcon /* Outline icon circle (multiple tabs) */ {
-        background-color: var(--ddocs-surface-container-highest);
-      }
     }
     
     &~.kix-documentmetrics-widget /* Word count in the corner */ {

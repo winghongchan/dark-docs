@@ -35,8 +35,6 @@ Dynamic Docs aims to enable Material You–like colour theming on Docs, Sheets, 
 
 Dark Docs and Dynamic Docs are both [UserCSS](https://github.com/openstyles/stylus/wiki/Writing-UserCSS) files and use the [{less}](https://lesscss.org/) preprocessor. I try to keep it as vanilla as possible though. 
 
-> I don’t have a Google AI plan. If you do and are interested in contributing, you can help give the Gemini AI features a dark mode.
-
 ### AI
 
 AI has not been used to write any code in this repository. Some AI tools may have been trained on code not compatible with the GNU GPLv3 license or would otherwise put Dynamic Docs, Dark Docs, and Shades & Slides into legal trouble. Don’t put AI-written code in this repository. 

@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark Docs
 @namespace      userstyles.world/user/winghongchan
-@version        2026.09.21
+@version        2026.09.22
 @description    A googley dark mode for Google Docs
 @author         Walter winghongchan
 @homepageURL    https://github.com/winghongchan/dark-docs
@@ -74,6 +74,8 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     --ddocs-on-background-focus: rgba(227, 227, 227, var(--ddocs-focus-state-layer-opacity));
     --ddocs-on-background-pressed: rgba(227, 227, 227, var(--ddocs-pressed-state-layer-opacity));
     --ddocs-surface: #1f1f1f;
+    --ddocs-surface-bright: #37393b;
+    --ddocs-surface-dim: #131314;
     --ddocs-surface-container-lowest: #0e0e0e;
     --ddocs-surface-container-low: #28282a; // I’m stealing these from screenshots, so I don’t know the actual surface tint. (I tried to find it.)
     --ddocs-surface-container: #2d2e31;
@@ -1059,6 +1061,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     --gm3-sys-color-surface-container: var(--ddocs-surface-container);
     --gm3-sys-color-surface-container-high: var(--ddocs-surface-container-high);
     --gm3-sys-color-surface-bright: var(--ddocs-surface-bright);
+    --gm3-sys-color-surface-dim: var(--ddocs-surface-dim);
     --gm3-sys-color-outline-variant: var(--ddocs-outline-variant);
     
     --gm3-select-shared-menu-container-color: var(--ddocs-surface-container-low);
@@ -1512,66 +1515,6 @@ Google Docs renders each page as a single <canvas> element, which may have made 
       }
       & #pub-dialog-dom-signin-req-dropdown-container>.jfk-select {
         .outlined-text-field();
-      }
-    }
-    
-    &.docs-findandreplacedialog {
-      & #docs-findandreplacedialog-findinput {
-        &>.docs-findinput-container {
-          background: none;
-          border-color: var(--ddocs-outline);
-          font-size: 1rem;
-          height: 3rem;
-          padding: 0 1rem;
-          transition: var(--off);
-          &:has(input:hover):not(.docs-findinput-container-focus) {
-            border-color: var(--ddocs-on-surface);
-            transition: var(--on);
-          }
-          &.docs-findinput-container-focus {
-            border-color: var(--ddocs-primary);
-            padding: 0 calc(1rem - 1px);
-          }
-          
-          & .docs-findinput-input {
-            caret-color: var(--ddocs-primary);
-            color: var(--ddocs-on-surface);
-            font-size: 1rem;
-            height: unset;
-            &::selection {
-              background-color: var(--ddocs-primary);
-              color: var(--ddocs-on-primary);
-            }
-          }
-          & .docs-findinput-count {
-            color: var(--ddocs-on-surface-variant);
-          }
-        }
-      }
-      .docs-findandreplacedialog-find-scope-select .goog-flat-menu-button {
-        border-color: var(--ddocs-outline);
-        height: 48px;
-        padding-left: 0; padding-right: 0;
-        transition: var(--off);
-        &.goog-flat-menu-button-hover {
-          border-color: var(--ddocs-on-surface);
-          transition: var(--on);
-        }
-        &.goog-flat-menu-button-focused {
-          border-color: var(--ddocs-primary);
-          box-shadow: inset 0 0 0 1px var(--ddocs-primary);
-        }
-        .goog-flat-menu-button-caption {
-          color: var(--ddocs-on-surface);
-          font-size: 16px;
-          margin: 0 16px 0;
-          text-align: start;
-        }
-        .goog-flat-menu-button-dropdown {
-          filter: var(--white-icons);
-          flex-shrink: 0;
-          margin-right: 12px;
-        }
       }
     }
     
@@ -2578,6 +2521,17 @@ Google Docs renders each page as a single <canvas> element, which may have made 
   .docs-gm .goog-menu:not(:has(.goog-menuitem-label[style*="color: rgb("])) /* Don’t do the menu stuff for the styles menu if in light mode, basically */ {
     .menu();
   }
+  
+  .docs-grille-gm3 .docs-material.goog-menu .goog-menuitem.ai-standard-menu-item /* Items under the Gemini menu have a gradient on hover */ {
+    --ws-sys-color-genai-muted-gradient01: transparent;
+    --ws-sys-color-genai-muted-gradient02: transparent;
+    --ws-sys-color-genai-muted-gradient03: transparent;
+    &.goog-menuitem-highlight {
+      --ws-sys-color-genai-muted-gradient02: hsl(206 100% 50% / .15);
+      --ws-sys-color-genai-muted-gradient03: hsl(229 100% 58% / .18);
+    }
+  }
+  
   .goog-menu:not(.ia-primary-menu):has(span[lang="en_CA"]) .goog-menuitem.goog-option-selected:not(.apps-menuitem) /* Document language menu fix */ {
     .checkmark-fix();
   }
@@ -4216,6 +4170,26 @@ Google Docs renders each page as a single <canvas> element, which may have made 
       background-color: var(--ddocs-inverse-surface);
     }
     
+    .inlineFabBubbleContainer-body /* Buttons when you select text */ {
+      .docs-gm3-button, .docs-gm3-icon-button {
+        transition: var(--off);
+        &.docs-gm3-button-hover {
+          background-color: var(--ddocs-on-surface-variant-hover);
+          transition: var(--on);
+        }
+        &.docs-gm3-button-active {
+          background-color: var(--ddocs-on-surface-variant-pressed);
+        }
+      }
+      .inlineFabBubbleContainerShortcutBadge {
+        --ae-badge-container-color: var(--ddocs-surface-container-low);
+        --ae-badge-text-color: var(--ddocs-on-surface-variant);
+      }
+      .docs-icon {
+        filter: var(--white-icons);
+      }
+    }
+    
     & .document-margin-floating-control-bubble.docs-bubble.document-margin-floating-control-grouped /* Meeting note actions */ {
       background-color: var(--ddocs-surface-container);
       border-color: $background-color;
@@ -4945,6 +4919,12 @@ Google Docs renders each page as a single <canvas> element, which may have made 
         }
       }
     }
+    
+    // Gemini bar
+    .appsElementsRichTextInputTabBadge /* Keyboard shortcut */ {
+      --ae-badge-container-color: var(--ddocs-surface-container-low);
+      --ae-badge-text-color: var(--ddocs-on-surface-variant);
+    }
   }
   
   .docs-gm .docs-linkbubble-bubble /* Link previews (especially from comments) */ {
@@ -4999,100 +4979,6 @@ Google Docs renders each page as a single <canvas> element, which may have made 
       background: transparent;
       border: none !important;
       box-shadow: none;
-    }
-  }
-  
-  #docs-findbar-id .docs-slidingdialog {
-    background-color: var(--ddocs-surface-container-high);
-    border: none;
-    border-radius: 1rem;
-    display: flex;
-    margin-top: 0.5rem !important;
-    padding: 1rem;
-    place-items: center;
-    
-    & #docs-slidingdialog-content {
-      height: 3rem;
-    }
-    
-    & .docs-findbar-content {
-      display: inline-flex;
-      height: auto;
-      align-items: center;
-      
-      & .jfk-button-standard {
-        .standard-icon-button();
-        display: grid;
-        height: 2rem;
-        place-items: center;
-        width: $height;
-        &>.docs-icon {
-          margin: 0;
-          transform: scale(133%);
-        }
-      }
-      
-      & .goog-toolbar-separator {
-        border-color: var(--ddocs-outline-variant);
-        margin-right: 8px;
-      }
-    }
-    
-    & #docs-findbar-input {
-      height: auto;
-      &>.docs-findinput-container {
-        background: none;
-        border-color: var(--ddocs-outline);
-        font-size: 1rem;
-        height: 3rem;
-        padding: 0 1rem;
-        &.docs-findinput-container-focus {
-          border: 1px solid var(--ddocs-primary);
-          box-shadow: inset 0 0 0 1px var(--ddocs-primary);
-        }
-        
-        & input.docs-findinput-input {
-          caret-color: var(--ddocs-primary);
-          color: var(--ddocs-on-surface);
-          font-size: 1rem;
-          &::placeholder {
-            color: var(--ddocs-on-surface-variant);
-            opacity: 100%;
-          }
-          &::selection {
-            background-color: var(--ddocs-primary);
-            color: var(--ddocs-on-primary);
-          }
-        }
-        
-        & .docs-findinput-count-container {
-          padding-right: 0;
-          
-          & .docs-findinput-count {
-            color: var(--ddocs-on-surface-variant);
-          }
-        }
-      }
-    }
-    
-    & .docs-slidingdialog-close-container {
-      padding: 0;
-      position: static;
-      
-      & .docs-slidingdialog-button-close {
-        .standard-icon-button();
-        display: inline-grid;
-        height: 2rem;
-        place-items: center;
-        width: $height;
-        &.goog-flat-button-focused {
-          outline: none;
-        }
-        & .docs-icon {
-          margin: 0;
-          transform: scale(133%);
-        }
-      }
     }
   }
   
@@ -5653,6 +5539,11 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     :where(.fontsListCssAllFontsList, .fontsListCssSelectedFontsList) .javascriptMaterialdesignGm3WizListShared-divider {
       visibility: hidden;
     }
+  }
+  
+  // “Find and replace” dialog
+  .appsDocsUiWizFindandreplacedialogCloseButtonContainer .docs-icon {
+    filter: var(--white-icons);
   }
   
   // “Loading” dialog (for “Move to…” dialog, which is an embed)

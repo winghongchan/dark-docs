@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark Docs
 @namespace      userstyles.world/user/winghongchan
-@version        2026.09.22
+@version        2026.10.17
 @description    A googley dark mode for Google Docs
 @author         Walter winghongchan
 @homepageURL    https://github.com/winghongchan/dark-docs
@@ -29,7 +29,7 @@ Read a copy of this license at https://www.gnu.org/licenses/gpl-3.0.html
 Google Docs renders each page as a single <canvas> element, which may have made it impossible to un-invert images while using the Invert document filter in Dark Docs. If you need to view images un-inverted, you can switch to the Dim filter or turn off document filters: open the Stylus extension, click on the cog beside “Dark Docs”, and change the Document filter to “Dim”, “Sepia”, or “None”.
 */
 @-moz-document url-prefix("https://docs.google.com/document/d/"), url-prefix("https://docs.google.com/document/u/"), regexp("https:\\/\\/docs\\.google\\.com\\/sharing\\/boq\\/driveshare\\?[\\s\\S]+origin=https%3A%2F%2Fdocs\\.google\\.com"), regexp("https:\\/\\/(docs|drive)\\.google\\.com\\/drivesharing\\/driveshare\\?[\\S]+origin=https%3A%2F%2Fdocs\\.google\\.com[\\S]+"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?[\\s\\S]+&parent=https%3A%2F%2Fdocs\\.google\\.com[\\s\\S]+"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=.*%22Google%20Drive%22.*%22Replace%22.*%22replace-image%22.*&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=[0-9]+"), regexp("(https:\\/\\/meet.google.com\\/_\\/frame\\?authUser=\\d+&frameType=2&origin=https%3A%2F%2Fdocs.google.com#cb=pip_frame)"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=.*%22explore-drive.*&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=[0-9]+"), regexp("https:\\/\\/docs\\.google\\.com\\/picker\\/v2\\/home\\?req=.*%22Google%20Photos%22.*&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=[0-9]+"), url-prefix("https://docs.google.com/viewer?a=v&pid=kix-pp&srcid=id%3D1lsgKVqNTqLPVvc5ZTz22EXHH4dOpGnHnZMykE-5ZKk0%2Cprint%3D1%2Cmp%3Df&chrome=false&pp=true&authuser=0"), regexp("https:\\/\\/docs\\.google\\.com\\/viewer\\?a=v&pid=(kix-pp|pch)&srcid=.*&chrome=false&pp=true&authuser=[0-9]+"), regexp("https:\\/\\/meet\\.google\\.com\\/_\\/frame\\?authuser=[0-9]+&frameType=2&origin=https%3A%2F%2Fdocs.google.com#cb=pip_frame"), regexp("https:\\/\\/meet\\.google\\.com\\/_\\/frame\\?authuser=[0-9]+&frameType=6&origin=https%3A%2F%2Fdocs\\.google\\.com#cb=pip_frame"), regexp("https:\\/\\/drive\\.google\\.com\\/picker\\/minpick\\/main\\?parent=https%3A%2F%2Fdocs\\.google\\.com&mreq=[\\S]+%22application%2Fvnd\\.google-apps\\.document%22[\\S]+"), regexp("https:\\/\\/drive\\.google\\.com\\/picker\\/minpick\\/main\\?parent=https%3A%2F%2Fdocs\\.google\\.com&mreq=%5B%22mireq%22%2C%5B\\d+%2C\\d+%2C%22kix-(copy|move)%22%2C%5B%22https%3A%2F%2Fdocs\\.google\\.com[\\s\\S]+&parent=https%3A%2F%2Fdocs\\.google\\.com&pfname=&rpctoken=\\d+"), regexp("https:\\/\\/contacts\\.google\\.com\\/widget\\/hovercard\\/v\\/2\\?origin=https%3A%2F%2Fdocs\\.google\\.com[\\S]+parent=https%3A%2F%2Fdocs\\.google\\.com[\\S]+"), regexp("https:\\/\\/(docs|drive)\\.google\\.com\\/drivesharing\\/requestaccess\\?[\\S]+&initialCommandHint=current_user_request_access&origin=https%3A%2F%2Fdocs\\.google\\.com[\\S]+"), url-prefix("https://docs.google.com/picker/v2/home?req=%5B%22ireq%22%2C%5Bnull%2C%5B%5B1%2C6%5D%2C%5B%5D%2C%5B%5D%2C%5B%5D%2C%5B2048%2C2048%5D%5D%2C%5B1%5D%2Cnull%2Cnull%2C%5B") /* Copy file dialog folder picker */ {
-/* Variables */
+  // Variables
   :root {
     
     // Colour
@@ -64,6 +64,10 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     --ddocs-on-tertiary-pressed: #61c27e;
     --ddocs-tertiary-container: #0f5223;
     --ddocs-on-tertiary-container: #c4eed0;
+    --ddocs-warning: #fcbd00; // Warning colours are copied from GDrive
+    --ddocs-on-warning: #1f1f1f; 
+    --ddocs-warning-container: #4d2600;
+    --ddocs-on-warning-container: #fff2b4
     --ddocs-error: #f2b8b5;
     --ddocs-on-error: #601410;
     --ddocs-error-container: #8C1D18;
@@ -4333,27 +4337,31 @@ Google Docs renders each page as a single <canvas> element, which may have made 
         }
       }
       
-      & .docs-link-bubble-card-component.docs-link-bubble-action-card-component /* “Some collaborators need access to the file”, &c. (File chips that link to files that other collaborators of the document can’t access) */ {
-        background-color: var(--ddocs-secondary-container);
+      & .appsElementsLinkPreviewBannerInformationalBanner /* “Some collaborators need access to the file”, &c. (File chips that link to files that other collaborators of the document can’t access) */ {
+        background-color: var(--ddocs-warning-container);
+        color: var(--ddocs-on-warning-container);
         
-        &::before /* Just to fill out the rest of the card with blue */ {
-          background-color: inherit;
-        }
-        
-        & span.docs-link-bubble-text-with-icon {
-          color: var(--ddocs-on-secondary-container) !important;
-        }
-        
-        & div.link-bubble-text-button span.link-bubble-text-button-text /* STOP USING DIVS AND SPANS FOR BUTTONS */ {
-          border-radius: 4px;
-          transition: var(--off);
-          &:hover {
-            background-color: var(--ddocs-on-secondary-container-hover) !important;
-            transition: var(--on);
+        .appsElementsLinkPreviewBannerActionButton {
+          --gm3-button-outlined-hover-state-layer-color: var(--ddocs-warning);
+          --gm3-button-outlined-pressed-state-layer-color: var(--ddocs-warning);
+          border-color: var(--ddocs-outline);
+          
+          .javascriptMaterialdesignGm3WizButtonOutlined-button__label {
+            color: var(--ddocs-warning);
           }
-          &:focus {
-            background-color: var(--ddocs-on-secondary-container-focus) !important;
-          }
+        }
+      }
+      
+      button.docs-link-bubble-card-component.docs-link-bubble-sidekick-prompt-button-card-component /* Google Doc file chip with AI button */ {
+        --ws-sys-color-genai-muted-gradient01: hsl(217 100% 80% / .4);
+        --ws-sys-color-genai-muted-gradient02: hsl(206 100% 50% / .5);
+        --ws-sys-color-genai-muted-gradient03: hsl(229 100% 58% / .8);
+        background-color: transparent;
+        /* Did the Googlers vibe-code this button? Why does it change size on hover, and briefly become square when clicked? */
+        border-radius: 20px;
+        padding-block: 6px;
+        &:focus {
+          background-image: var(--ae-genai-generation-gradient,linear-gradient(135deg,var(--ws-sys-color-genai-muted-gradient01,#e9eef6),var(--ws-sys-color-genai-muted-gradient02,#bbe2ff),var(--ws-sys-color-genai-muted-gradient03,#d0d9ff),var(--ws-sys-color-genai-muted-gradient01,#e9eef6)));
         }
       }
     }
@@ -6922,6 +6930,57 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     }
     &+span button.xWhX7 {
       color: var(--ddocs-on-surface-variant);
+    }
+  }
+}
+
+@-moz-document regexp("https:\\/\\/docs\\.google\\.com\\/document\\/d[\\S]+\\/pub#[\\S]+") {
+  // Published documents
+  // Test case: https://docs.google.com/document/d/e/2PACX-1vSBoV_hTIURPZKtQkxI6bAONJtjyDLxQIUvCHi-XPzD8NKLcxRfZrpvQLFrjWZ3M6FFR_Obau3R-t63/pub#h.6blrui5dm0k8
+  #banners #publish-banner {
+    background-color: var(--ddocs-surface-container-lowest);
+    border-bottom-color: $background-color;
+    color: var(--ddocs-on-surface);
+  }
+  #publish-banner-icon {
+    fill: var(--ddocs-primary);
+  }
+  #banners #title-banner {
+    background-color: var(--ddocs-surface-container);
+    border-bottom-color: $background-color;
+  }
+  #publish-banner-buttons span {
+    margin: 0;
+    &:first-child {
+      margin-right: 16px;
+    }
+  }
+  #publish-banner-buttons a {
+    align-content: center;
+    border-radius: $height;
+    display: inline-block;
+    color: var(--ddocs-primary);
+    height: 40px;
+    padding: 0 16px;
+    transition: var(--off), border-radius 0.3s ease;
+    user-select: none;
+    &:hover {
+      transition: var(--on), border-radius 0.1s ease-out;
+      background-color: var(--ddocs-primary-hover);
+    }
+    &:focus {
+      background-color: var(--ddocs-primary-focus);
+    }
+    &:active {
+      border-radius: var(--ddocs-corner-s);
+    }
+  }
+  #contents {
+    a:link {
+      color: inherit;
+    }
+    .doc-content {
+      filter: @document-filter;
     }
   }
 }

@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark Docs
 @namespace      userstyles.world/user/winghongchan
-@version        2026.10.17
+@version        2026.11.07
 @description    A googley dark mode for Google Docs
 @author         Walter winghongchan
 @homepageURL    https://github.com/winghongchan/dark-docs
@@ -173,6 +173,7 @@ Google Docs renders each page as a single <canvas> element, which may have made 
     --gm3-sys-color-surface-container-low: var(--ddocs-surface-container-low);
     --gm3-sys-color-surface-container: var(--ddocs-surface-container);
     --gm3-sys-color-surface-container-high: var(--ddocs-surface-container-high);
+    --gm3-sys-color-surface-container-highest: var(--ddocs-surface-container-highest);
     --gm3-sys-color-surface-variant: var(--ddocs-surface-container-highest);
     --gm3-sys-color-on-surface-variant: var(--ddocs-on-surface-variant);
     --gm3-sys-color-inverse-surface: var(--ddocs-inverse-surface);

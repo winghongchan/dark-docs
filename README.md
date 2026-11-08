@@ -22,8 +22,9 @@ Install, rate and view ratings: [Dark Docs on UserStyles.world](https://userstyl
 If you face issues with Dark Docs, please report them on the [Issues](https://github.com/winghongchan/dark-docs/issues) page. 
 
 ### Note to users of Chromium-based browsers (such as Chrome, Edge, Vivaldi, &c.)
-- By default, Dark Docs uses the Invert document filter so your document appears with an inverted colour scheme (light text on a dark background). If you must view images un-inverted, you may change the document filter to “Dim” or “None” in the [configuration dialog](https://github.com/openstyles/stylus/wiki/UserCSS#how-do-i-customize-usercss). 
+- By default, Dark Docs uses the Invert document filter so your document appears with an inverted colour scheme (light text on a dark background). If you must view images un-inverted, you may change the document filter to “Dim”, “Sepia”, or “None” in the [configuration dialog](https://github.com/openstyles/stylus/wiki/UserCSS#how-do-i-customize-usercss). 
 For more info and another workaround to the photo bug, see [issue #8](https://github.com/winghongchan/dark-docs/issues/8).
+- If your text appears too thin or your highlights look too faint when using the “Invert” filter, try the experimental “Thickening” filter. It only works on Chromium-based browsers because CSS filters work differently on Firefox. 
 
 ## Contributing
 
@@ -33,8 +34,10 @@ The intent of Dark Docs is simple—to make a dark mode that is consistent with 
 
 Dynamic Docs aims to enable Material You–like colour theming on Docs, Sheets, and Slides. It is not currently ready to use. Once Dynamic Docs is tested and ready, I will move all Dark Docs users who installed from USw onto Dynamic Docs, where they’ll have the choice to keep the default Googley blues or use a new colour theme. 
 
-Dark Docs and Dynamic Docs are both [UserCSS](https://github.com/openstyles/stylus/wiki/Writing-UserCSS) files and use the [{less}](https://lesscss.org/) preprocessor. I try to keep it as vanilla as possible though. 
+Dark Docs and Dynamic Docs are both [UserCSS](https://github.com/openstyles/stylus/wiki/Writing-UserCSS) files and use the [{less}](https://lesscss.org/) preprocessor. I try to use vanilla CSS as much as possible though. 
 
-### AI
+## Artificial Intelligence (AI)
 
-AI has not been used to write any code in this repository. Some AI tools may have been trained on code not compatible with the GNU GPLv3 license or would otherwise put Dynamic Docs, Dark Docs, and Shades & Slides into legal trouble. Don’t put AI-written code in this repository. 
+Although Dark Docs now works on more Gemini interfaces, it still does not contain AI-generated code or AI functionality. There is no AI-generated code in this repository. Dark Docs will not prioritise updates to Gemini interfaces over any other part of Google Docs unless issues are raised here on GitHub. Updates will be tested on Google accounts both with and without access to Gemini in Google Docs. 
+
+To contributors: Some AI tools may have been trained on code not compatible with the GNU GPLv3 license or would otherwise put Dynamic Docs, Dark Docs, and Shades & Slides into legal trouble. Don’t use AI to contribute to this repository. 
